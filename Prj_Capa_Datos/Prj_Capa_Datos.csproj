@@ -75,6 +75,7 @@
     <Compile Include="BD_notaCredito.cs" />
     <Compile Include="BD_Operaciones_Ubigeo.cs" />
     <Compile Include="BD_Pedido.cs" />
+    <Compile Include="BD_ProductoPresentacion.cs" />
     <Compile Include="BD_Productos.cs" />
     <Compile Include="BD_Promocion.cs" />
     <Compile Include="BD_PromocionVenta.cs" />

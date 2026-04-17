@@ -70,6 +70,7 @@
     <Compile Include="RN_Notacredito.cs" />
     <Compile Include="RN_Operaciones_Ubigeo.cs" />
     <Compile Include="RN_Pedido.cs" />
+    <Compile Include="RN_ProductoPresentacion.cs" />
     <Compile Include="RN_Productos.cs" />
     <Compile Include="RN_Promocion.cs" />
     <Compile Include="RN_PromocionVenta.cs" />
