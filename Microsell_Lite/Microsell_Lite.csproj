@@ -583,6 +583,18 @@
     <Compile Include="Productos\Frm_Add_Cantidad_Stock.designer.cs">
       <DependentUpon>Frm_Add_Cantidad_Stock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos\Frm_AddEdit_Presentacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\Frm_AddEdit_Presentacion.Designer.cs">
+      <DependentUpon>Frm_AddEdit_Presentacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\Frm_ProductoPresentaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\Frm_ProductoPresentaciones.Designer.cs">
+      <DependentUpon>Frm_ProductoPresentaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos\Frm_Editar_precios_compraVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1620,6 +1632,12 @@
     <EmbeddedResource Include="Informe\rpt_tod_prod.rdlc" />
     <EmbeddedResource Include="Productos\Frm_Add_Cantidad_Stock.resx">
       <DependentUpon>Frm_Add_Cantidad_Stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\Frm_AddEdit_Presentacion.resx">
+      <DependentUpon>Frm_AddEdit_Presentacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\Frm_ProductoPresentaciones.resx">
+      <DependentUpon>Frm_ProductoPresentaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Frm_Editar_precios_compraVenta.resx">
       <DependentUpon>Frm_Editar_precios_compraVenta.cs</DependentUpon>
