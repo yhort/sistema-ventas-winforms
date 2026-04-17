@@ -75,6 +75,7 @@
     <Compile Include="EN_notacredito.cs" />
     <Compile Include="EN_Pedido.cs" />
     <Compile Include="EN_Producto.cs" />
+    <Compile Include="EN_ProductoPresentacion.cs" />
     <Compile Include="EN_Promocion_Venta.cs" />
     <Compile Include="EN_Proveedor.cs" />
     <Compile Include="EN_Provincia.cs" />
