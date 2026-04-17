@@ -197,35 +197,54 @@ namespace Microsell_Lite.Productos
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            if (lsv_prodPresentaciones.SelectedIndices.Count == 0)
+            if (lsv_prodPresentaciones.SelectedItems.Count == 0)
             {
-
-                MessageBox.Show("Selecciona el Item para Editar", "Advertencia de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecciona una presentación.");
                 return;
             }
-            else
+
+            int idPresentacion = Convert.ToInt32(lsv_prodPresentaciones.SelectedItems[0].Text);
+
+            Frm_AddEdit_Presentacion frm = new Frm_AddEdit_Presentacion();
+            frm.IdProducto = IdProducto;
+            frm.IdPresentacion = idPresentacion;
+            frm.Modo = "E";
+            frm.ShowDialog();
+
+            if (frm.Tag != null && frm.Tag.ToString() == "A")
             {
-
-                var lsv = lsv_prodPresentaciones.SelectedItems[0];
-                txt_idAlmacen.Text = lsv.SubItems[0].Text;
-                txt_nombreAlmacen.Text = lsv.SubItems[1].Text;
-                txt_direccionAlmacen.Text = lsv.SubItems[2].Text;
-
-
-                pnl_add.Visible = true;
-                txt_nombreAlmacen.Focus();
-                editar = true;
-
+                CargarPresentaciones();
             }
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            pnl_add.Visible = true;
-            txt_nombreAlmacen.Focus();
-            editar = false;
+
+            Frm_AddEdit_Presentacion frm = new Frm_AddEdit_Presentacion();
+            frm.IdProducto = IdProducto;
+            frm.Modo = "N";
+            frm.ShowDialog();
+
+            if (frm.Tag != null && frm.Tag.ToString() == "A")
+            {
+                CargarPresentaciones();
+            }
         }
 
-       
+        private void bt_delete_Click(object sender, EventArgs e)
+        {
+            if (lsv_prodPresentaciones.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selecciona una presentación.");
+                return;
+            }
+
+            int idPresentacion = Convert.ToInt32(lsv_prodPresentaciones.SelectedItems[0].Text);
+
+            RN_ProductoPresentacion obj = new RN_ProductoPresentacion();
+            obj.RN_Desactivar_ProductoPresentacion(idPresentacion);
+
+            CargarPresentaciones();
+        }
     }
 }
