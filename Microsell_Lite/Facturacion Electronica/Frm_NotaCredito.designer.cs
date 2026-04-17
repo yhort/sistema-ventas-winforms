@@ -29,35 +29,39 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle55 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle56 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle57 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle58 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle59 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle60 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle61 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle62 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle63 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle64 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle65 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle66 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle67 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle68 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle69 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle54 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle70 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle71 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle72 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle73 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle74 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle75 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle76 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle77 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle78 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle53 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle12 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle13 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle14 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle15 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle16 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle17 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle18 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle19 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle20 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle21 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle22 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle23 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle24 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle25 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle26 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle11 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle10 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle6 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle7 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle8 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle9 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle2 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle3 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle4 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle5 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle1 = new Klik.Windows.Forms.v1.Common.PaintStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_NotaCredito));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pnl_titu = new System.Windows.Forms.Panel();
+            this.btn_reimprimir = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.btn_minimi = new System.Windows.Forms.Button();
+            this.btn_cerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ElGroupBox4 = new Klik.Windows.Forms.v1.EntryLib.ELGroupBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -119,12 +123,14 @@
             this.dtp_fecha_vencimnto2 = new System.Windows.Forms.DateTimePicker();
             this.lbl_subtotalGravado = new System.Windows.Forms.Label();
             this.ElGroupBox3 = new Klik.Windows.Forms.v1.EntryLib.ELGroupBox();
+            this.lbl_totalGanancia = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.lbl_Exonerada = new System.Windows.Forms.Label();
             this.Label22 = new System.Windows.Forms.Label();
             this.Label23 = new System.Windows.Forms.Label();
             this.lbl_descuento = new System.Windows.Forms.Label();
+            this.Lbl_ver = new System.Windows.Forms.Label();
             this.Label11 = new System.Windows.Forms.Label();
             this.Lbl_Total_ACobrar = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
@@ -175,6 +181,7 @@
             this.pnl_sinProd = new System.Windows.Forms.Panel();
             this.cbo_MotivoEmis = new Guna.UI.WinForms.GunaComboBox();
             this.Txt_buscarFac = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.PictureBox3 = new System.Windows.Forms.PictureBox();
             this.btn_Nuevo_Notacre = new Klik.Windows.Forms.v1.EntryLib.ELButton();
             this.ElDivider3 = new Klik.Windows.Forms.v1.EntryLib.ELDivider();
             this.Label17 = new System.Windows.Forms.Label();
@@ -183,15 +190,9 @@
             this.chkCapital = new System.Windows.Forms.CheckBox();
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.label30 = new System.Windows.Forms.Label();
-            this.PictureBox3 = new System.Windows.Forms.PictureBox();
             this.pic_qr = new System.Windows.Forms.PictureBox();
-            this.Lbl_ver = new System.Windows.Forms.Label();
             this.Btn_Add_Moti = new System.Windows.Forms.Button();
             this.Btn_Quitar = new System.Windows.Forms.Button();
-            this.btn_reimprimir = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
-            this.btn_minimi = new System.Windows.Forms.Button();
-            this.btn_cerrar = new System.Windows.Forms.Button();
             this.pnl_titu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElGroupBox4)).BeginInit();
             this.ElGroupBox4.SuspendLayout();
@@ -244,10 +245,10 @@
             this.Gru_sunatAsnwer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Lbl_IdCredi_fiado)).BeginInit();
             this.pnl_sinProd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Nuevo_Notacre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElDivider3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElDivider5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_qr)).BeginInit();
             this.SuspendLayout();
             // 
@@ -270,6 +271,81 @@
             this.pnl_titu.Name = "pnl_titu";
             this.pnl_titu.Size = new System.Drawing.Size(1012, 38);
             this.pnl_titu.TabIndex = 2;
+            // 
+            // btn_reimprimir
+            // 
+            this.btn_reimprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_reimprimir.Enabled = false;
+            this.btn_reimprimir.FlatAppearance.BorderSize = 0;
+            this.btn_reimprimir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btn_reimprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+            this.btn_reimprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reimprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reimprimir.ForeColor = System.Drawing.Color.White;
+            this.btn_reimprimir.Image = ((System.Drawing.Image)(resources.GetObject("btn_reimprimir.Image")));
+            this.btn_reimprimir.Location = new System.Drawing.Point(843, 0);
+            this.btn_reimprimir.Name = "btn_reimprimir";
+            this.btn_reimprimir.Size = new System.Drawing.Size(32, 35);
+            this.btn_reimprimir.TabIndex = 14;
+            this.btn_reimprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_reimprimir.UseVisualStyleBackColor = true;
+            this.btn_reimprimir.Click += new System.EventHandler(this.btn_reimprimir_Click);
+            // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_cancelar.Enabled = false;
+            this.btn_cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btn_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.ForeColor = System.Drawing.Color.White;
+            this.btn_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("btn_cancelar.Image")));
+            this.btn_cancelar.Location = new System.Drawing.Point(882, 0);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(32, 35);
+            this.btn_cancelar.TabIndex = 13;
+            this.btn_cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_cancelar.UseVisualStyleBackColor = true;
+            // 
+            // btn_minimi
+            // 
+            this.btn_minimi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_minimi.FlatAppearance.BorderSize = 0;
+            this.btn_minimi.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btn_minimi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+            this.btn_minimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_minimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_minimi.ForeColor = System.Drawing.Color.White;
+            this.btn_minimi.Image = ((System.Drawing.Image)(resources.GetObject("btn_minimi.Image")));
+            this.btn_minimi.Location = new System.Drawing.Point(921, 4);
+            this.btn_minimi.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_minimi.Name = "btn_minimi";
+            this.btn_minimi.Size = new System.Drawing.Size(35, 31);
+            this.btn_minimi.TabIndex = 7;
+            this.btn_minimi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_minimi.UseVisualStyleBackColor = true;
+            this.btn_minimi.Click += new System.EventHandler(this.btn_minimi_Click);
+            // 
+            // btn_cerrar
+            // 
+            this.btn_cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_cerrar.FlatAppearance.BorderSize = 0;
+            this.btn_cerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btn_cerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+            this.btn_cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cerrar.ForeColor = System.Drawing.Color.White;
+            this.btn_cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_cerrar.Image")));
+            this.btn_cerrar.Location = new System.Drawing.Point(970, 4);
+            this.btn_cerrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_cerrar.Name = "btn_cerrar";
+            this.btn_cerrar.Size = new System.Drawing.Size(31, 30);
+            this.btn_cerrar.TabIndex = 6;
+            this.btn_cerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_cerrar.UseVisualStyleBackColor = true;
+            this.btn_cerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
             // 
             // label1
             // 
@@ -571,9 +647,9 @@
             this.ElLabel20.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.ElLabel20.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.ElLabel20.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle55.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle55.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.ElLabel20.FlashStyle = paintStyle55;
+            paintStyle12.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle12.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.ElLabel20.FlashStyle = paintStyle12;
             this.ElLabel20.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ElLabel20.Location = new System.Drawing.Point(673, 68);
             this.ElLabel20.Name = "ElLabel20";
@@ -596,9 +672,9 @@
             this.ElLabel19.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.ElLabel19.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.ElLabel19.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle56.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle56.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.ElLabel19.FlashStyle = paintStyle56;
+            paintStyle13.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle13.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.ElLabel19.FlashStyle = paintStyle13;
             this.ElLabel19.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ElLabel19.Location = new System.Drawing.Point(673, 30);
             this.ElLabel19.Name = "ElLabel19";
@@ -621,9 +697,9 @@
             this.ElLabel18.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.ElLabel18.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.ElLabel18.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle57.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle57.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.ElLabel18.FlashStyle = paintStyle57;
+            paintStyle14.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle14.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.ElLabel18.FlashStyle = paintStyle14;
             this.ElLabel18.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ElLabel18.Location = new System.Drawing.Point(416, 101);
             this.ElLabel18.Name = "ElLabel18";
@@ -646,9 +722,9 @@
             this.ElLabel17.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.ElLabel17.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.ElLabel17.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle58.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle58.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.ElLabel17.FlashStyle = paintStyle58;
+            paintStyle15.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle15.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.ElLabel17.FlashStyle = paintStyle15;
             this.ElLabel17.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ElLabel17.Location = new System.Drawing.Point(416, 68);
             this.ElLabel17.Name = "ElLabel17";
@@ -671,9 +747,9 @@
             this.ElLabel16.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.ElLabel16.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.ElLabel16.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle59.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle59.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.ElLabel16.FlashStyle = paintStyle59;
+            paintStyle16.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle16.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.ElLabel16.FlashStyle = paintStyle16;
             this.ElLabel16.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ElLabel16.Location = new System.Drawing.Point(416, 29);
             this.ElLabel16.Name = "ElLabel16";
@@ -696,9 +772,9 @@
             this.ElLabel14.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.ElLabel14.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.ElLabel14.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle60.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle60.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.ElLabel14.FlashStyle = paintStyle60;
+            paintStyle17.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle17.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.ElLabel14.FlashStyle = paintStyle17;
             this.ElLabel14.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ElLabel14.Location = new System.Drawing.Point(5, 98);
             this.ElLabel14.Name = "ElLabel14";
@@ -721,9 +797,9 @@
             this.ElLabel13.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.ElLabel13.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.ElLabel13.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle61.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle61.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.ElLabel13.FlashStyle = paintStyle61;
+            paintStyle18.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle18.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.ElLabel13.FlashStyle = paintStyle18;
             this.ElLabel13.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ElLabel13.Location = new System.Drawing.Point(5, 63);
             this.ElLabel13.Name = "ElLabel13";
@@ -746,9 +822,9 @@
             this.ElLabel1.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.ElLabel1.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.ElLabel1.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle62.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle62.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.ElLabel1.FlashStyle = paintStyle62;
+            paintStyle19.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle19.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.ElLabel1.FlashStyle = paintStyle19;
             this.ElLabel1.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ElLabel1.Location = new System.Drawing.Point(5, 32);
             this.ElLabel1.Name = "ElLabel1";
@@ -789,9 +865,9 @@
             this.Lbl_IdTipo.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_IdTipo.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_IdTipo.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle63.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle63.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_IdTipo.FlashStyle = paintStyle63;
+            paintStyle20.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle20.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_IdTipo.FlashStyle = paintStyle20;
             this.Lbl_IdTipo.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_IdTipo.Location = new System.Drawing.Point(223, 63);
             this.Lbl_IdTipo.Name = "Lbl_IdTipo";
@@ -812,9 +888,9 @@
             this.Lbl_direccion.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_direccion.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_direccion.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle64.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle64.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_direccion.FlashStyle = paintStyle64;
+            paintStyle21.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle21.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_direccion.FlashStyle = paintStyle21;
             this.Lbl_direccion.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_direccion.Location = new System.Drawing.Point(775, 30);
             this.Lbl_direccion.Name = "Lbl_direccion";
@@ -836,9 +912,9 @@
             this.Lbl_TipoDocName.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_TipoDocName.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_TipoDocName.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle65.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle65.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_TipoDocName.FlashStyle = paintStyle65;
+            paintStyle22.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle22.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_TipoDocName.FlashStyle = paintStyle22;
             this.Lbl_TipoDocName.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_TipoDocName.Location = new System.Drawing.Point(107, 31);
             this.Lbl_TipoDocName.Name = "Lbl_TipoDocName";
@@ -860,9 +936,9 @@
             this.Lbl_Nro_Doc.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_Nro_Doc.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_Nro_Doc.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle66.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle66.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_Nro_Doc.FlashStyle = paintStyle66;
+            paintStyle23.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle23.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_Nro_Doc.FlashStyle = paintStyle23;
             this.Lbl_Nro_Doc.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_Nro_Doc.Location = new System.Drawing.Point(107, 63);
             this.Lbl_Nro_Doc.Name = "Lbl_Nro_Doc";
@@ -896,9 +972,9 @@
             this.Lbl_NroNotaCredito.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_NroNotaCredito.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_NroNotaCredito.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle67.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle67.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_NroNotaCredito.FlashStyle = paintStyle67;
+            paintStyle24.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle24.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_NroNotaCredito.FlashStyle = paintStyle24;
             this.Lbl_NroNotaCredito.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_NroNotaCredito.Location = new System.Drawing.Point(546, 29);
             this.Lbl_NroNotaCredito.Name = "Lbl_NroNotaCredito";
@@ -919,9 +995,9 @@
             this.txt_ClienteNom.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.txt_ClienteNom.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.txt_ClienteNom.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle68.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle68.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.txt_ClienteNom.FlashStyle = paintStyle68;
+            paintStyle25.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle25.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.txt_ClienteNom.FlashStyle = paintStyle25;
             this.txt_ClienteNom.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_ClienteNom.Location = new System.Drawing.Point(546, 101);
             this.txt_ClienteNom.Name = "txt_ClienteNom";
@@ -941,9 +1017,9 @@
             this.Lbl_ruc.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_ruc.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_ruc.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle69.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle69.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_ruc.FlashStyle = paintStyle69;
+            paintStyle26.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle26.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_ruc.FlashStyle = paintStyle26;
             this.Lbl_ruc.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_ruc.Location = new System.Drawing.Point(775, 68);
             this.Lbl_ruc.Name = "Lbl_ruc";
@@ -972,9 +1048,9 @@
             this.Lbl_TipoNotaCre.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_TipoNotaCre.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_TipoNotaCre.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle54.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle54.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_TipoNotaCre.FlashStyle = paintStyle54;
+            paintStyle11.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle11.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_TipoNotaCre.FlashStyle = paintStyle11;
             this.Lbl_TipoNotaCre.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_TipoNotaCre.Location = new System.Drawing.Point(433, 519);
             this.Lbl_TipoNotaCre.Name = "Lbl_TipoNotaCre";
@@ -1160,9 +1236,9 @@
             this.Lbl_TotalItem.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_TotalItem.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_TotalItem.Cursor = System.Windows.Forms.Cursors.No;
-            paintStyle70.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle70.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_TotalItem.FlashStyle = paintStyle70;
+            paintStyle10.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle10.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_TotalItem.FlashStyle = paintStyle10;
             this.Lbl_TotalItem.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_TotalItem.Location = new System.Drawing.Point(243, 8);
             this.Lbl_TotalItem.Name = "Lbl_TotalItem";
@@ -1404,6 +1480,7 @@
             this.ElGroupBox3.CaptionStyle.TextStyle.Text = "Total Venta a Cobrar";
             this.ElGroupBox3.CaptionStyle.TextStyle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ElGroupBox3.CaptionStyle.VisualStyle = Klik.Windows.Forms.v1.Common.ControlVisualStyles.Custom;
+            this.ElGroupBox3.Controls.Add(this.lbl_totalGanancia);
             this.ElGroupBox3.Controls.Add(this.label33);
             this.ElGroupBox3.Controls.Add(this.label34);
             this.ElGroupBox3.Controls.Add(this.lbl_Exonerada);
@@ -1429,6 +1506,18 @@
             this.ElGroupBox3.Size = new System.Drawing.Size(274, 195);
             this.ElGroupBox3.TabIndex = 722;
             this.ElGroupBox3.VisualStyle = Klik.Windows.Forms.v1.Common.ControlVisualStyles.Custom;
+            // 
+            // lbl_totalGanancia
+            // 
+            this.lbl_totalGanancia.AutoSize = true;
+            this.lbl_totalGanancia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_totalGanancia.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbl_totalGanancia.Location = new System.Drawing.Point(236, 89);
+            this.lbl_totalGanancia.Name = "lbl_totalGanancia";
+            this.lbl_totalGanancia.Size = new System.Drawing.Size(31, 16);
+            this.lbl_totalGanancia.TabIndex = 730;
+            this.lbl_totalGanancia.Text = "0,00";
+            this.lbl_totalGanancia.Visible = false;
             // 
             // label33
             // 
@@ -1495,6 +1584,15 @@
             this.lbl_descuento.Size = new System.Drawing.Size(45, 24);
             this.lbl_descuento.TabIndex = 671;
             this.lbl_descuento.Text = "0,00";
+            // 
+            // Lbl_ver
+            // 
+            this.Lbl_ver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Lbl_ver.Image = ((System.Drawing.Image)(resources.GetObject("Lbl_ver.Image")));
+            this.Lbl_ver.Location = new System.Drawing.Point(15, 7);
+            this.Lbl_ver.Name = "Lbl_ver";
+            this.Lbl_ver.Size = new System.Drawing.Size(23, 18);
+            this.Lbl_ver.TabIndex = 593;
             // 
             // Label11
             // 
@@ -1707,9 +1805,9 @@
             this.Lbl_DireccionEmpresa.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_DireccionEmpresa.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_DireccionEmpresa.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle71.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle71.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_DireccionEmpresa.FlashStyle = paintStyle71;
+            paintStyle6.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle6.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_DireccionEmpresa.FlashStyle = paintStyle6;
             this.Lbl_DireccionEmpresa.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_DireccionEmpresa.Location = new System.Drawing.Point(157, 104);
             this.Lbl_DireccionEmpresa.Name = "Lbl_DireccionEmpresa";
@@ -1766,9 +1864,9 @@
             this.Lbl_UsuarioSol.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_UsuarioSol.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_UsuarioSol.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle72.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle72.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_UsuarioSol.FlashStyle = paintStyle72;
+            paintStyle7.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle7.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_UsuarioSol.FlashStyle = paintStyle7;
             this.Lbl_UsuarioSol.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_UsuarioSol.Location = new System.Drawing.Point(157, 134);
             this.Lbl_UsuarioSol.Name = "Lbl_UsuarioSol";
@@ -1803,9 +1901,9 @@
             this.Lbl_RucEmisor.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_RucEmisor.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_RucEmisor.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle73.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle73.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_RucEmisor.FlashStyle = paintStyle73;
+            paintStyle8.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle8.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_RucEmisor.FlashStyle = paintStyle8;
             this.Lbl_RucEmisor.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_RucEmisor.Location = new System.Drawing.Point(157, 74);
             this.Lbl_RucEmisor.Name = "Lbl_RucEmisor";
@@ -1840,9 +1938,9 @@
             this.Lbl_EmpresaEmisor.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_EmpresaEmisor.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_EmpresaEmisor.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle74.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle74.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_EmpresaEmisor.FlashStyle = paintStyle74;
+            paintStyle9.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle9.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_EmpresaEmisor.FlashStyle = paintStyle9;
             this.Lbl_EmpresaEmisor.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_EmpresaEmisor.Location = new System.Drawing.Point(157, 45);
             this.Lbl_EmpresaEmisor.Name = "Lbl_EmpresaEmisor";
@@ -1939,9 +2037,9 @@
             this.Lbl_EstadoBaja.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_EstadoBaja.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_EstadoBaja.Cursor = System.Windows.Forms.Cursors.No;
-            paintStyle75.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle75.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_EstadoBaja.FlashStyle = paintStyle75;
+            paintStyle2.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle2.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_EstadoBaja.FlashStyle = paintStyle2;
             this.Lbl_EstadoBaja.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_EstadoBaja.Location = new System.Drawing.Point(143, 97);
             this.Lbl_EstadoBaja.Name = "Lbl_EstadoBaja";
@@ -1958,9 +2056,9 @@
             this.Lbl_CdrSunat.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_CdrSunat.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_CdrSunat.Cursor = System.Windows.Forms.Cursors.No;
-            paintStyle76.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle76.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_CdrSunat.FlashStyle = paintStyle76;
+            paintStyle3.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle3.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_CdrSunat.FlashStyle = paintStyle3;
             this.Lbl_CdrSunat.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_CdrSunat.Location = new System.Drawing.Point(144, 128);
             this.Lbl_CdrSunat.Name = "Lbl_CdrSunat";
@@ -1989,9 +2087,9 @@
             this.Lbl_NroPedido.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_NroPedido.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_NroPedido.Cursor = System.Windows.Forms.Cursors.No;
-            paintStyle77.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle77.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_NroPedido.FlashStyle = paintStyle77;
+            paintStyle4.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle4.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_NroPedido.FlashStyle = paintStyle4;
             this.Lbl_NroPedido.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_NroPedido.Location = new System.Drawing.Point(141, 34);
             this.Lbl_NroPedido.Name = "Lbl_NroPedido";
@@ -2023,9 +2121,9 @@
             this.lbl_estado.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.lbl_estado.BorderStyle.SolidColor = System.Drawing.Color.DimGray;
             this.lbl_estado.Cursor = System.Windows.Forms.Cursors.No;
-            paintStyle78.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle78.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.lbl_estado.FlashStyle = paintStyle78;
+            paintStyle5.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle5.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.lbl_estado.FlashStyle = paintStyle5;
             this.lbl_estado.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_estado.Location = new System.Drawing.Point(145, 66);
             this.lbl_estado.Name = "lbl_estado";
@@ -2204,9 +2302,9 @@
             this.Lbl_IdCredi_fiado.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
             this.Lbl_IdCredi_fiado.BorderStyle.SolidColor = System.Drawing.Color.Gainsboro;
             this.Lbl_IdCredi_fiado.Cursor = System.Windows.Forms.Cursors.No;
-            paintStyle53.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle53.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.Lbl_IdCredi_fiado.FlashStyle = paintStyle53;
+            paintStyle1.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle1.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.Lbl_IdCredi_fiado.FlashStyle = paintStyle1;
             this.Lbl_IdCredi_fiado.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Lbl_IdCredi_fiado.Location = new System.Drawing.Point(1425, 458);
             this.Lbl_IdCredi_fiado.Name = "Lbl_IdCredi_fiado";
@@ -2270,6 +2368,18 @@
             this.Txt_buscarFac.Size = new System.Drawing.Size(212, 35);
             this.Txt_buscarFac.TabIndex = 2;
             this.Txt_buscarFac.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // PictureBox3
+            // 
+            this.PictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.PictureBox3.ForeColor = System.Drawing.Color.Black;
+            this.PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox3.Image")));
+            this.PictureBox3.Location = new System.Drawing.Point(459, 103);
+            this.PictureBox3.Name = "PictureBox3";
+            this.PictureBox3.Size = new System.Drawing.Size(64, 64);
+            this.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureBox3.TabIndex = 410;
+            this.PictureBox3.TabStop = false;
             // 
             // btn_Nuevo_Notacre
             // 
@@ -2385,18 +2495,6 @@
             this.label30.Text = "Estado:";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // PictureBox3
-            // 
-            this.PictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBox3.ForeColor = System.Drawing.Color.Black;
-            this.PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox3.Image")));
-            this.PictureBox3.Location = new System.Drawing.Point(459, 103);
-            this.PictureBox3.Name = "PictureBox3";
-            this.PictureBox3.Size = new System.Drawing.Size(64, 64);
-            this.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureBox3.TabIndex = 410;
-            this.PictureBox3.TabStop = false;
-            // 
             // pic_qr
             // 
             this.pic_qr.Location = new System.Drawing.Point(1340, 530);
@@ -2405,15 +2503,6 @@
             this.pic_qr.TabIndex = 738;
             this.pic_qr.TabStop = false;
             this.pic_qr.Visible = false;
-            // 
-            // Lbl_ver
-            // 
-            this.Lbl_ver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Lbl_ver.Image = ((System.Drawing.Image)(resources.GetObject("Lbl_ver.Image")));
-            this.Lbl_ver.Location = new System.Drawing.Point(15, 7);
-            this.Lbl_ver.Name = "Lbl_ver";
-            this.Lbl_ver.Size = new System.Drawing.Size(23, 18);
-            this.Lbl_ver.TabIndex = 593;
             // 
             // Btn_Add_Moti
             // 
@@ -2452,81 +2541,6 @@
             this.Btn_Quitar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Btn_Quitar.UseVisualStyleBackColor = true;
             this.Btn_Quitar.Click += new System.EventHandler(this.Btn_Quitar_Click);
-            // 
-            // btn_reimprimir
-            // 
-            this.btn_reimprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_reimprimir.Enabled = false;
-            this.btn_reimprimir.FlatAppearance.BorderSize = 0;
-            this.btn_reimprimir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
-            this.btn_reimprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
-            this.btn_reimprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_reimprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_reimprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_reimprimir.Image = ((System.Drawing.Image)(resources.GetObject("btn_reimprimir.Image")));
-            this.btn_reimprimir.Location = new System.Drawing.Point(843, 0);
-            this.btn_reimprimir.Name = "btn_reimprimir";
-            this.btn_reimprimir.Size = new System.Drawing.Size(32, 35);
-            this.btn_reimprimir.TabIndex = 14;
-            this.btn_reimprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_reimprimir.UseVisualStyleBackColor = true;
-            this.btn_reimprimir.Click += new System.EventHandler(this.btn_reimprimir_Click);
-            // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cancelar.Enabled = false;
-            this.btn_cancelar.FlatAppearance.BorderSize = 0;
-            this.btn_cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
-            this.btn_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
-            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.ForeColor = System.Drawing.Color.White;
-            this.btn_cancelar.Image = ((System.Drawing.Image)(resources.GetObject("btn_cancelar.Image")));
-            this.btn_cancelar.Location = new System.Drawing.Point(882, 0);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(32, 35);
-            this.btn_cancelar.TabIndex = 13;
-            this.btn_cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            // 
-            // btn_minimi
-            // 
-            this.btn_minimi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_minimi.FlatAppearance.BorderSize = 0;
-            this.btn_minimi.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
-            this.btn_minimi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
-            this.btn_minimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_minimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_minimi.ForeColor = System.Drawing.Color.White;
-            this.btn_minimi.Image = ((System.Drawing.Image)(resources.GetObject("btn_minimi.Image")));
-            this.btn_minimi.Location = new System.Drawing.Point(921, 4);
-            this.btn_minimi.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_minimi.Name = "btn_minimi";
-            this.btn_minimi.Size = new System.Drawing.Size(35, 31);
-            this.btn_minimi.TabIndex = 7;
-            this.btn_minimi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_minimi.UseVisualStyleBackColor = true;
-            this.btn_minimi.Click += new System.EventHandler(this.btn_minimi_Click);
-            // 
-            // btn_cerrar
-            // 
-            this.btn_cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cerrar.FlatAppearance.BorderSize = 0;
-            this.btn_cerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
-            this.btn_cerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
-            this.btn_cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cerrar.ForeColor = System.Drawing.Color.White;
-            this.btn_cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_cerrar.Image")));
-            this.btn_cerrar.Location = new System.Drawing.Point(970, 4);
-            this.btn_cerrar.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_cerrar.Name = "btn_cerrar";
-            this.btn_cerrar.Size = new System.Drawing.Size(31, 30);
-            this.btn_cerrar.TabIndex = 6;
-            this.btn_cerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_cerrar.UseVisualStyleBackColor = true;
-            this.btn_cerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
             // 
             // Frm_NotaCredito
             // 
@@ -2630,10 +2644,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Lbl_IdCredi_fiado)).EndInit();
             this.pnl_sinProd.ResumeLayout(false);
             this.pnl_sinProd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Nuevo_Notacre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElDivider3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElDivider5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_qr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -2778,5 +2792,6 @@
         internal System.Windows.Forms.Label label33;
         internal System.Windows.Forms.Label label34;
         internal System.Windows.Forms.Label lbl_Exonerada;
+        internal System.Windows.Forms.Label lbl_totalGanancia;
     }
 }

@@ -38,9 +38,6 @@ namespace Microsell_Lite.Facturacion_Electronica
             dtp_fecha2.Value = dtp_fechaActual.Value;
 
         }
-
-
-
         private void Leer_Dato_empresa()
         {
             RN_Empresa obj = new RN_Empresa();
@@ -68,7 +65,6 @@ namespace Microsell_Lite.Facturacion_Electronica
                 MessageBox.Show("Error al Leer los Datos: " + ex.Message, "Form Add Proveedor", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
 
         public void cargarCombo_DestinoSunat()
         {
@@ -100,8 +96,6 @@ namespace Microsell_Lite.Facturacion_Electronica
             Cbo_DestinoSunat.ValueMember = "Codigo";
             Cbo_DestinoSunat.DisplayMember = "Descripcion";
         }
-
-
 
         public void cargarComboMotivo()
         {
@@ -148,8 +142,6 @@ namespace Microsell_Lite.Facturacion_Electronica
             cbo_MotivoEmis.DisplayMember = "Descripcion";
             cbo_MotivoEmis.SelectedIndex = -1;
         }
-
-
 
         private void Config_ListView()
         {
@@ -270,10 +262,6 @@ namespace Microsell_Lite.Facturacion_Electronica
                             xlist.SubItems.Add("NIU");  //NIU -- ZZ
                             xlist.SubItems.Add(xitem["CodTipo_Afectacion"].ToString());
 
-
-
-
-
                         }
                         Calcular();
                     }
@@ -317,14 +305,121 @@ namespace Microsell_Lite.Facturacion_Electronica
 
                 MessageBox.Show("Error al leer: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-
         }
 
 
         private void Calcular()
         {
 
+            try
+            {
+                double xtotal = 0;
+                double xTotalGanancia = 0;
+
+                double subtotalGravado = 0;
+                double igvTotal = 0;
+                double totalExonerado = 0;
+
+                double xcant = 0;
+                double xprecio = 0;
+                double xuti_unit = 0;
+                double ximporte = 0;
+                double ximport_Uti = 0;
+
+                double preUnit_sinIgv = 0;
+                double subtotal_sinIgv_item = 0;
+                double igvProd = 0;
+
+                for (int i = 0; i < lsv_Det.Items.Count; i++)
+                {
+                    ListViewItem item = lsv_Det.Items[i];
+
+                    // Validaciones básicas
+                    if (item.SubItems.Count < 15)
+                        continue;
+
+                    string codAfectacion = item.SubItems[14].Text.Trim();
+
+                    bool esGravado = codAfectacion == "10";
+                    bool esExonerado = codAfectacion == "20"
+                                    || codAfectacion == "30"
+                                    || codAfectacion == "40"
+                                    || codAfectacion == "50";
+
+                    double.TryParse(item.SubItems[2].Text, out xcant);       // Cantidad
+                    double.TryParse(item.SubItems[3].Text, out xprecio);     // Precio Unit
+                    double.TryParse(item.SubItems[7].Text, out xuti_unit);   // Utilidad Unit
+
+                    ximporte = xprecio * xcant;
+                    ximport_Uti = xuti_unit * xcant;
+
+                    // SubItems fijos
+                    item.SubItems[4].Text = ximporte.ToString("###0.00");     // Importe
+                    item.SubItems[8].Text = ximport_Uti.ToString("###0.00");  // Total utilidad
+
+                    xtotal += ximporte;
+                    xTotalGanancia += ximport_Uti;
+
+                    if (esGravado)
+                    {
+                        preUnit_sinIgv = xprecio / 1.18;
+                        subtotal_sinIgv_item = preUnit_sinIgv * xcant;
+                        igvProd = ximporte - subtotal_sinIgv_item;
+
+                        item.SubItems[9].Text = "Gravado";
+                        item.SubItems[10].Text = preUnit_sinIgv.ToString("###0.00");
+                        item.SubItems[11].Text = subtotal_sinIgv_item.ToString("###0.00");
+                        item.SubItems[12].Text = igvProd.ToString("###0.00");
+
+                        subtotalGravado += subtotal_sinIgv_item;
+                        igvTotal += igvProd;
+                    }
+                    else if (esExonerado)
+                    {
+                        preUnit_sinIgv = xprecio;
+
+                        item.SubItems[9].Text = "Exonerado";
+                        item.SubItems[10].Text = preUnit_sinIgv.ToString("###0.00");
+                        item.SubItems[11].Text = (preUnit_sinIgv * xcant).ToString("###0.00");
+                        item.SubItems[12].Text = "0.00";
+
+                        totalExonerado += ximporte;
+                    }
+                    else
+                    {
+                        // Si viene un código no contemplado, lo tratamos como exonerado por seguridad visual
+                        preUnit_sinIgv = xprecio;
+
+                        item.SubItems[9].Text = "Exonerado";
+                        item.SubItems[10].Text = preUnit_sinIgv.ToString("###0.00");
+                        item.SubItems[11].Text = (preUnit_sinIgv * xcant).ToString("###0.00");
+                        item.SubItems[12].Text = "0.00";
+
+                        totalExonerado += ximporte;
+                    }
+                }
+
+                double totalGravado = subtotalGravado + igvTotal;
+                double subTotalGeneral = subtotalGravado + totalExonerado;
+
+                Lbl_SubTotal.Text = subTotalGeneral.ToString("###0.00");
+                Lbl_Igv.Text = igvTotal.ToString("###0.00");
+                Lbl_Total_ACobrar.Text = xtotal.ToString("###0.00");
+
+                lbl_subtotalGravado.Text = subtotalGravado.ToString("###0.00");
+                lbl_igvgravado.Text = igvTotal.ToString("###0.00");
+                Lbl_totalGravado.Text = totalGravado.ToString("###0.00");
+                lbl_Exonerada.Text = totalExonerado.ToString("###0.00");
+
+                lbl_totalGanancia.Text = xTotalGanancia.ToString("###0.00");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al calcular la nota de crédito: " + ex.Message,
+                    "Calcular", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            /*
             double xtotal = 0;
             double xcant = 0;
             double xprecio = 0;
@@ -426,59 +521,7 @@ namespace Microsell_Lite.Facturacion_Electronica
                 }
 
             }
-            /*
-            for (int i = 0; i < lsv_Det.Items.Count; i++)
-            {
-                xcant = Convert.ToDouble(lsv_Det.Items[i].SubItems[2].Text);
-                xprecio = Convert.ToDouble(lsv_Det.Items[i].SubItems[3].Text);  //precio que incluye el IGV
-
-                //calculo:
-                ximporte = xprecio * xcant;
-                lsv_Det.Items[i].SubItems[4].Text = ximporte.ToString("###0.00");
-
-                //utilidad:
-                xuti_unit = Convert.ToDouble(lsv_Det.Items[i].SubItems[7].Text);
-                ximport_Uti = xuti_unit * xcant;
-                lsv_Det.Items[i].SubItems[8].Text = ximport_Uti.ToString("###0.00");
-
-
-
-                //caluclo del total:
-                xtotal = xtotal + Convert.ToDouble(lsv_Det.Items[i].SubItems[4].Text);
-                xTotalGanancia = xTotalGanancia + Convert.ToDouble(lsv_Det.Items[i].SubItems[8].Text);
-
-                //Calculo para Sunat: ========================
-                preUnit_sinIgv = xprecio / 1.18;
-                lsv_Det.Items[i].SubItems[10].Text = preUnit_sinIgv.ToString("###0.00");
-                //subtotal sin igv:
-                subtotal_sinIgv = preUnit_sinIgv * xcant;
-                lsv_Det.Items[i].SubItems[11].Text = subtotal_sinIgv.ToString("###0.00");
-
-                //calculamos el Igv:
-                igvProd = subtotal_sinIgv * 0.18;
-                lsv_Det.Items[i].SubItems[12].Text = igvProd.ToString("###0.00");
-
-
-                //=================== Pie de la FE para la Sunat ====================== //
-                xsubtotal_sinIgv = xsubtotal_sinIgv + Convert.ToDouble(lsv_Det.Items[i].SubItems[11].Text);
-                xigv_total = xigv_total + Convert.ToDouble(lsv_Det.Items[i].SubItems[12].Text);
-
-            }
-            
-            //calcular el IGV: IVA
-            xsubtotal = xtotal / 1.18;
-            xigv = xsubtotal * 0.18;
-
-            Lbl_SubTotal.Text = xsubtotal.ToString("###0.00");
-            Lbl_Igv.Text = xigv.ToString("###0.00");
-            Lbl_Total_ACobrar.Text = xtotal.ToString("###0.00");
-
-            //=============== Totales del Pie de la FE ===================//
-            lbl_subtotalGravado.Text = xsubtotal_sinIgv.ToString("###0.00");
-            lbl_igvgravado.Text = xigv_total.ToString("###0.00");
-            double totalGravado = xsubtotal_sinIgv + xigv_total;
-            Lbl_totalGravado.Text = totalGravado.ToString("###0.00");
-            */
+           
 
             //new calculos finales
             xsubtotal = subtotal_sinIgv + subtotalExonerado;
@@ -502,7 +545,7 @@ namespace Microsell_Lite.Facturacion_Electronica
             let.LetraCapital = chkCapital.Checked;
             if (!actualizado) ActualizarCong();
 
-
+            */
 
 
         }
@@ -667,7 +710,7 @@ namespace Microsell_Lite.Facturacion_Electronica
                             ObjD.PrecioUnit = Convert.ToDouble(withBlock.SubItems[3].Text);
                             ObjD.ImporteCre = Convert.ToDouble(withBlock.SubItems[4].Text);
                             ObjD.TipoProdcto = withBlock.SubItems[13].Text;
-                            ObjD.tipoAfectacion = withBlock.SubItems[8].Text;
+                            ObjD.tipoAfectacion = withBlock.SubItems[14].Text; //8
                         }
                         ObjCre.RN_Agregar_Items_Detalle_notacredito(ObjD);
 
@@ -1837,9 +1880,6 @@ namespace Microsell_Lite.Facturacion_Electronica
                 MessageBox.Show("Error: " + ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
-
-
-
         }
 
 
@@ -2421,6 +2461,17 @@ namespace Microsell_Lite.Facturacion_Electronica
                             xidProd = xitem["Id_Pro"].ToString();
                             xtipoAfectacion = xitem["Tipo_Afectacion"].ToString(); //para ver resul, gravado o exonerado
 
+                            //optimizando bloque 190326
+                            string codAfectacion = xitem["Tipo_Afectacion"].ToString();
+                            string afecIgvTexto = "Gravado";
+
+                            if (codAfectacion == "20" || codAfectacion == "30" || codAfectacion == "40" || codAfectacion == "50")
+                            {
+                                afecIgvTexto = "Exonerado";
+                            }
+
+                            //
+
                             ListViewItem xlist;
                             xlist = lsv_Det.Items.Add(xitem["Id_Pro"].ToString(), 0);
                             {
@@ -2434,11 +2485,15 @@ namespace Microsell_Lite.Facturacion_Electronica
                                 withBlock1.SubItems.Add("0");
                                 withBlock1.SubItems.Add("0");
                                 //withBlock1.SubItems.Add("Gravado");
-                                withBlock1.SubItems.Add(xitem["Tipo_Afectacion"].ToString());
+
+                                //withBlock1.SubItems.Add(xitem["Tipo_Afectacion"].ToString());
+                                withBlock1.SubItems.Add(afecIgvTexto); //Se añadio 
                                 withBlock1.SubItems.Add("0");
                                 withBlock1.SubItems.Add("0");
                                 withBlock1.SubItems.Add("0");                              
                                 withBlock1.SubItems.Add(xitem["TipoProdctonc"].ToString());
+
+                                withBlock1.SubItems.Add(codAfectacion); //14
                             }
                         }
                         // ' llamamos a calcular

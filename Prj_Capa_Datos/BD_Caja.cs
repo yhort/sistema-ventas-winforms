@@ -38,13 +38,10 @@ namespace Prj_Capa_Datos
                 //cmd.Parameters.AddWithValue("@TipoPago2", cja.TipoPago2);
                 cmd.Parameters.AddWithValue("@GeneradoPor", cja.GeneradoPor);
           
-
-
                 cn.Open();
                 cmd.ExecuteNonQuery();
                 cn.Close();
                 cajaSaved = true;
-
 
             }
             catch (Exception ex)
@@ -58,7 +55,6 @@ namespace Prj_Capa_Datos
                 MessageBox.Show("Error al Guardar: " + ex.Message, "Capa Datos Caja", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
-
 
         }
 

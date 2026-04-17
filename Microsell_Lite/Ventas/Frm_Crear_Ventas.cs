@@ -2503,6 +2503,38 @@ namespace Microsell_Lite.Ventas
                                             Limpiar_todo();
                                         }
 
+                                        else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 15)
+                                        {
+                                            if (fin.paraImprimir)
+                                            {
+
+                                                fil.Show();
+                                                nota.Tag = txt_NroDoc.Text;
+                                                nota.Rutdapdf = RutaPdf_export + Lbl_RucEmisor.Text + "-" + lbl_id_TipodocSunat.Text + "-" + txt_NroDoc.Text + ".pdf";
+                                                RutaPdf_export = RutaPdf_export + Lbl_RucEmisor.Text.Trim() + "-" + lbl_id_TipodocSunat.Text + "-" + txt_NroDoc.Text + ".pdf";
+
+                                                //** POR ARMAR EL METODO, Y EN TAB_MIEMPRESA TAMBIEN AÑADIR SUS ,
+                                                //NUEVO CLIENTE CON SU RESPECTIVOS DATOS , CREAR SU RPT PARA TICKET Y LLAMARLO AQUI:
+
+                                                nota.Imprimir_BoletaFactura_Ticket_LucianoEIRL(txt_NroDoc.Text);
+                                                //nota.lbl_nroDoc.Text = Cbo_TipoDoc.Text.Trim() + " " + txt_NroDoc.Text;
+                                                //nota.ShowDialog();
+                                                fil.Hide();
+                                                //trmVNETA 
+                                                /*fil.Show();
+                                                enviardocventa.lbl_nroDoc.Text = txt_NroDoc.Text;
+                                                enviardocventa.lbl_rutDoc.Text = RutaPdf_export;
+                                                enviardocventa.lbl_rutxml.Text = lbl_rutaXml.Text;
+                                                enviardocventa.ShowDialog();
+                                                fil.Hide();*/
+                                                //dp.limp
+
+                                                Limpiar_todo();
+                                                //pnl_sinProd.Visible = true;
+                                            }
+                                            Limpiar_todo();
+                                        }
+
                                         //FIN
                                     }
                                     else
@@ -2753,6 +2785,36 @@ namespace Microsell_Lite.Ventas
                                             }
                                             Limpiar_todo();
                                         }
+                                        else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 15)
+                                        {
+                                            if (fin.paraImprimir)
+                                            {
+                                                fil.Show();
+                                                nota.Tag = txt_NroDoc.Text;
+                                                nota.Rutdapdf = RutaPdf_export + Lbl_RucEmisor.Text.Trim() + "-" + lbl_id_TipodocSunat.Text + "-" + txt_NroDoc.Text + ".pdf";
+                                                RutaPdf_export = RutaPdf_export + Lbl_RucEmisor.Text.Trim() + "-" + lbl_id_TipodocSunat.Text + "-" + txt_NroDoc.Text + ".pdf";
+
+                                                //** POR ARMAR EL METODO, Y EN TAB_MIEMPRESA TAMBIEN AÑADIR SUS ,
+                                                //NUEVO CLIENTE CON SU RESPECTIVOS DATOS , CREAR SU RPT PARA TICKET Y LLAMARLO AQUI:
+                                                nota.Imprimir_BoletaFactura_Ticket_LucianoEIRL(txt_NroDoc.Text); // 
+                                                
+                                                
+                                                //nota.lbl_nroDoc.Text = Cbo_TipoDoc.Text.Trim() + " " + txt_NroDoc.Text;
+                                                //nota.ShowDialog();
+                                                fil.Hide();
+                                                //trmVNETA 
+                                                /*fil.Show();
+                                                enviardocventa.lbl_nroDoc.Text = txt_NroDoc.Text;
+                                                enviardocventa.lbl_rutDoc.Text = RutaPdf_export;
+                                                enviardocventa.lbl_rutxml.Text = lbl_rutaXml.Text;
+                                                enviardocventa.ShowDialog();
+                                                fil.Hide();*/
+                                                //dp.limp
+                                                Limpiar_todo();
+                                                //pnl_sinProd.Visible = true;
+                                            }
+                                            Limpiar_todo();
+                                        }
                                     }
 
                                 }
@@ -2892,6 +2954,20 @@ namespace Microsell_Lite.Ventas
                                                 fil.Show();
                                                 nota.Tag = txt_NroDoc.Text;
                                                 nota.Imprimir_NotaVenta_Ticket_LucianoEIRL(txt_NroDoc.Text);//crear rpt notaventa
+                                                fil.Hide();
+                                                Limpiar_todo();
+                                            }
+                                            Limpiar_todo();
+                                        }
+
+                                        else if (Cbo_TipoDoc.Text == "Nota Venta" && idempresa == 15)
+                                        {
+                                            if (fin.paraImprimir)
+                                            {
+                                                fil.Show();
+                                                nota.Tag = txt_NroDoc.Text;
+                                                //crear rpt notaventa , Y SU METODO 
+                                                //nota.Imprimir_NotaVenta_Ticket_LucianoEIRL(txt_NroDoc.Text);
                                                 fil.Hide();
                                                 Limpiar_todo();
                                             }
@@ -3091,6 +3167,21 @@ namespace Microsell_Lite.Ventas
                                                 this.Close();
                                             }
                                             Limpiar_todo();                                          
+                                        }
+                                        else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 15)
+                                        {
+                                            if (fin.paraImprimir)
+                                            {
+                                                fil.Show();
+                                                nota.Tag = txt_NroDoc.Text;
+                                                nota.Rutdapdf = RutaPdf_export + Lbl_RucEmisor.Text + "-" + lbl_id_TipodocSunat.Text + "-" + txt_NroDoc.Text + ".pdf";
+                                                RutaPdf_export = RutaPdf_export + Lbl_RucEmisor.Text.Trim() + "-" + lbl_id_TipodocSunat.Text + "-" + txt_NroDoc.Text + ".pdf";
+                                                nota.Imprimir_BoletaFactura_Ticket_LucianoEIRL(txt_NroDoc.Text);
+                                                fil.Hide();
+                                                Limpiar_todo();
+                                                this.Close();
+                                            }
+                                            Limpiar_todo();
                                         }
                                     }
                                 }
