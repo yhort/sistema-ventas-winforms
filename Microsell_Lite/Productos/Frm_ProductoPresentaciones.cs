@@ -37,7 +37,7 @@ namespace Microsell_Lite.Productos
         private void Frm_ProductoPresentaciones_Load(object sender, EventArgs e)
         {
             ConfigurarFormulario();
-
+            FormatoControles();
             Configurar_listView();
             CargarPresentaciones();
             CargarAbreviaturas();
@@ -134,6 +134,7 @@ namespace Microsell_Lite.Productos
                 item.SubItems.Add(Convert.ToDecimal(dr["PrecioCompra"]).ToString());
                 item.SubItems.Add(Convert.ToDecimal(dr["PrecioVentaMinorista"]).ToString());
                 item.SubItems.Add(Convert.ToDecimal(dr["PrecioVentaMayorista"]).ToString());
+                item.SubItems.Add(Convert.ToDecimal(dr["CantMinMayorista"]).ToString());
                 item.SubItems.Add(Convert.ToBoolean(dr["EsBase"]) ? "Sí" : "No");
                 item.SubItems.Add(Convert.ToBoolean(dr["PermiteCompra"]) ? "Sí" : "No");
                 item.SubItems.Add(Convert.ToBoolean(dr["PermiteVenta"]) ? "Sí" : "No");
