@@ -1176,5 +1176,15 @@ namespace Microsell_Lite
             dr.ShowDialog();
             fil.Hide();
         }
+
+        private void presentacionesDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Filtro fil = new Frm_Filtro();
+            Frm_AddEdit_Presentacion dr = new Frm_AddEdit_Presentacion();
+
+            fil.Show();
+            dr.ShowDialog();
+            fil.Hide();
+        }
     }
 }
