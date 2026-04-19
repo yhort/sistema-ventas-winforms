@@ -39,7 +39,7 @@ namespace Microsell_Lite.Productos
             txt_categoria.Text = "GENERAL";
             lbl_idcateg.Text = "1";
             cbo_tipoProd.SelectedIndex = 0; 
-            cbo_Und.SelectedIndex =0;
+            //cbo_Und.SelectedIndex =0;
             cbo_TipoAfectSunat.SelectedIndex = 0;
 
             chkControlarStock_CheckedChanged(null, null);
@@ -659,6 +659,29 @@ namespace Microsell_Lite.Productos
                     txt_Stock.Text = "1"; // Valor predeterminado si vas a controlar stock
                 }
             }
+        }
+
+        private void btnPresentaciones_Click(object sender, EventArgs e)
+        {
+            if (txt_idproducto.Text.Trim() == "")
+            {
+                MessageBox.Show("Primero registra o selecciona el producto.");
+                return;
+            }
+
+            Frm_Filtro fil = new Frm_Filtro();
+            Frm_ProductoPresentaciones frm = new Frm_ProductoPresentaciones();
+            frm.IdProducto = txt_idproducto.Text.Trim();
+            frm.NombreProducto = txt_nombreProduct.Text.Trim();
+            //frm.lblTitulo.Text = "Registrar presentación del Producto";
+            frm.EsFlujoProducto = true;
+            frm.AbrirEnRegistroDirecto = true;
+
+            fil.Show();
+            frm.ShowDialog();
+            fil.Hide();
+  
+            
         }
     }
 }

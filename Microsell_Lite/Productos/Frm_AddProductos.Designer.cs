@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_AddProductos));
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle64 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle65 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle68 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle69 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle66 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle70 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle67 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle4 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle5 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle2 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle1 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle6 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle3 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle7 = new Klik.Windows.Forms.v1.Common.PaintStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pnl_titu = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
@@ -83,6 +83,7 @@
             this.lbl_idmarca = new System.Windows.Forms.Label();
             this.lbl_idcateg = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.chkControlarStock = new Guna.UI.WinForms.GunaCheckBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txt_Stock = new Guna.UI.WinForms.GunaTextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -107,8 +108,9 @@
             this.elLabel6 = new Klik.Windows.Forms.v1.EntryLib.ELLabel();
             this.elLabel7 = new Klik.Windows.Forms.v1.EntryLib.ELLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chkControlarStock = new Guna.UI.WinForms.GunaCheckBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.btnPresentaciones = new Klik.Windows.Forms.v1.EntryLib.ELButton();
             this.pnl_titu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_listo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_cancel)).BeginInit();
@@ -121,6 +123,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.elLabel6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.elLabel7)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPresentaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -240,7 +243,7 @@
             this.btn_listo.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btn_listo.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btn_listo.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_listo.Location = new System.Drawing.Point(397, 593);
+            this.btn_listo.Location = new System.Drawing.Point(401, 647);
             this.btn_listo.Name = "btn_listo";
             this.btn_listo.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ModernBlack;
             this.btn_listo.Size = new System.Drawing.Size(133, 43);
@@ -271,7 +274,7 @@
             this.btn_cancel.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btn_cancel.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btn_cancel.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_cancel.Location = new System.Drawing.Point(201, 593);
+            this.btn_cancel.Location = new System.Drawing.Point(205, 647);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ClassicSilver;
             this.btn_cancel.Size = new System.Drawing.Size(144, 43);
@@ -314,7 +317,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(32, 183);
+            this.label5.Location = new System.Drawing.Point(34, 186);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 25);
             this.label5.TabIndex = 12;
@@ -324,7 +327,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(404, 183);
+            this.label6.Location = new System.Drawing.Point(406, 186);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 25);
             this.label6.TabIndex = 14;
@@ -334,7 +337,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(32, 222);
+            this.label7.Location = new System.Drawing.Point(34, 225);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 25);
             this.label7.TabIndex = 16;
@@ -344,7 +347,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(401, 222);
+            this.label8.Location = new System.Drawing.Point(403, 225);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(81, 25);
             this.label8.TabIndex = 18;
@@ -356,7 +359,7 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
             this.label9.Location = new System.Drawing.Point(704, 43);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(3, 615);
+            this.label9.Size = new System.Drawing.Size(3, 661);
             this.label9.TabIndex = 20;
             // 
             // label10
@@ -365,7 +368,7 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Location = new System.Drawing.Point(0, 43);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(3, 615);
+            this.label10.Size = new System.Drawing.Size(3, 661);
             this.label10.TabIndex = 21;
             // 
             // openFileDialog1
@@ -376,7 +379,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(404, 267);
+            this.label11.Location = new System.Drawing.Point(410, 317);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 25);
             this.label11.TabIndex = 27;
@@ -401,7 +404,7 @@
             this.lbl_busMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_busMarca.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl_busMarca.Image = ((System.Drawing.Image)(resources.GetObject("lbl_busMarca.Image")));
-            this.lbl_busMarca.Location = new System.Drawing.Point(344, 183);
+            this.lbl_busMarca.Location = new System.Drawing.Point(346, 186);
             this.lbl_busMarca.Name = "lbl_busMarca";
             this.lbl_busMarca.Size = new System.Drawing.Size(19, 23);
             this.lbl_busMarca.TabIndex = 29;
@@ -414,7 +417,7 @@
             this.lbl_busCat.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_busCat.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl_busCat.Image = ((System.Drawing.Image)(resources.GetObject("lbl_busCat.Image")));
-            this.lbl_busCat.Location = new System.Drawing.Point(638, 185);
+            this.lbl_busCat.Location = new System.Drawing.Point(638, 220);
             this.lbl_busCat.Name = "lbl_busCat";
             this.lbl_busCat.Size = new System.Drawing.Size(21, 19);
             this.lbl_busCat.TabIndex = 31;
@@ -426,7 +429,7 @@
             this.bunifuSeparator2.ForeColor = System.Drawing.Color.Gray;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(26, 344);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(30, 398);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(649, 19);
             this.bunifuSeparator2.TabIndex = 36;
@@ -462,7 +465,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(383, 410);
+            this.label16.Location = new System.Drawing.Point(387, 464);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(86, 25);
             this.label16.TabIndex = 44;
@@ -473,7 +476,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(36, 454);
+            this.label12.Location = new System.Drawing.Point(40, 508);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(121, 25);
             this.label12.TabIndex = 43;
@@ -484,7 +487,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(32, 413);
+            this.label13.Location = new System.Drawing.Point(36, 467);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 25);
             this.label13.TabIndex = 42;
@@ -495,7 +498,7 @@
             this.txt_Frank.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Frank.Enabled = false;
             this.txt_Frank.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Frank.Location = new System.Drawing.Point(198, 461);
+            this.txt_Frank.Location = new System.Drawing.Point(202, 515);
             this.txt_Frank.Name = "txt_Frank";
             this.txt_Frank.Size = new System.Drawing.Size(123, 17);
             this.txt_Frank.TabIndex = 12;
@@ -506,7 +509,7 @@
             // 
             this.txt_PreVenta_mnr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_PreVenta_mnr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_PreVenta_mnr.Location = new System.Drawing.Point(490, 416);
+            this.txt_PreVenta_mnr.Location = new System.Drawing.Point(494, 470);
             this.txt_PreVenta_mnr.Name = "txt_PreVenta_mnr";
             this.txt_PreVenta_mnr.Size = new System.Drawing.Size(119, 17);
             this.txt_PreVenta_mnr.TabIndex = 3;
@@ -545,7 +548,7 @@
             this.label18.BackColor = System.Drawing.Color.AliceBlue;
             this.label18.Font = new System.Drawing.Font("Encode Sans Condensed SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(215, 366);
+            this.label18.Location = new System.Drawing.Point(219, 420);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(280, 23);
             this.label18.TabIndex = 52;
@@ -571,7 +574,7 @@
             // 
             this.label14.Font = new System.Drawing.Font("Encode Sans Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.DimGray;
-            this.label14.Location = new System.Drawing.Point(384, 440);
+            this.label14.Location = new System.Drawing.Point(388, 494);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(99, 53);
             this.label14.TabIndex = 54;
@@ -582,7 +585,7 @@
             this.txt_utilidad.BackColor = System.Drawing.Color.Khaki;
             this.txt_utilidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_utilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_utilidad.Location = new System.Drawing.Point(488, 460);
+            this.txt_utilidad.Location = new System.Drawing.Point(492, 514);
             this.txt_utilidad.Name = "txt_utilidad";
             this.txt_utilidad.Size = new System.Drawing.Size(143, 17);
             this.txt_utilidad.TabIndex = 55;
@@ -594,7 +597,7 @@
             this.piclogo.ErrorImage = null;
             this.piclogo.Image = ((System.Drawing.Image)(resources.GetObject("piclogo.Image")));
             this.piclogo.InitialImage = null;
-            this.piclogo.Location = new System.Drawing.Point(313, 499);
+            this.piclogo.Location = new System.Drawing.Point(317, 553);
             this.piclogo.Name = "piclogo";
             this.piclogo.Size = new System.Drawing.Size(86, 69);
             this.piclogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -609,7 +612,7 @@
             this.lbl_Abrir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Abrir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Abrir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lbl_Abrir.Location = new System.Drawing.Point(405, 527);
+            this.lbl_Abrir.Location = new System.Drawing.Point(409, 581);
             this.lbl_Abrir.Name = "lbl_Abrir";
             this.lbl_Abrir.Size = new System.Drawing.Size(157, 16);
             this.lbl_Abrir.TabIndex = 57;
@@ -621,7 +624,7 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(75, 572);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(79, 626);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(600, 10);
             this.bunifuSeparator1.TabIndex = 58;
@@ -669,7 +672,7 @@
             // lbl_idmarca
             // 
             this.lbl_idmarca.AutoSize = true;
-            this.lbl_idmarca.Location = new System.Drawing.Point(376, 186);
+            this.lbl_idmarca.Location = new System.Drawing.Point(378, 189);
             this.lbl_idmarca.Name = "lbl_idmarca";
             this.lbl_idmarca.Size = new System.Drawing.Size(10, 13);
             this.lbl_idmarca.TabIndex = 62;
@@ -679,19 +682,34 @@
             // lbl_idcateg
             // 
             this.lbl_idcateg.AutoSize = true;
-            this.lbl_idcateg.Location = new System.Drawing.Point(665, 176);
+            this.lbl_idcateg.Location = new System.Drawing.Point(665, 211);
             this.lbl_idcateg.Name = "lbl_idcateg";
             this.lbl_idcateg.Size = new System.Drawing.Size(10, 13);
             this.lbl_idcateg.TabIndex = 63;
             this.lbl_idcateg.Text = "-";
             this.lbl_idcateg.Visible = false;
             // 
+            // chkControlarStock
+            // 
+            this.chkControlarStock.BackColor = System.Drawing.Color.AliceBlue;
+            this.chkControlarStock.BaseColor = System.Drawing.Color.White;
+            this.chkControlarStock.CheckedOffColor = System.Drawing.Color.Gray;
+            this.chkControlarStock.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.chkControlarStock.FillColor = System.Drawing.Color.White;
+            this.chkControlarStock.Font = new System.Drawing.Font("Encode Sans Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkControlarStock.Location = new System.Drawing.Point(200, 363);
+            this.chkControlarStock.Name = "chkControlarStock";
+            this.chkControlarStock.Size = new System.Drawing.Size(20, 20);
+            this.chkControlarStock.TabIndex = 89;
+            this.toolTip1.SetToolTip(this.chkControlarStock, "Si está marcado el sistema llevará el control de inventario para este producto.");
+            this.chkControlarStock.CheckedChanged += new System.EventHandler(this.chkControlarStock_CheckedChanged);
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Enabled = false;
             this.label19.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F);
-            this.label19.Location = new System.Drawing.Point(405, 310);
+            this.label19.Location = new System.Drawing.Point(411, 360);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(79, 25);
             this.label19.TabIndex = 65;
@@ -708,7 +726,7 @@
             this.txt_Stock.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txt_Stock.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txt_Stock.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Stock.Location = new System.Drawing.Point(490, 310);
+            this.txt_Stock.Location = new System.Drawing.Point(496, 360);
             this.txt_Stock.Name = "txt_Stock";
             this.txt_Stock.PasswordChar = '\0';
             this.txt_Stock.Radius = 5;
@@ -793,7 +811,7 @@
             this.txt_marca.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txt_marca.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txt_marca.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_marca.Location = new System.Drawing.Point(194, 183);
+            this.txt_marca.Location = new System.Drawing.Point(196, 186);
             this.txt_marca.Name = "txt_marca";
             this.txt_marca.PasswordChar = '\0';
             this.txt_marca.Radius = 5;
@@ -812,7 +830,7 @@
             this.txt_categoria.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txt_categoria.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txt_categoria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_categoria.Location = new System.Drawing.Point(488, 180);
+            this.txt_categoria.Location = new System.Drawing.Point(490, 183);
             this.txt_categoria.Name = "txt_categoria";
             this.txt_categoria.PasswordChar = '\0';
             this.txt_categoria.Radius = 5;
@@ -834,7 +852,7 @@
             this.cbo_tipoProd.Items.AddRange(new object[] {
             "Producto",
             "Servicio\t"});
-            this.cbo_tipoProd.Location = new System.Drawing.Point(195, 224);
+            this.cbo_tipoProd.Location = new System.Drawing.Point(197, 227);
             this.cbo_tipoProd.Name = "cbo_tipoProd";
             this.cbo_tipoProd.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbo_tipoProd.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -864,7 +882,7 @@
             "Cub3",
             "Gln",
             "Btlla"});
-            this.cbo_Und.Location = new System.Drawing.Point(490, 224);
+            this.cbo_Und.Location = new System.Drawing.Point(492, 227);
             this.cbo_Und.Name = "cbo_Und";
             this.cbo_Und.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbo_Und.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -884,7 +902,7 @@
             this.txt_peso.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txt_peso.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txt_peso.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_peso.Location = new System.Drawing.Point(490, 267);
+            this.txt_peso.Location = new System.Drawing.Point(496, 317);
             this.txt_peso.Name = "txt_peso";
             this.txt_peso.PasswordChar = '\0';
             this.txt_peso.Radius = 5;
@@ -907,7 +925,7 @@
             this.cbo_tipoProd_Sunat.Items.AddRange(new object[] {
             "NIU",
             "ZZ"});
-            this.cbo_tipoProd_Sunat.Location = new System.Drawing.Point(652, 383);
+            this.cbo_tipoProd_Sunat.Location = new System.Drawing.Point(652, 418);
             this.cbo_tipoProd_Sunat.Name = "cbo_tipoProd_Sunat";
             this.cbo_tipoProd_Sunat.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbo_tipoProd_Sunat.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -931,7 +949,7 @@
             this.cbo_TipoAfectSunat.Items.AddRange(new object[] {
             "Gravado",
             "Exonerado"});
-            this.cbo_TipoAfectSunat.Location = new System.Drawing.Point(194, 267);
+            this.cbo_TipoAfectSunat.Location = new System.Drawing.Point(200, 317);
             this.cbo_TipoAfectSunat.Name = "cbo_TipoAfectSunat";
             this.cbo_TipoAfectSunat.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbo_TipoAfectSunat.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -945,7 +963,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(32, 267);
+            this.label22.Location = new System.Drawing.Point(38, 317);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(119, 25);
             this.label22.TabIndex = 78;
@@ -954,7 +972,7 @@
             // lbl_TipoAfectacion
             // 
             this.lbl_TipoAfectacion.AutoSize = true;
-            this.lbl_TipoAfectacion.Location = new System.Drawing.Point(344, 272);
+            this.lbl_TipoAfectacion.Location = new System.Drawing.Point(350, 322);
             this.lbl_TipoAfectacion.Name = "lbl_TipoAfectacion";
             this.lbl_TipoAfectacion.Size = new System.Drawing.Size(10, 13);
             this.lbl_TipoAfectacion.TabIndex = 80;
@@ -965,7 +983,7 @@
             // 
             this.txt_Precom_Sol.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Precom_Sol.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Precom_Sol.Location = new System.Drawing.Point(200, 416);
+            this.txt_Precom_Sol.Location = new System.Drawing.Point(204, 470);
             this.txt_Precom_Sol.Name = "txt_Precom_Sol";
             this.txt_Precom_Sol.Size = new System.Drawing.Size(130, 17);
             this.txt_Precom_Sol.TabIndex = 4;
@@ -980,10 +998,10 @@
             this.elLabel1.BorderStyle.EdgeRadius = 10;
             this.elLabel1.BorderStyle.SolidColor = System.Drawing.Color.Silver;
             this.elLabel1.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle64.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle64.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel1.FlashStyle = paintStyle64;
-            this.elLabel1.Location = new System.Drawing.Point(194, 410);
+            paintStyle4.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle4.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel1.FlashStyle = paintStyle4;
+            this.elLabel1.Location = new System.Drawing.Point(198, 464);
             this.elLabel1.Name = "elLabel1";
             this.elLabel1.Size = new System.Drawing.Size(143, 27);
             this.elLabel1.TabIndex = 81;
@@ -997,10 +1015,10 @@
             this.elLabel2.BorderStyle.EdgeRadius = 10;
             this.elLabel2.BorderStyle.SolidColor = System.Drawing.Color.Silver;
             this.elLabel2.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle65.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle65.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel2.FlashStyle = paintStyle65;
-            this.elLabel2.Location = new System.Drawing.Point(483, 410);
+            paintStyle5.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle5.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel2.FlashStyle = paintStyle5;
+            this.elLabel2.Location = new System.Drawing.Point(487, 464);
             this.elLabel2.Name = "elLabel2";
             this.elLabel2.Size = new System.Drawing.Size(149, 27);
             this.elLabel2.TabIndex = 82;
@@ -1014,9 +1032,9 @@
             this.elLabel3.BorderStyle.EdgeRadius = 10;
             this.elLabel3.BorderStyle.SolidColor = System.Drawing.Color.Silver;
             this.elLabel3.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle68.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle68.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel3.FlashStyle = paintStyle68;
+            paintStyle2.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle2.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel3.FlashStyle = paintStyle2;
             this.elLabel3.Location = new System.Drawing.Point(128, 15);
             this.elLabel3.Name = "elLabel3";
             this.elLabel3.Size = new System.Drawing.Size(50, 27);
@@ -1032,9 +1050,9 @@
             this.elLabel4.BorderStyle.EdgeRadius = 10;
             this.elLabel4.BorderStyle.SolidColor = System.Drawing.Color.Silver;
             this.elLabel4.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle69.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle69.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel4.FlashStyle = paintStyle69;
+            paintStyle1.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle1.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel4.FlashStyle = paintStyle1;
             this.elLabel4.Location = new System.Drawing.Point(151, 34);
             this.elLabel4.Name = "elLabel4";
             this.elLabel4.Size = new System.Drawing.Size(42, 27);
@@ -1050,10 +1068,10 @@
             this.elLabel5.BorderStyle.EdgeRadius = 10;
             this.elLabel5.BorderStyle.SolidColor = System.Drawing.Color.Silver;
             this.elLabel5.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle66.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle66.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel5.FlashStyle = paintStyle66;
-            this.elLabel5.Location = new System.Drawing.Point(194, 455);
+            paintStyle6.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle6.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel5.FlashStyle = paintStyle6;
+            this.elLabel5.Location = new System.Drawing.Point(198, 509);
             this.elLabel5.Name = "elLabel5";
             this.elLabel5.Size = new System.Drawing.Size(143, 27);
             this.elLabel5.TabIndex = 85;
@@ -1067,9 +1085,9 @@
             this.elLabel6.BorderStyle.EdgeRadius = 10;
             this.elLabel6.BorderStyle.SolidColor = System.Drawing.Color.Silver;
             this.elLabel6.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle70.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle70.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel6.FlashStyle = paintStyle70;
+            paintStyle3.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle3.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel6.FlashStyle = paintStyle3;
             this.elLabel6.Location = new System.Drawing.Point(102, 76);
             this.elLabel6.Name = "elLabel6";
             this.elLabel6.Size = new System.Drawing.Size(150, 27);
@@ -1085,10 +1103,10 @@
             this.elLabel7.BorderStyle.EdgeRadius = 10;
             this.elLabel7.BorderStyle.SolidColor = System.Drawing.Color.Silver;
             this.elLabel7.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle67.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle67.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel7.FlashStyle = paintStyle67;
-            this.elLabel7.Location = new System.Drawing.Point(484, 455);
+            paintStyle7.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle7.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel7.FlashStyle = paintStyle7;
+            this.elLabel7.Location = new System.Drawing.Point(488, 509);
             this.elLabel7.Name = "elLabel7";
             this.elLabel7.Size = new System.Drawing.Size(150, 27);
             this.elLabel7.TabIndex = 87;
@@ -1107,7 +1125,7 @@
             this.groupBox1.Controls.Add(this.chkbx_Dolar);
             this.groupBox1.Controls.Add(this.txt_PreCompra_Dlr);
             this.groupBox1.Controls.Add(this.elLabel6);
-            this.groupBox1.Location = new System.Drawing.Point(581, 366);
+            this.groupBox1.Location = new System.Drawing.Point(585, 420);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(78, 16);
             this.groupBox1.TabIndex = 88;
@@ -1115,38 +1133,68 @@
             this.groupBox1.Text = "groupBox1";
             this.groupBox1.Visible = false;
             // 
-            // chkControlarStock
-            // 
-            this.chkControlarStock.BackColor = System.Drawing.Color.AliceBlue;
-            this.chkControlarStock.BaseColor = System.Drawing.Color.White;
-            this.chkControlarStock.CheckedOffColor = System.Drawing.Color.Gray;
-            this.chkControlarStock.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.chkControlarStock.FillColor = System.Drawing.Color.White;
-            this.chkControlarStock.Font = new System.Drawing.Font("Encode Sans Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkControlarStock.Location = new System.Drawing.Point(194, 313);
-            this.chkControlarStock.Name = "chkControlarStock";
-            this.chkControlarStock.Size = new System.Drawing.Size(20, 20);
-            this.chkControlarStock.TabIndex = 89;
-            this.toolTip1.SetToolTip(this.chkControlarStock, "Si está marcado el sistema llevará el control de inventario para este producto.");
-            this.chkControlarStock.CheckedChanged += new System.EventHandler(this.chkControlarStock_CheckedChanged);
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(46, 308);
+            this.label23.Location = new System.Drawing.Point(52, 358);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(95, 25);
             this.label23.TabIndex = 90;
             this.label23.Text = "Controla Stock";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(35, 273);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(100, 25);
+            this.label24.TabIndex = 91;
+            this.label24.Text = "Presentaciones";
+            // 
+            // btnPresentaciones
+            // 
+            this.btnPresentaciones.BackgroundStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            this.btnPresentaciones.BackgroundStyle.SolidColor = System.Drawing.Color.Salmon;
+            this.btnPresentaciones.BorderStyle.BorderShape.BottomLeft = Klik.Windows.Forms.v1.Common.BorderShapes.Circle;
+            this.btnPresentaciones.BorderStyle.BorderShape.BottomRight = Klik.Windows.Forms.v1.Common.BorderShapes.Circle;
+            this.btnPresentaciones.BorderStyle.BorderShape.TopLeft = Klik.Windows.Forms.v1.Common.BorderShapes.Circle;
+            this.btnPresentaciones.BorderStyle.BorderShape.TopRight = Klik.Windows.Forms.v1.Common.BorderShapes.Circle;
+            this.btnPresentaciones.BorderStyle.EdgeRadius = 7;
+            this.btnPresentaciones.BorderStyle.SmoothingMode = Klik.Windows.Forms.v1.Common.SmoothingModes.AntiAlias;
+            this.btnPresentaciones.BorderStyle.SolidColor = System.Drawing.Color.DodgerBlue;
+            this.btnPresentaciones.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnPresentaciones.DropDownArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnPresentaciones.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            this.btnPresentaciones.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.btnPresentaciones.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPresentaciones.Location = new System.Drawing.Point(200, 273);
+            this.btnPresentaciones.Name = "btnPresentaciones";
+            this.btnPresentaciones.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ModernBlack;
+            this.btnPresentaciones.Size = new System.Drawing.Size(160, 29);
+            this.btnPresentaciones.StateStyles.HoverStyle.BackgroundSolidColor = System.Drawing.Color.YellowGreen;
+            this.btnPresentaciones.StateStyles.HoverStyle.BorderSolidColor = System.Drawing.Color.YellowGreen;
+            this.btnPresentaciones.StateStyles.HoverStyle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPresentaciones.StateStyles.PressedStyle.BackgroundSolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnPresentaciones.StateStyles.PressedStyle.BorderSolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnPresentaciones.TabIndex = 92;
+            this.btnPresentaciones.TextStyle.Font = new System.Drawing.Font("Encode Sans SemiCondensed Mediu", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPresentaciones.TextStyle.ForeColor = System.Drawing.Color.White;
+            this.btnPresentaciones.TextStyle.Text = "Crear Presentacion +";
+            this.btnPresentaciones.TextStyle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPresentaciones.VisualStyle = Klik.Windows.Forms.v1.EntryLib.ButtonVisualStyles.Custom;
+            this.btnPresentaciones.Click += new System.EventHandler(this.btnPresentaciones_Click);
             // 
             // Frm_AddProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(707, 658);
+            this.ClientSize = new System.Drawing.Size(707, 704);
+            this.Controls.Add(this.btnPresentaciones);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.chkControlarStock);
             this.Controls.Add(this.groupBox1);
@@ -1220,6 +1268,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.elLabel7)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPresentaciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1299,5 +1348,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private Guna.UI.WinForms.GunaCheckBox chkControlarStock;
         private System.Windows.Forms.Label label23;
+        private Klik.Windows.Forms.v1.EntryLib.ELButton btnPresentaciones;
+        private System.Windows.Forms.Label label24;
     }
 }
