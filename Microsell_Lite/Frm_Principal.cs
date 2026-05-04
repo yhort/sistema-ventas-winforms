@@ -1180,10 +1180,14 @@ namespace Microsell_Lite
         private void presentacionesDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Filtro fil = new Frm_Filtro();
-            Frm_AddEdit_Presentacion dr = new Frm_AddEdit_Presentacion();
+            //Frm_AddEdit_Presentacion dr = new Frm_AddEdit_Presentacion();
+            Frm_ProductoPresentaciones prodpr = new Frm_ProductoPresentaciones();
+
+            // 👇 IMPORTANTE
+            prodpr.AbrirEnRegistroDirecto = false; // o simplemente no lo pongas
 
             fil.Show();
-            dr.ShowDialog();
+            prodpr.ShowDialog();
             fil.Hide();
         }
     }
