@@ -18,7 +18,6 @@ namespace Prj_Capa_Datos
         public void BD_Ingresar_RegistroCompra(EN_IngresoCompra com)
         {
 
-
             SqlConnection cn = new SqlConnection();
             try
             {
@@ -45,19 +44,11 @@ namespace Prj_Capa_Datos
                 cmd.Parameters.AddWithValue("@TipoProceso", com.TipoProceso);
                 cmd.Parameters.AddWithValue("@trn_codigo", com.TrnCodigo);
 
-
-             
-
-
-
                 cn.Open();
                 cmd.ExecuteNonQuery();
                 cn.Close();
 
                 seguardo = true;
-
-
-
             }
             catch (Exception ex)
             {
@@ -68,16 +59,12 @@ namespace Prj_Capa_Datos
                     cn.Close();
                 }
                 MessageBox.Show("Error al Guardar: " + ex.Message, "Capa Datos Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
             }
-
-
         }
 
         // Guardar detalle
         public void BD_Ingresar_Detalle_RegistroCompra(EN_Det_IngresoCompra det)
         {
-
 
             SqlConnection cn = new SqlConnection();
             try
@@ -87,10 +74,15 @@ namespace Prj_Capa_Datos
                 cmd.CommandTimeout = 20;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_ingreso", det.Idingreso);
-                cmd.Parameters.AddWithValue("@Id_Pro ", det.Idproducto);
+                cmd.Parameters.AddWithValue("@Id_Pro", det.Idproducto);
                 cmd.Parameters.AddWithValue("@Precio", det.Precio);
                 cmd.Parameters.AddWithValue("@Cantidad", det.Cantidad);
                 cmd.Parameters.AddWithValue("@Importe", det.Importe);
+                cmd.Parameters.AddWithValue("@IdPresentacion", det.IdPresentacion);
+                cmd.Parameters.AddWithValue("@CantidadPresentacion", det.CantidaPresentacion);
+                cmd.Parameters.AddWithValue("@Equivalencia", det.Equivalencia);
+                cmd.Parameters.AddWithValue("@NombrePresentacion", det.NombrePresentacion);
+
 
 
                 cn.Open();
@@ -98,9 +90,6 @@ namespace Prj_Capa_Datos
                 cn.Close();
 
                 detseguardo = true;
-
-
-
             }
             catch (Exception ex)
             {
@@ -111,10 +100,7 @@ namespace Prj_Capa_Datos
                     cn.Close();
                 }
                 MessageBox.Show("Error al Guardar: " + ex.Message, "Capa Datos Compras", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
             }
-
-
         }
 
         //validar:

@@ -68,11 +68,11 @@ namespace Prj_Capa_Negocio
 
         }
 
-        public void RN_Actualizar_PrecioCompra_Producto(string idprod, double precompraSol, double preVenta_mnor, double utilidad, double valoralmacen)
+        public void RN_Actualizar_PrecioVenta_Utilidad_Producto(string idprod, double preVenta_mnor, double utilidad, double valoralmacen)
         {
 
             BD_Productos obj = new BD_Productos();
-            obj.BD_Actualizar_PrecioCompra_Producto(idprod, precompraSol, preVenta_mnor, utilidad, valoralmacen);
+            obj.BD_Actualizar_PrecioVenta_Utilidad_Producto(idprod,  preVenta_mnor, utilidad, valoralmacen);
 
         }
 
@@ -119,6 +119,12 @@ namespace Prj_Capa_Negocio
         {
             BD_Productos obj = new BD_Productos();
             return obj.BD_Buscar_Productos_Promociones(valor);
+        }
+
+        public void RN_Actualizar_Stock_y_Precio(string idprod, double stock, double nuevoCostoPromedio)
+        {
+            BD_Productos obj = new BD_Productos();
+            obj.BD_Actualizar_Stock_y_Precio(idprod, stock, nuevoCostoPromedio);
         }
 
     }

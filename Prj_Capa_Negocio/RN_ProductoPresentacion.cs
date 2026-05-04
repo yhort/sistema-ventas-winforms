@@ -39,5 +39,10 @@ namespace Prj_Capa_Negocio
             return obj.BD_Buscar_ProductoPresentacion_PorId(idPresentacion);
         }
 
+        public DataTable RN_Buscar_Producto_ConPresentaciones(string valor)
+        {
+            return obj.BD_Buscar_Producto_ConPresentaciones(valor);
+        }
+
     }
 }

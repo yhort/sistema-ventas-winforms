@@ -114,5 +114,23 @@ namespace Prj_Capa_Datos
             }
         }
 
+        public DataTable BD_Buscar_Producto_ConPresentaciones(string valor)
+        {
+            using (SqlConnection cn = new SqlConnection(Conectar()))
+            {
+                cn.Open();
+
+                SqlCommand cmd = new SqlCommand("Sp_Buscar_Producto_ConPresentaciones", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@valor", valor);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+        }
+
     }
 }

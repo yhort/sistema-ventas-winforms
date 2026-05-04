@@ -275,11 +275,8 @@ namespace Prj_Capa_Datos
 
         //Control de Stock:
 
-
         public void BD_Sumar_Stock_Producto(string idprod, double stock)
         {
-
-
             SqlConnection cn = new SqlConnection();
             try
             {
@@ -304,12 +301,8 @@ namespace Prj_Capa_Datos
                     cn.Close();
                 }
                 MessageBox.Show("Error al Guardar: " + ex.Message, "Capa Datos Productos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
             }
-
-
         }
-
         //Restar Stock
 
         public void BD_Restar_Stock_Producto(string idprod, double stock)
@@ -347,7 +340,7 @@ namespace Prj_Capa_Datos
 
         //variaciones, actualizar stock:
 
-        public void BD_Actualizar_PrecioCompra_Producto(string idprod, double precompraSol, double preVenta_mnor, double utilidad, double valoralmacen)
+        public void BD_Actualizar_PrecioVenta_Utilidad_Producto(string idprod, double preVenta_mnor, double utilidad, double valoralmacen)
         {
 
 
@@ -355,11 +348,10 @@ namespace Prj_Capa_Datos
             try
             {
                 cn.ConnectionString = Conectar();
-                SqlCommand cmd = new SqlCommand("Sp_Actulizar_Precios_CompraVenta_Producto", cn);
+                SqlCommand cmd = new SqlCommand("Sp_Actulizar_PrecioVenta_Utilidad_Producto", cn);
                 cmd.CommandTimeout = 20;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id_Pro", idprod);
-                cmd.Parameters.AddWithValue("@Pre_CompraS", precompraSol);
                 cmd.Parameters.AddWithValue("@Pre_vntaxMenor", preVenta_mnor);
                 cmd.Parameters.AddWithValue("@Utilidad", utilidad);
                 cmd.Parameters.AddWithValue("@ValorAlmacen", valoralmacen);
@@ -615,9 +607,39 @@ namespace Prj_Capa_Datos
                 MessageBox.Show("Error al Consultar: " + ex.Message, "Capa Datos Productos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return null;
             }
-
-
         }
+
+        public void BD_Actualizar_Stock_y_Precio(string idprod, double stock, double nuevoCostoPromedio)
+        {
+            SqlConnection cn = new SqlConnection();
+            try
+            {
+                cn.ConnectionString = Conectar();
+                SqlCommand cmd = new SqlCommand("sp_Actualizar_Stock_y_Precio", cn);
+                cmd.CommandTimeout = 20;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idpro", idprod);
+                cmd.Parameters.AddWithValue("@stock", stock);
+                cmd.Parameters.AddWithValue("@nuevoCostoPromedio", nuevoCostoPromedio);
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                seedito = true;
+
+            }
+            catch (Exception ex)
+            {
+                seedito = false;
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+                MessageBox.Show("Error al Guardar: " + ex.Message, "Capa Datos Productos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+
 
     }
 }
