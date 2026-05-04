@@ -95,6 +95,7 @@
             this.lbl_totalItem = new System.Windows.Forms.Label();
             this.elPanel2 = new Klik.Windows.Forms.v1.EntryLib.ELPanel();
             this.timerBusqueda = new System.Windows.Forms.Timer(this.components);
+            this.btnPresentaciones = new System.Windows.Forms.Button();
             this.pnl_titu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.elLabel1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -660,9 +661,9 @@
             this.pnl_msm.Controls.Add(this.label2);
             this.pnl_msm.Controls.Add(this.label4);
             this.pnl_msm.ForeColor = System.Drawing.Color.DimGray;
-            this.pnl_msm.Location = new System.Drawing.Point(13, 107);
+            this.pnl_msm.Location = new System.Drawing.Point(6, 103);
             this.pnl_msm.Name = "pnl_msm";
-            this.pnl_msm.Size = new System.Drawing.Size(1139, 460);
+            this.pnl_msm.Size = new System.Drawing.Size(1146, 464);
             this.pnl_msm.TabIndex = 27;
             this.pnl_msm.Visible = false;
             // 
@@ -739,7 +740,7 @@
             this.bt_add.Image = ((System.Drawing.Image)(resources.GetObject("bt_add.Image")));
             this.bt_add.Location = new System.Drawing.Point(2, 8);
             this.bt_add.Name = "bt_add";
-            this.bt_add.Size = new System.Drawing.Size(161, 35);
+            this.bt_add.Size = new System.Drawing.Size(134, 35);
             this.bt_add.TabIndex = 10;
             this.bt_add.Text = "Nuevo ";
             this.bt_add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -758,7 +759,7 @@
             this.bt_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_edit.ForeColor = System.Drawing.Color.Black;
             this.bt_edit.Image = ((System.Drawing.Image)(resources.GetObject("bt_edit.Image")));
-            this.bt_edit.Location = new System.Drawing.Point(188, 5);
+            this.bt_edit.Location = new System.Drawing.Point(149, 6);
             this.bt_edit.Name = "bt_edit";
             this.bt_edit.Size = new System.Drawing.Size(79, 34);
             this.bt_edit.TabIndex = 9;
@@ -780,7 +781,7 @@
             this.btn_eliminarProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminarProd.ForeColor = System.Drawing.Color.Black;
             this.btn_eliminarProd.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminarProd.Image")));
-            this.btn_eliminarProd.Location = new System.Drawing.Point(322, 6);
+            this.btn_eliminarProd.Location = new System.Drawing.Point(437, 5);
             this.btn_eliminarProd.Name = "btn_eliminarProd";
             this.btn_eliminarProd.Size = new System.Drawing.Size(124, 34);
             this.btn_eliminarProd.TabIndex = 19;
@@ -802,7 +803,7 @@
             this.btn_reporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_reporte.ForeColor = System.Drawing.Color.Black;
             this.btn_reporte.Image = ((System.Drawing.Image)(resources.GetObject("btn_reporte.Image")));
-            this.btn_reporte.Location = new System.Drawing.Point(452, 6);
+            this.btn_reporte.Location = new System.Drawing.Point(570, 5);
             this.btn_reporte.Name = "btn_reporte";
             this.btn_reporte.Size = new System.Drawing.Size(123, 39);
             this.btn_reporte.TabIndex = 21;
@@ -905,6 +906,7 @@
             this.elPanel2.BackgroundStyle.GradientAngle = 45F;
             this.elPanel2.BackgroundStyle.GradientEndColor = System.Drawing.Color.WhiteSmoke;
             this.elPanel2.BackgroundStyle.GradientStartColor = System.Drawing.Color.WhiteSmoke;
+            this.elPanel2.Controls.Add(this.btnPresentaciones);
             this.elPanel2.Controls.Add(this.btn_reporte);
             this.elPanel2.Controls.Add(this.btn_eliminarProd);
             this.elPanel2.Controls.Add(this.lbl_totalItem);
@@ -925,6 +927,27 @@
             // 
             this.timerBusqueda.Interval = 400;
             this.timerBusqueda.Tick += new System.EventHandler(this.timerBusqueda_Tick);
+            // 
+            // btnPresentaciones
+            // 
+            this.btnPresentaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPresentaciones.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPresentaciones.FlatAppearance.BorderSize = 0;
+            this.btnPresentaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.btnPresentaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+            this.btnPresentaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPresentaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPresentaciones.ForeColor = System.Drawing.Color.Black;
+            this.btnPresentaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnPresentaciones.Image")));
+            this.btnPresentaciones.Location = new System.Drawing.Point(259, 6);
+            this.btnPresentaciones.Name = "btnPresentaciones";
+            this.btnPresentaciones.Size = new System.Drawing.Size(154, 35);
+            this.btnPresentaciones.TabIndex = 23;
+            this.btnPresentaciones.Text = " Presentaciones";
+            this.btnPresentaciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.btnPresentaciones, "Crear Presentaciones");
+            this.btnPresentaciones.UseVisualStyleBackColor = false;
+            this.btnPresentaciones.Click += new System.EventHandler(this.btnPresentaciones_Click);
             // 
             // Frm_Explo_Prod
             // 
@@ -1025,5 +1048,6 @@
         private System.Windows.Forms.Button btn_reporte;
         private Guna.UI.WinForms.GunaCircleProgressBar gunaCircleProgressBar1;
         private System.Windows.Forms.Timer timerBusqueda;
+        private System.Windows.Forms.Button btnPresentaciones;
     }
 }

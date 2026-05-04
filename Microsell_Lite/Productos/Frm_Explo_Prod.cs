@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -498,8 +499,6 @@ namespace Microsell_Lite.Productos
 
         }
 
-       
-
         private void btn_eliminarProd_Click(object sender, EventArgs e)
         {
 
@@ -557,6 +556,38 @@ namespace Microsell_Lite.Productos
                 Cargar_Todos_Productos();
             }
 
+        }
+
+        private void btnPresentaciones_Click(object sender, EventArgs e)
+        {
+            Frm_Filtro fil = new Frm_Filtro();
+            Frm_Advertencia ver = new Frm_Advertencia();
+            Frm_ProductoPresentaciones frm = new Frm_ProductoPresentaciones();
+
+            if (lsv_prodcto.SelectedIndices.Count == 0)
+            {
+                fil.Show();
+                ver.Lbl_msm1.Text = "Selecciona el Producto para crear la Presentación";
+                ver.ShowDialog();
+                fil.Hide();
+            }
+            else
+            {
+                var lis = lsv_prodcto.SelectedItems[0];
+                string idprod = lis.SubItems[0].Text;
+                string nomProducto = lis.SubItems[1].Text;
+
+                frm.IdProducto = idprod;
+                frm.NombreProducto = nomProducto;
+                //frm.lblTitulo.Text = "Registrar presentación del Producto";
+                //frm.EsFlujoProducto = true;
+                //frm.AbrirEnRegistroDirecto = true;
+
+                fil.Show();
+                frm.ShowDialog();
+                fil.Hide();
+            }
+          
         }
     }
 }

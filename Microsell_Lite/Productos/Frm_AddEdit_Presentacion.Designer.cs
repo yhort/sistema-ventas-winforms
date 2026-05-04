@@ -487,10 +487,10 @@
             this.pnl_add.Controls.Add(this.label4);
             this.pnl_add.Controls.Add(this.btnGuardar);
             this.pnl_add.Controls.Add(this.btn_cancel);
-            this.pnl_add.Location = new System.Drawing.Point(9, 49);
+            this.pnl_add.Location = new System.Drawing.Point(9, 45);
             this.pnl_add.Name = "pnl_add";
             this.pnl_add.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.pnl_add.Size = new System.Drawing.Size(675, 510);
+            this.pnl_add.Size = new System.Drawing.Size(675, 514);
             this.pnl_add.TabIndex = 94;
             this.pnl_add.VisualStyle = Klik.Windows.Forms.v1.Common.ControlVisualStyles.Custom;
             // 

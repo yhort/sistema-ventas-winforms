@@ -391,7 +391,7 @@ namespace Microsell_Lite.Productos
                     double preventa = Convert.ToDouble( canti.txt_preVenta.Text);
 
 
-                    obj.RN_Actualizar_PrecioCompra_Producto(idprod, precompra, preventa, 0, 0);
+                    //obj.RN_Actualizar_PrecioCompra_Producto(idprod, precompra, preventa, 0, 0);
 
                     if(BD_Productos.seedito == true)
                     {
