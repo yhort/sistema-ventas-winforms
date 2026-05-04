@@ -619,7 +619,7 @@ namespace Microsell_Lite.Compras
                         utilidad = PreVenta - PreCompra; //para sacar la utilidad del producto
                         valorAlmacen = det.Cantidad * PreCompra; //valor de almacen
 
-                        pro.RN_Actualizar_PrecioCompra_Producto(det.Idproducto.Trim(), PreCompra, PreVenta, utilidad, valorAlmacen);
+                        //pro.RN_Actualizar_PrecioCompra_Producto(det.Idproducto.Trim(), PreCompra, PreVenta, utilidad, valorAlmacen);
 
 
                     }

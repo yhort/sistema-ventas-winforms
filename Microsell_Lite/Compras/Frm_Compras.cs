@@ -1,19 +1,19 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using Microsell_Lite.Productos;
+using Microsell_Lite.Utilitarios;
+using Prj_Capa_Datos;
+using Prj_Capa_Entidad;
+using Prj_Capa_Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using Prj_Capa_Datos;
-using Prj_Capa_Entidad;
-using System.IO;
-using Microsell_Lite.Utilitarios;
-using Microsell_Lite.Productos;
-using Prj_Capa_Negocio;
 
 namespace Microsell_Lite.Compras
 {
@@ -27,6 +27,7 @@ namespace Microsell_Lite.Compras
         private void Frm_Ventana_Ventas_Load(object sender, EventArgs e)
         {
             Configurar_listView();
+            Configurar_ListView_Busqueda();
             Llenar_Combo_Proveedores();
         }
 
@@ -43,12 +44,51 @@ namespace Microsell_Lite.Compras
             lis.Scrollable = true;
             lis.HideSelection = false;
             //Configurar las colummnas:
-            lis.Columns.Add("ID producto", 80, HorizontalAlignment.Left); //0
-            lis.Columns.Add("Descripcion Producto", 400, HorizontalAlignment.Left); //1
-            lis.Columns.Add("Cantidad", 80, HorizontalAlignment.Left); //2
-            lis.Columns.Add("Precio Unit", 90, HorizontalAlignment.Right); //3
-            lis.Columns.Add("Importe", 90, HorizontalAlignment.Right); //4
+            lis.Columns.Add("ID producto", 100, HorizontalAlignment.Left); //0
+            lis.Columns.Add("Producto", 300, HorizontalAlignment.Left); //1
+            lis.Columns.Add("Presentación", 90, HorizontalAlignment.Left);//2
+            lis.Columns.Add("Cant Pres", 100, HorizontalAlignment.Left);          //3
+            lis.Columns.Add("Equiv", 60, HorizontalAlignment.Left);              //4
+            lis.Columns.Add("Cant Base", 60, HorizontalAlignment.Left);          //5
+            lis.Columns.Add("P. Compra", 70, HorizontalAlignment.Left);          //6
+            lis.Columns.Add("P. Base", 60, HorizontalAlignment.Left);            //7
+            lis.Columns.Add("Importe", 70, HorizontalAlignment.Left);           //8
+            lis.Columns.Add("IdPres", 0, HorizontalAlignment.Left);              //9 oculto
 
+        }
+
+        private void Configurar_ListView_Busqueda()
+        {
+            lsv_ProductosBusqueda.Columns.Clear();
+            lsv_ProductosBusqueda.View = View.Details;
+            lsv_ProductosBusqueda.GridLines = true;
+            lsv_ProductosBusqueda.FullRowSelect = true;
+            lsv_ProductosBusqueda.Scrollable = true;
+            lsv_ProductosBusqueda.HideSelection = false;
+
+            lsv_ProductosBusqueda.Columns.Add("ID", 80);
+            lsv_ProductosBusqueda.Columns.Add("Producto", 150);
+            lsv_ProductosBusqueda.Columns.Add("Presentación", 80);
+            lsv_ProductosBusqueda.Columns.Add("Equiv.", 70);
+            lsv_ProductosBusqueda.Columns.Add("Precio Compra", 100);
+            lsv_ProductosBusqueda.Columns.Add("IdPres", 0); // oculto
+        }
+
+        private void Llenar_ListView_Compra(DataTable dt)
+        {
+            lsv_ProductosBusqueda.Items.Clear();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                ListViewItem item = new ListViewItem(dr["Id_Pro"].ToString());
+                item.SubItems.Add(dr["Descripcion_Larga"].ToString());
+                item.SubItems.Add(dr["NombrePresentacion"].ToString());
+                item.SubItems.Add(Convert.ToDecimal(dr["Equivalencia"]).ToString("0.####"));
+                item.SubItems.Add(Convert.ToDecimal(dr["PrecioCompra"]).ToString("0.00"));
+                item.SubItems.Add(dr["IdPresentacion"].ToString());
+
+                lsv_ProductosBusqueda.Items.Add(item);
+            }
         }
 
         private void Llenar_Combo_Proveedores()
@@ -105,93 +145,219 @@ namespace Microsell_Lite.Compras
         private void Calcular()
         {
             double xtotal = 0;
-            double xcant = 0;
-            double xprecio = 0;
-            double ximporte = 0;
-            double xigv = 0;
-            double xsubtotal = 0;
-
 
             for (int i = 0; i < lsv_Det.Items.Count; i++)
             {
-                xcant = Convert.ToDouble(lsv_Det.Items[i].SubItems[2].Text);
-                xprecio = Convert.ToDouble(lsv_Det.Items[i].SubItems[3].Text);
+                double cantidad = Convert.ToDouble(lsv_Det.Items[i].SubItems[3].Text);
+                double precio = Convert.ToDouble(lsv_Det.Items[i].SubItems[6].Text);
 
-                //calculo
-                ximporte = xprecio * xcant;
-                lsv_Det.Items[i].SubItems[4].Text = ximporte.ToString("###0.00");
+                //recalculamos el importe
+                double importe = cantidad * precio;
 
-                //calculo del total:
-                xtotal = xtotal + Convert.ToDouble(lsv_Det.Items[i].SubItems[4].Text);
+                //actualizamos la columna importe 
+                lsv_Det.Items[i].SubItems[8].Text =importe.ToString("0.00") ;
 
-
+                xtotal += importe;
             }
-            //calculo del igv:
-            xsubtotal = xtotal / 1.18;
-            xigv = xsubtotal * 0.18;
 
-            lbl_subtotal.Text = xsubtotal.ToString("###0.00");
-            lbl_igv.Text = xigv.ToString("###0.00");
-            lbl_TotalPagar.Text = xtotal.ToString("###0.00");
+            double xsubtotal = xtotal / 1.18;
+            double xigv = xtotal - xsubtotal;
+
+            lbl_subtotal.Text = xsubtotal.ToString("0.00");
+            lbl_igv.Text = xigv.ToString("0.00");
+            lbl_TotalPagar.Text = xtotal.ToString("0.00");
+
+
+            //double xtotal = 0;
+            //double xcant = 0;
+            //double xprecio = 0;
+            //double ximporte = 0;
+            //double xigv = 0;
+            //double xsubtotal = 0;
+
+
+            //for (int i = 0; i < lsv_Det.Items.Count; i++)
+            //{
+            //    xcant = Convert.ToDouble(lsv_Det.Items[i].SubItems[2].Text);
+            //    xprecio = Convert.ToDouble(lsv_Det.Items[i].SubItems[3].Text);
+
+            //    //calculo
+            //    ximporte = xprecio * xcant;
+            //    lsv_Det.Items[i].SubItems[4].Text = ximporte.ToString("###0.00");
+
+            //    //calculo del total:
+            //    xtotal = xtotal + Convert.ToDouble(lsv_Det.Items[i].SubItems[4].Text);
+
+
+            //}
+            ////calculo del igv:
+            //xsubtotal = xtotal / 1.18;
+            //xigv = xsubtotal * 0.18;
+
+            //lbl_subtotal.Text = xsubtotal.ToString("###0.00");
+            //lbl_igv.Text = xigv.ToString("###0.00");
+            //lbl_TotalPagar.Text = xtotal.ToString("###0.00");
 
 
         }
 
-        private void Agregar_Productos_alCarrito(string xidprod, string xnomprod, double xcant, double xprecio, double ximporte)
+        private void buscar_Productos_Compra(string valor)
+        {
+            RN_ProductoPresentacion obj = new RN_ProductoPresentacion();
+            DataTable data = obj.RN_Buscar_Producto_ConPresentaciones(valor);
+
+            if (data.Rows.Count > 0)
+            {
+                Llenar_ListView_Compra(data);
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron productos");
+            }
+
+            txtBusquedaProd.Text = "";
+            txtBusquedaProd.Focus();
+        }
+
+        private void lsv_ProductosBusqueda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SeleccionarProducto();
+            }
+        }
+
+        private void lsv_ProductosBusqueda_DoubleClick(object sender, EventArgs e)
+        {
+            SeleccionarProducto();
+        }
+        private void SeleccionarProducto()
+        {
+            if (lsv_ProductosBusqueda.SelectedItems.Count == 0) return;
+
+            // 1. Capturar datos de la fila seleccionada (Presentación específica)
+            var item = lsv_ProductosBusqueda.SelectedItems[0];
+
+            string idProd = item.SubItems[0].Text;
+            string nomProd = item.SubItems[1].Text;
+            string nomPres = item.SubItems[2].Text;
+            double equiv = Convert.ToDouble(item.SubItems[3].Text);
+            double preCompraPres = Convert.ToDouble(item.SubItems[4].Text);
+            int idPres = Convert.ToInt32(item.SubItems[5].Text);
+
+            // 2. Abrir un pequeño form para pedir SOLO la cantidad (opcional)
+            // O usar un valor por defecto (1) y luego dejar que editen en el lsv_Det
+            double cantComprar = 1;
+
+            // 3. Cálculos antes de insertar
+            double cantBase = cantComprar * equiv; // Cuántas unidades mínimas ingresan
+            double precioBase = preCompraPres / equiv; // Costo por unidad mínima
+            double importe = cantComprar * preCompraPres;
+
+            // 4. Enviar al Carrito
+            // Nota: He ajustado los parámetros para que coincidan con tu método Agregar_Productos_alCarrito
+            Agregar_Productos_alCarrito(
+                idProd,
+                nomProd,
+                idPres,
+                nomPres,
+                cantComprar,
+                equiv,
+                cantBase,
+                preCompraPres,
+                precioBase,
+                importe
+            );
+
+            // 5. Limpiar búsqueda para la siguiente vuelta
+            lsv_ProductosBusqueda.Items.Clear();
+            txtBusquedaProd.Text = "";
+            txtBusquedaProd.Focus();
+        }
+
+        private void Agregar_Productos_alCarrito(string idProd, string nomProd,int idPresentacion, string nombrePresentacion, double cantidadPresentacion, double equivalencia,double cantidadBase, double precioCompraPresentacion,double precioBase, double importe)
         {
             try
             {
-                if (lsv_Det.Items.Count == 0)
-                {
+                ListViewItem item = new ListViewItem(idProd.Trim());
+                item.SubItems.Add(nomProd.Trim());                         // 1
+                item.SubItems.Add(nombrePresentacion);                    // 2
+                item.SubItems.Add(cantidadPresentacion.ToString("0.####"));// 3
+                item.SubItems.Add(equivalencia.ToString("0.####"));       // 4
+                item.SubItems.Add(cantidadBase.ToString("0.####"));       // 5
+                item.SubItems.Add(precioCompraPresentacion.ToString("0.00")); // 6
+                item.SubItems.Add(precioBase.ToString("0.0000"));         // 7
+                item.SubItems.Add(importe.ToString("0.00"));              // 8
+                item.SubItems.Add(idPresentacion.ToString());             // 9 oculto
 
-                    ListViewItem item = new ListViewItem();
-                    item = lsv_Det.Items.Add(xidprod);
-                    item.SubItems.Add(xnomprod.Trim());
-                    item.SubItems.Add(xcant.ToString());
-                    item.SubItems.Add(xprecio.ToString("###0.00"));
-                    item.SubItems.Add(ximporte.ToString("###0.00"));
+                lsv_Det.Items.Add(item);
 
-                    Calcular();
-                    lsv_Det.Focus();
-                    lsv_Det.Items[0].Selected = true;
-                    pnl_sinProd.Visible = false;
-
-                }
-                else
-                {
-                    //validar que el producto no se ingrese dos veces
-                    for (int i = 0; i < lsv_Det.Items.Count; i++)
-                    {
-                        if (lsv_Det.Items[i].Text.Trim() == xidprod.Trim())//xidprodcto se cambio - cla22.21:21
-                        {
-                            MessageBox.Show("El Producto ya fue Agregado al Carrito de Compras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            return;
-                        }
-                    }
-
-                    //lo añadimos 
-                    ListViewItem item = new ListViewItem();
-                    item = lsv_Det.Items.Add(xidprod);
-                    item.SubItems.Add(xnomprod.Trim());
-                    item.SubItems.Add(xcant.ToString());
-                    item.SubItems.Add(xprecio.ToString("###0.00"));
-                    item.SubItems.Add(ximporte.ToString("###0.00"));
-
-                    Calcular();
-                    lsv_Det.Focus();
-                    lsv_Det.Items[0].Selected = true;
-
-                }
-
-
-
+                Calcular();
+                lsv_Det.Focus();
+                lsv_Det.Items[lsv_Det.Items.Count - 1].Selected = true;
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
+
+        //private void Agregar_Productos_alCarrito(string xidprod, string xnomprod, double xcant, double xprecio, double ximporte)
+        //{
+        //    try
+        //    {
+        //        if (lsv_Det.Items.Count == 0)
+        //        {
+
+        //            ListViewItem item = new ListViewItem();
+        //            item = lsv_Det.Items.Add(xidprod);
+        //            item.SubItems.Add(xnomprod.Trim());
+        //            item.SubItems.Add(xcant.ToString());
+        //            item.SubItems.Add(xprecio.ToString("###0.00"));
+        //            item.SubItems.Add(ximporte.ToString("###0.00"));
+
+        //            Calcular();
+        //            lsv_Det.Focus();
+        //            lsv_Det.Items[0].Selected = true;
+        //            pnl_sinProd.Visible = false;
+
+        //        }
+        //        else
+        //        {
+        //            //validar que el producto no se ingrese dos veces
+        //            for (int i = 0; i < lsv_Det.Items.Count; i++)
+        //            {
+        //                if (lsv_Det.Items[i].Text.Trim() == xidprod.Trim())//xidprodcto se cambio - cla22.21:21
+        //                {
+        //                    MessageBox.Show("El Producto ya fue Agregado al Carrito de Compras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        //                    return;
+        //                }
+        //            }
+
+        //            //lo añadimos 
+        //            ListViewItem item = new ListViewItem();
+        //            item = lsv_Det.Items.Add(xidprod);
+        //            item.SubItems.Add(xnomprod.Trim());
+        //            item.SubItems.Add(xcant.ToString());
+        //            item.SubItems.Add(xprecio.ToString("###0.00"));
+        //            item.SubItems.Add(ximporte.ToString("###0.00"));
+
+        //            Calcular();
+        //            lsv_Det.Focus();
+        //            lsv_Det.Items[0].Selected = true;
+
+        //        }
+
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+
+        //}
 
         private void btn_Nuevo_buscarProd_Click(object sender, EventArgs e)
         {
@@ -218,7 +384,7 @@ namespace Microsell_Lite.Compras
                 double _precio = Convert.ToDouble(pro.lbl_preCom.Text);
                 double _importe = Convert.ToDouble(pro.lbl_preCom.Text);
 
-                Agregar_Productos_alCarrito(_idprod.Trim(), _nomprod, _cant, _precio, _importe);
+                //Agregar_Productos_alCarrito(_idprod.Trim(), _nomprod, _cant, _precio, _importe);
                 txt_IdComp.Text = RN_TipoDoc.RN_NroID(9);
 
             }
@@ -273,7 +439,6 @@ namespace Microsell_Lite.Compras
 
         }
 
-
         private void bt_add_Click(object sender, EventArgs e)//-----
         {
             Frm_Filtro fil = new Frm_Filtro();
@@ -288,7 +453,6 @@ namespace Microsell_Lite.Compras
 
             //--metodo original system
 
-
             if (pro.Tag.ToString() == "A")
             {
                 //Llamamos al metodo agrgar producto al carrito
@@ -299,13 +463,9 @@ namespace Microsell_Lite.Compras
                 double _precio = Convert.ToDouble(pro.lbl_preCom.Text);
                 double _importe = Convert.ToDouble(pro.lbl_preCom.Text);
 
-                Agregar_Productos_alCarrito(_idprod.Trim(), _nomprod, _cant, _precio, _importe);
+                //Agregar_Productos_alCarrito(_idprod.Trim(), _nomprod, _cant, _precio, _importe);
             }
             //fin original-
-
-
-
-
             //if (pro.Tag.ToString() == "A")
             //{
             //    //string _idprod;
@@ -367,7 +527,7 @@ namespace Microsell_Lite.Compras
                 double precio_Ingresado = 0;
                 double Precio_Editado = 0;
 
-                precio_Ingresado = Convert.ToDouble(lsv_Det.SelectedItems[0].SubItems[3].Text);
+                precio_Ingresado = Convert.ToDouble(lsv_Det.SelectedItems[0].SubItems[6].Text);
 
                 fil.Show();
                 solo.txt_precio.Text = precio_Ingresado.ToString();
@@ -377,10 +537,9 @@ namespace Microsell_Lite.Compras
                 if (solo.Tag.ToString() == "A")
                 {
                     Precio_Editado = Convert.ToDouble(solo.txt_precio.Text);
-                    lsv_Det.SelectedItems[0].SubItems[3].Text = Precio_Editado.ToString("###0.00");
+                    lsv_Det.SelectedItems[0].SubItems[6].Text = Precio_Editado.ToString("###0.00");
                     Calcular();
                 }
-
             }
         }
 
@@ -398,8 +557,7 @@ namespace Microsell_Lite.Compras
                 double cant_Ingresado = 0;
                 double cant_Editado = 0;
 
-                cant_Ingresado = Convert.ToDouble(lsv_Det.SelectedItems[0].SubItems[2].Text);
-
+                cant_Ingresado = Convert.ToDouble(lsv_Det.SelectedItems[0].SubItems[3].Text);
                 fil.Show();
                 solo.txt_cant.Text = cant_Ingresado.ToString();
                 solo.ShowDialog();
@@ -408,13 +566,11 @@ namespace Microsell_Lite.Compras
                 if (solo.Tag.ToString() == "A")
                 {
                     cant_Editado = Convert.ToDouble(solo.txt_cant.Text);
-                    lsv_Det.SelectedItems[0].SubItems[2].Text = cant_Editado.ToString("###0.00"); 
+                    lsv_Det.SelectedItems[0].SubItems[3].Text = cant_Editado.ToString("###0.00");
                     Calcular();
                 }
-
             }
         }
-
         private void bt_Delete_Click(object sender, EventArgs e)
         {
             Frm_Filtro fil = new Frm_Filtro();
@@ -446,69 +602,67 @@ namespace Microsell_Lite.Compras
 
             }
         }
-
         private void Frm_Compras_KeyDown(object sender, KeyEventArgs e)
         {
             //Para juego de teclas en el formulario
             if (e.KeyCode == Keys.F1)
             {
-                if (pnl_sinProd.Visible == true)
-                {
-                    btn_Nuevo_buscarProd_Click(sender, e);
-                }
+                //if (pnl_sinProd.Visible == true)
+                //{
+                //    btn_Nuevo_buscarProd_Click(sender, e);
+                //}
             }
 
-            if (e.KeyCode == Keys.F2)
-            {
-                if (pnl_sinProd.Visible == false)
-                {
-                    bt_add_Click(sender, e);
-                }
-            }
+            //if (e.KeyCode == Keys.F2)
+            //{
+            //    if (pnl_sinProd.Visible == false)
+            //    {
+            //        bt_add_Click(sender, e);
+            //    }
+            //}
 
-            if (e.KeyCode == Keys.F3)
-            {
-                if (pnl_sinProd.Visible == false)
-                {
-                    bt_editPre_Click(sender, e);
-                }
-            }
+            //if (e.KeyCode == Keys.F3)
+            //{
+            //    if (pnl_sinProd.Visible == false)
+            //    {
+            //        bt_editPre_Click(sender, e);
+            //    }
+            //}
 
-            if (e.KeyCode == Keys.F4)
-            {
-                if (pnl_sinProd.Visible == false)
-                {
-                   bt_editCant_Click(sender, e);
-                }
-            }
+            //if (e.KeyCode == Keys.F4)
+            //{
+            //    if (pnl_sinProd.Visible == false)
+            //    {
+            //        bt_editCant_Click(sender, e);
+            //    }
+            //}
 
 
-            if (e.KeyCode == Keys.F5)
-            {
-                if (pnl_sinProd.Visible == false)
-                {
-                    bt_Delete_Click(sender, e);
-                }
-            }
+            //if (e.KeyCode == Keys.F5)
+            //{
+            //    if (pnl_sinProd.Visible == false)
+            //    {
+            //        bt_Delete_Click(sender, e);
+            //    }
+            //}
 
-            if (e.KeyCode == Keys.F6)
-            {
-                if (pnl_sinProd.Visible == false)
-                {
-                    btn_procesar_Click(sender, e);
-                }
-            }
+            //if (e.KeyCode == Keys.F6)
+            //{
+            //    if (pnl_sinProd.Visible == false)
+            //    {
+            //        btn_procesar_Click(sender, e);
+            //    }
+            //}
 
-            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.A))
-            {
-                if (pnl_sinProd.Visible == false)
-                {
-                    cbo_provee.Focus();
-                }
+            //if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.A))
+            //{
+            //    if (pnl_sinProd.Visible == false)
+            //    {
+            //        cbo_provee.Focus();
+            //    }
 
-            }
+            //}
         }
-
         private bool Validar_Compras()
         {
             //se puede seguir validando mas campos opcional:
@@ -541,20 +695,15 @@ namespace Microsell_Lite.Compras
             {
                 return 0;
             }
-
         }
         //Fin--
-
-
         private void Registrar_Compra()
         {
 
             EN_IngresoCompra com = new EN_IngresoCompra();
             EN_Det_IngresoCompra det = new EN_Det_IngresoCompra();
             RN_Ingreso_Compra obj = new RN_Ingreso_Compra();
-            
             RN_Productos pro = new RN_Productos();
-
             //Frm_Print_Compras imp = new 
 
             try
@@ -574,16 +723,6 @@ namespace Microsell_Lite.Compras
                 com.RecibiConforme = recibiConforme;
                 com.Datos_Adicional = txt_obser.Text;
                 com.Tipo_Doc_Compra = cbo_tipoDoc.Text;
-
-
-                /*tipo salida:
-                 
-                  cmd.Parameters.AddWithValue("@TipoRegistro", com.TipoRegistro);
-                cmd.Parameters.AddWithValue("@LugarSalida", com.LugarSalida);
-                cmd.Parameters.AddWithValue("@TipoProceso", com.TipoProceso);
-                cmd.Parameters.AddWithValue("@trn_codigo", com.TrnCodigo);
-                 
-                 */
                 com.TipoRegistro = "-";
                 com.LugarSalida = "-";
                 com.TipoProceso = "-";
@@ -600,35 +739,50 @@ namespace Microsell_Lite.Compras
                     {
                         var item = lsv_Det.Items[i];
 
+                        double cantidadBase = Convert.ToDouble(item.SubItems[5].Text);
+
+                        //Precio base con IGV desde el ListView
+                        double precioBaseConIgv = Convert.ToDouble(item.SubItems[7].Text);
+
+                        //Convertir a costo real SIN IGV segun tipo Documento
+                        string tipoDoc = cbo_tipoDoc.Text.Trim().ToUpper();
+                        double precioBaseSinIgv = CalcularCostoReal(precioBaseConIgv, tipoDoc);
+                        //double precioSinIGV = precioBase / 1.18;
+
+                        //double precioConIGV = Convert.ToDouble(item.SubItems[7].Text);
+                        //double precioSinIGV = CalcularCostoReal(precioConIGV, tipoDoc);
+
                         det.Idingreso = txt_IdComp.Text;
                         det.Idproducto = item.SubItems[0].Text;
-                        det.Cantidad = Convert.ToDouble(item.SubItems[2].Text);
-                        det.Precio = Convert.ToDouble(item.SubItems[3].Text);
-                        det.Importe = Convert.ToDouble(item.SubItems[4].Text);
+                        det.Cantidad = cantidadBase; //cantidad base
+                        det.Precio = precioBaseSinIgv;
+                        det.Importe = cantidadBase * precioBaseSinIgv;
+                        det.IdPresentacion = Convert.ToInt32(item.SubItems[9].Text);
+                        det.CantidaPresentacion = Convert.ToDecimal(item.SubItems[3].Text); //cantidad presentacion,lo que usario ingrese
+                        det.Equivalencia = Convert.ToDecimal(item.SubItems[4].Text);
+                        det.NombrePresentacion = item.SubItems[2].Text;
 
                         obj.RN_Ingresar_Detalle_RegistroCompra(det);
-                        Registrar_MovimientoKardex(det.Idproducto.Trim(), det.Cantidad, det.Precio);
 
+                        //Al Kardex se manda el precio SIN IGV
+                        Registrar_MovimientoKardex(det.Idproducto.Trim(), cantidadBase, precioBaseSinIgv);
+
+                        //precios
+                        double xfrank = Buscar_Frank_Producto(det.Idproducto.Trim());
+
+                        double PreVenta = xfrank * precioBaseSinIgv;
                         //ahora actualizamos el precio del producto:
-                        double utilidad = 0;
-                        double valorAlmacen = 0;
-                        double PreCompra = det.Precio;
-                        double PreVenta = 0;
-                        double xfrank = 0;
+                        double utilidad = PreVenta - precioBaseSinIgv;
+                        double valorAlmacen = cantidadBase * precioBaseSinIgv;
+ 
+                       //PreVenta = xfrank * PreCompra; //caluclamos el valor de venta
+                       // utilidad = PreVenta - PreCompra; //para sacar la utilidad del producto
+                       // valorAlmacen = det.Cantidad * PreCompra; //valor de almacen
 
-                        xfrank = Buscar_Frank_Producto(det.Idproducto.Trim());
-
-                        PreVenta = xfrank * PreCompra; //caluclamos el valor de venta
-                        utilidad = PreVenta - PreCompra; //para sacar la utilidad del producto
-                        valorAlmacen = det.Cantidad * PreCompra; //valor de almacen
-
-                        pro.RN_Actualizar_PrecioCompra_Producto(det.Idproducto.Trim(), PreCompra, PreVenta, utilidad, valorAlmacen);
-
-
+                        //pro.RN_Actualizar_PrecioCompra_Producto(det.Idproducto.Trim(), precioBaseSinIgv, PreVenta, utilidad, valorAlmacen);
                     }
 
                     //terminamos:
-
                     Frm_Filtro fil = new Frm_Filtro();
                     Frm_Msm_Bueno ok = new Frm_Msm_Bueno();
 
@@ -636,8 +790,6 @@ namespace Microsell_Lite.Compras
                     ok.Lbl_msm1.Text = "Los Datos de la Compra se han Registrado Exitosamente";
                     ok.ShowDialog();
                     fil.Hide();
-
-
 
                     //limpiar cajas texto
                     lsv_Det.Items.Clear();
@@ -648,15 +800,12 @@ namespace Microsell_Lite.Compras
 
                     this.Tag = "A";
                     this.Close();
-
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private void Registrar_MovimientoKardex(string idprod, double xcant, double xpreCompra)
@@ -672,7 +821,6 @@ namespace Microsell_Lite.Compras
             double stockProd = 0;
             double precioCompraProd = 0;
 
-
             try
             {
                 if (obj.RN_Verificar_Producto_siTieneKardex(idprod) == true)
@@ -685,8 +833,23 @@ namespace Microsell_Lite.Compras
                         xitem = dato.Rows.Count;
                         //leemos los datos del producto 
                         datoprod = objpro.RN_Buscar_Productos(idprod.Trim());
-                        stockProd = Convert.ToDouble(datoprod.Rows[0]["Stock_Actual"]);
+                        
                         precioCompraProd = Convert.ToDouble(datoprod.Rows[0]["Pre_CompraS"]);
+
+                        double stockActual = Convert.ToDouble(datoprod.Rows[0]["Stock_Actual"]);
+                        double costoActual = Convert.ToDouble(datoprod.Rows[0]["Pre_CompraS"]); // este debe ser SIN IGV
+                        double cantidadCompra = xcant;
+                        double costoCompra = xpreCompra; // viene sin IGV
+
+                        double nuevoStock = stockActual + cantidadCompra;
+
+                        // cálculo promedio ponderado
+                        double nuevoCostoPromedio = 0;
+
+                        if (nuevoStock > 0)
+                        {
+                            nuevoCostoPromedio = ((stockActual * costoActual) + (cantidadCompra * costoCompra)) / nuevoStock;
+                        }
 
                         //registramos el Detalle del Kardex:
 
@@ -695,35 +858,119 @@ namespace Microsell_Lite.Compras
                         kar.Doc_soporte = txt_NroFisico.Text;
                         kar.Det_Operacion = "Compra de Mercaderia";
                         kar.TipoOperacion = "Compra de Mercaderia";
-                        //salidas:
-                        kar.Cantidad_in = xcant;
-                        kar.Precio_In = xpreCompra;
-                        kar.Total_In = xcant * xpreCompra;
+                        
+                        //entrada:
+                        kar.Cantidad_in = cantidadCompra;
+                        kar.Precio_In = costoCompra;
+                        kar.Total_In = cantidadCompra * costoCompra;
+                       
                         //salida:
                         kar.Cantidad_Out = 0;
                         kar.Precio_out = 0;
                         kar.Total_out = 0;
-                        //saldos:
-                        kar.Cantidad_saldo = stockProd + xcant;
-                        kar.Promedio = xpreCompra;
-                        kar.Total_saldo = xpreCompra * kar.Cantidad_saldo;
+
+                        //saldos
+                        kar.Cantidad_saldo = nuevoStock;
+                        kar.Promedio = nuevoCostoPromedio;
+                        kar.Total_saldo = nuevoStock * nuevoCostoPromedio;
+                        
                         kar.CantiDiferencial = "0";
                         kar.ImporteDiferencial = 0;
                         kar.Observacion = txt_obser.Text;
 
                         obj.RN_Registrar_Detalle_Kardex(kar);
 
-
-                        //ahora actualizamos nuestro stock de la tabla de productos:
-                        objpro.RN_Sumar_Stock_Producto(idprod.Trim(), xcant);
-
+                        //actualizar producto: costo promedio sin igv
+                        objpro.RN_Actualizar_Stock_y_Precio(idprod.Trim(), nuevoStock, nuevoCostoPromedio);
+                        Preguntat_ActualizarPrecioVenta(idprod.Trim(), costoActual, nuevoCostoPromedio);
                     }
-
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private double CalcularCostoReal(double precio, string tipoDoc)
+        {
+            tipoDoc = tipoDoc.Trim().ToUpper();
+
+            if (tipoDoc == "Factura")
+                return precio / 1.18;
+
+            return precio;
+        }
+
+        private void Actualizar_PrecioVenta_Sugerido(string idprod, double costoPromedio)
+        {
+            RN_Productos pro = new RN_Productos();
+
+            double xfrank = Buscar_Frank_Producto(idprod);
+            double preVentaSugerido = 0;
+            double utilidad = 0;
+            double valorAlmacen = 0;
+
+            if (xfrank <= 0)
+                return;
+
+            preVentaSugerido = costoPromedio * xfrank;
+            utilidad = preVentaSugerido - costoPromedio;
+
+            // valor almacén mejor se calcula desde stock actual en otra consulta,
+            // o puedes dejarlo en 0 si ya lo manejas con Kardex.
+            valorAlmacen = 0;
+
+            pro.RN_Actualizar_PrecioVenta_Utilidad_Producto(
+                idprod.Trim(),
+                preVentaSugerido,
+                utilidad,
+                valorAlmacen
+            );
+        }
+
+        private void Preguntat_ActualizarPrecioVenta(string idprod, double costoAnterior, double nuevoCostoPromedio)
+        {
+            RN_Productos obj = new RN_Productos();
+            DataTable dt = obj.RN_Buscar_Productos(idprod);
+
+            if(dt.Rows.Count == 0)
+            {
+                return;
+            }
+
+            double precioVentaActual = Convert.ToDouble(dt.Rows[0]["Pre_vntaxMenor"]);
+            double frank = Convert.ToDouble(dt.Rows[0]["Frank"]);
+
+            if(frank <= 0)
+            {
+                return;
+            }
+
+            double precioVentaSugerido = nuevoCostoPromedio * frank;
+            double utilidad = precioVentaSugerido - nuevoCostoPromedio;
+
+            //si no cambio, no preguntar
+            if(Math.Abs(nuevoCostoPromedio - costoAnterior) < 0.01)
+            {
+                DialogResult rpta = MessageBox.Show(
+                "El Costo promedio del producto ha cambiado.\n\" +" +
+                "Costo anterior: S/ " + costoAnterior.ToString("0.00") + "\n" +
+                "Nuevo costo promedio: S/ " + nuevoCostoPromedio.ToString("0.00") + "\n" +
+                "Precio venta actual: S/ " + precioVentaActual.ToString("0.00") + "\n" +
+                "Precio Sugerido: S/ " + precioVentaSugerido.ToString("0.00") + "\n\n" +
+                "¿Deseas actualizar el precio de venta?",
+                "Actualizar precio sugerido",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+                );
+
+                if(rpta == DialogResult.Yes)
+                {
+                    //este sp no actualiza precompras ni stock
+                    obj.RN_Actualizar_PrecioVenta_Utilidad_Producto(idprod.Trim(), precioVentaSugerido, utilidad, 0);
+
+                }
             }
 
         }
@@ -734,13 +981,9 @@ namespace Microsell_Lite.Compras
             {
                 Registrar_Compra();
             }
-
-
-
         }
 
         bool recibiConforme = false;
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked == true)
@@ -752,5 +995,20 @@ namespace Microsell_Lite.Compras
                 recibiConforme = false;
             }
         }
+
+        private void txtBusquedaProd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buscar_Productos_Compra(txtBusquedaProd.Text.Trim());
+            }
+            if (e.KeyCode == Keys.Down && lsv_ProductosBusqueda.Items.Count > 0)
+            {
+                lsv_ProductosBusqueda.Focus();
+                lsv_ProductosBusqueda.Items[0].Selected = true;
+            }
+        }
+
+       
     }
 }
