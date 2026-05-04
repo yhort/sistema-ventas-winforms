@@ -51,7 +51,7 @@
             this.lbl_Nomalgo.AutoSize = true;
             this.lbl_Nomalgo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Nomalgo.ForeColor = System.Drawing.Color.DimGray;
-            this.lbl_Nomalgo.Location = new System.Drawing.Point(192, 62);
+            this.lbl_Nomalgo.Location = new System.Drawing.Point(179, 28);
             this.lbl_Nomalgo.Name = "lbl_Nomalgo";
             this.lbl_Nomalgo.Size = new System.Drawing.Size(170, 29);
             this.lbl_Nomalgo.TabIndex = 0;
@@ -62,9 +62,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(21, 44);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(136, 146);
+            this.pictureBox1.Size = new System.Drawing.Size(127, 145);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -85,7 +85,7 @@
             this.btn_si.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btn_si.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btn_si.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_si.Location = new System.Drawing.Point(59, 195);
+            this.btn_si.Location = new System.Drawing.Point(217, 199);
             this.btn_si.Name = "btn_si";
             this.btn_si.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ModernBlack;
             this.btn_si.Size = new System.Drawing.Size(123, 34);
@@ -117,7 +117,7 @@
             this.btn_no.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btn_no.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btn_no.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_no.Location = new System.Drawing.Point(231, 195);
+            this.btn_no.Location = new System.Drawing.Point(67, 199);
             this.btn_no.Name = "btn_no";
             this.btn_no.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ClassicSilver;
             this.btn_no.Size = new System.Drawing.Size(118, 34);
@@ -138,11 +138,11 @@
             // Lbl_msm1
             // 
             this.Lbl_msm1.BackColor = System.Drawing.Color.White;
-            this.Lbl_msm1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_msm1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_msm1.ForeColor = System.Drawing.Color.DimGray;
-            this.Lbl_msm1.Location = new System.Drawing.Point(154, 109);
+            this.Lbl_msm1.Location = new System.Drawing.Point(154, 69);
             this.Lbl_msm1.Name = "Lbl_msm1";
-            this.Lbl_msm1.Size = new System.Drawing.Size(243, 52);
+            this.Lbl_msm1.Size = new System.Drawing.Size(232, 120);
             this.Lbl_msm1.TabIndex = 24;
             this.Lbl_msm1.Text = "¿Quieres quitarlo del sistema?";
             this.Lbl_msm1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -177,10 +177,10 @@
         #endregion
 
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private System.Windows.Forms.Label lbl_Nomalgo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Klik.Windows.Forms.v1.EntryLib.ELButton btn_si;
         private Klik.Windows.Forms.v1.EntryLib.ELButton btn_no;
         internal System.Windows.Forms.Label Lbl_msm1;
+        internal System.Windows.Forms.Label lbl_Nomalgo;
     }
 }
