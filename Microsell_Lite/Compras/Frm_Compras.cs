@@ -1,6 +1,7 @@
 ﻿using DocumentFormat.OpenXml.Office2010.ExcelAc;
 using Microsell_Lite.Productos;
 using Microsell_Lite.Utilitarios;
+using Microsell_Lite.Ventas;
 using Prj_Capa_Datos;
 using Prj_Capa_Entidad;
 using Prj_Capa_Negocio;
@@ -29,6 +30,7 @@ namespace Microsell_Lite.Compras
             Configurar_listView();
             Configurar_ListView_Busqueda();
             Llenar_Combo_Proveedores();
+            txt_IdComp.Text = RN_TipoDoc.RN_NroID(9);
         }
 
         private void Configurar_listView()
@@ -241,13 +243,48 @@ namespace Microsell_Lite.Compras
             string idProd = item.SubItems[0].Text;
             string nomProd = item.SubItems[1].Text;
             string nomPres = item.SubItems[2].Text;
-            double equiv = Convert.ToDouble(item.SubItems[3].Text);
-            double preCompraPres = Convert.ToDouble(item.SubItems[4].Text);
-            int idPres = Convert.ToInt32(item.SubItems[5].Text);
 
-            // 2. Abrir un pequeño form para pedir SOLO la cantidad (opcional)
-            // O usar un valor por defecto (1) y luego dejar que editen en el lsv_Det
-            double cantComprar = 1;
+            if (!double.TryParse(item.SubItems[3].Text, out double equiv) ||equiv <= 0)
+            {
+                MessageBox.Show("La equivalencia de la presentacion no es válida.","Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
+                return;
+
+            }
+
+            if (!double.TryParse(item.SubItems[4].Text, out double preCompraPres) || preCompraPres <= 0)
+            {
+                MessageBox.Show("El precio de compra de la presentacion no puede ser cero", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(item.SubItems[5].Text, out int idPres))
+            {
+                MessageBox.Show("El ID de la presentación no es valido", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Frm_Add_Cantidad cant = new Frm_Add_Cantidad();
+            Frm_Filtro fil = new Frm_Filtro();
+
+            fil.Show();
+
+            cant.lbl_Prod.Text = nomProd + " - " + nomPres;
+            cant.txt_cant.Text = "1";
+            cant.txt_cant.SelectAll();
+            cant.txt_cant.Focus();
+
+            cant.ShowDialog();
+
+            fil.Hide();
+
+            if (cant.Tag?.ToString() != "A")
+                return;
+
+            if(!double.TryParse(cant.txt_cant.Text, out double cantComprar) || cantComprar <= 0)
+            {
+                MessageBox.Show("Ingrese una cantidad válida", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             // 3. Cálculos antes de insertar
             double cantBase = cantComprar * equiv; // Cuántas unidades mínimas ingresan
@@ -255,7 +292,7 @@ namespace Microsell_Lite.Compras
             double importe = cantComprar * preCompraPres;
 
             // 4. Enviar al Carrito
-            // Nota: He ajustado los parámetros para que coincidan con tu método Agregar_Productos_alCarrito
+            // Nota: los parámetros para que coincidan con el método Agregar_Productos_alCarrito
             Agregar_Productos_alCarrito(
                 idProd,
                 nomProd,
@@ -705,7 +742,7 @@ namespace Microsell_Lite.Compras
             RN_Ingreso_Compra obj = new RN_Ingreso_Compra();
             RN_Productos pro = new RN_Productos();
             //Frm_Print_Compras imp = new 
-
+           
             try
             {
 
@@ -727,6 +764,7 @@ namespace Microsell_Lite.Compras
                 com.LugarSalida = "-";
                 com.TipoProceso = "-";
                 com.TrnCodigo = "-";
+                com.Igv =Convert.ToDecimal( 0.00);
 
                 obj.RN_Ingresar_RegistroCompra(com);
 

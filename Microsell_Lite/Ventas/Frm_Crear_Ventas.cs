@@ -57,19 +57,7 @@ namespace Microsell_Lite.Ventas
             //_guíasSeleccionadas = guíasSeleccionadas;
         }
 
-        // Método para cargar las guías en el DataGridView
-        //private void CargarGuías()
-        //{
-        //    foreach (var guia in _guíasSeleccionadas)
-        //    {
-        //        var item = new ListViewItem(guia.Idgr_Transp);
-        //        //item.SubItems.Add(guia.IdCliente);
-        //        //item.SubItems.Add(guia.Subtotal.ToString());
-        //        item.SubItems.Add(guia.Fecha.ToString("dd/MM/yyyy"));
-        //        lsv_Det.Items.Add(item);
-        //    }
-        //}
-
+      
         private async void Frm_Ventana_Ventas_Load(object sender, EventArgs e)
         {
             //this.Location = Screen.PrimaryScreen.WorkingArea.Location;
@@ -152,13 +140,13 @@ namespace Microsell_Lite.Ventas
             lis.Columns.Add("Tipo", 0, HorizontalAlignment.Left);  //13
             lis.Columns.Add("CodTipo_Afecto", 0, HorizontalAlignment.Left);  //14
             lis.Columns.Add("Promo", 80, HorizontalAlignment.Center); //informativo cuando se aplica una promo
-            //lis.Columns.Add("Precio Original", 0, HorizontalAlignment.Center); //informativo cuando se aplica una promo
-
-            //lis.Columns.Add("Control stock", 0, HorizontalAlignment.Left);  //15
-
-            //lis.Columns.Add("cantidad enMetros", 80, HorizontalAlignment.Left);  //14
-            //lis.Columns.Add("Precio Metro", 80, HorizontalAlignment.Left);  //15
-            //lis.Columns.Add("Importe enMetros", 80, HorizontalAlignment.Left); // 16
+            
+            lis.Columns.Add("Id Presentacion", 0, HorizontalAlignment.Left);  //16
+            lis.Columns.Add("NombrePresentacion", 0, HorizontalAlignment.Left);  //17
+            lis.Columns.Add("Equivalencia", 0, HorizontalAlignment.Center);//18
+            lis.Columns.Add("CantidadBase", 0, HorizontalAlignment.Left);  //19
+            lis.Columns.Add("PrecioBase", 0, HorizontalAlignment.Left);  //20
+            lis.Columns.Add("CostoPromedioBase", 0, HorizontalAlignment.Center);//21
         }
 
         private void Configura_ListView_Pdet()
@@ -175,142 +163,110 @@ namespace Microsell_Lite.Ventas
 
             lis.Columns.Add("ID producto", 0, HorizontalAlignment.Left); //0
             lis.Columns.Add("Descripcion producto", 200, HorizontalAlignment.Left);  //1
-            lis.Columns.Add("Stock", 50, HorizontalAlignment.Center);  //2
-            lis.Columns.Add("precio Vnta", 60, HorizontalAlignment.Center);  //3
-            lis.Columns.Add("precio compra", 0, HorizontalAlignment.Right);  //4 ver opcion para anñador pr_compra
-            lis.Columns.Add("estado prod", 0, HorizontalAlignment.Left);
-            lis.Columns.Add("Und", 40, HorizontalAlignment.Left);
+            lis.Columns.Add("Stock base", 50, HorizontalAlignment.Center);  //2
+            lis.Columns.Add("Presentacion", 60, HorizontalAlignment.Center);  //3
+            lis.Columns.Add("Equivalencia", 30, HorizontalAlignment.Right);  //4 ver opcion para anñador pr_compra
+            lis.Columns.Add("Precio Minorista", 40, HorizontalAlignment.Left);
+            lis.Columns.Add("Precio Mayorista", 40, HorizontalAlignment.Left);
+            lis.Columns.Add("Can Min Mayorista", 40, HorizontalAlignment.Left);
+            lis.Columns.Add("IdPresentacion", 0, HorizontalAlignment.Left);
+            lis.Columns.Add("Tipo Afectacion", 0, HorizontalAlignment.Left);
+            lis.Columns.Add("Cod Afectacion", 0, HorizontalAlignment.Left);
+            lis.Columns.Add("ControlaStock", 0, HorizontalAlignment.Left);
+            lis.Columns.Add("Costo Promedio Base", 0, HorizontalAlignment.Left);
+            lis.Columns.Add("Abrev", 0, HorizontalAlignment.Left);                //13
         }
-
-        //private void Agregar_Productos_alCarrito(string xidprod, string xnomprod, double xcant,  double xprecio, double ximporte,  string xund, string xtipoProd, double xutili_unit, String xafecto, string xtipo, string cod_afecto)
+        //private void Agregar_Productos_alCarrito(string xidprod, string xnomprod, double xcant, double xprecio, double ximporte,string xund, string xtipoProd, double xutili_unit, string xafecto, string xtipo, string cod_afecto, double precioOriginal)
         //{
-        //    try
-        //    {
+        //    xidprod = xidprod.Trim().ToUpper();
 
-        //        if (lsv_Det.Items.Count == 0)
-        //        {
-        //            ListViewItem item = new ListViewItem();
+        //    ListViewItem newItem = lsv_Det.Items.Add(xidprod); // ✅ Guarda el ID en la columna 0         
+        //    newItem.SubItems.Add(xnomprod.Trim());
+        //    newItem.SubItems.Add(xcant.ToString());
+        //    newItem.SubItems.Add(xprecio.ToString("###0.00"));
+        //    newItem.SubItems.Add(ximporte.ToString("###0.00"));
+        //    newItem.SubItems.Add(xtipoProd);
+        //    newItem.SubItems.Add(xund);
+        //    newItem.SubItems.Add(xutili_unit.ToString("###0.00"));
+        //    newItem.SubItems.Add(xutili_unit.ToString("###0.00"));
+        //    newItem.SubItems.Add(xafecto);
+        //    newItem.SubItems.Add("0.00");
+        //    newItem.SubItems.Add("0.00");
+        //    newItem.SubItems.Add("0.00");
+        //    newItem.SubItems.Add(xtipo);
+        //    newItem.SubItems.Add(cod_afecto);
+        //    newItem.SubItems.Add(""); // 15 Promo
+        //    //newItem.SubItems.Add(precioOriginal.ToString("###0.00")); // precio original
 
-        //            item = lsv_Det.Items.Add(xidprod);
-        //            item.SubItems.Add(xnomprod.Trim());
+        //    newItem.Tag = precioOriginal; // 👈 Aquí guardas el precio original ✅ Guardamos el precio original de forma segura
+        //    //Calcular();
+        //    lsv_Det.Items[0].Selected = true;
+        //    RecalcularTodo(); //metodo original para aplicar promociones, contemplar que cuando se pase un producto en kg, mt, 
+        //    //no entre a este metodo y solo para las und enteras.
+        //    Calcular();
 
-        //            item.SubItems.Add(xcant.ToString());
-        //            //item.SubItems.Add(xcant.ToString());
-
-        //            item.SubItems.Add(xprecio.ToString("###0.00"));//00
-        //            item.SubItems.Add(ximporte.ToString("###0.00"));//00
-
-        //            item.SubItems.Add(xtipoProd.ToString());
-        //            item.SubItems.Add(xund.ToString());
-
-        //            item.SubItems.Add(xutili_unit.ToString("###0.00"));
-        //            item.SubItems.Add(xutili_unit.ToString("###0.00"));//importe de utilidad uni * cant = importUtilida
-        //            //F.E
-        //            item.SubItems.Add(xafecto);
-        //            item.SubItems.Add("0.00");
-        //            item.SubItems.Add("0.00");
-        //            item.SubItems.Add("0.00");
-        //            item.SubItems.Add(xtipo);
-
-        //            item.SubItems.Add(cod_afecto);
-
-        //            //item.SubItems.Add(xcantMetro.ToString());
-        //            //item.SubItems.Add(ximporteMetros.ToString("###0.00"));//00
-        //            Calcular();
-        //            //lsv_Det.Focus();
-        //            lsv_Det.Items[0].Selected = true;
-        //            pnl_sinProd.Visible = false;
-
-        //            // ✅ Agregado → verificar promociones después de calcular
-        //            VerificarPromocionesEnCarrito();
-        //        }
-        //        else
-        //        {
-        //            //validar de que el producvto no se ingrese dos veces
-        //            for (int i = 0; i < lsv_Det.Items.Count; i++)
-        //            {
-        //                if (lsv_Det.Items[i].Text.Trim() == xidprod.Trim())
-        //                {
-        //                    MessageBox.Show("El Producto ya fue Agregado al Carrito de Compras", "ADveretencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        //                    return;
-        //                }
-        //            }
-
-        //            //lo añadimos:
-        //            ListViewItem item = new ListViewItem();
-        //            item = lsv_Det.Items.Add(xidprod);
-        //            item.SubItems.Add(xnomprod.Trim());
-        //            item.SubItems.Add(xcant.ToString());
-
-        //            //item.SubItems.Add(xcantMetro.ToString());
-        //            item.SubItems.Add(xprecio.ToString("###0.00"));//
-        //            item.SubItems.Add(ximporte.ToString("###0.00"));
-        //            item.SubItems.Add(xtipoProd.ToString());
-        //            item.SubItems.Add(xund.ToString());
-        //            item.SubItems.Add(xutili_unit.ToString("###0.00"));
-        //            item.SubItems.Add(xutili_unit.ToString("###0.00"));
-        //            item.SubItems.Add(xafecto);
-        //            item.SubItems.Add("0.00");
-        //            item.SubItems.Add("0.00");
-        //            item.SubItems.Add("0.00");
-        //            item.SubItems.Add(xtipo);
-        //            item.SubItems.Add(cod_afecto);
-
-        //            Calcular();
-        //            //lsv_Det.Focus();
-        //            lsv_Det.Items[0].Selected = true;
-        //            // ✅ Agregado → verificar promociones después de calcular
-        //            VerificarPromocionesEnCarrito();
-
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
         //}
 
-
-        private void Agregar_Productos_alCarrito(string xidprod, string xnomprod, double xcant, double xprecio, double ximporte,string xund, string xtipoProd, double xutili_unit, string xafecto, string xtipo, string cod_afecto, double precioOriginal)
+        private void Agregar_Productos_alCarrito(
+        string xidprod,
+        string xnomprod,
+        double xcant,
+        double xprecio,
+        double ximporte,
+        string xund,
+        string xtipoProd,
+        double xutili_unit,
+        string xafecto,
+        string xtipo,
+        string cod_afecto,
+        double precioOriginal,
+        int idPresentacion,
+        string nombrePresentacion,
+        double equivalencia,
+        double cantidadBase,
+        double precioBase,
+        double costoPromedioBase)
         {
             xidprod = xidprod.Trim().ToUpper();
 
-            //foreach (ListViewItem item in lsv_Det.Items)
-            //{
-            //    if (item.SubItems[0].Text.Trim().ToUpper() == xidprod)
-            //    {
-            //        MessageBox.Show("El Producto ya fue Agregado al Carrito de Compras", "Advertencia",
-            //            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //        return;
-            //    }
-            //}
+            ListViewItem newItem = lsv_Det.Items.Add(xidprod); //0
 
-            ListViewItem newItem = lsv_Det.Items.Add(xidprod); // ✅ Guarda el ID en la columna 0         
-            newItem.SubItems.Add(xnomprod.Trim());
-            newItem.SubItems.Add(xcant.ToString());
-            newItem.SubItems.Add(xprecio.ToString("###0.00"));
-            newItem.SubItems.Add(ximporte.ToString("###0.00"));
-            newItem.SubItems.Add(xtipoProd);
-            newItem.SubItems.Add(xund);
-            newItem.SubItems.Add(xutili_unit.ToString("###0.00"));
-            newItem.SubItems.Add(xutili_unit.ToString("###0.00"));
-            newItem.SubItems.Add(xafecto);
-            newItem.SubItems.Add("0.00");
-            newItem.SubItems.Add("0.00");
-            newItem.SubItems.Add("0.00");
-            newItem.SubItems.Add(xtipo);
-            newItem.SubItems.Add(cod_afecto);
-            newItem.SubItems.Add(""); // 15 Promo
-            //newItem.SubItems.Add(precioOriginal.ToString("###0.00")); // precio original
+            newItem.SubItems.Add(xnomprod.Trim());                 //1
+            newItem.SubItems.Add(xcant.ToString("0.####"));        //2 Cantidad presentación
+            newItem.SubItems.Add(xprecio.ToString("0.00"));        //3 Precio presentación
+            newItem.SubItems.Add(ximporte.ToString("0.00"));       //4 Importe
+            newItem.SubItems.Add(xtipoProd);                       //5
+            newItem.SubItems.Add(xund);                            //6
+            newItem.SubItems.Add(xutili_unit.ToString("0.00"));    //7
+            newItem.SubItems.Add((xutili_unit * xcant).ToString("0.00")); //8
 
-            newItem.Tag = precioOriginal; // 👈 Aquí guardas el precio original ✅ Guardamos el precio original de forma segura
-            //Calcular();
-            lsv_Det.Items[0].Selected = true;
-            RecalcularTodo(); //metodo original para aplicar promociones, contemplar que cuando se pase un producto en kg, mt, 
-            //no entre a este metodo y solo para las und enteras.
-            Calcular();
-           
+            newItem.SubItems.Add(xafecto);                         //9
+            newItem.SubItems.Add("0.00");                          //10 PreUnit sin IGV
+            newItem.SubItems.Add("0.00");                          //11 Subtotal sin IGV
+            newItem.SubItems.Add("0.00");                          //12 IGV
+            newItem.SubItems.Add(xtipo);                            //13
+            newItem.SubItems.Add(cod_afecto);                       //14
+            newItem.SubItems.Add("");                               //15 Promo
+
+            newItem.SubItems.Add(idPresentacion.ToString());        //16
+            newItem.SubItems.Add(nombrePresentacion);               //17
+            newItem.SubItems.Add(equivalencia.ToString("0.####"));  //18
+            newItem.SubItems.Add(cantidadBase.ToString("0.####"));  //19
+            newItem.SubItems.Add(precioBase.ToString("0.0000"));    //20
+            newItem.SubItems.Add(costoPromedioBase.ToString("0.0000")); //21
+
+            newItem.Tag = precioOriginal;
+
+            lsv_Det.Items[lsv_Det.Items.Count - 1].Selected = true;
+
+            if (equivalencia == 1)
+            {
+                RecalcularTodo();
+            }
+            else
+            {
+                Calcular();
+            }
         }
         private void RecalcularTodo()
         {
@@ -528,61 +484,6 @@ namespace Microsell_Lite.Ventas
             }
         }
 
-        //private void AplicarPrecioEspecialEnListView(string idProducto, double precioEspecial, int cantidadPromo)
-        //{
-        //    foreach (ListViewItem item in lsv_Det.Items)
-        //    {
-        //        if (item.SubItems[0].Text.Trim().Equals(idProducto.Trim(), StringComparison.OrdinalIgnoreCase))
-        //        {
-
-        //            int cantidadActual = int.Parse(item.SubItems[2].Text);
-
-        //            //agregando para la validacion de porducto agregado a promo exter
-
-        //            double precioOriginal = ObtenerPrecioProductoOriginal(item);
-        //            // Solo aplicar si la cantidad del carrito cumple o supera
-        //            if (cantidadActual >= cantidadPromo)
-        //            {
-        //                int cantidadExtra = cantidadActual - cantidadPromo;
-
-        //                //Linea 1: solo la cantidad en promo 
-        //                item.SubItems[2].Text = cantidadPromo.ToString(); //CANT
-        //                item.SubItems[3].Text = precioEspecial.ToString("###0.00"); //PR.UNIT
-        //                item.SubItems[4].Text = (cantidadPromo * precioEspecial).ToString("###0.00"); //IMMPO TOTAL comeente el precioOrigina
-        //                item.SubItems[15].Text = "✔ PROMO"; // Marca de promoción
-        //                item.BackColor = Color.LightYellow;
-        //                item.Font = new Font(lsv_Det.Font, FontStyle.Bold);
-
-        //                if (cantidadExtra > 0)
-        //                {
-        //                    //Linea 2 : cantidad restante a precio Original
-        //                    ListViewItem extra = (ListViewItem)item.Clone();
-        //                    extra.Tag = item.Tag; // 👈 Asegura que el precio original se conserve
-        //                    extra.SubItems[2].Text = cantidadExtra.ToString(); //CANT
-        //                    extra.SubItems[3].Text = precioOriginal.ToString("###0.00"); //PR.UNIT
-        //                    extra.SubItems[4].Text = (cantidadExtra * precioOriginal).ToString("###0.00"); //IMPORTE TOTAL
-        //                    extra.SubItems[15].Text = ""; //sin promo
-        //                    extra.BackColor = Color.White;
-        //                    extra.Font = new Font(lsv_Det.Font, FontStyle.Regular);
-        //                    extra.Tag = item.Tag; // Mantiene el precio original
-
-        //                    lsv_Det.Items.Add(extra);
-
-        //                }
-
-        //                break; // solo una coincidencia debe procesarse
-
-
-        //                //item.SubItems[3].Text = precioEspecial.ToString("###0.00"); // PR.UNIT
-        //                //double nuevoImporte = precioEspecial * cantidadActual;
-        //                //item.SubItems[4].Text = nuevoImporte.ToString("###0.00"); // IMP.TOTAL
-        //                //item.SubItems[14].Text = "✔ PROMO"; //se agrego solo informativo
-
-        //            }
-        //        }
-        //    }
-        //}
-
         private double CalcularDescuentoPromocion(int idPromocion)
         {
             double descuentoTotal = 0;
@@ -680,15 +581,7 @@ namespace Microsell_Lite.Ventas
                 // Restaurar estilos visuales
                 item.BackColor = Color.White;
                 item.Font = new Font(lsv_Det.Font, FontStyle.Regular);
-
-
-                //if (item.SubItems.Count > 15 && double.TryParse(item.SubItems[15].Text, out double precioOriginal))
-                //{
-                //    double cantidad = Convert.ToDouble(item.SubItems[2].Text);
-                //    item.SubItems[3].Text = precioOriginal.ToString("###0.00"); // PR.UNIT
-                //    item.SubItems[4].Text = (precioOriginal * cantidad).ToString("###0.00"); // IMP.TOTAL
-                //    item.SubItems[14].Text = ""; //limpia la marca
-                //}
+  
             }
         }
         private double ObtenerPrecioProductoEnCarrito(string idProducto)
@@ -731,254 +624,300 @@ namespace Microsell_Lite.Ventas
             }
         }
 
-
-        //private double ObtenerPrecioProductoEnCarrito(string idProducto)
-        //{
-        //    string idProductoNormalizado = idProducto.Trim().ToUpper();
-
-        //    foreach (ListViewItem item in lsv_Det.Items)
-        //    {
-        //        string idCarrito = item.SubItems[0].Text.Trim().ToUpper();
-
-        //        if (string.Equals(idCarrito, idProductoNormalizado, StringComparison.InvariantCultureIgnoreCase))
-        //        {
-        //            if (item.SubItems.Count > 15 && double.TryParse(item.SubItems[15].Text, out double precioOriginal))
-        //            {
-        //                return precioOriginal;
-        //            }
-        //        }
-        //    }
-        //    return 0;
-        //}
-
-
-
-
-        /*
-        private void Llenar_Listview(DataTable data)
-        {
-            //lsv_Det.Items.Clear();
-
-            //for (int i = 0; i < data.Rows.Count; i++)
-            //{
-            //    DataRow dr = data.Rows[i];
-            //    ListViewItem list = new ListViewItem(dr["Id_Pro"].ToString());//0
-            //    list.SubItems.Add(dr["Descripcion_Larga"].ToString());//1
-            //    list.SubItems.Add(dr["Stock_Actual"].ToString());//2
-            //    list.SubItems.Add(dr["Pre_CompraS"].ToString());//3
-            //    list.SubItems.Add(dr["Frank"].ToString());//4
-            //    list.SubItems.Add(dr["Pre_vntaxMenor"].ToString());//5
-            //    list.SubItems.Add(dr["Pre_vntaxMayor"].ToString());//6
-            //    list.SubItems.Add(dr["UtilidadUnit"].ToString());//7
-            //    list.SubItems.Add(dr["Valor_porCant"].ToString());//8
-            //    list.SubItems.Add(dr["Estado_Pro"].ToString());//9
-            //    list.SubItems.Add(dr["Marca"].ToString());//10
-            //    list.SubItems.Add(dr["TipoProdcto"].ToString());//11
-            //    lsv_Det.Items.Add(list); //si no ponemos esto,. el listview  nunca se llenara
-            //}
-            ////Pintar_Filas();
-            ////pnl_msm.Visible = false;
-            ////lbl_totalItem.Text = lsv_prodcto.Items.Count.ToString();
-        }*/
-
-
         //private void buscar_Productos(string valor)
         //{
-        //    RN_Productos obj = new RN_Productos();
-        //    DataTable data = new DataTable();
-        //    Frm_Add_Cantidad cant = new Frm_Add_Cantidad();
-        //    Frm_Filtro fil = new Frm_Filtro();
 
-        //    string xidprod = "";
-        //    string xproducto = "";
-        //    double cantidad = 1;
-        //    double xstock = 0;
-        //    double PreVenta = 0;
-        //    double PreCompra = 0;
-        //    double UtiliUnitaria = 0;
-        //    string und;
-        //    string tipoAfectacion;
-        //    string cod_afectox;
+        //    //METODO ANTIGUIO 
+        //    RN_ProductoPresentacion obj = new RN_ProductoPresentacion();
+        //    DataTable data = obj.RN_Buscar_Producto_ConPresentaciones(valor);
 
-        //    try
+        //    if (data.Rows.Count == 1)
         //    {
-        //        data = obj.RN_Buscar_Productos(valor);
-        //        if (data.Rows.Count == 1)
+        //        string xidprod = Convert.ToString(data.Rows[0]["Id_Pro"]).Trim().ToUpper();
+        //        string xproducto = Convert.ToString(data.Rows[0]["Descripcion_Larga"]);
+        //        double xstock = Convert.ToDouble(data.Rows[0]["Stock_Actual"]);
+        //        bool controlaStock = Convert.ToBoolean(data.Rows[0]["ControlaStock"]);
+        //        double PreCompra = Convert.ToDouble(data.Rows[0]["Pre_CompraS"]);
+        //        double PreVenta = Convert.ToDouble(data.Rows[0]["Pre_vntaxMenor"]);
+        //        double PreVentaOriginal = Convert.ToDouble(data.Rows[0]["Pre_vntaLista"]); // ⚡ nuevo campo
+        //        string und = Convert.ToString(data.Rows[0]["UndMedida"]);
+        //        string tipoAfectacion = Convert.ToString(data.Rows[0]["Tipo_Afectacion"]);
+        //        string cod_afectox = Convert.ToString(data.Rows[0]["CodTipo_Afectacion"]);
+        //        double UtiliUnitaria = PreVenta - PreCompra;
+
+        //        double cantidad = 1;
+        //        Frm_Add_Cantidad cant = new Frm_Add_Cantidad();
+        //        Frm_Filtro fil = new Frm_Filtro();
+
+        //        if (controlaStock && xstock <= 0)
         //        {
-        //            xidprod = Convert.ToString(data.Rows[0]["Id_Pro"]).Trim().ToUpper();  // ✅ limpieza aquí
-        //            xproducto = Convert.ToString(data.Rows[0]["Descripcion_Larga"]);
-        //            xstock = Convert.ToDouble(data.Rows[0]["Stock_Actual"]);
-        //            bool controlaStock = Convert.ToBoolean(data.Rows[0]["ControlaStock"]);
-        //            PreCompra = Convert.ToDouble(data.Rows[0]["Pre_CompraS"]);
-        //            PreVenta = Convert.ToDouble(data.Rows[0]["Pre_vntaxMenor"]);
-        //            und = Convert.ToString(data.Rows[0]["UndMedida"]);
-        //            tipoAfectacion = Convert.ToString(data.Rows[0]["Tipo_Afectacion"]);
-        //            cod_afectox = Convert.ToString(data.Rows[0]["CodTipo_Afectacion"]);
-        //            UtiliUnitaria = PreVenta - PreCompra;
-
-        //            if (controlaStock)
-        //            {
-        //                if (xstock <= 0)
-        //                {
-        //                    MessageBox.Show("El producto no tiene stock disponible", "Stock Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //                    return;
-        //                }
-
-        //                fil.Show();
-        //                cant.Lbl_stockActual.Text = xstock.ToString();
-        //                cant.lbl_Prod.Text = xproducto;
-        //                cant.ShowDialog();
-        //                fil.Hide();
-
-        //                if (cant.Tag.ToString() == "A")
-        //                {
-        //                    cantidad = Convert.ToDouble(cant.txt_cant.Text);
-        //                    Agregar_Productos_alCarrito(xidprod, xproducto, cantidad, PreVenta, PreVenta, und, "Producto", UtiliUnitaria, tipoAfectacion, "NIU", cod_afectox);
-        //                }
-        //            }
-        //            else
-        //            {
-        //                fil.Show();
-        //                cant.lbl_Prod.Text = xproducto;
-        //                cant.ShowDialog();
-        //                fil.Hide();
-
-        //                if (cant.Tag.ToString() == "A")
-        //                {
-        //                    cantidad = Convert.ToDouble(cant.txt_cant.Text);
-        //                    Agregar_Productos_alCarrito(xidprod, xproducto, cantidad, PreVenta, PreVenta, und, "Producto", UtiliUnitaria, tipoAfectacion, "NIU", cod_afectox);
-        //                }
-        //            }
-        //        }
-        //        else if (data.Rows.Count > 1)
-        //        {
-        //            Llenar_ListView_Prod_aVender(data, "Activo");
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("El Producto no Existe!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        //            MessageBox.Show("El producto no tiene stock disponible", "Stock Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         //            return;
         //        }
+
+        //        fil.Show();
+        //        cant.lbl_Prod.Text = xproducto;
+        //        if (controlaStock)
+        //            cant.Lbl_stockActual.Text = xstock.ToString();
+        //        cant.ShowDialog();
+        //        fil.Hide();
+
+        //        if (cant.Tag?.ToString() == "A")
+        //        {
+        //            cantidad = Convert.ToDouble(cant.txt_cant.Text);
+        //            Agregar_Productos_alCarrito(xidprod, xproducto, cantidad, PreVenta, PreVenta, und, "Producto", UtiliUnitaria, tipoAfectacion, "NIU", cod_afectox, PreVentaOriginal);
+        //        }
         //    }
-        //    catch (Exception ex)
+        //    else if (data.Rows.Count > 1)
         //    {
-        //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        Llenar_ListView_Prod_aVender(data, "Activo");
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("El Producto no Existe!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         //    }
 
         //    txtBusquedaProd.Text = "";
         //    txtBusquedaProd.Focus();
-        //    txtBusquedaProd.Refresh();
         //}
 
         private void buscar_Productos(string valor)
         {
-            RN_Productos obj = new RN_Productos();
-            DataTable data = obj.RN_Buscar_Productos(valor);
+            RN_ProductoPresentacion obj = new RN_ProductoPresentacion();
+            DataTable data = obj.RN_Buscar_Producto_ConPresentaciones_Venta(valor);
 
-            if (data.Rows.Count == 1)
-            {
-                string xidprod = Convert.ToString(data.Rows[0]["Id_Pro"]).Trim().ToUpper();
-                string xproducto = Convert.ToString(data.Rows[0]["Descripcion_Larga"]);
-                double xstock = Convert.ToDouble(data.Rows[0]["Stock_Actual"]);
-                bool controlaStock = Convert.ToBoolean(data.Rows[0]["ControlaStock"]);
-                double PreCompra = Convert.ToDouble(data.Rows[0]["Pre_CompraS"]);
-                double PreVenta = Convert.ToDouble(data.Rows[0]["Pre_vntaxMenor"]);
-                double PreVentaOriginal = Convert.ToDouble(data.Rows[0]["Pre_vntaLista"]); // ⚡ nuevo campo
-                string und = Convert.ToString(data.Rows[0]["UndMedida"]);
-                string tipoAfectacion = Convert.ToString(data.Rows[0]["Tipo_Afectacion"]);
-                string cod_afectox = Convert.ToString(data.Rows[0]["CodTipo_Afectacion"]);
-                double UtiliUnitaria = PreVenta - PreCompra;
-
-                double cantidad = 1;
-                Frm_Add_Cantidad cant = new Frm_Add_Cantidad();
-                Frm_Filtro fil = new Frm_Filtro();
-
-                if (controlaStock && xstock <= 0)
-                {
-                    MessageBox.Show("El producto no tiene stock disponible", "Stock Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                fil.Show();
-                cant.lbl_Prod.Text = xproducto;
-                if (controlaStock)
-                    cant.Lbl_stockActual.Text = xstock.ToString();
-                cant.ShowDialog();
-                fil.Hide();
-
-                if (cant.Tag?.ToString() == "A")
-                {
-                    cantidad = Convert.ToDouble(cant.txt_cant.Text);
-                    Agregar_Productos_alCarrito(xidprod, xproducto, cantidad, PreVenta, PreVenta, und, "Producto", UtiliUnitaria, tipoAfectacion, "NIU", cod_afectox, PreVentaOriginal);
-                }
-            }
-            else if (data.Rows.Count > 1)
+            if (data.Rows.Count > 0)
             {
                 Llenar_ListView_Prod_aVender(data, "Activo");
+
+                if (lsv_Pdet.Items.Count == 1)
+                {
+                    lsv_Pdet.Items[0].Selected = true;
+                    SeleccionarProductoPresentacion();
+                }
+                else
+                {
+                    lsv_Pdet.Visible = true;
+                    lsv_Pdet.Focus();
+                    lsv_Pdet.Items[0].Selected = true;
+                }
             }
             else
             {
-                MessageBox.Show("El Producto no Existe!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("El producto no existe o no tiene presentaciones para venta.",
+                                "Advertencia",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
             }
 
             txtBusquedaProd.Text = "";
             txtBusquedaProd.Focus();
         }
+        //private void Llenar_ListView_Prod_aVender(DataTable data, string tipo)
+        //{
+        //    lsv_Pdet.Items.Clear();
+        //    double stockActual = 0;
 
+
+        //    for (int i = 0; i < data.Rows.Count; i++)
+        //    {
+
+
+        //        DataRow dr = data.Rows[i];
+
+        //        stockActual = Convert.ToDouble(dr["Stock_Actual"]);
+
+        //        if (tipo == "todo")
+        //        {
+        //            if (stockActual > 0)
+        //            {
+        //                ListViewItem lis = new ListViewItem(dr[0].ToString());
+        //                lis.SubItems.Add(dr["Descripcion_Larga"].ToString());
+        //                lis.SubItems.Add(stockActual.ToString());
+        //                double preventa = Convert.ToDouble(dr["Pre_vntaxMenor"]);
+        //                lis.SubItems.Add(preventa.ToString("###0.00"));
+        //                double precompra = Convert.ToDouble(dr["Pre_CompraS"]);
+        //                lis.SubItems.Add(precompra.ToString("###0.00"));
+        //                lis.SubItems.Add(dr["Estado_Pro"].ToString());
+        //                lis.SubItems.Add(dr["UndMedida"].ToString());
+
+        //                lsv_Pdet.Items.Add(lis);
+        //            }
+
+        //        }
+
+        //        else
+        //        {
+
+        //            ListViewItem lis = new ListViewItem(dr[0].ToString());
+        //            lis.SubItems.Add(dr["Descripcion_Larga"].ToString());
+        //            lis.SubItems.Add(stockActual.ToString());
+        //            double preventa = Convert.ToDouble(dr["Pre_vntaxMenor"]);
+        //            lis.SubItems.Add(preventa.ToString("###0.00"));
+        //            double precompra = Convert.ToDouble(dr["Pre_CompraS"]);
+        //            lis.SubItems.Add(precompra.ToString("###0.00"));
+        //            lis.SubItems.Add(dr["Estado_Pro"].ToString());
+        //            lis.SubItems.Add(dr["UndMedida"].ToString());
+
+        //            lsv_Pdet.Items.Add(lis);
+        //        }
+        //    }
+        //    lsv_Pdet.Visible = true;
+
+        //}
 
         private void Llenar_ListView_Prod_aVender(DataTable data, string tipo)
         {
             lsv_Pdet.Items.Clear();
-            double stockActual = 0;
 
-
-            for (int i = 0; i < data.Rows.Count; i++)
+            foreach (DataRow dr in data.Rows)
             {
+                double stockActual = Convert.ToDouble(dr["Stock_Actual"]);
 
+                if (tipo == "todo" && stockActual <= 0)
+                    continue;
 
-                DataRow dr = data.Rows[i];
+                ListViewItem lis = new ListViewItem(dr["Id_Pro"].ToString());
 
-                stockActual = Convert.ToDouble(dr["Stock_Actual"]);
+                lis.SubItems.Add(dr["Descripcion_Larga"].ToString()); //1
+                lis.SubItems.Add(stockActual.ToString("0.####"));     //2
+                lis.SubItems.Add(dr["NombrePresentacion"].ToString()); //3
+                lis.SubItems.Add(Convert.ToDecimal(dr["Equivalencia"]).ToString("0.####")); //4
+                lis.SubItems.Add(Convert.ToDecimal(dr["PrecioVentaMinorista"]).ToString("0.00")); //5
+                lis.SubItems.Add(Convert.ToDecimal(dr["PrecioVentaMayorista"]).ToString("0.00")); //6
+                lis.SubItems.Add(Convert.ToDecimal(dr["CantMinMayorista"]).ToString("0.####")); //7
+                lis.SubItems.Add(dr["IdPresentacion"].ToString()); //8
+                lis.SubItems.Add(dr["Tipo_Afectacion"].ToString()); //9
+                lis.SubItems.Add(dr["CodTipo_Afectacion"].ToString()); //10
+                lis.SubItems.Add(dr["ControlaStock"].ToString()); //11
+                lis.SubItems.Add(Convert.ToDecimal(dr["Pre_CompraS"]).ToString("0.0000")); //12
+                lis.SubItems.Add(dr["Abreviatura"].ToString()); //13
 
-                if (tipo == "todo")
-                {
-                    if (stockActual > 0)
-                    {
-                        ListViewItem lis = new ListViewItem(dr[0].ToString());
-                        lis.SubItems.Add(dr["Descripcion_Larga"].ToString());
-                        lis.SubItems.Add(stockActual.ToString());
-                        double preventa = Convert.ToDouble(dr["Pre_vntaxMenor"]);
-                        lis.SubItems.Add(preventa.ToString("###0.00"));
-                        double precompra = Convert.ToDouble(dr["Pre_CompraS"]);
-                        lis.SubItems.Add(precompra.ToString("###0.00"));
-                        lis.SubItems.Add(dr["Estado_Pro"].ToString());
-                        lis.SubItems.Add(dr["UndMedida"].ToString());
-
-                        lsv_Pdet.Items.Add(lis);
-                    }
-
-                }
-
-                else
-                {
-
-                    ListViewItem lis = new ListViewItem(dr[0].ToString());
-                    lis.SubItems.Add(dr["Descripcion_Larga"].ToString());
-                    lis.SubItems.Add(stockActual.ToString());
-                    double preventa = Convert.ToDouble(dr["Pre_vntaxMenor"]);
-                    lis.SubItems.Add(preventa.ToString("###0.00"));
-                    double precompra = Convert.ToDouble(dr["Pre_CompraS"]);
-                    lis.SubItems.Add(precompra.ToString("###0.00"));
-                    lis.SubItems.Add(dr["Estado_Pro"].ToString());
-                    lis.SubItems.Add(dr["UndMedida"].ToString());
-
-                    lsv_Pdet.Items.Add(lis);
-                }
+                lsv_Pdet.Items.Add(lis);
             }
+
             lsv_Pdet.Visible = true;
-
         }
+        private void SeleccionarProductoPresentacion()
+        {
+            if (lsv_Pdet.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Seleccione una presentación para vender.",
+                                "Validación",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
 
+            var item = lsv_Pdet.SelectedItems[0];
+
+            string idProd = item.SubItems[0].Text.Trim();
+            string producto = item.SubItems[1].Text.Trim();
+            double stockBase = Convert.ToDouble(item.SubItems[2].Text);
+            string nombrePresentacion = item.SubItems[3].Text.Trim();
+            double equivalencia = Convert.ToDouble(item.SubItems[4].Text);
+            double precioMinorista = Convert.ToDouble(item.SubItems[5].Text);
+            double precioMayorista = Convert.ToDouble(item.SubItems[6].Text);
+            double cantMinMayorista = Convert.ToDouble(item.SubItems[7].Text);
+            int idPresentacion = Convert.ToInt32(item.SubItems[8].Text);
+            string tipoAfectacion = item.SubItems[9].Text;
+            string codAfecto = item.SubItems[10].Text;
+            bool controlaStock = Convert.ToBoolean(item.SubItems[11].Text);
+            double costoPromedioBase = Convert.ToDouble(item.SubItems[12].Text);
+            string abrev = item.SubItems[13].Text;
+
+            if (controlaStock && stockBase <= 0)
+            {
+                MessageBox.Show("El producto no tiene stock disponible.",
+                                "Stock insuficiente",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            Frm_Add_Cantidad cant = new Frm_Add_Cantidad();
+            Frm_Filtro fil = new Frm_Filtro();
+
+            fil.Show();
+            cant.lbl_Prod.Text = producto + " - " + nombrePresentacion;
+            cant.Lbl_stockActual.Text = stockBase.ToString("0.####");
+            cant.ShowDialog();
+            fil.Hide();
+
+            if (cant.Tag?.ToString() != "A")
+                return;
+
+            double cantidadPresentacion = Convert.ToDouble(cant.txt_cant.Text);
+
+            if (cantidadPresentacion <= 0)
+            {
+                MessageBox.Show("Ingrese una cantidad válida.",
+                                "Validación",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            double cantidadBase = cantidadPresentacion * equivalencia;
+
+            if (controlaStock && cantidadBase > stockBase)
+            {
+                MessageBox.Show(
+                    "Stock insuficiente.\n\n" +
+                    "Cantidad solicitada: " + cantidadBase.ToString("0.####") + " unidad(es) base\n" +
+                    "Stock disponible: " + stockBase.ToString("0.####"),
+                    "Stock insuficiente",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            double precioVenta = precioMinorista;
+
+            if (cantMinMayorista > 0 &&
+                cantidadPresentacion >= cantMinMayorista &&
+                precioMayorista > 0)
+            {
+                precioVenta = precioMayorista;
+            }
+
+            double importe = cantidadPresentacion * precioVenta;
+            double precioBase = precioVenta / equivalencia;
+
+            double precioVentaSinIgv = precioVenta;
+
+            if (tipoAfectacion == "Gravado")
+                precioVentaSinIgv = precioVenta / 1.18;
+
+            double costoPresentacion = costoPromedioBase * equivalencia;
+            double utilidadUnidadPresentacion = precioVentaSinIgv - costoPresentacion;
+
+            Agregar_Productos_alCarrito(
+                idProd,
+                producto,
+                cantidadPresentacion,
+                precioVenta,
+                importe,
+                abrev,
+                "Producto",
+                utilidadUnidadPresentacion,
+                tipoAfectacion,
+                "NIU",
+                codAfecto,
+                precioVenta,
+                idPresentacion,
+                nombrePresentacion,
+                equivalencia,
+                cantidadBase,
+                precioBase,
+                costoPromedioBase
+            );
+
+            lsv_Pdet.Items.Clear();
+            lsv_Pdet.Visible = false;
+            txtBusquedaProd.Focus();
+        }
         private void Cargar_todos_Productos_aVender()
         {
             RN_Productos obj = new RN_Productos();
@@ -1082,74 +1021,6 @@ namespace Microsell_Lite.Ventas
 
         }
 
-
-        //private void btn_Nuevo_buscarProd_Click(object sender, EventArgs e)
-        //{
-
-
-        //    Frm_Filtro fil = new Frm_Filtro();
-        //    Frm_ListadoProd_Compras xpro = new Frm_ListadoProd_Compras();
-
-        //    fil.Show();
-        //    Frm_ListadoProd_Compras.TipoVenta = "venta";
-        //    xpro.chk_cotiza.Checked = false;
-        //    xpro.ShowDialog();
-
-        //    fil.Hide();
-
-        //    if (xpro.Tag.ToString() == "A")
-        //    {
-        //        string _idprod;
-        //        string _nomprod;
-        //        double _cant = 0;
-        //        double _precio = 0;
-        //        double _importe = 0;
-        //        string _und;
-        //        string _tipoProd;
-        //        Double _Utili_Unit;
-
-        //        string tipoAfectacion;
-        //        string cod_afectox;
-
-        //        decimal preventLista = 0;
-
-        //        if (xpro.lsv_Ped.Items.Count > 0)
-        //        {
-        //            for (int i = 0; i < xpro.lsv_Ped.Items.Count; i++)
-        //            {
-        //                var item = xpro.lsv_Ped.Items[i];
-        //                _idprod = item.SubItems[0].Text;
-        //                _nomprod = item.SubItems[1].Text;
-        //                _cant = Convert.ToDouble(item.SubItems[3].Text);
-        //                _precio = Convert.ToDouble(item.SubItems[4].Text);
-        //                _importe = Convert.ToDouble(item.SubItems[5].Text);
-        //                _und = item.SubItems[2].Text;
-        //                _tipoProd = item.SubItems[8].Text;
-        //                _Utili_Unit = Convert.ToDouble(item.SubItems[6].Text);
-
-        //                Agregar_Productos_alCarrito(_idprod, _nomprod, _cant, _precio, _importe, _und, _tipoProd, _Utili_Unit,_tipoProd /*"Gravado"*/, "NIU","pr");
-        //            }
-        //        }
-        //        else
-        //        {
-        //            //para agregar de uno en Uno:
-        //            _idprod = xpro.lbl_IdProd.Text;
-        //            _nomprod = xpro.lbl_NomProd.Text;
-        //            _cant = Convert.ToDouble(xpro.lbl_Cant.Text);
-        //            _precio = Convert.ToDouble(xpro.lbl_Pre_Unit.Text);
-        //            _importe = Convert.ToDouble(xpro.lbl_Pre_Unit.Text);
-        //            _und = xpro.lbl_Und.Text;
-        //            _tipoProd = xpro.lbl_TipoProd.Text;
-        //            _Utili_Unit = Convert.ToDouble(xpro.lbl_Uti_Unit.Text);
-
-        //            Agregar_Productos_alCarrito(_idprod, _nomprod, _cant, _precio, _importe, _und, _tipoProd, _Utili_Unit, "Gravado", "NIU","pr");
-        //        }
-
-        //    }
-
-        //}
-
-
         private void Calcular()
         {
             double xtotal = 0;
@@ -1223,196 +1094,6 @@ namespace Microsell_Lite.Ventas
 
             if (!actualizado) ActualizarCong();
         }
-
-
-
-        //private void Calcular()
-        //{
-
-        //    double xtotal = 0;
-        //    double xcant = 0;
-
-        //    double xprecio = 0;
-        //    double ximporte = 0;
-        //    double xsubtotal = 0;
-        //    double xigv = 0;
-        //    double xuti_unit = 0;
-        //    double ximport_Uti = 0;
-        //    double xTotalGanancia = 0;
-
-        //    //*****Para FE.******
-
-        //    double igvProd = 0;
-        //    double subtotal_sinIgv = 0;
-        //    double xsubtotal_sinIgv = 0;
-        //    double preUnit_sinIgv = 0;
-        //    double xigv_total = 0;
-
-        //    double xcantMetro = 0;
-        //    double xprecioMetro = 0;
-        //    double ximporteMetro = 0;
-        //    double ximport_UtiMetro = 0;
-        //    string xund = "";
-
-        //    //para detraccion: 
-        //    double detraccion = 0;
-        //    double tasaDetraccion = 0.04;
-
-        //    string xafecto = "";
-
-        //    //probando para tipos de medida:
-        //    string xpaquete = "";
-        //    string klg = "";
-
-        //    // Variables para acumular los totales de productos gravados y exonerados
-        //    double subtotalGravado = 0;
-        //    double igvGravado = 0;
-        //    double totalGravado = 0;
-        //    double subtotalExonerado = 0;
-        //    double totalExonerado = 0;
-
-        //    for (int i = 0; i < lsv_Det.Items.Count; i++)
-        //    {
-        //        xund = lsv_Det.Items[i].SubItems[6].Text;
-
-        //        //xafecto = lsv_Det.Items[i].SubItems[9].Text;
-        //        if (lsv_Det.Items[i].SubItems[9].Text == "Exonerado")
-        //        {
-        //            // Cuando el producto es exonerado
-
-        //            // Cálculos para productos exonerados: 
-        //            xcant = Convert.ToDouble(lsv_Det.Items[i].SubItems[2].Text);
-        //            xprecio = Convert.ToDouble(lsv_Det.Items[i].SubItems[3].Text);
-
-        //            // Cálculo del importe para productos exonerados (sin IGV)
-        //            ximporte = xprecio * xcant;
-        //            lsv_Det.Items[i].SubItems[4].Text = ximporte.ToString("###0.00");
-
-        //            // Utilidad de productos exonerados
-        //            xuti_unit = Convert.ToDouble(lsv_Det.Items[i].SubItems[7].Text);
-        //            ximport_Uti = xuti_unit * xcant;
-
-        //            // Total general para productos exonerados (sin IGV)
-        //            xtotal += ximporte;
-
-        //            // Total de ganancia para productos exonerados
-        //            xTotalGanancia += ximport_Uti;
-
-        //            // Subtotal sin IGV para productos exonerados
-        //            preUnit_sinIgv = xprecio;  // No se divide entre 1.18 ya que es exonerado
-        //            lsv_Det.Items[i].SubItems[10].Text = preUnit_sinIgv.ToString("###0.00");
-
-        //            // Subtotal sin IGV
-        //            subtotalExonerado += preUnit_sinIgv * xcant;
-        //            lsv_Det.Items[i].SubItems[11].Text = (preUnit_sinIgv * xcant).ToString("###0.00");
-
-        //            // IGV para productos exonerados (se establece en 0)
-        //            lsv_Det.Items[i].SubItems[12].Text = "0.00";
-
-        //            // Totales para productos exonerados
-        //            totalExonerado += ximporte;
-
-
-        //        }else if (lsv_Det.Items[i].SubItems[9].Text == "Gravado")
-        //        {
-        //            // Cálculos para productos gravados:
-        //            xcant = Convert.ToDouble(lsv_Det.Items[i].SubItems[2].Text);
-        //            xprecio = Convert.ToDouble(lsv_Det.Items[i].SubItems[3].Text);
-
-        //            // Cálculo del importe para productos gravados (con IGV)
-        //            ximporte = xprecio * xcant;
-        //            lsv_Det.Items[i].SubItems[4].Text = ximporte.ToString("###0.00");
-
-        //            // Utilidad de productos gravados
-        //            xuti_unit = Convert.ToDouble(lsv_Det.Items[i].SubItems[7].Text);
-        //            ximport_Uti = xuti_unit * xcant;
-
-        //            // Total general para productos gravados (con IGV)
-        //            xtotal += ximporte;
-
-        //            // Total de ganancia para productos gravados
-        //            xTotalGanancia += ximport_Uti;
-
-        //            // Subtotal sin IGV para productos gravados
-        //            preUnit_sinIgv = xprecio / 1.18;
-        //            lsv_Det.Items[i].SubItems[10].Text = preUnit_sinIgv.ToString("###0.00");//se quitaron 0000
-
-        //            //subtotal sin igv modo codi
-        //            subtotal_sinIgv = preUnit_sinIgv * xcant;
-        //            lsv_Det.Items[i].SubItems[11].Text = (preUnit_sinIgv * xcant).ToString("###0.00");
-
-
-
-        //            // Subtotal sin IGV
-        //            //subtotalGravado += preUnit_sinIgv * xcant;
-        //            //lsv_Det.Items[i].SubItems[11].Text = (preUnit_sinIgv * xcant).ToString("###0.00");
-
-        //            // IGV para productos gravados
-        //            //igvProd = subtotalGravado * 0.18;
-        //            igvProd = subtotal_sinIgv * 0.18;
-        //            lsv_Det.Items[i].SubItems[12].Text = igvProd.ToString("###0.00");
-
-        //            ////Pie de la FE para Sunat//
-        //            //xsubtotal_sinIgv = xsubtotal_sinIgv + Convert.ToDouble(lsv_Det.Items[i].SubItems[12].Text);
-
-        //            // Totales para productos gravados
-        //            totalGravado += ximporte;
-        //            xigv_total += igvProd;
-        //        }
-
-
-
-        //    }
-
-        //    // Cálculos finales de totales
-        //    xsubtotal = subtotal_sinIgv/*subtotalGravado*/ + subtotalExonerado;  // Suma de los subtotales gravados y exonerados
-        //    xigv = xigv_total;  // Solo el IGV de productos gravados
-
-        //    //mas detallae 
-        //    lbl_subtotal_sinIgv.Text = subtotal_sinIgv.ToString("###0.00");
-
-        //    lbl_subtotal.Text = xsubtotal.ToString("###0.00");
-        //    lbl_igv.Text = xigv.ToString("###0.00");
-        //    lbl_TotalPagar.Text = xtotal.ToString("###0.00");
-
-        //    tx_efectivo.Text = xtotal.ToString("###0.00");
-
-        //    lbl_totalGanancia.Text = xTotalGanancia.ToString("###0.00");
-
-        //    lbl_son.Text = Numalet.ToString(lbl_TotalPagar.Text);
-        //    let.LetraCapital = chkCapital.Checked;
-        //    if (!actualizado) ActualizarCong();
-
-        //    // Totales del pie FE para Sunat
-        //    //lbl_subtotalGravado.Text = subtotalGravado.ToString("###0.00");
-        //    lbl_igvgravado.Text = xigv_total.ToString("###0.00");
-        //    double totalGravadoFinal = subtotalGravado + xigv_total;
-
-        //    //dividimos el total entre 1.18
-        //    //double xsubtotalxx = totalGravadoFinal / 1.18;
-        //    //lbl_subtotalGravado.Text = xsubtotalxx.ToString("###0.00");
-
-        //    lbl_totalGravado.Text = totalGravadoFinal.ToString("###0.00");
-        //    lbl_TotalItem.Text = lsv_Det.Items.Count.ToString();
-        //    lbl_TotalExonerado.Text = totalExonerado.ToString("###0.00");
-
-        //    // ✅ Agregar cálculo de promociones al final, sin romper lo demás
-        //    if (promocionesAplicadas == null)
-        //        promocionesAplicadas = new List<EN_Promocion_Venta>();
-
-        //    double descuentoTotal = Convert.ToDouble(promocionesAplicadas.Sum(p => p.Descuento));
-        //    if (descuentoTotal > xtotal)
-        //        descuentoTotal = xtotal;
-
-        //    double totalConDescuento = xtotal - descuentoTotal;
-        //    //lbl_TotalPagar.Text = totalConDescuento.ToString("###0.00");
-        //    //tx_efectivo.Text = totalConDescuento.ToString("###0.00");
-        //    //lbl_son.Text = Numalet.ToString(lbl_TotalPagar.Text);
-
-        //    //detraccion = xtotal * tasaDetraccion;
-        //    //lbl_detrac.Text = detraccion.ToString("###0.00");
-        //}
-
 
         Numalet let = new Numalet();
         Boolean actualizado = false;
@@ -1570,38 +1251,6 @@ namespace Microsell_Lite.Ventas
 
         }
 
-
-        //private void bt_editCant_Click(object sender, EventArgs e)
-        //{
-        //    Frm_Filtro fil = new Frm_Filtro();
-        //    Frm_Solo_Canti solo = new Frm_Solo_Canti();
-
-        //    if (lsv_Det.SelectedIndices.Count == 0)
-        //    {
-        //        MessageBox.Show("Seleccionar el Producto a Editar su Cantidad", "Editar Precio", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        //    }
-        //    else
-        //    {
-        //        double cant_Ingresado = 0;
-        //        double cant_Editado = 0;
-        //        cant_Ingresado = Convert.ToDouble(lsv_Det.SelectedItems[0].SubItems[2].Text);
-
-        //        fil.Show();
-        //        solo.txt_cant.Text = cant_Ingresado.ToString();
-        //        solo.ShowDialog();
-        //        fil.Hide();
-
-
-        //        if (solo.Tag.ToString() == "A")
-        //        {
-        //            cant_Editado = Convert.ToDouble(solo.txt_cant.Text);
-        //            lsv_Det.SelectedItems[0].SubItems[2].Text = cant_Editado.ToString("###0.00");
-        //            Calcular();
-        //        }
-
-        //    }
-        //}
-
         private void bt_Delete_Click(object sender, EventArgs e)
         {
             Frm_Filtro fil = new Frm_Filtro();
@@ -1751,6 +1400,12 @@ namespace Microsell_Lite.Ventas
                         det.Precio_sinIgv = Convert.ToDouble(lis.SubItems[10].Text);
                         det.Subtotal_SinIgv = Convert.ToDouble(lis.SubItems[11].Text);
                         det.Igv_subtotal = Convert.ToDouble(lis.SubItems[12].Text);
+
+                        det.IdPresentacion = Convert.ToInt32(lis.SubItems[16].Text);
+                        det.NombrePresentacion = lis.SubItems[17].Text;
+                        det.Equivalencia = Convert.ToDecimal(lis.SubItems[18].Text);
+                        det.CantidadPresentacion = Convert.ToDecimal(lis.SubItems[19].Text);
+
                         obj.RN_Registrar_Detalle_Pedido(det);
 
                     }
@@ -1764,6 +1419,7 @@ namespace Microsell_Lite.Ventas
             }
 
         }
+
 
         private void lbl_BusClien_Click(object sender, EventArgs e)
         {
@@ -5013,14 +4669,16 @@ namespace Microsell_Lite.Ventas
         }
         private void lsv_Pdet_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            SeleccionarProducto_Carrito();
+            //SeleccionarProducto_Carrito();
+            SeleccionarProductoPresentacion();
         }
 
         private void lsv_Pdet_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
             {
-                SeleccionarProducto_Carrito();
+                //SeleccionarProducto_Carrito();
+                SeleccionarProductoPresentacion();
             }
         }
         

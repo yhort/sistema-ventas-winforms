@@ -43,6 +43,7 @@ namespace Prj_Capa_Datos
                 cmd.Parameters.AddWithValue("@LugarSalida", com.LugarSalida);
                 cmd.Parameters.AddWithValue("@TipoProceso", com.TipoProceso);
                 cmd.Parameters.AddWithValue("@trn_codigo", com.TrnCodigo);
+                cmd.Parameters.AddWithValue("@IGV", com.Igv);
 
                 cn.Open();
                 cmd.ExecuteNonQuery();

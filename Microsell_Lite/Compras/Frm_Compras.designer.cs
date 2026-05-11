@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle2 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle1 = new Klik.Windows.Forms.v1.Common.PaintStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Compras));
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle4 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle3 = new Klik.Windows.Forms.v1.Common.PaintStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pnl_titu = new System.Windows.Forms.Panel();
             this.txt_IdComp = new Guna.UI.WinForms.GunaTextBox();
@@ -932,9 +932,9 @@
             this.lbl_buscarProd.BackgroundStyle.SolidColor = System.Drawing.Color.White;
             this.lbl_buscarProd.BorderStyle.BorderType = Klik.Windows.Forms.v1.Common.BorderTypes.None;
             this.lbl_buscarProd.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle4.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle4.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.lbl_buscarProd.FlashStyle = paintStyle4;
+            paintStyle2.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle2.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.lbl_buscarProd.FlashStyle = paintStyle2;
             this.lbl_buscarProd.Location = new System.Drawing.Point(278, 410);
             this.lbl_buscarProd.Name = "lbl_buscarProd";
             this.lbl_buscarProd.Size = new System.Drawing.Size(31, 23);
@@ -1150,9 +1150,9 @@
             this.elLabel8.BackgroundStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.elLabel8.BackgroundStyle.SolidColor = System.Drawing.Color.White;
             this.elLabel8.BorderStyle.SolidColor = System.Drawing.Color.DarkViolet;
-            paintStyle3.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle3.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel8.FlashStyle = paintStyle3;
+            paintStyle1.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle1.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel8.FlashStyle = paintStyle1;
             this.elLabel8.Location = new System.Drawing.Point(56, 405);
             this.elLabel8.Name = "elLabel8";
             this.elLabel8.Size = new System.Drawing.Size(189, 33);
@@ -1248,7 +1248,7 @@
             // 
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.bunifuSeparator1.LineThickness = 8;
+            this.bunifuSeparator1.LineThickness = 11;
             this.bunifuSeparator1.Location = new System.Drawing.Point(300, 567);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(35, 10);
@@ -1310,7 +1310,7 @@
             this.bunifuSeparator14.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
             this.bunifuSeparator14.LineThickness = 1;
             this.bunifuSeparator14.Location = new System.Drawing.Point(377, 410);
-            this.bunifuSeparator14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuSeparator14.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuSeparator14.Name = "bunifuSeparator14";
             this.bunifuSeparator14.Size = new System.Drawing.Size(434, 10);
             this.bunifuSeparator14.TabIndex = 615;

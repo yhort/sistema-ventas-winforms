@@ -95,7 +95,12 @@ namespace Prj_Capa_Datos
                 cmd.Parameters.AddWithValue("@subtotal_SinIgv", det.Subtotal_SinIgv);
                 cmd.Parameters.AddWithValue("@Igv_subtotal", det.Igv_subtotal);
 
-          
+                cmd.Parameters.AddWithValue("@IdPresentacion", det.IdPresentacion);
+                cmd.Parameters.AddWithValue("@CantidadPresentacion", det.CantidadPresentacion);
+                cmd.Parameters.AddWithValue("@Equivalencia", det.Equivalencia);
+                cmd.Parameters.AddWithValue("@NombrePresentacion", det.NombrePresentacion);
+
+
                 cn.Open();
                 cmd.ExecuteNonQuery();
                 cn.Close();

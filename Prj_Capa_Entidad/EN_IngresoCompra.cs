@@ -29,6 +29,8 @@ namespace Prj_Capa_Entidad
         private string _tipoProceso;
         private string _trnCodigo;
 
+        private decimal _igv;
+
         public string Tipo_Doc_Compra { get => _Tipo_Doc_Compra; set => _Tipo_Doc_Compra = value; }
         public string Datos_Adicional { get => _Datos_Adicional; set => _Datos_Adicional = value; }
         public bool RecibiConforme { get => _RecibiConforme; set => _RecibiConforme = value; }
@@ -47,5 +49,6 @@ namespace Prj_Capa_Entidad
         public string LugarSalida { get => _lugarSalida; set => _lugarSalida = value; }
         public string TipoProceso { get => _tipoProceso; set => _tipoProceso = value; }
         public string TrnCodigo { get => _trnCodigo; set => _trnCodigo = value; }
+        public decimal Igv { get => _igv; set => _igv = value; }
     }
 }

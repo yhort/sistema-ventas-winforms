@@ -33,6 +33,11 @@ namespace Prj_Capa_Entidad
         private double _subtotal_SinIgv;
         private double _Igv_subtotal;
 
+
+        private int _idPresentacion;
+        private decimal _cantidadPresentacion;
+        private decimal _equivalencia;
+        private string _nombrePresentacion;
         public double Totalutilidad { get => _Totalutilidad; set => _Totalutilidad = value; }
         public double Utilidad_Unit { get => _Utilidad_Unit; set => _Utilidad_Unit = value; }
         public string Und { get => _Und; set => _Und = value; }
@@ -46,5 +51,9 @@ namespace Prj_Capa_Entidad
         public double Precio_sinIgv { get => _Precio_sinIgv; set => _Precio_sinIgv = value; }
         public double Subtotal_SinIgv { get => _subtotal_SinIgv; set => _subtotal_SinIgv = value; }
         public double Igv_subtotal { get => _Igv_subtotal; set => _Igv_subtotal = value; }
+        public int IdPresentacion { get => _idPresentacion; set => _idPresentacion = value; }
+        public decimal CantidadPresentacion { get => _cantidadPresentacion; set => _cantidadPresentacion = value; }
+        public decimal Equivalencia { get => _equivalencia; set => _equivalencia = value; }
+        public string NombrePresentacion { get => _nombrePresentacion; set => _nombrePresentacion = value; }
     }
 }
