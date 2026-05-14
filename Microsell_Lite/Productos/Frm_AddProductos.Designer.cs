@@ -245,7 +245,7 @@
             this.btn_listo.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btn_listo.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btn_listo.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_listo.Location = new System.Drawing.Point(409, 431);
+            this.btn_listo.Location = new System.Drawing.Point(409, 442);
             this.btn_listo.Name = "btn_listo";
             this.btn_listo.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ModernBlack;
             this.btn_listo.Size = new System.Drawing.Size(133, 43);
@@ -276,7 +276,7 @@
             this.btn_cancel.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btn_cancel.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btn_cancel.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_cancel.Location = new System.Drawing.Point(212, 431);
+            this.btn_cancel.Location = new System.Drawing.Point(212, 442);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ClassicSilver;
             this.btn_cancel.Size = new System.Drawing.Size(144, 43);
@@ -361,7 +361,7 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
             this.label9.Location = new System.Drawing.Point(704, 43);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(3, 453);
+            this.label9.Size = new System.Drawing.Size(3, 463);
             this.label9.TabIndex = 20;
             // 
             // label10
@@ -370,7 +370,7 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Location = new System.Drawing.Point(0, 43);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(3, 453);
+            this.label10.Size = new System.Drawing.Size(3, 463);
             this.label10.TabIndex = 21;
             // 
             // openFileDialog1
@@ -431,7 +431,7 @@
             this.bunifuSeparator2.ForeColor = System.Drawing.Color.Gray;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(39, 406);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(39, 417);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(649, 19);
             this.bunifuSeparator2.TabIndex = 36;
@@ -599,7 +599,7 @@
             this.piclogo.ErrorImage = null;
             this.piclogo.Image = ((System.Drawing.Image)(resources.GetObject("piclogo.Image")));
             this.piclogo.InitialImage = null;
-            this.piclogo.Location = new System.Drawing.Point(524, 318);
+            this.piclogo.Location = new System.Drawing.Point(344, 328);
             this.piclogo.Name = "piclogo";
             this.piclogo.Size = new System.Drawing.Size(86, 69);
             this.piclogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -614,7 +614,7 @@
             this.lbl_Abrir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Abrir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Abrir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lbl_Abrir.Location = new System.Drawing.Point(378, 344);
+            this.lbl_Abrir.Location = new System.Drawing.Point(332, 400);
             this.lbl_Abrir.Name = "lbl_Abrir";
             this.lbl_Abrir.Size = new System.Drawing.Size(113, 16);
             this.lbl_Abrir.TabIndex = 57;
@@ -711,7 +711,7 @@
             this.label19.AutoSize = true;
             this.label19.Enabled = false;
             this.label19.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F);
-            this.label19.Location = new System.Drawing.Point(37, 344);
+            this.label19.Location = new System.Drawing.Point(73, 6);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(79, 25);
             this.label19.TabIndex = 65;
@@ -728,11 +728,11 @@
             this.txt_Stock.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txt_Stock.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txt_Stock.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Stock.Location = new System.Drawing.Point(197, 344);
+            this.txt_Stock.Location = new System.Drawing.Point(80, 34);
             this.txt_Stock.Name = "txt_Stock";
             this.txt_Stock.PasswordChar = '\0';
             this.txt_Stock.Radius = 5;
-            this.txt_Stock.Size = new System.Drawing.Size(144, 28);
+            this.txt_Stock.Size = new System.Drawing.Size(39, 28);
             this.txt_Stock.TabIndex = 2;
             // 
             // label21
@@ -1197,13 +1197,15 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.txt_Precom_Sol);
             this.groupBox2.Controls.Add(this.txt_Frank);
+            this.groupBox2.Controls.Add(this.txt_Stock);
+            this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.txt_PreVenta_mnr);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.bunifuSeparator1);
-            this.groupBox2.Location = new System.Drawing.Point(626, 447);
+            this.groupBox2.Location = new System.Drawing.Point(607, 431);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(49, 24);
+            this.groupBox2.Size = new System.Drawing.Size(68, 40);
             this.groupBox2.TabIndex = 93;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
@@ -1214,7 +1216,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(707, 496);
+            this.ClientSize = new System.Drawing.Size(707, 506);
             this.Controls.Add(this.cbo_Und);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label23);
@@ -1230,8 +1232,6 @@
             this.Controls.Add(this.txt_idproducto);
             this.Controls.Add(this.txt_nombreProduct);
             this.Controls.Add(this.txt_Provedr);
-            this.Controls.Add(this.txt_Stock);
-            this.Controls.Add(this.label19);
             this.Controls.Add(this.lbl_idcateg);
             this.Controls.Add(this.lbl_Abrir);
             this.Controls.Add(this.lbl_idmarca);

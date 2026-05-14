@@ -38,6 +38,7 @@ namespace Prj_Capa_Entidad
         private decimal _cantidadPresentacion;
         private decimal _equivalencia;
         private string _nombrePresentacion;
+        private decimal _cantidadBase;
         public double Totalutilidad { get => _Totalutilidad; set => _Totalutilidad = value; }
         public double Utilidad_Unit { get => _Utilidad_Unit; set => _Utilidad_Unit = value; }
         public string Und { get => _Und; set => _Und = value; }
@@ -55,5 +56,6 @@ namespace Prj_Capa_Entidad
         public decimal CantidadPresentacion { get => _cantidadPresentacion; set => _cantidadPresentacion = value; }
         public decimal Equivalencia { get => _equivalencia; set => _equivalencia = value; }
         public string NombrePresentacion { get => _nombrePresentacion; set => _nombrePresentacion = value; }
+        public decimal CantidadBase { get => _cantidadBase; set => _cantidadBase = value; }
     }
 }

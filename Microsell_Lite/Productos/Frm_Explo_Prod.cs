@@ -46,64 +46,23 @@ namespace Microsell_Lite.Productos
             lis.Columns.Add("ID", 120, HorizontalAlignment.Left); //0
             lis.Columns.Add("Nombre del Producto", 400, HorizontalAlignment.Left); //1
             lis.Columns.Add("Stock", 80, HorizontalAlignment.Left); //2
-            lis.Columns.Add("Pre Compra", 60, HorizontalAlignment.Left); //3
+            //lis.Columns.Add("Pre Compra", 60, HorizontalAlignment.Left); //3
             //lis.Columns.Add("Frank", 0, HorizontalAlignment.Left);//4
-            lis.Columns.Add("Precio Venta 1", 60, HorizontalAlignment.Left);//5
-            lis.Columns.Add("Precio Venta 2", 80, HorizontalAlignment.Center);//6
-            lis.Columns.Add("Utilidad", 80, HorizontalAlignment.Left);//7
+            //lis.Columns.Add("Precio Venta 1", 60, HorizontalAlignment.Left);//5
+            //lis.Columns.Add("Precio Venta 2", 80, HorizontalAlignment.Center);//6
+            //lis.Columns.Add("Utilidad", 80, HorizontalAlignment.Left);//7
             lis.Columns.Add("Total", 90, HorizontalAlignment.Center);//8
             lis.Columns.Add("Estado", 100, HorizontalAlignment.Center);//9
             lis.Columns.Add("marca", 120, HorizontalAlignment.Left);//10
-            lis.Columns.Add("TipoProd", 0, HorizontalAlignment.Left);//11
+            //lis.Columns.Add("TipoProd", 0, HorizontalAlignment.Left);//11
 
         }
 
-        //llenar el listview:
-
-            
-        /*private void Llenar_Listview(DataTable data)
-        {
-            lsv_prodcto.Items.Clear();
-
-            for (int i = 0; i < data.Rows.Count; i++)
-            {
-                DataRow dr = data.Rows[i];
-                ListViewItem list = new ListViewItem(dr["Id_Pro"].ToString());//0
-                list.SubItems.Add(dr["Descripcion_Larga"].ToString());//1
-                list.SubItems.Add(dr["Stock_Actual"].ToString());//2
-                list.SubItems.Add(dr["Pre_CompraS"].ToString());//3
-                list.SubItems.Add(dr["Frank"].ToString());//4
-                list.SubItems.Add(dr["Pre_vntaxMenor"].ToString());//5
-                list.SubItems.Add(dr["Pre_vntaxMayor"].ToString());//6
-                list.SubItems.Add(dr["UtilidadUnit"].ToString());//7
-                list.SubItems.Add(dr["Valor_porCant"].ToString());//8
-                list.SubItems.Add(dr["Estado_Pro"].ToString());//9
-                list.SubItems.Add(dr["Marca"].ToString());//10
-                list.SubItems.Add(dr["TipoProdcto"].ToString());//11
-                lsv_prodcto.Items.Add(list); //si no ponemos esto,. el listview  nunca se llenara
-            }
-            //Pintar_Filas();
-            pnl_msm.Visible = false;
-            lbl_totalItem.Text = lsv_prodcto.Items.Count.ToString();
-        }
-        */
+       
 
         private void Pintar_Filas()
         {
-            //int cont = 1;
-
-            //for (int i = 0; i < lsv_prodcto.Items.Count; i++)
-            //{
-            //    if (cont % 2 == 0)
-            //    {
-
-            //    }
-            //    else
-            //    {
-            //        lsv_prodcto.Items[i].BackColor = Color.AliceBlue;
-            //    }
-            //    cont += 1;
-            //}
+          
         }
 
         //async
@@ -238,15 +197,15 @@ namespace Microsell_Lite.Productos
                     ListViewItem list = new ListViewItem(dr["Id_Pro"].ToString());
                     list.SubItems.Add(dr["Descripcion_Larga"].ToString());//1
                     list.SubItems.Add(dr["Stock_Actual"].ToString());//2
-                    list.SubItems.Add(dr["Pre_CompraS"].ToString());//3
+                    //ist.SubItems.Add(dr["Pre_CompraS"].ToString());//3
                     //list.SubItems.Add(dr["Frank"].ToString());//4
-                    list.SubItems.Add(dr["Pre_vntaxMenor"].ToString());//5
-                    list.SubItems.Add(dr["Pre_vntaxMayor"].ToString());//6
-                    list.SubItems.Add(dr["UtilidadUnit"].ToString());//7
+                    //list.SubItems.Add(dr["Pre_vntaxMenor"].ToString());//5
+                    //list.SubItems.Add(dr["Pre_vntaxMayor"].ToString());//6
+                    //list.SubItems.Add(dr["UtilidadUnit"].ToString());//7
                     list.SubItems.Add(dr["Valor_porCant"].ToString());//8
                     list.SubItems.Add(dr["Estado_Pro"].ToString());//9
                     list.SubItems.Add(dr["Marca"].ToString());//10
-                    list.SubItems.Add(dr["TipoProdcto"].ToString());//11
+                    //list.SubItems.Add(dr["TipoProdcto"].ToString());//11
 
                     lsv_prodcto.Items.Add(list);
 

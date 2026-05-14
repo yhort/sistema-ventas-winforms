@@ -805,6 +805,12 @@ namespace Microsell_Lite.Compras
                         //Al Kardex se manda el precio SIN IGV
                         Registrar_MovimientoKardex(det.Idproducto.Trim(), cantidadBase, precioBaseSinIgv);
 
+                        //STOCK FISICO POR PRESENTACION
+                        Registrar_StockFisicoPresentacion(
+                            det.Idproducto.Trim(),
+                            det.IdPresentacion,
+                            det.CantidaPresentacion
+                        );
                         //precios
                         double xfrank = Buscar_Frank_Producto(det.Idproducto.Trim());
 
@@ -1047,6 +1053,17 @@ namespace Microsell_Lite.Compras
             }
         }
 
-       
+
+        private void Registrar_StockFisicoPresentacion(string idProducto, int idPresentacion, decimal cantidadPresentacion)
+        {
+            RN_Productos obj = new RN_Productos();
+
+            obj.RN_Sumar_StockPresentacion(
+                idProducto.Trim(),
+                idPresentacion,
+                cantidadPresentacion
+            );
+        }
+
     }
 }

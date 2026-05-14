@@ -99,6 +99,7 @@ namespace Prj_Capa_Datos
                 cmd.Parameters.AddWithValue("@CantidadPresentacion", det.CantidadPresentacion);
                 cmd.Parameters.AddWithValue("@Equivalencia", det.Equivalencia);
                 cmd.Parameters.AddWithValue("@NombrePresentacion", det.NombrePresentacion);
+                cmd.Parameters.AddWithValue("@CantidadBase", det.CantidadBase);
 
 
                 cn.Open();

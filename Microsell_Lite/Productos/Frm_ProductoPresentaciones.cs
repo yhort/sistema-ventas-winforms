@@ -86,9 +86,11 @@ namespace Microsell_Lite.Productos
             lsv_prodPresentaciones.GridLines = true;
 
             lsv_prodPresentaciones.Columns.Add("ID", 60);
-            lsv_prodPresentaciones.Columns.Add("Presentacion", 140);
-            lsv_prodPresentaciones.Columns.Add("Abrev.", 70);
+            lsv_prodPresentaciones.Columns.Add("Presentacion", 140);           
             lsv_prodPresentaciones.Columns.Add("Equiv.", 80);
+            lsv_prodPresentaciones.Columns.Add("Stock Físico", 90);
+            lsv_prodPresentaciones.Columns.Add("Stock Base Eq.", 100);
+            lsv_prodPresentaciones.Columns.Add("Abrev.", 70);
             lsv_prodPresentaciones.Columns.Add("P. Compra", 90);
             lsv_prodPresentaciones.Columns.Add("P. Minorista", 100);
             lsv_prodPresentaciones.Columns.Add("P. Mayorista", 100);
@@ -97,6 +99,7 @@ namespace Microsell_Lite.Productos
             lsv_prodPresentaciones.Columns.Add("Compra", 70);
             lsv_prodPresentaciones.Columns.Add("Venta", 70);
             lsv_prodPresentaciones.Columns.Add("Activo", 70);
+           
         }
 
         private void CargarAbreviaturas()
@@ -128,9 +131,11 @@ namespace Microsell_Lite.Productos
             foreach(DataRow dr in dt.Rows)
             {
                 ListViewItem item = new ListViewItem(dr["IdPresentacion"].ToString());
-                item.SubItems.Add(dr["NombrePresentacion"].ToString());
-                item.SubItems.Add(dr["Abreviatura"].ToString());
+                item.SubItems.Add(dr["NombrePresentacion"].ToString());              
                 item.SubItems.Add(Convert.ToDecimal(dr["Equivalencia"]).ToString());
+                item.SubItems.Add(Convert.ToDecimal(dr["StockPresentacion"]).ToString("0.####"));
+                item.SubItems.Add(Convert.ToDecimal(dr["StockBaseEquivalente"]).ToString("0.####"));
+                item.SubItems.Add(dr["Abreviatura"].ToString());
                 item.SubItems.Add(Convert.ToDecimal(dr["PrecioCompra"]).ToString());
                 item.SubItems.Add(Convert.ToDecimal(dr["PrecioVentaMinorista"]).ToString());
                 item.SubItems.Add(Convert.ToDecimal(dr["PrecioVentaMayorista"]).ToString());
@@ -139,6 +144,7 @@ namespace Microsell_Lite.Productos
                 item.SubItems.Add(Convert.ToBoolean(dr["PermiteCompra"]) ? "Sí" : "No");
                 item.SubItems.Add(Convert.ToBoolean(dr["PermiteVenta"]) ? "Sí" : "No");
                 item.SubItems.Add(Convert.ToBoolean(dr["Activo"]) ? "Sí" : "No");
+                
 
                 lsv_prodPresentaciones.Items.Add(item);
 
@@ -236,27 +242,22 @@ namespace Microsell_Lite.Productos
         {
            
         }
-
         private void lbl_busProve_Click(object sender, EventArgs e)
         {
         }
-
         private void lbl_busMarca_Click(object sender, EventArgs e)
         {
            
         }
-
         private void lbl_busCat_Click(object sender, EventArgs e)
         {
             
         }
-
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Tag = "";
             this.Close();
         }
-
         private void chkControlarStock_CheckedChanged(object sender, EventArgs e)
         {
            
@@ -305,25 +306,7 @@ namespace Microsell_Lite.Productos
             IdPresentacion = 0;
 
             limpiarForm();
-            //ValoresPorDefecto();
             ConfigurarFormulario();
-            //if (lsv_prodPresentaciones.SelectedItems.Count > 0)
-            //{
-            //    IdProducto = lsv_prodPresentaciones.SelectedItems[0].Tag.ToString();
-            //    NombreProducto = lsv_prodPresentaciones.SelectedItems[0].SubItems[1].Text;
-
-            //    ConfigurarFormulario();
-            //}
-
-            //pnl_add.Visible = true;
-            //lsv_prodPresentaciones.Enabled = false;
-
-            //Modo = "N";
-            //IdPresentacion = 0;
-
-            //limpiarForm();
-            //ValoresPorDefecto();
-            //ConfigurarFormulario();
 
         }
 
@@ -601,36 +584,16 @@ namespace Microsell_Lite.Productos
             }
 
             this.Close();
-
-            //if (pnl_add.Visible)
-            //{
-            //    pnl_add.Visible = false;
-            //    limpiarForm();
-
-            //    lsv_prodPresentaciones.Enabled = true;
-
-            //    //si viene del flujo producto → cerrar todo
-            //    if (EsFlujoProducto)
-            //    {
-            //        this.Close();
-            //    }
-
-            //    return;
-            //}
-
-            //this.Close();
+   
         }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void pnl_add_Click(object sender, EventArgs e)
         {
 
         }
-
         private void cboAbreviatura_SelectedIndexChanged(object sender, EventArgs e)
         {
             AplicarReglasUnidad();

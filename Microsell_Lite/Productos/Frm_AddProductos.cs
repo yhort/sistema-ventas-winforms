@@ -697,7 +697,9 @@ namespace Microsell_Lite.Productos
             {
                 if (string.IsNullOrWhiteSpace(txt_Stock.Text) || txt_Stock.Text == "0")
                 {
-                    txt_Stock.Text = "1"; // Valor predeterminado si vas a controlar stock
+                    /*txt_Stock.Text = "1";*/ // Valor predeterminado si vas a controlar stock
+                    txt_Stock.Text = "0";
+                    txt_Stock.Enabled = false;
                 }
             }
         }

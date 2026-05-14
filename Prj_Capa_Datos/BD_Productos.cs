@@ -640,6 +640,42 @@ namespace Prj_Capa_Datos
         }
 
 
+        //
 
+        public void BD_Sumar_StockPresentacion(string idProducto, int idPresentacion, decimal cantidad)
+        {
+            using (SqlConnection cn = new SqlConnection(Conectar()))
+            {
+                cn.Open();
+
+                using (SqlCommand cmd = new SqlCommand("Sp_Sumar_StockPresentacion", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cmd.Parameters.AddWithValue("@IdPresentacion", idPresentacion);
+                    cmd.Parameters.AddWithValue("@Cantidad", cantidad);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void BD_Restar_StockPresentacion(string idProducto, int idPresentacion, decimal cantidad)
+        {
+            using (SqlConnection cn = new SqlConnection(Conectar()))
+            {
+                cn.Open();
+
+                using (SqlCommand cmd = new SqlCommand("Sp_Restar_StockPresentacion", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cmd.Parameters.AddWithValue("@IdPresentacion", idPresentacion);
+                    cmd.Parameters.AddWithValue("@Cantidad", cantidad);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

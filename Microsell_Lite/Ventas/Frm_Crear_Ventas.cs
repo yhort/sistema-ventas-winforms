@@ -163,7 +163,7 @@ namespace Microsell_Lite.Ventas
 
             lis.Columns.Add("ID producto", 0, HorizontalAlignment.Left); //0
             lis.Columns.Add("Descripcion producto", 200, HorizontalAlignment.Left);  //1
-            lis.Columns.Add("Stock base", 50, HorizontalAlignment.Center);  //2
+            lis.Columns.Add("Disponible", 70, HorizontalAlignment.Center);  //2
             lis.Columns.Add("Presentacion", 60, HorizontalAlignment.Center);  //3
             lis.Columns.Add("Equivalencia", 30, HorizontalAlignment.Right);  //4 ver opcion para anñador pr_compra
             lis.Columns.Add("Precio Minorista", 40, HorizontalAlignment.Left);
@@ -175,6 +175,8 @@ namespace Microsell_Lite.Ventas
             lis.Columns.Add("ControlaStock", 0, HorizontalAlignment.Left);
             lis.Columns.Add("Costo Promedio Base", 0, HorizontalAlignment.Left);
             lis.Columns.Add("Abrev", 0, HorizontalAlignment.Left);                //13
+            lis.Columns.Add("Stock base", 0, HorizontalAlignment.Left); //14
+            lis.Columns.Add("Stock presentación", 0, HorizontalAlignment.Left); //15
         }
         //private void Agregar_Productos_alCarrito(string xidprod, string xnomprod, double xcant, double xprecio, double ximporte,string xund, string xtipoProd, double xutili_unit, string xafecto, string xtipo, string cod_afecto, double precioOriginal)
         //{
@@ -772,17 +774,30 @@ namespace Microsell_Lite.Ventas
 
             foreach (DataRow dr in data.Rows)
             {
-                double stockActual = Convert.ToDouble(dr["Stock_Actual"]);
+                double stockbase = Convert.ToDouble(dr["Stock_Actual"]);
+                double stockPresentacion = Convert.ToDouble(dr["StockPresentacion"]);
+                double equivalencia = Convert.ToDouble(dr["Equivalencia"]);
 
-                if (tipo == "todo" && stockActual <= 0)
+                if (equivalencia <= 0)
+                    equivalencia = 1;
+
+                //double disponiblePresentacion = stockActual / equivalencia;
+                string abrev = dr["Abreviatura"].ToString();
+
+  
+                if (tipo == "todo" && stockPresentacion <= 0)
                     continue;
 
                 ListViewItem lis = new ListViewItem(dr["Id_Pro"].ToString());
 
                 lis.SubItems.Add(dr["Descripcion_Larga"].ToString()); //1
-                lis.SubItems.Add(stockActual.ToString("0.####"));     //2
+
+                //stcok fisicop de esa presentacion
+                lis.SubItems.Add(stockPresentacion.ToString("0.###") + " " + abrev);     //2
+
                 lis.SubItems.Add(dr["NombrePresentacion"].ToString()); //3
-                lis.SubItems.Add(Convert.ToDecimal(dr["Equivalencia"]).ToString("0.####")); //4
+                lis.SubItems.Add(equivalencia.ToString("0.####")); //4
+
                 lis.SubItems.Add(Convert.ToDecimal(dr["PrecioVentaMinorista"]).ToString("0.00")); //5
                 lis.SubItems.Add(Convert.ToDecimal(dr["PrecioVentaMayorista"]).ToString("0.00")); //6
                 lis.SubItems.Add(Convert.ToDecimal(dr["CantMinMayorista"]).ToString("0.####")); //7
@@ -791,8 +806,13 @@ namespace Microsell_Lite.Ventas
                 lis.SubItems.Add(dr["CodTipo_Afectacion"].ToString()); //10
                 lis.SubItems.Add(dr["ControlaStock"].ToString()); //11
                 lis.SubItems.Add(Convert.ToDecimal(dr["Pre_CompraS"]).ToString("0.0000")); //12
-                lis.SubItems.Add(dr["Abreviatura"].ToString()); //13
+                lis.SubItems.Add(abrev); //13
 
+                //stock real /base oculto 
+                lis.SubItems.Add(stockbase.ToString("0.####"));//14
+
+                //stock fisico oculto para validar 
+                lis.SubItems.Add(stockPresentacion.ToString("0.###"));//15
                 lsv_Pdet.Items.Add(lis);
             }
 
@@ -813,12 +833,16 @@ namespace Microsell_Lite.Ventas
 
             string idProd = item.SubItems[0].Text.Trim();
             string producto = item.SubItems[1].Text.Trim();
-            double stockBase = Convert.ToDouble(item.SubItems[2].Text);
+
+            //SubItems[2] es solo el dispoinible visual 
+            string disponibleVisual = item.SubItems[2].Text;
             string nombrePresentacion = item.SubItems[3].Text.Trim();
             double equivalencia = Convert.ToDouble(item.SubItems[4].Text);
+            
             double precioMinorista = Convert.ToDouble(item.SubItems[5].Text);
             double precioMayorista = Convert.ToDouble(item.SubItems[6].Text);
             double cantMinMayorista = Convert.ToDouble(item.SubItems[7].Text);
+
             int idPresentacion = Convert.ToInt32(item.SubItems[8].Text);
             string tipoAfectacion = item.SubItems[9].Text;
             string codAfecto = item.SubItems[10].Text;
@@ -826,9 +850,13 @@ namespace Microsell_Lite.Ventas
             double costoPromedioBase = Convert.ToDouble(item.SubItems[12].Text);
             string abrev = item.SubItems[13].Text;
 
-            if (controlaStock && stockBase <= 0)
+            //stock real/base
+            double stockBase = Convert.ToDouble(item.SubItems[14].Text);
+            double stockPresentacion = Convert.ToDouble(item.SubItems[15].Text);
+
+            if (controlaStock && stockPresentacion <= 0)
             {
-                MessageBox.Show("El producto no tiene stock disponible.",
+                MessageBox.Show("No hay stock disponible para esta presentación.",
                                 "Stock insuficiente",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
@@ -840,16 +868,14 @@ namespace Microsell_Lite.Ventas
 
             fil.Show();
             cant.lbl_Prod.Text = producto + " - " + nombrePresentacion;
-            cant.Lbl_stockActual.Text = stockBase.ToString("0.####");
+            cant.Lbl_stockActual.Text = disponibleVisual;
             cant.ShowDialog();
             fil.Hide();
 
             if (cant.Tag?.ToString() != "A")
                 return;
 
-            double cantidadPresentacion = Convert.ToDouble(cant.txt_cant.Text);
-
-            if (cantidadPresentacion <= 0)
+            if (!double.TryParse(cant.txt_cant.Text, out double cantidadPresentacion) || cantidadPresentacion <= 0)
             {
                 MessageBox.Show("Ingrese una cantidad válida.",
                                 "Validación",
@@ -858,14 +884,39 @@ namespace Microsell_Lite.Ventas
                 return;
             }
 
+            if (equivalencia <= 0)
+            {
+                MessageBox.Show("La equivalencia de la presentación no es válida.",
+                                "Validación",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+           
             double cantidadBase = cantidadPresentacion * equivalencia;
 
+            //Validacion fisica por presentacion
+            if (controlaStock && cantidadPresentacion > stockPresentacion)
+            {
+                MessageBox.Show(
+                    "Stock insuficiente para esta presentacion.\n\n" +
+                    "Cantidad solicitada " + cantidadPresentacion.ToString("0.###") + " " + abrev + "\n" +
+                    "Disponible: " + stockPresentacion.ToString("0.###") + " " + abrev,
+                    "Stock insuficiente",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            //validacion extra contra el stock base total
             if (controlaStock && cantidadBase > stockBase)
             {
                 MessageBox.Show(
                     "Stock insuficiente.\n\n" +
-                    "Cantidad solicitada: " + cantidadBase.ToString("0.####") + " unidad(es) base\n" +
-                    "Stock disponible: " + stockBase.ToString("0.####"),
+                    "Cantidad base requerida: " + cantidadBase.ToString("0.####")  + "\n" +
+                    "Stock base disponible: " + stockBase.ToString("0.####"),
                     "Stock insuficiente",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -1239,9 +1290,18 @@ namespace Microsell_Lite.Ventas
                     Cant_Editado = Convert.ToDouble(pre.txt_cant.Text);
                     xUti_Unit = Convert.ToDouble(pre.Lbl_UtilidadUnit.Text);
 
+                    double equivalencia = Convert.ToDouble(lsv_Det.SelectedItems[0].SubItems[18].Text);
+                    double nuevaCantidadBase = Cant_Editado * equivalencia;
+
+                    double nuevoPrecioBase = Precio_Editado / equivalencia;
+
                     lsv_Det.SelectedItems[0].SubItems[3].Text = Precio_Editado.ToString("###0.00");
                     lsv_Det.SelectedItems[0].SubItems[2].Text = Cant_Editado.ToString("###0.000");
                     lsv_Det.SelectedItems[0].SubItems[7].Text = xUti_Unit.ToString("###0.00");
+
+                    // Campos ocultos para presentación
+                    lsv_Det.SelectedItems[0].SubItems[19].Text = nuevaCantidadBase.ToString("0.####");
+                    lsv_Det.SelectedItems[0].SubItems[20].Text = nuevoPrecioBase.ToString("0.0000");
 
                     Calcular();
                     RecalcularTodo();
@@ -1335,6 +1395,13 @@ namespace Microsell_Lite.Ventas
                         det.Subtotal_SinIgv = Convert.ToDouble(lis.SubItems[11].Text);
                         det.Igv_subtotal = Convert.ToDouble(lis.SubItems[12].Text);
 
+                        //presentaciones
+                        det.IdPresentacion = Convert.ToInt32(lis.SubItems[16].Text);
+                        det.NombrePresentacion = lis.SubItems[17].Text;
+                        det.Equivalencia = Convert.ToDecimal(lis.SubItems[18].Text);
+                        det.CantidadPresentacion = Convert.ToDecimal(lis.SubItems[2].Text);
+                        det.CantidadBase = Convert.ToDecimal(lis.SubItems[19].Text);
+
                         obj.RN_Registrar_Detalle_Pedido(det);
                     }
                 }
@@ -1404,8 +1471,8 @@ namespace Microsell_Lite.Ventas
                         det.IdPresentacion = Convert.ToInt32(lis.SubItems[16].Text);
                         det.NombrePresentacion = lis.SubItems[17].Text;
                         det.Equivalencia = Convert.ToDecimal(lis.SubItems[18].Text);
-                        det.CantidadPresentacion = Convert.ToDecimal(lis.SubItems[19].Text);
-
+                        det.CantidadPresentacion = Convert.ToDecimal(lis.SubItems[2].Text);
+                        det.CantidadBase = Convert.ToDecimal(lis.SubItems[19].Text);
                         obj.RN_Registrar_Detalle_Pedido(det);
 
                     }
@@ -1650,7 +1717,6 @@ namespace Microsell_Lite.Ventas
             double xcant = 0;
             string xTipoProd = "";
 
-
             try
             {
 
@@ -1659,16 +1725,19 @@ namespace Microsell_Lite.Ventas
                     var lis = lsv_Det.Items[i];
 
                     xidProd = lis.SubItems[0].Text;
-                    xcant = Convert.ToDouble(lis.SubItems[2].Text);
+                    //xcant = Convert.ToDouble(lis.SubItems[2].Text);
+                    //xcant = Convert.ToDouble(lis.SubItems[19].Text); //cantidadPresentacion
+                    //cantidad visible vendida 2 cajas, 5 unidad, eytc
+                    decimal cantidadPresentacion = Convert.ToDecimal(lis.SubItems[2].Text);
+
+                    //cantidad real para kardex/stock base: cantidadPresentacion * equivalencia
+                    double xcantBase = Convert.ToDouble(lis.SubItems[19].Text);
+
+                    int idPresentacion = Convert.ToInt32(lis.SubItems[16].Text);
+
                     xTipoProd = lis.SubItems[5].Text;
 
-                    //añadadiendo funcionabiliddad si el prod maneja stock
-                    // Leer si controla stock
-                    //datoprod = objpro.RN_Buscar_Productos(xidProd.Trim());
-                    //bool controlaStock = Convert.ToBoolean(datoprod.Rows[0]["ControlaStock"]);
-
-                    //if (!controlaStock)
-                    //    continue; // saltamos este producto, no registra en kardex
+                    
 
                     if (obj.RN_Verificar_Producto_siTieneKardex(xidProd) == true)
                     {
@@ -1679,9 +1748,10 @@ namespace Microsell_Lite.Ventas
                             xitem = dato.Rows.Count;
                             //leemos los datos del producto 
                             datoprod = objpro.RN_Buscar_Productos(xidProd.Trim());
+
                             stockProd = Convert.ToDouble(datoprod.Rows[0]["Stock_Actual"]);
                             precioCompraProd = Convert.ToDouble(datoprod.Rows[0]["Pre_CompraS"]);
-
+                            bool controlaStock = Convert.ToBoolean(datoprod.Rows[0]["ControlaStock"]);
 
                             //registramos el Detalle del Kardex:
 
@@ -1694,42 +1764,28 @@ namespace Microsell_Lite.Ventas
                             kar.CantiDiferencial = "0";
                             kar.ImporteDiferencial = 0;
 
-                            bool controlaStock = Convert.ToBoolean(datoprod.Rows[0]["ControlaStock"]);
-                           
+                            //Entradas y salidas como referencia(no se considera saldo)
+                            kar.Cantidad_in = 0;
+                            kar.Precio_In = 0;
+                            kar.Total_In = 0;
+
+                            //salida: kardex trabaja siempre cpj cantidad base
+                            kar.Cantidad_Out = xcant;
+                            kar.Precio_out = precioCompraProd;
+                            kar.Total_out = xcant * precioCompraProd;
+
+
                             if (!controlaStock)
                             {
                                 kar.Observacion = "Producto SIN Control de Stock";
 
-                                //Entradas y salidas como referencia(no se considera saldo)
-                                kar.Cantidad_in = 0;
-                                kar.Precio_In = 0;
-                                kar.Total_In = 0;
-
-                                //salida:
-                                kar.Cantidad_Out = xcant;
-                                kar.Precio_out = precioCompraProd;
-                                kar.Total_out = xcant * precioCompraProd;
-
                                 //saldos:   //CALCULOS DE LOS KARDEX VALORIZADOS
                                 kar.Cantidad_saldo = stockProd;
-                                kar.Promedio = precioCompraProd;
-                                kar.Total_saldo = precioCompraProd * kar.Cantidad_saldo;
+                               
                             }
                             else
                             {
-                                kar.Observacion = "-";
 
-                                kar.Cantidad_in = 0;
-                                kar.Precio_In = 0;
-                                kar.Total_In = 0;
-
-                                //salida:
-                                kar.Cantidad_Out = xcant;
-                                kar.Precio_out = precioCompraProd;
-                                kar.Total_out = xcant * precioCompraProd;
-
-                                //saldos:   //CALCULOS DE LOS KARDEX VALORIZADOS
-                                kar.Cantidad_saldo = stockProd - xcant;
                                 kar.Promedio = precioCompraProd;
                                 kar.Total_saldo = precioCompraProd * kar.Cantidad_saldo;
 
@@ -1739,11 +1795,16 @@ namespace Microsell_Lite.Ventas
 
                             if (controlaStock)
                             {
-                                //ahora actualizamos nuestro stock de la tabla de productos:
-                                objpro.RN_Restar_Stock_Producto(xidProd.Trim(), xcant);
+                                // 1. Restar stock base global
+                                objpro.RN_Restar_Stock_Producto(xidProd.Trim(), xcantBase);
+
+                                // 2. Restar stock físico de la presentación vendida
+                                Registrar_SalidaStockFisicoPresentacion(
+                                    xidProd.Trim(),
+                                    idPresentacion,
+                                    cantidadPresentacion
+                                );
                             }
-                            //ahora actualizamos nuestro stock de la tabla de productos:
-                            //objpro.RN_Restar_Stock_Producto(xidProd.Trim(), xcant);
 
                             Prod_Krd += 1;
 
@@ -1756,7 +1817,7 @@ namespace Microsell_Lite.Ventas
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Reg Kardex Capa Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "Reg Kardex Capa Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -5066,6 +5127,37 @@ namespace Microsell_Lite.Ventas
                 buscar_Productos(valor);
             }
             
+        }
+
+        //private string FormatearDisponiblePresentacion(double stockBase, double equivalencia, string abreviatura)
+        //{
+        //    if (equivalencia <= 0)
+        //        equivalencia = 1;
+
+        //    // Si es unidad base, se muestra normal
+        //    if (equivalencia == 1)
+        //        return stockBase.ToString("0.####");
+
+        //    int cantidadCompleta = (int)Math.Floor(stockBase / equivalencia);
+        //    double sobrante = stockBase - (cantidadCompleta * equivalencia);
+
+        //    if (sobrante > 0)
+        //    {
+        //        return cantidadCompleta.ToString() + " " + abreviatura + " + " + sobrante.ToString("0.####") + " base";
+        //    }
+
+        //    return cantidadCompleta.ToString() + " " + abreviatura;
+        //}
+
+        private void Registrar_SalidaStockFisicoPresentacion(string idProducto, int idPresentacion, decimal cantidadPresentacion)
+        {
+            RN_Productos obj = new RN_Productos();
+
+            obj.RN_Restar_StockPresentacion(
+                idProducto.Trim(),
+                idPresentacion,
+                cantidadPresentacion
+            );
         }
     }
 }

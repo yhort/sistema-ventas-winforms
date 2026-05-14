@@ -127,5 +127,17 @@ namespace Prj_Capa_Negocio
             obj.BD_Actualizar_Stock_y_Precio(idprod, stock, nuevoCostoPromedio);
         }
 
+
+        public void RN_Sumar_StockPresentacion(string idProducto, int idPresentacion, decimal cantidad)
+        {
+            BD_Productos obj = new BD_Productos();
+            obj.BD_Sumar_StockPresentacion(idProducto, idPresentacion, cantidad);
+        }
+
+        public void RN_Restar_StockPresentacion(string idProducto, int idPresentacion, decimal cantidad)
+        {
+            BD_Productos obj = new BD_Productos();
+            obj.BD_Restar_StockPresentacion(idProducto, idPresentacion, cantidad);
+        }
     }
 }
