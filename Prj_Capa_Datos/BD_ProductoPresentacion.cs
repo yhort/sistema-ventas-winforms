@@ -149,5 +149,35 @@ namespace Prj_Capa_Datos
                 return dt;
             }
         }
+
+        public int BD_Importar_ProductoPresentacion(EN_ProductoPresentacion pre)
+        {
+            using (SqlConnection cn = new SqlConnection(Conectar()))
+            {
+                cn.Open();
+
+                using (SqlCommand cmd = new SqlCommand("Sp_Importar_ProductoPresentacion", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@IdProducto", pre.IdProducto);
+                    cmd.Parameters.AddWithValue("@NombrePresentacion", pre.NombrePresentacion);
+                    cmd.Parameters.AddWithValue("@Abreviatura", pre.Abreviatura);
+                    cmd.Parameters.AddWithValue("@Equivalencia", pre.Equivalencia);
+                    cmd.Parameters.AddWithValue("@PrecioCompra", pre.PrecioCompra);
+                    cmd.Parameters.AddWithValue("@PrecioVentaMinorista", pre.PrecioVentaMinorista);
+                    cmd.Parameters.AddWithValue("@PrecioVentaMayorista", pre.PrecioVentaMayorista);
+                    cmd.Parameters.AddWithValue("@CantMinMayorista", pre.CantMinMayorista);
+
+                    SqlParameter idPres = new SqlParameter("@IdPresentacion", SqlDbType.Int);
+                    idPres.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(idPres);
+
+                    cmd.ExecuteNonQuery();
+
+                    return Convert.ToInt32(idPres.Value);
+                }
+            }
+        }
     }
 }

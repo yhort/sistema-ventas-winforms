@@ -120,9 +120,41 @@
   <metadata name="bunifuElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_Presentaciones.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANySURBVFhH7ZfN
+        i9VVGMc1reyFUkhrEQgiZRGCitDLZsJAiBaCjDktalp0Ye7MeT7Pb+bCBEH+XAStDCmkrF1gpYKJSfQi
+        U1iTQougpYv5A1xI21bxledcjsexebvTqi8cOOd5+d7nd16+59w1a5YJ4G0zu6qmfu0fOFJK97r7O1NT
+        U4+klB5y9+/Gx8e3qqkvm3yKUWydvyLEj39tZkeA383sBzN7I/vVly18RxQ70CLMbJ9I1e90OnfX/ozs
+        i2L31f4VATgP7Mzjtm3Xp5SedffnhoeH1xVxOxXbTxwE9APATP7Cpmm2A1eA48Ax4HLTNNvkU4y7/1QW
+        tSIA7wG/uvtkYfve3Z8qxk8C3+axYpWj3GxbNvTl5Xh0dHSDNlxpE3QSmqa5r7TVuUtCr9fbApwE/gJe
+        Ax4N11pNcRWuH7ucp12xkaPck+Kq4++Itm3vAaZEGLt/N2DAFzkGeFfnXRtRa64xcLTwf6kc5YpDXOIU
+        d/+H5sPExMQOd/8D6Iq89Glnp5Qej6FmYVzrDvzs7i6bHIqpT4G4xCnukdm5HaXvFkhQJCbAN+Umm56e
+        fhiYLZbhjojpn1VOtolLnOIeuTrXF7DbEIr2ZiRc0DEbGxvb5O4vAJekbsBBTW2dG0t1MGIumdnzyo2j
+        ekGc4l5UAXkMvKKvcfcxdx8BrgEfAh8DP2rXq6nv7p+E75pilQNcN7PDBf/SChC0ccysF5uyJPsI2K+m
+        fmE/HLE9d/+q2DfLKyBDR8nMPjWzM1I9dx/SV0cbkg04C/yZjx3w+cAKyEgp7Yqb77iu4F6v94C7t9IG
+        M3sRuJhjV6WADDM7BPympr5snU7nfhUA7AXeAk6tWgGCu4+q5bEKkCSH8EicbpRH9z8pAPjbzNBY90YZ
+        v+oFhAbM1iqaseoFLIT/C1hMAVKxE//28CyxlALi2j7x6pW5vprehnxt6jllZi/X/hrzFaDnmSS42+0+
+        lm3iiidad2hmZt4NegviFntfomJmz9T+jLKAbrf7oBQx3gg3X8+Tk5NPAOck1ymlzXX+gkgpPR3K9oG7
+        b6z9uQBNr+TZ3Q+EfaNylCuOOm/JaJrmpbjhKJ/b9RK0bXsX8HpM93CfYBCIryT0f79sZQG6EYFftAwD
+        /VtWI55cnwGn4xbUup8O24JPtoHBzPboQaqmfu1fLP4B2o5/VK0nFJoAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="btn_cerrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAR5JREFUSEvt
+        lMtKA0EQRbM24AsX+g260E9XosvEB+rCEHCTh37DPLtubVsKqoe2MBO6x2UODAxdVffM1MCMRntScM5d
+        AZhUVXVsa7uo6/pEZp1zl7bWAeAOgAfwIQO2vg0Nn+vsra13eO8PmHmqjZ9t257ZHgsRnQNYyozMSobt
+        +UWKJDk8oJJZnyQ7POC9H2+TSDgzr7LDA39J/i08EEuY+YuZv/V+Njg8IBIAb/omEv4qZ7YvGwAXzLyJ
+        BGtZle3LQsPDzp8BvKhoOVhiwmXnY7mI6GmwJA4nosd450VRHAJ4V/EqWdIXHsiWaPi6LzyQLEkJDyRJ
+        oo83T/ldN01zCmChkqmtdwC4AXAvT2VruyjL8gjAAxFd29qeXn4AnGAX+WdiDKIAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="bunifuDragControl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>141, 17</value>
   </metadata>

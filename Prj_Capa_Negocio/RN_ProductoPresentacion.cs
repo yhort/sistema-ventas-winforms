@@ -49,5 +49,10 @@ namespace Prj_Capa_Negocio
             return obj.BD_Buscar_Producto_ConPresentaciones_Venta(valor);
         }
 
+        public int RN_Importar_ProductoPresentacion(EN_ProductoPresentacion pre)
+        {
+            BD_ProductoPresentacion obj = new BD_ProductoPresentacion();
+            return obj.BD_Importar_ProductoPresentacion(pre);
+        }
     }
 }
