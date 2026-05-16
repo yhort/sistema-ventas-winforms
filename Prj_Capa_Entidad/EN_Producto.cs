@@ -53,9 +53,10 @@ namespace Prj_Capa_Entidad
 
         //para prodc (stok - o no)
         private bool _controlaStock;
-        private decimal _preventaLista; 
+        private decimal _preventaLista;
 
-
+        private string _codigoBarraPrincipal;
+        private string _skuProducto;
 
         public string Idproducto { get => _idproducto; set => _idproducto = value; }
         public string Idproveedor { get => _idproveedor; set => _idproveedor = value; }
@@ -80,5 +81,7 @@ namespace Prj_Capa_Entidad
         public string CodTipoAfectacion_Sunat { get => _codTipoAfectacion_Sunat; set => _codTipoAfectacion_Sunat = value; }
         public bool ControlaStock { get => _controlaStock; set => _controlaStock = value; }
         public decimal PreventaLista { get => _preventaLista; set => _preventaLista = value; }
+        public string CodgioBarraPrincipal { get => _codigoBarraPrincipal; set => _codigoBarraPrincipal = value; }
+        public string SkuProducto { get => _skuProducto; set => _skuProducto = value; }
     }
 }

@@ -613,6 +613,12 @@
     <Compile Include="Productos\Frm_Edit_Precio.designer.cs">
       <DependentUpon>Frm_Edit_Precio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos\Frm_TomaInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\Frm_TomaInventario.Designer.cs">
+      <DependentUpon>Frm_TomaInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos\Frm_Unidades_deMedida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1647,6 +1653,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Frm_Edit_Precio.resx">
       <DependentUpon>Frm_Edit_Precio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\Frm_TomaInventario.resx">
+      <DependentUpon>Frm_TomaInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Frm_Unidades_deMedida.resx">
       <DependentUpon>Frm_Unidades_deMedida.cs</DependentUpon>

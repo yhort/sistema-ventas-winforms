@@ -33,6 +33,7 @@ namespace Microsell_Lite.Compras
             txt_IdComp.Text = RN_TipoDoc.RN_NroID(9);
         }
 
+        private const int ID_ALMACEN_DEFAULT = 1;
         private void Configurar_listView()
         {
 
@@ -1059,6 +1060,7 @@ namespace Microsell_Lite.Compras
             RN_Productos obj = new RN_Productos();
 
             obj.RN_Sumar_StockPresentacion(
+                ID_ALMACEN_DEFAULT,
                 idProducto.Trim(),
                 idPresentacion,
                 cantidadPresentacion

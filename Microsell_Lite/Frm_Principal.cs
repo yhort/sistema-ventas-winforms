@@ -1190,5 +1190,15 @@ namespace Microsell_Lite
             prodpr.ShowDialog();
             fil.Hide();
         }
+
+        private void bt_tomaDeInventarioTool_Click(object sender, EventArgs e)
+        {
+            Frm_Filtro fil = new Frm_Filtro();
+            Frm_TomaInventario inv = new Frm_TomaInventario();
+
+            fil.Show();
+            inv.ShowDialog();
+            fil.Hide();
+        }
     }
 }

@@ -128,16 +128,22 @@ namespace Prj_Capa_Negocio
         }
 
 
-        public void RN_Sumar_StockPresentacion(string idProducto, int idPresentacion, decimal cantidad)
+        public void RN_Sumar_StockPresentacion(int idAlmacen, string idProducto, int idPresentacion, decimal cantidad)
         {
             BD_Productos obj = new BD_Productos();
-            obj.BD_Sumar_StockPresentacion(idProducto, idPresentacion, cantidad);
+            obj.BD_Sumar_StockPresentacion(idAlmacen, idProducto, idPresentacion, cantidad);
         }
 
-        public void RN_Restar_StockPresentacion(string idProducto, int idPresentacion, decimal cantidad)
+        public void RN_Restar_StockPresentacion(int idAlmacen, string idProducto, int idPresentacion, decimal cantidad)
         {
             BD_Productos obj = new BD_Productos();
-            obj.BD_Restar_StockPresentacion(idProducto, idPresentacion, cantidad);
+            obj.BD_Restar_StockPresentacion(idAlmacen, idProducto, idPresentacion, cantidad);
+        }
+
+        public void RN_Ajustar_StockBase_Producto(string idProducto, decimal diferenciaBase)
+        {
+            BD_Productos obj = new BD_Productos();
+            obj.BD_Ajustar_StockBase_Producto(idProducto, diferenciaBase);
         }
     }
 }

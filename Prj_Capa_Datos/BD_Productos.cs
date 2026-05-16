@@ -30,7 +30,7 @@ namespace Prj_Capa_Datos
                 cmd.Parameters.AddWithValue("@frank", pro.Frank);
                 cmd.Parameters.AddWithValue("@Pre_compraSol", pro.PreCompra_Sol);
                 cmd.Parameters.AddWithValue("@pre_CompraDolar", pro.PreCompra_Dlr);
-                cmd.Parameters.AddWithValue("@StockActual ", pro.Stock);
+                cmd.Parameters.AddWithValue("@StockActual", pro.Stock);
                 cmd.Parameters.AddWithValue("@idCat", pro.Idcategoria);
                 cmd.Parameters.AddWithValue("@idMar", pro.Idmarca);
                 cmd.Parameters.AddWithValue("@Foto", pro.Foto);
@@ -46,6 +46,8 @@ namespace Prj_Capa_Datos
                 cmd.Parameters.AddWithValue("@Tipo_Afectacion", pro.TipoAfectacion_Sunat);
                 cmd.Parameters.AddWithValue("@ControlaStock", pro.ControlaStock);
                 cmd.Parameters.AddWithValue("@Pre_vntaLista", pro.PreventaLista);
+                cmd.Parameters.AddWithValue("@CodigoBarraPrincipal", pro.CodgioBarraPrincipal);
+                cmd.Parameters.AddWithValue("@SKUProducto", pro.SkuProducto);
 
                 cn.Open();
                 cmd.ExecuteNonQuery();
@@ -642,7 +644,7 @@ namespace Prj_Capa_Datos
 
         //
 
-        public void BD_Sumar_StockPresentacion(string idProducto, int idPresentacion, decimal cantidad)
+        public void BD_Sumar_StockPresentacion(int idAlmacen, string idProducto, int idPresentacion, decimal cantidad)
         {
             using (SqlConnection cn = new SqlConnection(Conectar()))
             {
@@ -651,6 +653,7 @@ namespace Prj_Capa_Datos
                 using (SqlCommand cmd = new SqlCommand("Sp_Sumar_StockPresentacion", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdAlmacen", idAlmacen);
                     cmd.Parameters.AddWithValue("@IdProducto", idProducto);
                     cmd.Parameters.AddWithValue("@IdPresentacion", idPresentacion);
                     cmd.Parameters.AddWithValue("@Cantidad", cantidad);
@@ -660,7 +663,7 @@ namespace Prj_Capa_Datos
             }
         }
 
-        public void BD_Restar_StockPresentacion(string idProducto, int idPresentacion, decimal cantidad)
+        public void BD_Restar_StockPresentacion(int idAlmacen, string idProducto, int idPresentacion, decimal cantidad)
         {
             using (SqlConnection cn = new SqlConnection(Conectar()))
             {
@@ -669,10 +672,27 @@ namespace Prj_Capa_Datos
                 using (SqlCommand cmd = new SqlCommand("Sp_Restar_StockPresentacion", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdAlmacen", idAlmacen);
                     cmd.Parameters.AddWithValue("@IdProducto", idProducto);
                     cmd.Parameters.AddWithValue("@IdPresentacion", idPresentacion);
                     cmd.Parameters.AddWithValue("@Cantidad", cantidad);
 
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void BD_Ajustar_StockBase_Producto(string idProducto, decimal diferenciaBase)
+        {
+            using (SqlConnection cn = new SqlConnection(Conectar()))
+            {
+                cn.Open();
+
+                using (SqlCommand cmd = new SqlCommand("Sp_Ajustar_StockBase_Producto", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                    cmd.Parameters.AddWithValue("@DiferenciaBase", diferenciaBase);
                     cmd.ExecuteNonQuery();
                 }
             }

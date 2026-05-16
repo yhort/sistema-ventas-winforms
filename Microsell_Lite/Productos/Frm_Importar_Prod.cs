@@ -22,6 +22,7 @@ namespace Microsell_Lite.Productos
             InitializeComponent();
         }
 
+        private const int ID_ALMACEN_DEFAULT = 1; 
         private void dtg_datos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int columIndex = e.ColumnIndex;
@@ -406,6 +407,7 @@ namespace Microsell_Lite.Productos
                 RN_Productos obj = new RN_Productos();
 
                 obj.RN_Sumar_StockPresentacion(
+                    ID_ALMACEN_DEFAULT,
                     idProducto.Trim(),
                     idPresentacion,
                     stockInicial
@@ -791,6 +793,7 @@ namespace Microsell_Lite.Productos
 
             // 3. Sumar stock físico por presentación
             objProd.RN_Sumar_StockPresentacion(
+                ID_ALMACEN_DEFAULT,
                 idProducto.Trim(),
                 idPresentacion,
                 stockPresentacion

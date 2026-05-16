@@ -79,7 +79,7 @@ namespace Microsell_Lite.Ventas
 
 
         }
-
+        private const int ID_ALMACEN_DEFAULT = 1;
         private void Leer_Dato_Empresa()
         {
             RN_Empresa obj = new RN_Empresa();
@@ -5154,6 +5154,7 @@ namespace Microsell_Lite.Ventas
             RN_Productos obj = new RN_Productos();
 
             obj.RN_Restar_StockPresentacion(
+                ID_ALMACEN_DEFAULT,
                 idProducto.Trim(),
                 idPresentacion,
                 cantidadPresentacion

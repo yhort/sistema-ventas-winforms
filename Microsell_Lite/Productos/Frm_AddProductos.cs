@@ -241,6 +241,9 @@ namespace Microsell_Lite.Productos
                 pro.TipoAfectacion_Sunat = cbo_TipoAfectSunat.Text;
                 pro.PreventaLista = 0;
 
+                pro.CodgioBarraPrincipal = "CODBR01";
+                pro.SkuProducto = "SKUPROD-001";
+
                 if (chkControlarStock.Checked)
                 {
                     pro.ControlaStock = true;

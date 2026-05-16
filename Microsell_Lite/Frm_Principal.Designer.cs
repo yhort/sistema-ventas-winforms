@@ -87,6 +87,7 @@
             this.ajustesDeInventarioTool = new System.Windows.Forms.ToolStripMenuItem();
             this.bt_guiaDeTrasladoToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.bt_reporteInventarioValorizado = new System.Windows.Forms.ToolStripMenuItem();
+            this.presentacionesDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator31 = new System.Windows.Forms.ToolStripSeparator();
             this.bt_guiaRemisionTrasnsportista = new System.Windows.Forms.ToolStripMenuItem();
@@ -205,7 +206,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.presentacionesDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bt_tomaDeInventarioTool = new System.Windows.Forms.ToolStripMenuItem();
             this.Pnl_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.MenuStrip1.SuspendLayout();
@@ -700,7 +701,8 @@
             this.ajustesDeInventarioTool,
             this.bt_guiaDeTrasladoToolStrip,
             this.bt_reporteInventarioValorizado,
-            this.presentacionesDeProductosToolStripMenuItem});
+            this.presentacionesDeProductosToolStripMenuItem,
+            this.bt_tomaDeInventarioTool});
             this.toolStripMenuItem8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem8.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripMenuItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem8.Image")));
@@ -768,6 +770,13 @@
             this.bt_reporteInventarioValorizado.Size = new System.Drawing.Size(276, 26);
             this.bt_reporteInventarioValorizado.Text = "Reporte Inventario Valorizado";
             this.bt_reporteInventarioValorizado.Click += new System.EventHandler(this.bt_reporteInventarioValorizado_Click);
+            // 
+            // presentacionesDeProductosToolStripMenuItem
+            // 
+            this.presentacionesDeProductosToolStripMenuItem.Name = "presentacionesDeProductosToolStripMenuItem";
+            this.presentacionesDeProductosToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
+            this.presentacionesDeProductosToolStripMenuItem.Text = "Presentaciones de Productos";
+            this.presentacionesDeProductosToolStripMenuItem.Click += new System.EventHandler(this.presentacionesDeProductosToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -1866,12 +1875,12 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
-            // presentacionesDeProductosToolStripMenuItem
+            // bt_tomaDeInventarioTool
             // 
-            this.presentacionesDeProductosToolStripMenuItem.Name = "presentacionesDeProductosToolStripMenuItem";
-            this.presentacionesDeProductosToolStripMenuItem.Size = new System.Drawing.Size(276, 26);
-            this.presentacionesDeProductosToolStripMenuItem.Text = "Presentaciones de Productos";
-            this.presentacionesDeProductosToolStripMenuItem.Click += new System.EventHandler(this.presentacionesDeProductosToolStripMenuItem_Click);
+            this.bt_tomaDeInventarioTool.Name = "bt_tomaDeInventarioTool";
+            this.bt_tomaDeInventarioTool.Size = new System.Drawing.Size(276, 26);
+            this.bt_tomaDeInventarioTool.Text = "Toma de Inventario";
+            this.bt_tomaDeInventarioTool.Click += new System.EventHandler(this.bt_tomaDeInventarioTool_Click);
             // 
             // Frm_Principal
             // 
@@ -2085,6 +2094,7 @@
         private System.Windows.Forms.ToolStripMenuItem bt_creacionDePromociones;
         internal System.Windows.Forms.ToolStripMenuItem bt_Emision_GuiaRemi_Rem;
         private System.Windows.Forms.ToolStripMenuItem presentacionesDeProductosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bt_tomaDeInventarioTool;
     }
 }
 
