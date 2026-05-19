@@ -69,6 +69,7 @@
     <Compile Include="BD_GuiaRemision.cs" />
     <Compile Include="BD_Ingreso_Compra.cs" />
     <Compile Include="BD_InventarioAjuste.cs" />
+    <Compile Include="BD_InventarioCorte.cs" />
     <Compile Include="BD_KardeCredito.cs" />
     <Compile Include="BD_Kardex.cs" />
     <Compile Include="BD_Marcas.cs" />

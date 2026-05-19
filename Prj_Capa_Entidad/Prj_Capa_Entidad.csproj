@@ -72,6 +72,8 @@
     <Compile Include="EN_IngresoCompra.cs" />
     <Compile Include="EN_InventarioAjuste.cs" />
     <Compile Include="EN_InventarioAjusteDetalle.cs" />
+    <Compile Include="EN_InventarioCorte.cs" />
+    <Compile Include="EN_InventarioCorteDetalle.cs" />
     <Compile Include="EN_Kardex.cs" />
     <Compile Include="EN_Kardex_Credito.cs" />
     <Compile Include="EN_notacredito.cs" />

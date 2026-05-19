@@ -1200,5 +1200,21 @@ namespace Microsell_Lite
             inv.ShowDialog();
             fil.Hide();
         }
+
+        private void bt_historialDeAjustesinventario_Click(object sender, EventArgs e)
+        {
+            Frm_HistorialAjustesInventario frm = new Frm_HistorialAjustesInventario();
+            frm.ShowDialog();
+        }
+
+        private void bt_corteDeInventarioTool_Click(object sender, EventArgs e)
+        {
+            Frm_Filtro fil = new Frm_Filtro();
+            Frm_CorteInventario cort = new Frm_CorteInventario();
+
+            fil.Show();
+            cort.ShowDialog();
+            fil.Hide();
+        }
     }
 }

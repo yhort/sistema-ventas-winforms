@@ -65,6 +65,7 @@
     <Compile Include="RN_GuiaRem_Transportista.cs" />
     <Compile Include="RN_Ingreso_Compra.cs" />
     <Compile Include="RN_InventarioAjuste.cs" />
+    <Compile Include="RN_InventarioCorte.cs" />
     <Compile Include="RN_Kardex.cs" />
     <Compile Include="RN_KardexCredito.cs" />
     <Compile Include="RN_Marca.cs" />

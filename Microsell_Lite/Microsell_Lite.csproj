@@ -97,6 +97,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Guna.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\..\Downloads\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\ICSharpCode.SharpZipLib.dll.0.85.4.369\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -589,6 +592,12 @@
     <Compile Include="Productos\Frm_AddEdit_Presentacion.Designer.cs">
       <DependentUpon>Frm_AddEdit_Presentacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos\Frm_CorteInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\Frm_CorteInventario.Designer.cs">
+      <DependentUpon>Frm_CorteInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos\Frm_ProductoPresentaciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -612,6 +621,12 @@
     </Compile>
     <Compile Include="Productos\Frm_Edit_Precio.designer.cs">
       <DependentUpon>Frm_Edit_Precio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\Frm_HistorialAjustesInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\Frm_HistorialAjustesInventario.Designer.cs">
+      <DependentUpon>Frm_HistorialAjustesInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos\Frm_TomaInventario.cs">
       <SubType>Form</SubType>
@@ -1642,6 +1657,9 @@
     <EmbeddedResource Include="Productos\Frm_AddEdit_Presentacion.resx">
       <DependentUpon>Frm_AddEdit_Presentacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Productos\Frm_CorteInventario.resx">
+      <DependentUpon>Frm_CorteInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Productos\Frm_ProductoPresentaciones.resx">
       <DependentUpon>Frm_ProductoPresentaciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -1653,6 +1671,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Frm_Edit_Precio.resx">
       <DependentUpon>Frm_Edit_Precio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\Frm_HistorialAjustesInventario.resx">
+      <DependentUpon>Frm_HistorialAjustesInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Frm_TomaInventario.resx">
       <DependentUpon>Frm_TomaInventario.cs</DependentUpon>
