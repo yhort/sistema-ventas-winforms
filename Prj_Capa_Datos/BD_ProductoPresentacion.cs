@@ -32,6 +32,9 @@ namespace Prj_Capa_Datos
                 cmd.Parameters.AddWithValue("@PermiteCompra", pre.PermiteCompra);
                 cmd.Parameters.AddWithValue("@PermiteVenta", pre.PermiteVenta);
                 cmd.Parameters.AddWithValue("@Activo", pre.Activo);
+                cmd.Parameters.AddWithValue("@CodigoBarra", string.IsNullOrWhiteSpace(pre.CodigoBarra) ? (object)DBNull.Value : pre.CodigoBarra);
+                cmd.Parameters.AddWithValue("@SKU", string.IsNullOrWhiteSpace(pre.SKU) ? (object)DBNull.Value : pre.SKU);
+
 
                 cmd.ExecuteNonQuery();
             }
@@ -58,6 +61,8 @@ namespace Prj_Capa_Datos
                 cmd.Parameters.AddWithValue("@PermiteCompra", pre.PermiteCompra);
                 cmd.Parameters.AddWithValue("@PermiteVenta", pre.PermiteVenta);
                 cmd.Parameters.AddWithValue("@Activo", pre.Activo);
+                cmd.Parameters.AddWithValue("@CodigoBarra", string.IsNullOrWhiteSpace(pre.CodigoBarra) ? (object)DBNull.Value : pre.CodigoBarra);
+                cmd.Parameters.AddWithValue("@SKU", string.IsNullOrWhiteSpace(pre.SKU) ? (object)DBNull.Value : pre.SKU);
 
                 cmd.ExecuteNonQuery();
             }
@@ -164,6 +169,10 @@ namespace Prj_Capa_Datos
                     cmd.Parameters.AddWithValue("@NombrePresentacion", pre.NombrePresentacion);
                     cmd.Parameters.AddWithValue("@Abreviatura", pre.Abreviatura);
                     cmd.Parameters.AddWithValue("@Equivalencia", pre.Equivalencia);
+                    cmd.Parameters.AddWithValue("@CodigoBarra",
+                    string.IsNullOrWhiteSpace(pre.CodigoBarra) ? "" : pre.CodigoBarra.Trim());
+                    cmd.Parameters.AddWithValue("@SKU",
+                    string.IsNullOrWhiteSpace(pre.SKU) ? "" : pre.SKU.Trim().ToUpper());
                     cmd.Parameters.AddWithValue("@PrecioCompra", pre.PrecioCompra);
                     cmd.Parameters.AddWithValue("@PrecioVentaMinorista", pre.PrecioVentaMinorista);
                     cmd.Parameters.AddWithValue("@PrecioVentaMayorista", pre.PrecioVentaMayorista);

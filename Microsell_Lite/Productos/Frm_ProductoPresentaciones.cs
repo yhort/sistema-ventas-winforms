@@ -99,7 +99,9 @@ namespace Microsell_Lite.Productos
             lsv_prodPresentaciones.Columns.Add("Compra", 70);
             lsv_prodPresentaciones.Columns.Add("Venta", 70);
             lsv_prodPresentaciones.Columns.Add("Activo", 70);
-           
+            lsv_prodPresentaciones.Columns.Add("Código Barra", 120);
+            lsv_prodPresentaciones.Columns.Add("SKU", 100);
+
         }
 
         private void CargarAbreviaturas()
@@ -144,7 +146,9 @@ namespace Microsell_Lite.Productos
                 item.SubItems.Add(Convert.ToBoolean(dr["PermiteCompra"]) ? "Sí" : "No");
                 item.SubItems.Add(Convert.ToBoolean(dr["PermiteVenta"]) ? "Sí" : "No");
                 item.SubItems.Add(Convert.ToBoolean(dr["Activo"]) ? "Sí" : "No");
-                
+                item.SubItems.Add(dr["CodigoBarra"].ToString());
+                item.SubItems.Add(dr["SKU"].ToString());
+
 
                 lsv_prodPresentaciones.Items.Add(item);
 
@@ -174,6 +178,8 @@ namespace Microsell_Lite.Productos
                 item.SubItems.Add(Convert.ToBoolean(dr["PermiteCompra"]) ? "Sí" : "No");
                 item.SubItems.Add(Convert.ToBoolean(dr["PermiteVenta"]) ? "Sí" : "No");
                 item.SubItems.Add(Convert.ToBoolean(dr["Activo"]) ? "Sí" : "No");
+                item.SubItems.Add(dr["CodigoBarra"].ToString());
+                item.SubItems.Add(dr["SKU"].ToString());
 
                 lsv_prodPresentaciones.Items.Add(item);
             }
@@ -223,6 +229,8 @@ namespace Microsell_Lite.Productos
             txtPrecioMinorista.Text = "0.00";
             txtPrecioMayorista.Text = "0.00";
             txtCantMinMayorista.Text = "0";
+            txtCodigoBarra.Text = "";
+            txtSKU.Text = "";
 
             chkEsBase.Checked = false;
             chkPermiteCompra.Checked = true;
@@ -293,6 +301,8 @@ namespace Microsell_Lite.Productos
                 chkPermiteCompra.Checked = Convert.ToBoolean(dt.Rows[0]["PermiteCompra"]);
                 chkPermiteVenta.Checked = Convert.ToBoolean(dt.Rows[0]["PermiteVenta"]);
                 chkActivo.Checked = Convert.ToBoolean(dt.Rows[0]["Activo"]);
+                txtCodigoBarra.Text = dt.Rows[0]["CodigoBarra"].ToString();
+                txtSKU.Text = dt.Rows[0]["SKU"].ToString();
             }
             ConfigurarFormulario();
         }
@@ -344,10 +354,13 @@ namespace Microsell_Lite.Productos
                 pre.PrecioVentaMinorista = Convert.ToDecimal(txtPrecioMinorista.Text);
                 pre.PrecioVentaMayorista = Convert.ToDecimal(txtPrecioMayorista.Text);
                 pre.CantMinMayorista = Convert.ToDecimal(txtCantMinMayorista.Text);
+                pre.CodigoBarra = txtCodigoBarra.Text.Trim();
+                pre.SKU = txtSKU.Text.Trim().ToUpper();
                 pre.EsBase = chkEsBase.Checked;
                 pre.PermiteCompra = chkPermiteCompra.Checked;
                 pre.PermiteVenta = chkPermiteVenta.Checked;
                 pre.Activo = chkActivo.Checked;
+               
 
                 if (Modo == "N")
                 {

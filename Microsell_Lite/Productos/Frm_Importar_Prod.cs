@@ -105,6 +105,8 @@ namespace Microsell_Lite.Productos
 
         string NombrProd = "";
         string UnidadBase = "";
+        string SKUProducto = "";
+        string CodigoBarraPrincipal = "";
         double PrecioVenta = 0;
         double Precompra = 0;
         double Canti = 0;
@@ -137,6 +139,15 @@ namespace Microsell_Lite.Productos
                     NombrProd = Convert.ToString(fila.Cells[1].Value).Trim();
                     UnidadBase = Convert.ToString(fila.Cells[2].Value).Trim().ToUpper();
 
+                    SKUProducto = "";
+                    CodigoBarraPrincipal = "";
+
+                    if (fila.Cells[3].Value != null && !Convert.IsDBNull(fila.Cells[3].Value))
+                        SKUProducto = Convert.ToString(fila.Cells[3].Value).Trim().ToUpper();
+
+                    if (fila.Cells[4].Value != null && !Convert.IsDBNull(fila.Cells[4].Value))
+                        CodigoBarraPrincipal = Convert.ToString(fila.Cells[4].Value).Trim();
+
                     if (string.IsNullOrWhiteSpace(idpr))
                         break;
 
@@ -146,13 +157,13 @@ namespace Microsell_Lite.Productos
                     if (string.IsNullOrWhiteSpace(UnidadBase))
                         UnidadBase = "UND";
 
-                    if (!double.TryParse(Convert.ToString(fila.Cells[3].Value), out Precompra))
+                    if (!double.TryParse(Convert.ToString(fila.Cells[5].Value), out Precompra))
                         Precompra = 0;
 
-                    if (!double.TryParse(Convert.ToString(fila.Cells[4].Value), out PrecioVenta))
+                    if (!double.TryParse(Convert.ToString(fila.Cells[6].Value), out PrecioVenta))
                         PrecioVenta = 0;
 
-                    if (!double.TryParse(Convert.ToString(fila.Cells[5].Value), out Canti))
+                    if (!double.TryParse(Convert.ToString(fila.Cells[7].Value), out Canti))
                         Canti = 0;
 
                     if (Precompra < 0 || PrecioVenta < 0 || Canti < 0)
@@ -162,7 +173,8 @@ namespace Microsell_Lite.Productos
                         continue;
                     }
 
-                    registrar_Producto(idpr, NombrProd, UnidadBase, Precompra, PrecioVenta, Canti);
+
+                    registrar_Producto(idpr, NombrProd, UnidadBase, SKUProducto, CodigoBarraPrincipal, Precompra, PrecioVenta, Canti);
 
                     xitm += 1;
                     Lbl_registrado.Text = xitm.ToString();
@@ -285,7 +297,7 @@ namespace Microsell_Lite.Productos
 
         //}
 
-        private void registrar_Producto(string idpr, string nom, string unidadBase, double precom, double preven, double stoc)
+        private void registrar_Producto(string idpr, string nom, string unidadBase, string skuProducto, string codigoBarraPrincipal, double precom, double preven, double stoc)
         {
             RN_Productos obj = new RN_Productos();
             EN_Producto pro = new EN_Producto();
@@ -322,6 +334,9 @@ namespace Microsell_Lite.Productos
                 pro.ControlaStock = true;
                 pro.PreventaLista = Convert.ToDecimal(preven);
 
+                pro.SkuProducto = skuProducto;
+                pro.CodgioBarraPrincipal = codigoBarraPrincipal;
+
                 obj.RN_Registrar_Producto(pro);
 
                 if (BD_Productos.seguardo == true)
@@ -334,7 +349,9 @@ namespace Microsell_Lite.Productos
                         idpr.Trim(),
                         unidadBase.Trim().ToUpper(),
                         precom,
-                        preven
+                        preven,
+                        skuProducto,
+                        codigoBarraPrincipal
                     );
 
                     if (idPresentacionBase > 0)
@@ -354,7 +371,7 @@ namespace Microsell_Lite.Productos
             }
         }
 
-        private int Crear_Presentacion_Base_Importacion(string idProducto, string unidadBase, double precioCompra, double precioVenta)
+        private int Crear_Presentacion_Base_Importacion(string idProducto, string unidadBase, double precioCompra, double precioVenta, string skuProducto, string codigoBarraPrincipal)
         {
             try
             {
@@ -375,6 +392,13 @@ namespace Microsell_Lite.Productos
                 pre.PermiteCompra = true;
                 pre.PermiteVenta = true;
                 pre.Activo = true;
+
+                pre.CodigoBarra = codigoBarraPrincipal;
+
+                if (!string.IsNullOrWhiteSpace(skuProducto))
+                    pre.SKU = skuProducto + "-" + unidadBase.Trim().ToUpper();
+                else
+                    pre.SKU = idProducto.Trim() + "-" + unidadBase.Trim().ToUpper();
 
                 obj.RN_Registrar_ProductoPresentacion(pre);
 
@@ -621,6 +645,15 @@ namespace Microsell_Lite.Productos
                     string nombrePresentacion = Convert.ToString(fila.Cells[1].Value).Trim();
                     string abrev = Convert.ToString(fila.Cells[2].Value).Trim().ToUpper();
 
+                    string sku = "";
+                    string codigoBarra = "";
+
+                    if (fila.Cells[4].Value != null && !Convert.IsDBNull(fila.Cells[4].Value))
+                        sku = Convert.ToString(fila.Cells[4].Value).Trim().ToUpper();
+
+                    if (fila.Cells[5].Value != null && !Convert.IsDBNull(fila.Cells[5].Value))
+                        codigoBarra = Convert.ToString(fila.Cells[5].Value).Trim();
+
                     if (string.IsNullOrWhiteSpace(idProducto))
                         break;
 
@@ -637,12 +670,19 @@ namespace Microsell_Lite.Productos
                     decimal cantMinMayorista = 0;
                     decimal stockPresentacion = 0;
 
+                    //decimal.TryParse(Convert.ToString(fila.Cells[3].Value), out equivalencia);
+                    //decimal.TryParse(Convert.ToString(fila.Cells[4].Value), out precioCompra);
+                    //decimal.TryParse(Convert.ToString(fila.Cells[5].Value), out precioMinorista);
+                    //decimal.TryParse(Convert.ToString(fila.Cells[6].Value), out precioMayorista);
+                    //decimal.TryParse(Convert.ToString(fila.Cells[7].Value), out cantMinMayorista);
+                    //decimal.TryParse(Convert.ToString(fila.Cells[8].Value), out stockPresentacion);
+
                     decimal.TryParse(Convert.ToString(fila.Cells[3].Value), out equivalencia);
-                    decimal.TryParse(Convert.ToString(fila.Cells[4].Value), out precioCompra);
-                    decimal.TryParse(Convert.ToString(fila.Cells[5].Value), out precioMinorista);
-                    decimal.TryParse(Convert.ToString(fila.Cells[6].Value), out precioMayorista);
-                    decimal.TryParse(Convert.ToString(fila.Cells[7].Value), out cantMinMayorista);
-                    decimal.TryParse(Convert.ToString(fila.Cells[8].Value), out stockPresentacion);
+                    decimal.TryParse(Convert.ToString(fila.Cells[6].Value), out precioCompra);
+                    decimal.TryParse(Convert.ToString(fila.Cells[7].Value), out precioMinorista);
+                    decimal.TryParse(Convert.ToString(fila.Cells[8].Value), out precioMayorista);
+                    decimal.TryParse(Convert.ToString(fila.Cells[9].Value), out cantMinMayorista);
+                    decimal.TryParse(Convert.ToString(fila.Cells[10].Value), out stockPresentacion);
 
                     if (equivalencia <= 0)
                     {
@@ -661,6 +701,8 @@ namespace Microsell_Lite.Productos
                         nombrePresentacion,
                         abrev,
                         equivalencia,
+                        sku,
+                        codigoBarra,
                         precioCompra,
                         precioMinorista,
                         precioMayorista,
@@ -714,6 +756,8 @@ namespace Microsell_Lite.Productos
                                         string nombrePresentacion,
                                         string abrev,
                                         decimal equivalencia,
+                                        string sku,
+                                        string codigoBrra,
                                         decimal precioCompra,
                                         decimal precioMinorista,
                                         decimal precioMayorista,
@@ -734,6 +778,9 @@ namespace Microsell_Lite.Productos
             pre.PermiteCompra = true;
             pre.PermiteVenta = true;
             pre.Activo = true;
+
+            pre.SKU = sku;
+            pre.CodigoBarra = codigoBrra;
 
             return obj.RN_Importar_ProductoPresentacion(pre);
         }

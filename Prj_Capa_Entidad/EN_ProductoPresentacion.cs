@@ -21,6 +21,8 @@ namespace Prj_Capa_Entidad
         private bool _permiteCompra;
         private bool _permiteVenta;
         private bool _activo;
+        private string _codigoBarra;
+        private string _SKU;
 
         public int IdPresentacion { get => _idPresentacion; set => _idPresentacion = value; }
         public string IdProducto { get => _idProducto; set => _idProducto = value; }
@@ -35,5 +37,7 @@ namespace Prj_Capa_Entidad
         public bool PermiteCompra { get => _permiteCompra; set => _permiteCompra = value; }
         public bool PermiteVenta { get => _permiteVenta; set => _permiteVenta = value; }
         public bool Activo { get => _activo; set => _activo = value; }
+        public string CodigoBarra { get => _codigoBarra; set => _codigoBarra = value; }
+        public string SKU { get => _SKU; set => _SKU = value; }
     }
 }
