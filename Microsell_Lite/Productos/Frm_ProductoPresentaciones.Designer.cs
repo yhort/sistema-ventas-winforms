@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ProductoPresentaciones));
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle2 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle1 = new Klik.Windows.Forms.v1.Common.PaintStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pnl_titu = new System.Windows.Forms.Panel();
             this.btn_cerrar = new System.Windows.Forms.Button();
@@ -78,6 +78,10 @@
             this.btnGuardar = new Klik.Windows.Forms.v1.EntryLib.ELButton();
             this.btn_cancel = new Klik.Windows.Forms.v1.EntryLib.ELButton();
             this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSKU = new Guna.UI.WinForms.GunaTextBox();
+            this.txtCodigoBarra = new Guna.UI.WinForms.GunaTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnl_titu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_listo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_add)).BeginInit();
@@ -173,7 +177,7 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
             this.label9.Location = new System.Drawing.Point(683, 44);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(3, 540);
+            this.label9.Size = new System.Drawing.Size(3, 575);
             this.label9.TabIndex = 20;
             // 
             // label10
@@ -182,7 +186,7 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Location = new System.Drawing.Point(0, 44);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(3, 540);
+            this.label10.Size = new System.Drawing.Size(3, 575);
             this.label10.TabIndex = 21;
             // 
             // openFileDialog1
@@ -254,7 +258,7 @@
             this.chkEsBase.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.chkEsBase.FillColor = System.Drawing.Color.White;
             this.chkEsBase.Font = new System.Drawing.Font("Encode Sans Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEsBase.Location = new System.Drawing.Point(188, 356);
+            this.chkEsBase.Location = new System.Drawing.Point(191, 405);
             this.chkEsBase.Name = "chkEsBase";
             this.chkEsBase.Size = new System.Drawing.Size(20, 20);
             this.chkEsBase.TabIndex = 109;
@@ -269,7 +273,7 @@
             this.chkPermiteCompra.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.chkPermiteCompra.FillColor = System.Drawing.Color.White;
             this.chkPermiteCompra.Font = new System.Drawing.Font("Encode Sans Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPermiteCompra.Location = new System.Drawing.Point(517, 356);
+            this.chkPermiteCompra.Location = new System.Drawing.Point(520, 405);
             this.chkPermiteCompra.Name = "chkPermiteCompra";
             this.chkPermiteCompra.Size = new System.Drawing.Size(20, 20);
             this.chkPermiteCompra.TabIndex = 107;
@@ -283,7 +287,7 @@
             this.chkPermiteVenta.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.chkPermiteVenta.FillColor = System.Drawing.Color.White;
             this.chkPermiteVenta.Font = new System.Drawing.Font("Encode Sans Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPermiteVenta.Location = new System.Drawing.Point(188, 396);
+            this.chkPermiteVenta.Location = new System.Drawing.Point(191, 445);
             this.chkPermiteVenta.Name = "chkPermiteVenta";
             this.chkPermiteVenta.Size = new System.Drawing.Size(20, 20);
             this.chkPermiteVenta.TabIndex = 105;
@@ -297,7 +301,7 @@
             this.chkActivo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.chkActivo.FillColor = System.Drawing.Color.White;
             this.chkActivo.Font = new System.Drawing.Font("Encode Sans Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkActivo.Location = new System.Drawing.Point(517, 396);
+            this.chkActivo.Location = new System.Drawing.Point(520, 445);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(20, 20);
             this.chkActivo.TabIndex = 89;
@@ -338,6 +342,10 @@
             this.pnl_add.CaptionStyle.TextStyle.TextType = Klik.Windows.Forms.v1.Common.TextTypes.BlockShadow;
             this.pnl_add.CaptionStyle.Visible = false;
             this.pnl_add.CaptionStyle.VisualStyle = Klik.Windows.Forms.v1.Common.ControlVisualStyles.Custom;
+            this.pnl_add.Controls.Add(this.txtCodigoBarra);
+            this.pnl_add.Controls.Add(this.label3);
+            this.pnl_add.Controls.Add(this.txtSKU);
+            this.pnl_add.Controls.Add(this.label2);
             this.pnl_add.Controls.Add(this.lblNombProducto);
             this.pnl_add.Controls.Add(this.label1);
             this.pnl_add.Controls.Add(this.lblEquivalenciaInfo);
@@ -373,7 +381,7 @@
             this.pnl_add.Location = new System.Drawing.Point(3, 50);
             this.pnl_add.Name = "pnl_add";
             this.pnl_add.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.pnl_add.Size = new System.Drawing.Size(680, 524);
+            this.pnl_add.Size = new System.Drawing.Size(680, 558);
             this.pnl_add.TabIndex = 99;
             this.pnl_add.Visible = false;
             this.pnl_add.VisualStyle = Klik.Windows.Forms.v1.Common.ControlVisualStyles.Custom;
@@ -384,10 +392,10 @@
             this.lblNombProducto.BackgroundStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.lblNombProducto.BackgroundStyle.SolidColor = System.Drawing.Color.White;
             this.lblNombProducto.BorderStyle.SolidColor = System.Drawing.Color.Silver;
-            paintStyle2.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle2.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.lblNombProducto.FlashStyle = paintStyle2;
-            this.lblNombProducto.Location = new System.Drawing.Point(188, 16);
+            paintStyle1.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle1.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.lblNombProducto.FlashStyle = paintStyle1;
+            this.lblNombProducto.Location = new System.Drawing.Point(191, 16);
             this.lblNombProducto.Name = "lblNombProducto";
             this.lblNombProducto.Size = new System.Drawing.Size(453, 30);
             this.lblNombProducto.TabIndex = 607;
@@ -402,7 +410,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 16);
+            this.label1.Location = new System.Drawing.Point(33, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 25);
             this.label1.TabIndex = 119;
@@ -412,7 +420,7 @@
             // 
             this.lblEquivalenciaInfo.AutoSize = true;
             this.lblEquivalenciaInfo.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEquivalenciaInfo.Location = new System.Drawing.Point(440, 137);
+            this.lblEquivalenciaInfo.Location = new System.Drawing.Point(443, 186);
             this.lblEquivalenciaInfo.Name = "lblEquivalenciaInfo";
             this.lblEquivalenciaInfo.Size = new System.Drawing.Size(17, 25);
             this.lblEquivalenciaInfo.TabIndex = 117;
@@ -422,7 +430,7 @@
             // 
             this.lblIdProducto.AutoSize = true;
             this.lblIdProducto.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdProducto.Location = new System.Drawing.Point(47, 427);
+            this.lblIdProducto.Location = new System.Drawing.Point(50, 476);
             this.lblIdProducto.Name = "lblIdProducto";
             this.lblIdProducto.Size = new System.Drawing.Size(17, 25);
             this.lblIdProducto.TabIndex = 95;
@@ -434,7 +442,7 @@
             this.label14.BackColor = System.Drawing.Color.White;
             this.label14.Font = new System.Drawing.Font("Encode Sans Condensed SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label14.Location = new System.Drawing.Point(207, 304);
+            this.label14.Location = new System.Drawing.Point(210, 353);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(280, 30);
             this.label14.TabIndex = 116;
@@ -446,7 +454,7 @@
             this.label18.BackColor = System.Drawing.Color.White;
             this.label18.Font = new System.Drawing.Font("Encode Sans Condensed SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label18.Location = new System.Drawing.Point(207, 159);
+            this.label18.Location = new System.Drawing.Point(210, 208);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(280, 23);
             this.label18.TabIndex = 115;
@@ -459,7 +467,7 @@
             this.bunifuSeparator1.ForeColor = System.Drawing.Color.Gray;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(52, 163);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(55, 212);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(590, 19);
             this.bunifuSeparator1.TabIndex = 114;
@@ -472,7 +480,7 @@
             this.bunifuSeparator2.ForeColor = System.Drawing.Color.Gray;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(52, 308);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(55, 357);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(590, 19);
             this.bunifuSeparator2.TabIndex = 113;
@@ -490,12 +498,12 @@
             this.cboAbreviatura.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboAbreviatura.ForeColor = System.Drawing.Color.Black;
             this.cboAbreviatura.FormattingEnabled = true;
-            this.cboAbreviatura.Location = new System.Drawing.Point(188, 108);
+            this.cboAbreviatura.Location = new System.Drawing.Point(191, 108);
             this.cboAbreviatura.Name = "cboAbreviatura";
             this.cboAbreviatura.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cboAbreviatura.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cboAbreviatura.Radius = 8;
-            this.cboAbreviatura.Size = new System.Drawing.Size(124, 26);
+            this.cboAbreviatura.Size = new System.Drawing.Size(194, 26);
             this.cboAbreviatura.TabIndex = 112;
             this.cboAbreviatura.SelectedIndexChanged += new System.EventHandler(this.cboAbreviatura_SelectedIndexChanged);
             // 
@@ -504,7 +512,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(44, 351);
+            this.label13.Location = new System.Drawing.Point(47, 400);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(96, 25);
             this.label13.TabIndex = 110;
@@ -515,7 +523,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(362, 351);
+            this.label12.Location = new System.Drawing.Point(365, 400);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(105, 25);
             this.label12.TabIndex = 108;
@@ -526,7 +534,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(47, 391);
+            this.label11.Location = new System.Drawing.Point(50, 440);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(93, 25);
             this.label11.TabIndex = 106;
@@ -536,7 +544,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(361, 253);
+            this.label8.Location = new System.Drawing.Point(364, 302);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(149, 25);
             this.label8.TabIndex = 104;
@@ -553,7 +561,7 @@
             this.txtCantMinMayorista.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtCantMinMayorista.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtCantMinMayorista.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantMinMayorista.Location = new System.Drawing.Point(517, 250);
+            this.txtCantMinMayorista.Location = new System.Drawing.Point(520, 299);
             this.txtCantMinMayorista.Name = "txtCantMinMayorista";
             this.txtCantMinMayorista.PasswordChar = '\0';
             this.txtCantMinMayorista.Radius = 5;
@@ -564,7 +572,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(30, 250);
+            this.label7.Location = new System.Drawing.Point(33, 299);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(110, 25);
             this.label7.TabIndex = 102;
@@ -581,7 +589,7 @@
             this.txtPrecioMayorista.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtPrecioMayorista.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPrecioMayorista.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioMayorista.Location = new System.Drawing.Point(188, 250);
+            this.txtPrecioMayorista.Location = new System.Drawing.Point(191, 299);
             this.txtPrecioMayorista.Name = "txtPrecioMayorista";
             this.txtPrecioMayorista.PasswordChar = '\0';
             this.txtPrecioMayorista.Radius = 5;
@@ -592,7 +600,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(361, 207);
+            this.label6.Location = new System.Drawing.Point(384, 256);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 25);
             this.label6.TabIndex = 100;
@@ -609,7 +617,7 @@
             this.txtPrecioMinorista.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtPrecioMinorista.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPrecioMinorista.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioMinorista.Location = new System.Drawing.Point(517, 204);
+            this.txtPrecioMinorista.Location = new System.Drawing.Point(520, 253);
             this.txtPrecioMinorista.Name = "txtPrecioMinorista";
             this.txtPrecioMinorista.PasswordChar = '\0';
             this.txtPrecioMinorista.Radius = 5;
@@ -620,7 +628,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(30, 207);
+            this.label5.Location = new System.Drawing.Point(33, 256);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 25);
             this.label5.TabIndex = 98;
@@ -637,7 +645,7 @@
             this.txtPrecioCompra.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtPrecioCompra.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPrecioCompra.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioCompra.Location = new System.Drawing.Point(188, 204);
+            this.txtPrecioCompra.Location = new System.Drawing.Point(191, 253);
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.PasswordChar = '\0';
             this.txtPrecioCompra.Radius = 5;
@@ -655,11 +663,11 @@
             this.txtEquivalencia.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtEquivalencia.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtEquivalencia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEquivalencia.Location = new System.Drawing.Point(517, 108);
+            this.txtEquivalencia.Location = new System.Drawing.Point(496, 108);
             this.txtEquivalencia.Name = "txtEquivalencia";
             this.txtEquivalencia.PasswordChar = '\0';
             this.txtEquivalencia.Radius = 5;
-            this.txtEquivalencia.Size = new System.Drawing.Size(124, 28);
+            this.txtEquivalencia.Size = new System.Drawing.Size(148, 28);
             this.txtEquivalencia.TabIndex = 95;
             this.txtEquivalencia.TextChanged += new System.EventHandler(this.txtEquivalencia_TextChanged);
             // 
@@ -667,7 +675,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(361, 108);
+            this.label4.Location = new System.Drawing.Point(407, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 25);
             this.label4.TabIndex = 96;
@@ -684,7 +692,7 @@
             this.txtNombrePresentacion.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtNombrePresentacion.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNombrePresentacion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombrePresentacion.Location = new System.Drawing.Point(188, 60);
+            this.txtNombrePresentacion.Location = new System.Drawing.Point(191, 60);
             this.txtNombrePresentacion.Name = "txtNombrePresentacion";
             this.txtNombrePresentacion.PasswordChar = '\0';
             this.txtNombrePresentacion.Radius = 5;
@@ -696,7 +704,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(372, 391);
+            this.label23.Location = new System.Drawing.Point(375, 440);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(49, 25);
             this.label23.TabIndex = 90;
@@ -706,7 +714,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(26, 60);
+            this.label15.Location = new System.Drawing.Point(29, 60);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(137, 25);
             this.label15.TabIndex = 8;
@@ -716,7 +724,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(26, 108);
+            this.label16.Location = new System.Drawing.Point(29, 108);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(81, 25);
             this.label16.TabIndex = 93;
@@ -738,7 +746,7 @@
             this.btnGuardar.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btnGuardar.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btnGuardar.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(377, 465);
+            this.btnGuardar.Location = new System.Drawing.Point(380, 494);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ModernBlack;
             this.btnGuardar.Size = new System.Drawing.Size(133, 43);
@@ -769,7 +777,7 @@
             this.btn_cancel.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btn_cancel.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btn_cancel.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_cancel.Location = new System.Drawing.Point(188, 465);
+            this.btn_cancel.Location = new System.Drawing.Point(191, 494);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ClassicSilver;
             this.btn_cancel.Size = new System.Drawing.Size(144, 43);
@@ -800,12 +808,68 @@
             this.bunifuSeparator3.Transparency = 255;
             this.bunifuSeparator3.Vertical = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(410, 154);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 25);
+            this.label2.TabIndex = 609;
+            this.label2.Text = "SKU";
+            // 
+            // txtSKU
+            // 
+            this.txtSKU.BackColor = System.Drawing.Color.Transparent;
+            this.txtSKU.BaseColor = System.Drawing.Color.White;
+            this.txtSKU.BorderColor = System.Drawing.Color.Silver;
+            this.txtSKU.BorderSize = 1;
+            this.txtSKU.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSKU.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtSKU.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtSKU.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtSKU.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSKU.Location = new System.Drawing.Point(452, 155);
+            this.txtSKU.Name = "txtSKU";
+            this.txtSKU.PasswordChar = '\0';
+            this.txtSKU.Radius = 5;
+            this.txtSKU.Size = new System.Drawing.Size(193, 28);
+            this.txtSKU.TabIndex = 610;
+            // 
+            // txtCodigoBarra
+            // 
+            this.txtCodigoBarra.BackColor = System.Drawing.Color.Transparent;
+            this.txtCodigoBarra.BaseColor = System.Drawing.Color.White;
+            this.txtCodigoBarra.BorderColor = System.Drawing.Color.Silver;
+            this.txtCodigoBarra.BorderSize = 1;
+            this.txtCodigoBarra.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCodigoBarra.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtCodigoBarra.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtCodigoBarra.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtCodigoBarra.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoBarra.Location = new System.Drawing.Point(191, 154);
+            this.txtCodigoBarra.Name = "txtCodigoBarra";
+            this.txtCodigoBarra.PasswordChar = '\0';
+            this.txtCodigoBarra.Radius = 5;
+            this.txtCodigoBarra.Size = new System.Drawing.Size(194, 28);
+            this.txtCodigoBarra.TabIndex = 612;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(29, 157);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 25);
+            this.label3.TabIndex = 611;
+            this.label3.Text = "Codigo de Barra";
+            // 
             // Frm_ProductoPresentaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(686, 584);
+            this.ClientSize = new System.Drawing.Size(686, 619);
             this.Controls.Add(this.pnl_add);
             this.Controls.Add(this.bunifuSeparator3);
             this.Controls.Add(this.bt_delete);
@@ -884,5 +948,9 @@
         private Guna.UI.WinForms.GunaLabel lblProducto;
         internal Klik.Windows.Forms.v1.EntryLib.ELLabel lblNombProducto;
         internal Guna.UI.WinForms.GunaComboBox cboAbreviatura;
+        private Guna.UI.WinForms.GunaTextBox txtCodigoBarra;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI.WinForms.GunaTextBox txtSKU;
+        private System.Windows.Forms.Label label2;
     }
 }
