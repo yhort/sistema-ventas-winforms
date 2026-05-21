@@ -90,6 +90,7 @@
             this.presentacionesDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bt_tomaDeInventarioTool = new System.Windows.Forms.ToolStripMenuItem();
             this.bt_historialDeAjustesinventario = new System.Windows.Forms.ToolStripMenuItem();
+            this.bt_corteDeInventarioTool = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator31 = new System.Windows.Forms.ToolStripSeparator();
             this.bt_guiaRemisionTrasnsportista = new System.Windows.Forms.ToolStripMenuItem();
@@ -208,7 +209,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bt_corteDeInventarioTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.bt_imprimirEtiquetasToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.Pnl_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.MenuStrip1.SuspendLayout();
@@ -704,7 +705,8 @@
             this.bt_guiaDeTrasladoToolStrip,
             this.bt_reporteInventarioValorizado,
             this.presentacionesDeProductosToolStripMenuItem,
-            this.bt_tomaDeInventarioTool});
+            this.bt_tomaDeInventarioTool,
+            this.bt_imprimirEtiquetasToolStrip});
             this.toolStripMenuItem8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem8.ForeColor = System.Drawing.Color.DimGray;
             this.toolStripMenuItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem8.Image")));
@@ -796,6 +798,13 @@
             this.bt_historialDeAjustesinventario.Size = new System.Drawing.Size(200, 22);
             this.bt_historialDeAjustesinventario.Text = "Historial de Ajuste";
             this.bt_historialDeAjustesinventario.Click += new System.EventHandler(this.bt_historialDeAjustesinventario_Click);
+            // 
+            // bt_corteDeInventarioTool
+            // 
+            this.bt_corteDeInventarioTool.Name = "bt_corteDeInventarioTool";
+            this.bt_corteDeInventarioTool.Size = new System.Drawing.Size(200, 22);
+            this.bt_corteDeInventarioTool.Text = "Corte de Inventario";
+            this.bt_corteDeInventarioTool.Click += new System.EventHandler(this.bt_corteDeInventarioTool_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -949,6 +958,7 @@
             this.reporteDeVentasToolStripMenuItem.Size = new System.Drawing.Size(298, 26);
             this.reporteDeVentasToolStripMenuItem.Text = "Reporte de Ventas";
             this.reporteDeVentasToolStripMenuItem.Visible = false;
+            this.reporteDeVentasToolStripMenuItem.Click += new System.EventHandler(this.reporteDeVentasToolStripMenuItem_Click);
             // 
             // reporteMensualToolStripMenuItem
             // 
@@ -1894,12 +1904,12 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
-            // bt_corteDeInventarioTool
+            // bt_imprimirEtiquetasToolStrip
             // 
-            this.bt_corteDeInventarioTool.Name = "bt_corteDeInventarioTool";
-            this.bt_corteDeInventarioTool.Size = new System.Drawing.Size(200, 22);
-            this.bt_corteDeInventarioTool.Text = "Corte de Inventario";
-            this.bt_corteDeInventarioTool.Click += new System.EventHandler(this.bt_corteDeInventarioTool_Click);
+            this.bt_imprimirEtiquetasToolStrip.Name = "bt_imprimirEtiquetasToolStrip";
+            this.bt_imprimirEtiquetasToolStrip.Size = new System.Drawing.Size(276, 26);
+            this.bt_imprimirEtiquetasToolStrip.Text = "Imprimir Etiquetas";
+            this.bt_imprimirEtiquetasToolStrip.Click += new System.EventHandler(this.bt_imprimirEtiquetasToolStrip_Click);
             // 
             // Frm_Principal
             // 
@@ -2116,6 +2126,7 @@
         private System.Windows.Forms.ToolStripMenuItem bt_tomaDeInventarioTool;
         private System.Windows.Forms.ToolStripMenuItem bt_historialDeAjustesinventario;
         private System.Windows.Forms.ToolStripMenuItem bt_corteDeInventarioTool;
+        private System.Windows.Forms.ToolStripMenuItem bt_imprimirEtiquetasToolStrip;
     }
 }
 

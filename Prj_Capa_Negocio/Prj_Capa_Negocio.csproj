@@ -61,6 +61,7 @@
     <Compile Include="RN_Distrito.cs" />
     <Compile Include="RN_Documento.cs" />
     <Compile Include="RN_Empresa.cs" />
+    <Compile Include="RN_Etiquetas.cs" />
     <Compile Include="RN_GuiaRemision.cs" />
     <Compile Include="RN_GuiaRem_Transportista.cs" />
     <Compile Include="RN_Ingreso_Compra.cs" />

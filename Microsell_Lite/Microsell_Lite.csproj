@@ -178,6 +178,12 @@
       <HintPath>C:\Users\yhort\OneDrive\Documentos\ThoughtWorks.QRCode.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.11.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.11\lib\net48\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.11.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.11\lib\net48\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Caja\Crys_ReporteCierreCaja.cs">
@@ -592,11 +598,23 @@
     <Compile Include="Productos\Frm_AddEdit_Presentacion.Designer.cs">
       <DependentUpon>Frm_AddEdit_Presentacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos\Frm_ImprimirEtiquetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\Frm_ImprimirEtiquetas.Designer.cs">
+      <DependentUpon>Frm_ImprimirEtiquetas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos\Frm_CorteInventario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Productos\Frm_CorteInventario.Designer.cs">
       <DependentUpon>Frm_CorteInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\Frm_Print_Etiquetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\Frm_Print_Etiquetas.Designer.cs">
+      <DependentUpon>Frm_Print_Etiquetas.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos\Frm_ProductoPresentaciones.cs">
       <SubType>Form</SubType>
@@ -645,6 +663,12 @@
     </Compile>
     <Compile Include="Productos\Frm_Listado_IngresoCredito.Designer.cs">
       <DependentUpon>Frm_Listado_IngresoCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\Rpt_Etiquetas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_Etiquetas.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes_Consolidado\DataSet_Reportes_Consolidado.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1657,8 +1681,14 @@
     <EmbeddedResource Include="Productos\Frm_AddEdit_Presentacion.resx">
       <DependentUpon>Frm_AddEdit_Presentacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Productos\Frm_ImprimirEtiquetas.resx">
+      <DependentUpon>Frm_ImprimirEtiquetas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Productos\Frm_CorteInventario.resx">
       <DependentUpon>Frm_CorteInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\Frm_Print_Etiquetas.resx">
+      <DependentUpon>Frm_Print_Etiquetas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Frm_ProductoPresentaciones.resx">
       <DependentUpon>Frm_ProductoPresentaciones.cs</DependentUpon>
@@ -1683,6 +1713,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\Frm_Listado_IngresoCredito.resx">
       <DependentUpon>Frm_Listado_IngresoCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\Rpt_Etiquetas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_Etiquetas.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes_Consolidado\Frm_Rpt_Inventario_Valorizado.resx">
       <DependentUpon>Frm_Rpt_Inventario_Valorizado.cs</DependentUpon>

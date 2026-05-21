@@ -1216,5 +1216,21 @@ namespace Microsell_Lite
             cort.ShowDialog();
             fil.Hide();
         }
+
+        private void bt_imprimirEtiquetasToolStrip_Click(object sender, EventArgs e)
+        {
+            Frm_Filtro fil = new Frm_Filtro();
+            Frm_ImprimirEtiquetas eti = new Frm_ImprimirEtiquetas();
+
+            fil.Show();
+            eti.ShowDialog();
+            fil.Hide();
+
+        }
+
+        private void reporteDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
