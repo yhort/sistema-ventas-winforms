@@ -83,7 +83,7 @@ namespace Prj_Capa_Datos
             }
         }
 
-        public DataTable BD_Listar_ProductoPresentacion_PorProducto(string idProducto)
+        public DataTable BD_Listar_ProductoPresentacion_PorProducto(string idProducto , int idAlmacen)
         {
             using (SqlConnection cn = new SqlConnection(Conectar()))
             {
@@ -92,6 +92,7 @@ namespace Prj_Capa_Datos
                 SqlCommand cmd = new SqlCommand("Sp_Listar_ProductoPresentacion_PorProducto", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+                cmd.Parameters.AddWithValue("@IdAlmacen", idAlmacen);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -188,5 +189,26 @@ namespace Prj_Capa_Datos
                 }
             }
         }
+
+        public DataTable BD_Validar_CodigoSKU_Presentacion(int idPresentacion, string codigoBarra, string sku)
+        {
+            using (SqlConnection cn = new SqlConnection(Conectar()))
+            {
+                cn.Open();
+
+                SqlCommand cmd = new SqlCommand("Sp_Validar_CodigoSKU_Presentacion", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdPresentacion", idPresentacion);
+                cmd.Parameters.AddWithValue("@CodigoBarra", codigoBarra);
+                cmd.Parameters.AddWithValue("@SKU", sku);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+        }
+
     }
 }

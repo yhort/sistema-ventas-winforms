@@ -126,7 +126,7 @@ namespace Microsell_Lite.Productos
         private void CargarPresentaciones()
         {
             RN_ProductoPresentacion obj = new RN_ProductoPresentacion();
-            DataTable dt = obj.RN_Listar_ProductoPresentacion_porProducto(IdProducto);
+            DataTable dt = obj.RN_Listar_ProductoPresentacion_porProducto(IdProducto, 1);
 
             lsv_prodPresentaciones.Items.Clear();
 
@@ -343,25 +343,64 @@ namespace Microsell_Lite.Productos
 
             try
             {
+                //Obtener valores del formulario
+                decimal equivalencia = Convert.ToDecimal(txtEquivalencia.Text);
+
+                string sku = txtSKU.Text.Trim().ToUpper();
+                string codigoBarra = txtCodigoBarra.Text.Trim();
+
+                //generar sku si esta vacio
+                if (string.IsNullOrWhiteSpace(sku))
+                {
+                    sku = GenerarSKUInterno(
+                        IdProducto,
+                        cboAbreviatura.Text.Trim(),
+                        equivalencia
+                    );
+                }
+
+                //generar codigo de barras si esta vacio
+                if (string.IsNullOrWhiteSpace(codigoBarra))
+                {
+                    codigoBarra = GenerarCodigoBarraInterno(sku);
+                }
+
+                //validar duplicados
                 RN_ProductoPresentacion obj = new RN_ProductoPresentacion();
+               
+
+                DataTable dtExiste = obj.RN_Validar_CodigoSKU_Presentacion(
+                    Modo == "N" ? 0 : IdPresentacion,
+                    codigoBarra,
+                    sku
+                    );
+
+                if (dtExiste.Rows.Count > 0)
+                {
+                    MessageBox.Show("El SKU o Código de Barras ya está usado en otra presentación.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                //crear entidad 
                 EN_ProductoPresentacion pre = new EN_ProductoPresentacion();
 
                 pre.IdProducto = IdProducto;
                 pre.NombrePresentacion = txtNombrePresentacion.Text.Trim();
                 pre.Abreviatura = cboAbreviatura.Text.Trim().ToUpper();
-                pre.Equivalencia = Convert.ToDecimal(txtEquivalencia.Text);
+                pre.Equivalencia = equivalencia;
                 pre.PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Text);
                 pre.PrecioVentaMinorista = Convert.ToDecimal(txtPrecioMinorista.Text);
                 pre.PrecioVentaMayorista = Convert.ToDecimal(txtPrecioMayorista.Text);
                 pre.CantMinMayorista = Convert.ToDecimal(txtCantMinMayorista.Text);
-                pre.CodigoBarra = txtCodigoBarra.Text.Trim();
-                pre.SKU = txtSKU.Text.Trim().ToUpper();
+                pre.CodigoBarra = codigoBarra; //txtCodigoBarra.Text.Trim();
+                pre.SKU = sku;//txtSKU.Text.Trim().ToUpper();
                 pre.EsBase = chkEsBase.Checked;
                 pre.PermiteCompra = chkPermiteCompra.Checked;
                 pre.PermiteVenta = chkPermiteVenta.Checked;
                 pre.Activo = chkActivo.Checked;
                
-
+                //6. guardar
                 if (Modo == "N")
                 {
                     obj.RN_Registrar_ProductoPresentacion(pre);
@@ -371,6 +410,8 @@ namespace Microsell_Lite.Productos
                     pre.IdPresentacion = IdPresentacion;
                     obj.RN_Editar_ProductoPresentacion(pre);
                 }
+
+                //7.REFRESCAR UI
                 pnl_add.Visible = false;
                 lsv_prodPresentaciones.Enabled = true;
                 CargarPresentaciones();
@@ -466,7 +507,7 @@ namespace Microsell_Lite.Productos
         private bool ExisteOtraPresentacionBase()
         {
             RN_ProductoPresentacion obj = new RN_ProductoPresentacion();
-            DataTable dt = obj.RN_Listar_ProductoPresentacion_porProducto(IdProducto);
+            DataTable dt = obj.RN_Listar_ProductoPresentacion_porProducto(IdProducto, 1);
 
             foreach (DataRow dr in dt.Rows)
             {
@@ -610,6 +651,70 @@ namespace Microsell_Lite.Productos
         private void cboAbreviatura_SelectedIndexChanged(object sender, EventArgs e)
         {
             AplicarReglasUnidad();
+        }
+        private string LimpiarTextoCodigo(string texto)
+        {
+            if (string.IsNullOrWhiteSpace(texto))
+                return "";
+
+            string limpio = texto.Trim().ToUpper();
+
+            limpio = limpio.Replace("Á", "A")
+                           .Replace("É", "E")
+                           .Replace("Í", "I")
+                           .Replace("Ó", "O")
+                           .Replace("Ú", "U")
+                           .Replace("Ñ", "N");
+
+            limpio = limpio.Replace(" ", "")
+                           //.Replace("-", "")
+                           .Replace("/", "")
+                           .Replace(".", "")
+                           .Replace(",", "");
+
+            return limpio;
+        }
+
+        private string GenerarSKUInterno(string idProducto, string abreviatura, decimal equivalencia)
+        {
+            string id = LimpiarTextoCodigo(idProducto);
+            string abrev = LimpiarTextoCodigo(abreviatura);
+
+            if (string.IsNullOrWhiteSpace(abrev))
+                abrev = "UND";
+
+            if (equivalencia > 1)
+            {
+                string equivTexto = equivalencia.ToString("0.####")
+                                                .Replace(".", "")
+                                                .Replace(",", "");
+
+                return id + "-" + abrev + equivTexto;
+            }
+
+            return id + "-" + abrev;
+        }
+
+        private string GenerarCodigoBarraInterno(string sku)
+        {
+            // Como usamos Code128, puede ser alfanumérico.
+            // Así no dependes de EAN13 ni de dígitos verificadores.
+            return sku;
+        }
+
+        private void btnGenerarCodigo_Click(object sender, EventArgs e)
+        {
+            decimal equivalencia = 1;
+            decimal.TryParse(txtEquivalencia.Text, out equivalencia);
+
+            string sku = GenerarSKUInterno(
+                IdProducto,
+                cboAbreviatura.Text.Trim(),
+                equivalencia
+            );
+
+            txtSKU.Text = sku;
+            txtCodigoBarra.Text = GenerarCodigoBarraInterno(sku);
         }
     }
 }

@@ -389,7 +389,7 @@ namespace Microsell_Lite.Productos
         private bool ExisteOtraPresentacionBase()
         {
             RN_ProductoPresentacion obj = new RN_ProductoPresentacion();
-            DataTable dt = obj.RN_Listar_ProductoPresentacion_porProducto(IdProducto);
+            DataTable dt = obj.RN_Listar_ProductoPresentacion_porProducto(IdProducto, 1);
 
             foreach (DataRow dr in dt.Rows)
             {

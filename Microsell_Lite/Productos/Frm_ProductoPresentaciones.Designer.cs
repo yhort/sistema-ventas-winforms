@@ -49,6 +49,11 @@
             this.chkActivo = new Guna.UI.WinForms.GunaCheckBox();
             this.lsv_prodPresentaciones = new System.Windows.Forms.ListView();
             this.pnl_add = new Klik.Windows.Forms.v1.EntryLib.ELGroupBox();
+            this.btnGenerarCodigo = new Guna.UI2.WinForms.Guna2Button();
+            this.txtCodigoBarra = new Guna.UI.WinForms.GunaTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtSKU = new Guna.UI.WinForms.GunaTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblNombProducto = new Klik.Windows.Forms.v1.EntryLib.ELLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblEquivalenciaInfo = new System.Windows.Forms.Label();
@@ -78,10 +83,6 @@
             this.btnGuardar = new Klik.Windows.Forms.v1.EntryLib.ELButton();
             this.btn_cancel = new Klik.Windows.Forms.v1.EntryLib.ELButton();
             this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSKU = new Guna.UI.WinForms.GunaTextBox();
-            this.txtCodigoBarra = new Guna.UI.WinForms.GunaTextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.pnl_titu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_listo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_add)).BeginInit();
@@ -104,7 +105,7 @@
             this.pnl_titu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_titu.Location = new System.Drawing.Point(0, 0);
             this.pnl_titu.Name = "pnl_titu";
-            this.pnl_titu.Size = new System.Drawing.Size(686, 44);
+            this.pnl_titu.Size = new System.Drawing.Size(677, 44);
             this.pnl_titu.TabIndex = 1;
             this.pnl_titu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_titu_Paint);
             this.pnl_titu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_titu_MouseMove);
@@ -119,7 +120,7 @@
             this.btn_cerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cerrar.ForeColor = System.Drawing.Color.White;
             this.btn_cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_cerrar.Image")));
-            this.btn_cerrar.Location = new System.Drawing.Point(649, 5);
+            this.btn_cerrar.Location = new System.Drawing.Point(640, 5);
             this.btn_cerrar.Name = "btn_cerrar";
             this.btn_cerrar.Size = new System.Drawing.Size(25, 29);
             this.btn_cerrar.TabIndex = 10;
@@ -175,9 +176,9 @@
             // 
             this.label9.BackColor = System.Drawing.Color.DodgerBlue;
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label9.Location = new System.Drawing.Point(683, 44);
+            this.label9.Location = new System.Drawing.Point(674, 44);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(3, 575);
+            this.label9.Size = new System.Drawing.Size(3, 587);
             this.label9.TabIndex = 20;
             // 
             // label10
@@ -186,7 +187,7 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Location = new System.Drawing.Point(0, 44);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(3, 575);
+            this.label10.Size = new System.Drawing.Size(3, 587);
             this.label10.TabIndex = 21;
             // 
             // openFileDialog1
@@ -203,7 +204,7 @@
             this.btn_add.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.ForeColor = System.Drawing.Color.White;
             this.btn_add.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.Image")));
-            this.btn_add.Location = new System.Drawing.Point(17, 51);
+            this.btn_add.Location = new System.Drawing.Point(8, 51);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(32, 32);
             this.btn_add.TabIndex = 95;
@@ -222,7 +223,7 @@
             this.btn_edit.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_edit.ForeColor = System.Drawing.Color.White;
             this.btn_edit.Image = ((System.Drawing.Image)(resources.GetObject("btn_edit.Image")));
-            this.btn_edit.Location = new System.Drawing.Point(65, 53);
+            this.btn_edit.Location = new System.Drawing.Point(56, 53);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(32, 29);
             this.btn_edit.TabIndex = 96;
@@ -241,7 +242,7 @@
             this.bt_delete.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_delete.ForeColor = System.Drawing.Color.White;
             this.bt_delete.Image = ((System.Drawing.Image)(resources.GetObject("bt_delete.Image")));
-            this.bt_delete.Location = new System.Drawing.Point(121, 51);
+            this.bt_delete.Location = new System.Drawing.Point(112, 51);
             this.bt_delete.Name = "bt_delete";
             this.bt_delete.Size = new System.Drawing.Size(32, 32);
             this.bt_delete.TabIndex = 98;
@@ -258,7 +259,7 @@
             this.chkEsBase.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.chkEsBase.FillColor = System.Drawing.Color.White;
             this.chkEsBase.Font = new System.Drawing.Font("Encode Sans Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEsBase.Location = new System.Drawing.Point(191, 405);
+            this.chkEsBase.Location = new System.Drawing.Point(191, 417);
             this.chkEsBase.Name = "chkEsBase";
             this.chkEsBase.Size = new System.Drawing.Size(20, 20);
             this.chkEsBase.TabIndex = 109;
@@ -273,7 +274,7 @@
             this.chkPermiteCompra.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.chkPermiteCompra.FillColor = System.Drawing.Color.White;
             this.chkPermiteCompra.Font = new System.Drawing.Font("Encode Sans Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPermiteCompra.Location = new System.Drawing.Point(520, 405);
+            this.chkPermiteCompra.Location = new System.Drawing.Point(520, 417);
             this.chkPermiteCompra.Name = "chkPermiteCompra";
             this.chkPermiteCompra.Size = new System.Drawing.Size(20, 20);
             this.chkPermiteCompra.TabIndex = 107;
@@ -287,7 +288,7 @@
             this.chkPermiteVenta.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.chkPermiteVenta.FillColor = System.Drawing.Color.White;
             this.chkPermiteVenta.Font = new System.Drawing.Font("Encode Sans Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPermiteVenta.Location = new System.Drawing.Point(191, 445);
+            this.chkPermiteVenta.Location = new System.Drawing.Point(191, 457);
             this.chkPermiteVenta.Name = "chkPermiteVenta";
             this.chkPermiteVenta.Size = new System.Drawing.Size(20, 20);
             this.chkPermiteVenta.TabIndex = 105;
@@ -301,7 +302,7 @@
             this.chkActivo.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.chkActivo.FillColor = System.Drawing.Color.White;
             this.chkActivo.Font = new System.Drawing.Font("Encode Sans Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkActivo.Location = new System.Drawing.Point(520, 445);
+            this.chkActivo.Location = new System.Drawing.Point(520, 457);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(20, 20);
             this.chkActivo.TabIndex = 89;
@@ -312,9 +313,9 @@
             this.lsv_prodPresentaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lsv_prodPresentaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsv_prodPresentaciones.HideSelection = false;
-            this.lsv_prodPresentaciones.Location = new System.Drawing.Point(9, 102);
+            this.lsv_prodPresentaciones.Location = new System.Drawing.Point(16, 102);
             this.lsv_prodPresentaciones.Name = "lsv_prodPresentaciones";
-            this.lsv_prodPresentaciones.Size = new System.Drawing.Size(665, 472);
+            this.lsv_prodPresentaciones.Size = new System.Drawing.Size(665, 506);
             this.lsv_prodPresentaciones.TabIndex = 91;
             this.lsv_prodPresentaciones.UseCompatibleStateImageBehavior = false;
             // 
@@ -342,6 +343,7 @@
             this.pnl_add.CaptionStyle.TextStyle.TextType = Klik.Windows.Forms.v1.Common.TextTypes.BlockShadow;
             this.pnl_add.CaptionStyle.Visible = false;
             this.pnl_add.CaptionStyle.VisualStyle = Klik.Windows.Forms.v1.Common.ControlVisualStyles.Custom;
+            this.pnl_add.Controls.Add(this.btnGenerarCodigo);
             this.pnl_add.Controls.Add(this.txtCodigoBarra);
             this.pnl_add.Controls.Add(this.label3);
             this.pnl_add.Controls.Add(this.txtSKU);
@@ -378,14 +380,86 @@
             this.pnl_add.Controls.Add(this.label16);
             this.pnl_add.Controls.Add(this.btnGuardar);
             this.pnl_add.Controls.Add(this.btn_cancel);
-            this.pnl_add.Location = new System.Drawing.Point(3, 50);
+            this.pnl_add.Location = new System.Drawing.Point(8, 50);
             this.pnl_add.Name = "pnl_add";
             this.pnl_add.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.pnl_add.Size = new System.Drawing.Size(680, 558);
+            this.pnl_add.Size = new System.Drawing.Size(660, 569);
             this.pnl_add.TabIndex = 99;
             this.pnl_add.Visible = false;
             this.pnl_add.VisualStyle = Klik.Windows.Forms.v1.Common.ControlVisualStyles.Custom;
             this.pnl_add.Click += new System.EventHandler(this.pnl_add_Click);
+            // 
+            // btnGenerarCodigo
+            // 
+            this.btnGenerarCodigo.BorderRadius = 15;
+            this.btnGenerarCodigo.CheckedState.Parent = this.btnGenerarCodigo;
+            this.btnGenerarCodigo.CustomImages.Parent = this.btnGenerarCodigo;
+            this.btnGenerarCodigo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnGenerarCodigo.ForeColor = System.Drawing.Color.White;
+            this.btnGenerarCodigo.HoverState.Parent = this.btnGenerarCodigo;
+            this.btnGenerarCodigo.Location = new System.Drawing.Point(191, 188);
+            this.btnGenerarCodigo.Name = "btnGenerarCodigo";
+            this.btnGenerarCodigo.ShadowDecoration.Parent = this.btnGenerarCodigo;
+            this.btnGenerarCodigo.Size = new System.Drawing.Size(108, 30);
+            this.btnGenerarCodigo.TabIndex = 614;
+            this.btnGenerarCodigo.Text = "Generar Codigo";
+            this.btnGenerarCodigo.Click += new System.EventHandler(this.btnGenerarCodigo_Click);
+            // 
+            // txtCodigoBarra
+            // 
+            this.txtCodigoBarra.BackColor = System.Drawing.Color.Transparent;
+            this.txtCodigoBarra.BaseColor = System.Drawing.Color.White;
+            this.txtCodigoBarra.BorderColor = System.Drawing.Color.Silver;
+            this.txtCodigoBarra.BorderSize = 1;
+            this.txtCodigoBarra.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCodigoBarra.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtCodigoBarra.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtCodigoBarra.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtCodigoBarra.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoBarra.Location = new System.Drawing.Point(191, 154);
+            this.txtCodigoBarra.Name = "txtCodigoBarra";
+            this.txtCodigoBarra.PasswordChar = '\0';
+            this.txtCodigoBarra.Radius = 5;
+            this.txtCodigoBarra.Size = new System.Drawing.Size(194, 28);
+            this.txtCodigoBarra.TabIndex = 612;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(29, 157);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 25);
+            this.label3.TabIndex = 611;
+            this.label3.Text = "Codigo de Barra";
+            // 
+            // txtSKU
+            // 
+            this.txtSKU.BackColor = System.Drawing.Color.Transparent;
+            this.txtSKU.BaseColor = System.Drawing.Color.White;
+            this.txtSKU.BorderColor = System.Drawing.Color.Silver;
+            this.txtSKU.BorderSize = 1;
+            this.txtSKU.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSKU.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtSKU.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtSKU.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtSKU.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSKU.Location = new System.Drawing.Point(452, 155);
+            this.txtSKU.Name = "txtSKU";
+            this.txtSKU.PasswordChar = '\0';
+            this.txtSKU.Radius = 5;
+            this.txtSKU.Size = new System.Drawing.Size(193, 28);
+            this.txtSKU.TabIndex = 610;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(410, 154);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 25);
+            this.label2.TabIndex = 609;
+            this.label2.Text = "SKU";
             // 
             // lblNombProducto
             // 
@@ -442,7 +516,7 @@
             this.label14.BackColor = System.Drawing.Color.White;
             this.label14.Font = new System.Drawing.Font("Encode Sans Condensed SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label14.Location = new System.Drawing.Point(210, 353);
+            this.label14.Location = new System.Drawing.Point(210, 365);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(280, 30);
             this.label14.TabIndex = 116;
@@ -454,7 +528,7 @@
             this.label18.BackColor = System.Drawing.Color.White;
             this.label18.Font = new System.Drawing.Font("Encode Sans Condensed SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label18.Location = new System.Drawing.Point(210, 208);
+            this.label18.Location = new System.Drawing.Point(210, 220);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(280, 23);
             this.label18.TabIndex = 115;
@@ -467,7 +541,7 @@
             this.bunifuSeparator1.ForeColor = System.Drawing.Color.Gray;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(55, 212);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(55, 224);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(590, 19);
             this.bunifuSeparator1.TabIndex = 114;
@@ -480,7 +554,7 @@
             this.bunifuSeparator2.ForeColor = System.Drawing.Color.Gray;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(55, 357);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(55, 369);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(590, 19);
             this.bunifuSeparator2.TabIndex = 113;
@@ -512,7 +586,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(47, 400);
+            this.label13.Location = new System.Drawing.Point(47, 412);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(96, 25);
             this.label13.TabIndex = 110;
@@ -523,7 +597,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(365, 400);
+            this.label12.Location = new System.Drawing.Point(365, 412);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(105, 25);
             this.label12.TabIndex = 108;
@@ -534,7 +608,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(50, 440);
+            this.label11.Location = new System.Drawing.Point(50, 452);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(93, 25);
             this.label11.TabIndex = 106;
@@ -544,7 +618,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(364, 302);
+            this.label8.Location = new System.Drawing.Point(364, 314);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(149, 25);
             this.label8.TabIndex = 104;
@@ -561,7 +635,7 @@
             this.txtCantMinMayorista.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtCantMinMayorista.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtCantMinMayorista.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantMinMayorista.Location = new System.Drawing.Point(520, 299);
+            this.txtCantMinMayorista.Location = new System.Drawing.Point(520, 311);
             this.txtCantMinMayorista.Name = "txtCantMinMayorista";
             this.txtCantMinMayorista.PasswordChar = '\0';
             this.txtCantMinMayorista.Radius = 5;
@@ -572,7 +646,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(33, 299);
+            this.label7.Location = new System.Drawing.Point(33, 311);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(110, 25);
             this.label7.TabIndex = 102;
@@ -589,7 +663,7 @@
             this.txtPrecioMayorista.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtPrecioMayorista.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPrecioMayorista.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioMayorista.Location = new System.Drawing.Point(191, 299);
+            this.txtPrecioMayorista.Location = new System.Drawing.Point(191, 311);
             this.txtPrecioMayorista.Name = "txtPrecioMayorista";
             this.txtPrecioMayorista.PasswordChar = '\0';
             this.txtPrecioMayorista.Radius = 5;
@@ -600,7 +674,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(384, 256);
+            this.label6.Location = new System.Drawing.Point(384, 268);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 25);
             this.label6.TabIndex = 100;
@@ -617,7 +691,7 @@
             this.txtPrecioMinorista.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtPrecioMinorista.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPrecioMinorista.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioMinorista.Location = new System.Drawing.Point(520, 253);
+            this.txtPrecioMinorista.Location = new System.Drawing.Point(520, 265);
             this.txtPrecioMinorista.Name = "txtPrecioMinorista";
             this.txtPrecioMinorista.PasswordChar = '\0';
             this.txtPrecioMinorista.Radius = 5;
@@ -628,7 +702,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(33, 256);
+            this.label5.Location = new System.Drawing.Point(33, 268);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 25);
             this.label5.TabIndex = 98;
@@ -645,7 +719,7 @@
             this.txtPrecioCompra.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtPrecioCompra.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPrecioCompra.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioCompra.Location = new System.Drawing.Point(191, 253);
+            this.txtPrecioCompra.Location = new System.Drawing.Point(191, 265);
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.PasswordChar = '\0';
             this.txtPrecioCompra.Radius = 5;
@@ -704,7 +778,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(375, 440);
+            this.label23.Location = new System.Drawing.Point(375, 452);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(49, 25);
             this.label23.TabIndex = 90;
@@ -746,7 +820,7 @@
             this.btnGuardar.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btnGuardar.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btnGuardar.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(380, 494);
+            this.btnGuardar.Location = new System.Drawing.Point(380, 506);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ModernBlack;
             this.btnGuardar.Size = new System.Drawing.Size(133, 43);
@@ -777,7 +851,7 @@
             this.btn_cancel.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btn_cancel.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btn_cancel.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_cancel.Location = new System.Drawing.Point(191, 494);
+            this.btn_cancel.Location = new System.Drawing.Point(191, 506);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ClassicSilver;
             this.btn_cancel.Size = new System.Drawing.Size(144, 43);
@@ -808,68 +882,12 @@
             this.bunifuSeparator3.Transparency = 255;
             this.bunifuSeparator3.Vertical = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(410, 154);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 25);
-            this.label2.TabIndex = 609;
-            this.label2.Text = "SKU";
-            // 
-            // txtSKU
-            // 
-            this.txtSKU.BackColor = System.Drawing.Color.Transparent;
-            this.txtSKU.BaseColor = System.Drawing.Color.White;
-            this.txtSKU.BorderColor = System.Drawing.Color.Silver;
-            this.txtSKU.BorderSize = 1;
-            this.txtSKU.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSKU.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtSKU.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtSKU.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtSKU.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSKU.Location = new System.Drawing.Point(452, 155);
-            this.txtSKU.Name = "txtSKU";
-            this.txtSKU.PasswordChar = '\0';
-            this.txtSKU.Radius = 5;
-            this.txtSKU.Size = new System.Drawing.Size(193, 28);
-            this.txtSKU.TabIndex = 610;
-            // 
-            // txtCodigoBarra
-            // 
-            this.txtCodigoBarra.BackColor = System.Drawing.Color.Transparent;
-            this.txtCodigoBarra.BaseColor = System.Drawing.Color.White;
-            this.txtCodigoBarra.BorderColor = System.Drawing.Color.Silver;
-            this.txtCodigoBarra.BorderSize = 1;
-            this.txtCodigoBarra.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCodigoBarra.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtCodigoBarra.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtCodigoBarra.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtCodigoBarra.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoBarra.Location = new System.Drawing.Point(191, 154);
-            this.txtCodigoBarra.Name = "txtCodigoBarra";
-            this.txtCodigoBarra.PasswordChar = '\0';
-            this.txtCodigoBarra.Radius = 5;
-            this.txtCodigoBarra.Size = new System.Drawing.Size(194, 28);
-            this.txtCodigoBarra.TabIndex = 612;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(29, 157);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 25);
-            this.label3.TabIndex = 611;
-            this.label3.Text = "Codigo de Barra";
-            // 
             // Frm_ProductoPresentaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(686, 619);
+            this.ClientSize = new System.Drawing.Size(677, 631);
             this.Controls.Add(this.pnl_add);
             this.Controls.Add(this.bunifuSeparator3);
             this.Controls.Add(this.bt_delete);
@@ -952,5 +970,6 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI.WinForms.GunaTextBox txtSKU;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2Button btnGenerarCodigo;
     }
 }

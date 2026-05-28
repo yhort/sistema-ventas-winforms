@@ -29,9 +29,9 @@ namespace Prj_Capa_Negocio
             obj.BD_Desactivar_ProductoPresentacion(idPresentacion);
         }
 
-        public DataTable RN_Listar_ProductoPresentacion_porProducto(string idProducto)
+        public DataTable RN_Listar_ProductoPresentacion_porProducto(string idProducto , int idAlmacen)
         {
-            return obj.BD_Listar_ProductoPresentacion_PorProducto(idProducto);
+            return obj.BD_Listar_ProductoPresentacion_PorProducto(idProducto, idAlmacen);
         }
 
         public DataTable RN_Buscar_ProductoPresentacion_porId(int idPresentacion)
@@ -53,6 +53,11 @@ namespace Prj_Capa_Negocio
         {
             BD_ProductoPresentacion obj = new BD_ProductoPresentacion();
             return obj.BD_Importar_ProductoPresentacion(pre);
+        }
+        public DataTable RN_Validar_CodigoSKU_Presentacion(int idPresentacion, string codigoBarra, string sku)
+        {
+            BD_ProductoPresentacion obj = new BD_ProductoPresentacion();
+            return obj.BD_Validar_CodigoSKU_Presentacion(idPresentacion, codigoBarra, sku);
         }
     }
 }
