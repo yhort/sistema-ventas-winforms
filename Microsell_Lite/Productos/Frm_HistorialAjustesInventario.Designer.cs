@@ -143,7 +143,7 @@
             // lblTotalDetalle
             // 
             this.lblTotalDetalle.AutoSize = true;
-            this.lblTotalDetalle.Location = new System.Drawing.Point(870, 579);
+            this.lblTotalDetalle.Location = new System.Drawing.Point(51, 14);
             this.lblTotalDetalle.Name = "lblTotalDetalle";
             this.lblTotalDetalle.Size = new System.Drawing.Size(35, 13);
             this.lblTotalDetalle.TabIndex = 617;
@@ -152,7 +152,7 @@
             // lblTotalAjustes
             // 
             this.lblTotalAjustes.AutoSize = true;
-            this.lblTotalAjustes.Location = new System.Drawing.Point(982, 588);
+            this.lblTotalAjustes.Location = new System.Drawing.Point(6, 57);
             this.lblTotalAjustes.Name = "lblTotalAjustes";
             this.lblTotalAjustes.Size = new System.Drawing.Size(35, 13);
             this.lblTotalAjustes.TabIndex = 618;
@@ -348,6 +348,7 @@
             this.groupBox1.Controls.Add(this.txtMotivo);
             this.groupBox1.Controls.Add(this.txtObservacion);
             this.groupBox1.Controls.Add(this.btnCalcular);
+            this.groupBox1.Controls.Add(this.lblTotalAjustes);
             this.groupBox1.Controls.Add(this.txtBuscarProducto);
             this.groupBox1.Controls.Add(this.elLabel8);
             this.groupBox1.Controls.Add(this.pictureBox4);
@@ -356,12 +357,14 @@
             this.groupBox1.Controls.Add(this.btnAplicarAjuste);
             this.groupBox1.Controls.Add(this.label51);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(969, 66);
+            this.groupBox1.Controls.Add(this.lblTotalDetalle);
+            this.groupBox1.Location = new System.Drawing.Point(943, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(65, 13);
+            this.groupBox1.Size = new System.Drawing.Size(91, 39);
             this.groupBox1.TabIndex = 628;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Visible = false;
             // 
             // pictureBox4
             // 
@@ -481,12 +484,15 @@
             // 
             // btnRecargar
             // 
-            this.btnRecargar.BorderRadius = 20;
+            this.btnRecargar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.btnRecargar.BorderRadius = 8;
+            this.btnRecargar.BorderThickness = 1;
             this.btnRecargar.CheckedState.Parent = this.btnRecargar;
             this.btnRecargar.CustomImages.Parent = this.btnRecargar;
-            this.btnRecargar.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnRecargar.FillColor = System.Drawing.Color.White;
+            this.btnRecargar.FillColor2 = System.Drawing.Color.Empty;
             this.btnRecargar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnRecargar.ForeColor = System.Drawing.Color.White;
+            this.btnRecargar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
             this.btnRecargar.HoverState.Parent = this.btnRecargar;
             this.btnRecargar.Location = new System.Drawing.Point(314, 599);
             this.btnRecargar.Name = "btnRecargar";
@@ -498,10 +504,11 @@
             // 
             // btnAnular
             // 
-            this.btnAnular.BorderRadius = 20;
+            this.btnAnular.BorderRadius = 8;
             this.btnAnular.CheckedState.Parent = this.btnAnular;
             this.btnAnular.CustomImages.Parent = this.btnAnular;
-            this.btnAnular.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAnular.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.btnAnular.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnular.ForeColor = System.Drawing.Color.White;
             this.btnAnular.HoverState.Parent = this.btnAnular;
             this.btnAnular.Location = new System.Drawing.Point(581, 599);
@@ -523,6 +530,7 @@
             this.pnl_titu.Name = "pnl_titu";
             this.pnl_titu.Size = new System.Drawing.Size(1046, 43);
             this.pnl_titu.TabIndex = 636;
+            this.pnl_titu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_titu_MouseMove);
             // 
             // btn_reload
             // 
@@ -572,50 +580,57 @@
             // 
             // dtpDesde
             // 
-            this.dtpDesde.BorderRadius = 15;
+            this.dtpDesde.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(219)))));
+            this.dtpDesde.BorderRadius = 6;
+            this.dtpDesde.BorderThickness = 1;
             this.dtpDesde.CheckedState.Parent = this.dtpDesde;
-            this.dtpDesde.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(114)))), ((int)(((byte)(114)))));
-            this.dtpDesde.ForeColor = System.Drawing.Color.White;
-            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpDesde.FillColor = System.Drawing.Color.White;
+            this.dtpDesde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDesde.HoverState.Parent = this.dtpDesde;
             this.dtpDesde.Location = new System.Drawing.Point(35, 86);
             this.dtpDesde.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpDesde.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.ShadowDecoration.Parent = this.dtpDesde;
-            this.dtpDesde.Size = new System.Drawing.Size(200, 36);
+            this.dtpDesde.Size = new System.Drawing.Size(127, 36);
             this.dtpDesde.TabIndex = 637;
+            this.dtpDesde.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dtpDesde.Value = new System.DateTime(2026, 5, 19, 13, 29, 15, 849);
             // 
             // dtpHasta
             // 
-            this.dtpHasta.BorderRadius = 15;
+            this.dtpHasta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(219)))));
+            this.dtpHasta.BorderRadius = 6;
+            this.dtpHasta.BorderThickness = 1;
             this.dtpHasta.CheckedState.Parent = this.dtpHasta;
-            this.dtpHasta.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(114)))), ((int)(((byte)(114)))));
-            this.dtpHasta.ForeColor = System.Drawing.Color.White;
-            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpHasta.FillColor = System.Drawing.Color.White;
+            this.dtpHasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpHasta.HoverState.Parent = this.dtpHasta;
-            this.dtpHasta.Location = new System.Drawing.Point(277, 88);
+            this.dtpHasta.Location = new System.Drawing.Point(196, 88);
             this.dtpHasta.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpHasta.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.ShadowDecoration.Parent = this.dtpHasta;
-            this.dtpHasta.Size = new System.Drawing.Size(200, 36);
+            this.dtpHasta.Size = new System.Drawing.Size(127, 36);
             this.dtpHasta.TabIndex = 638;
+            this.dtpHasta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dtpHasta.Value = new System.DateTime(2026, 5, 19, 13, 29, 15, 849);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BorderRadius = 20;
+            this.btnBuscar.BorderRadius = 8;
             this.btnBuscar.CheckedState.Parent = this.btnBuscar;
             this.btnBuscar.CustomImages.Parent = this.btnBuscar;
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnBuscar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.HoverState.Parent = this.btnBuscar;
-            this.btnBuscar.Location = new System.Drawing.Point(706, 80);
+            this.btnBuscar.Location = new System.Drawing.Point(595, 84);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.ShadowDecoration.Parent = this.btnBuscar;
-            this.btnBuscar.Size = new System.Drawing.Size(141, 42);
+            this.btnBuscar.Size = new System.Drawing.Size(89, 40);
             this.btnBuscar.TabIndex = 640;
             this.btnBuscar.Text = "buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -636,7 +651,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.label5.Location = new System.Drawing.Point(292, 66);
+            this.label5.Location = new System.Drawing.Point(211, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 17);
             this.label5.TabIndex = 642;
@@ -645,11 +660,13 @@
             // cboEstado
             // 
             this.cboEstado.BackColor = System.Drawing.Color.Transparent;
-            this.cboEstado.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
-            this.cboEstado.BorderRadius = 15;
+            this.cboEstado.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(213)))), ((int)(((byte)(219)))));
+            this.cboEstado.BorderRadius = 8;
             this.cboEstado.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEstado.FocusedColor = System.Drawing.Color.Empty;
+            this.cboEstado.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.cboEstado.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.cboEstado.FocusedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.cboEstado.FocusedState.Parent = this.cboEstado;
             this.cboEstado.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
@@ -657,7 +674,7 @@
             this.cboEstado.HoverState.Parent = this.cboEstado;
             this.cboEstado.ItemHeight = 30;
             this.cboEstado.ItemsAppearance.Parent = this.cboEstado;
-            this.cboEstado.Location = new System.Drawing.Point(523, 86);
+            this.cboEstado.Location = new System.Drawing.Point(403, 86);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.ShadowDecoration.Parent = this.cboEstado;
             this.cboEstado.Size = new System.Drawing.Size(140, 36);
@@ -668,7 +685,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.label6.Location = new System.Drawing.Point(533, 66);
+            this.label6.Location = new System.Drawing.Point(413, 66);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 17);
             this.label6.TabIndex = 644;
@@ -676,32 +693,38 @@
             // 
             // btnExportarDetalle
             // 
-            this.btnExportarDetalle.BorderRadius = 20;
+            this.btnExportarDetalle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.btnExportarDetalle.BorderRadius = 8;
+            this.btnExportarDetalle.BorderThickness = 1;
             this.btnExportarDetalle.CheckedState.Parent = this.btnExportarDetalle;
             this.btnExportarDetalle.CustomImages.Parent = this.btnExportarDetalle;
+            this.btnExportarDetalle.FillColor = System.Drawing.Color.White;
             this.btnExportarDetalle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnExportarDetalle.ForeColor = System.Drawing.Color.White;
+            this.btnExportarDetalle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
             this.btnExportarDetalle.HoverState.Parent = this.btnExportarDetalle;
-            this.btnExportarDetalle.Location = new System.Drawing.Point(277, 130);
+            this.btnExportarDetalle.Location = new System.Drawing.Point(196, 130);
             this.btnExportarDetalle.Name = "btnExportarDetalle";
             this.btnExportarDetalle.ShadowDecoration.Parent = this.btnExportarDetalle;
-            this.btnExportarDetalle.Size = new System.Drawing.Size(200, 40);
+            this.btnExportarDetalle.Size = new System.Drawing.Size(127, 40);
             this.btnExportarDetalle.TabIndex = 645;
             this.btnExportarDetalle.Text = "Exportar Detalle";
             this.btnExportarDetalle.Click += new System.EventHandler(this.btnExportarDetalle_Click);
             // 
             // btnExportarHistorial
             // 
-            this.btnExportarHistorial.BorderRadius = 20;
+            this.btnExportarHistorial.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
+            this.btnExportarHistorial.BorderRadius = 8;
+            this.btnExportarHistorial.BorderThickness = 1;
             this.btnExportarHistorial.CheckedState.Parent = this.btnExportarHistorial;
             this.btnExportarHistorial.CustomImages.Parent = this.btnExportarHistorial;
+            this.btnExportarHistorial.FillColor = System.Drawing.Color.White;
             this.btnExportarHistorial.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnExportarHistorial.ForeColor = System.Drawing.Color.White;
+            this.btnExportarHistorial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
             this.btnExportarHistorial.HoverState.Parent = this.btnExportarHistorial;
-            this.btnExportarHistorial.Location = new System.Drawing.Point(35, 128);
+            this.btnExportarHistorial.Location = new System.Drawing.Point(35, 130);
             this.btnExportarHistorial.Name = "btnExportarHistorial";
             this.btnExportarHistorial.ShadowDecoration.Parent = this.btnExportarHistorial;
-            this.btnExportarHistorial.Size = new System.Drawing.Size(196, 42);
+            this.btnExportarHistorial.Size = new System.Drawing.Size(127, 40);
             this.btnExportarHistorial.TabIndex = 646;
             this.btnExportarHistorial.Text = "Exportar Historial";
             this.btnExportarHistorial.Click += new System.EventHandler(this.btnExportarHistorial_Click);
@@ -715,7 +738,6 @@
             this.Controls.Add(this.btnExportarHistorial);
             this.Controls.Add(this.btnExportarDetalle);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblTotalAjustes);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cboEstado);
             this.Controls.Add(this.label5);
@@ -728,9 +750,9 @@
             this.Controls.Add(this.btnRecargar);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
-            this.Controls.Add(this.lblTotalDetalle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_HistorialAjustesInventario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Frm_TomaInventario";
             this.Load += new System.EventHandler(this.Frm_HistorialAjustesInventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.elLabel8)).EndInit();

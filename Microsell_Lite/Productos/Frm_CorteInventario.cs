@@ -345,76 +345,166 @@ namespace Microsell_Lite.Productos
         //        DataGridViewContentAlignment.MiddleRight;
         //}
 
+        private void AplicarTemaGrid(DataGridView dgv, bool editable = false)
+        {
+            dgv.EnableHeadersVisualStyles = false;
+
+            dgv.BackgroundColor = Color.White;
+            dgv.BorderStyle = BorderStyle.None;
+
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv.GridColor = Color.FromArgb(240, 240, 240);
+
+            dgv.RowHeadersVisible = false;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.AllowUserToResizeRows = false;
+
+            dgv.MultiSelect = false;
+
+            dgv.SelectionMode = editable
+                ? DataGridViewSelectionMode.CellSelect
+                : DataGridViewSelectionMode.FullRowSelect;
+
+            dgv.ReadOnly = !editable;
+
+            // HEADER
+            dgv.ColumnHeadersHeight = 40;
+
+            dgv.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.FromArgb(30, 64, 175);
+
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            dgv.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 9F, FontStyle.Bold);
+
+            dgv.ColumnHeadersDefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            // ROWS
+            dgv.RowTemplate.Height = 32;
+
+            dgv.DefaultCellStyle.Font = new Font("Segoe UI", 9F);
+            dgv.DefaultCellStyle.BackColor = Color.White;
+
+            dgv.DefaultCellStyle.ForeColor = Color.FromArgb(40, 40, 40);
+
+            dgv.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(219, 234, 254);
+
+            dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            dgv.AlternatingRowsDefaultCellStyle.BackColor =
+                Color.FromArgb(248, 250, 252);
+        }
+        //private void ConfigurarGridCortes()
+        //{
+        //    dgvCortes.Columns.Clear();
+        //    dgvCortes.Rows.Clear();
+
+        //    dgvCortes.AllowUserToAddRows = false;
+        //    dgvCortes.AllowUserToDeleteRows = false;
+        //    dgvCortes.ReadOnly = true;
+        //    dgvCortes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        //    dgvCortes.MultiSelect = false;
+
+        //    dgvCortes.Columns.Add("IdCorte", "N°");
+        //    dgvCortes.Columns["IdCorte"].Width = 60;
+
+        //    dgvCortes.Columns.Add("Fecha", "Fecha");
+        //    dgvCortes.Columns["Fecha"].Width = 140;
+
+        //    dgvCortes.Columns.Add("Almacen", "Almacén");
+        //    dgvCortes.Columns["Almacen"].Width = 150;
+
+        //    dgvCortes.Columns.Add("Descripcion", "Descripción");
+        //    dgvCortes.Columns["Descripcion"].Width = 220;
+
+        //    dgvCortes.Columns.Add("Items", "Items");
+        //    dgvCortes.Columns["Items"].Width = 70;
+
+        //    dgvCortes.Columns.Add("ValorTotal", "Valor Total");
+        //    dgvCortes.Columns["ValorTotal"].Width = 100;
+
+        //    dgvCortes.Columns.Add("Estado", "Estado");
+        //    dgvCortes.Columns["Estado"].Width = 90;
+        //}
+
         private void ConfigurarGridCortes()
         {
             dgvCortes.Columns.Clear();
             dgvCortes.Rows.Clear();
 
-            dgvCortes.AllowUserToAddRows = false;
-            dgvCortes.AllowUserToDeleteRows = false;
-            dgvCortes.ReadOnly = true;
+            AplicarTemaGrid(dgvCortes);
+
             dgvCortes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCortes.MultiSelect = false;
 
             dgvCortes.Columns.Add("IdCorte", "N°");
-            dgvCortes.Columns["IdCorte"].Width = 60;
-
             dgvCortes.Columns.Add("Fecha", "Fecha");
-            dgvCortes.Columns["Fecha"].Width = 140;
-
             dgvCortes.Columns.Add("Almacen", "Almacén");
-            dgvCortes.Columns["Almacen"].Width = 150;
-
             dgvCortes.Columns.Add("Descripcion", "Descripción");
-            dgvCortes.Columns["Descripcion"].Width = 220;
-
             dgvCortes.Columns.Add("Items", "Items");
-            dgvCortes.Columns["Items"].Width = 70;
-
             dgvCortes.Columns.Add("ValorTotal", "Valor Total");
-            dgvCortes.Columns["ValorTotal"].Width = 100;
-
             dgvCortes.Columns.Add("Estado", "Estado");
-            dgvCortes.Columns["Estado"].Width = 90;
-        }
 
+            dgvCortes.Columns["IdCorte"].FillWeight = 60;
+            dgvCortes.Columns["Fecha"].FillWeight = 140;
+            dgvCortes.Columns["Almacen"].FillWeight = 150;
+            dgvCortes.Columns["Descripcion"].FillWeight = 220;
+            dgvCortes.Columns["Items"].FillWeight = 70;
+            dgvCortes.Columns["ValorTotal"].FillWeight = 100;
+            dgvCortes.Columns["Estado"].FillWeight = 90;
+
+            dgvCortes.Columns["IdCorte"].DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            dgvCortes.Columns["Items"].DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            dgvCortes.Columns["ValorTotal"].DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleRight;
+        }
         private void ConfigurarGridDetalle()
         {
             dgvDetalle.Columns.Clear();
             dgvDetalle.Rows.Clear();
 
-            dgvDetalle.AllowUserToAddRows = false;
-            dgvDetalle.AllowUserToDeleteRows = false;
-            dgvDetalle.ReadOnly = true;
-            dgvDetalle.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDetalle.MultiSelect = false;
+            AplicarTemaGrid(dgvDetalle);
 
             dgvDetalle.Columns.Add("IdProducto", "ID Producto");
-            dgvDetalle.Columns["IdProducto"].Width = 90;
-
             dgvDetalle.Columns.Add("Producto", "Producto");
-            dgvDetalle.Columns["Producto"].Width = 220;
-
             dgvDetalle.Columns.Add("Presentacion", "Presentación");
-            dgvDetalle.Columns["Presentacion"].Width = 120;
-
             dgvDetalle.Columns.Add("Abrev", "Abrev");
-            dgvDetalle.Columns["Abrev"].Width = 60;
-
             dgvDetalle.Columns.Add("StockPresentacion", "Stock Físico");
-            dgvDetalle.Columns["StockPresentacion"].Width = 100;
-
             dgvDetalle.Columns.Add("Equivalencia", "Equiv.");
-            dgvDetalle.Columns["Equivalencia"].Width = 70;
-
             dgvDetalle.Columns.Add("StockBase", "Stock Base");
-            dgvDetalle.Columns["StockBase"].Width = 100;
-
             dgvDetalle.Columns.Add("CostoBase", "Costo Base");
-            dgvDetalle.Columns["CostoBase"].Width = 90;
-
             dgvDetalle.Columns.Add("Valor", "Valor");
-            dgvDetalle.Columns["Valor"].Width = 100;
+
+            dgvDetalle.Columns["Producto"].FillWeight = 220;
+            dgvDetalle.Columns["Presentacion"].FillWeight = 120;
+
+            dgvDetalle.Columns["StockPresentacion"].DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.Columns["Equivalencia"].DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.Columns["StockBase"].DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.Columns["CostoBase"].DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.Columns["Valor"].DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleRight;
+            dgvDetalle.Columns["Valor"].DefaultCellStyle.BackColor =
+                Color.FromArgb(255, 251, 230);
         }
         //private void CargarDetalleAjuste(int idAjuste)
         //{

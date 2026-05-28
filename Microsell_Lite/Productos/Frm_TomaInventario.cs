@@ -27,131 +27,187 @@ namespace Microsell_Lite.Productos
 
             dgvDetalle.CellEndEdit -= dgvDetalle_CellEndEdit;
             dgvDetalle.CellEndEdit += dgvDetalle_CellEndEdit;
+
+            dgvDetalle.EditingControlShowing -= dgvDetalle_EditingControlShowing;
             dgvDetalle.EditingControlShowing += dgvDetalle_EditingControlShowing;
 
             btnAplicarAjuste.Enabled = false;
 
-
-
-
         }
+        private void AplicarTemaGrid(DataGridView dgv, bool editable = false)
+        {
+            dgv.EnableHeadersVisualStyles = false;
+
+            dgv.BackgroundColor = Color.White;
+
+            dgv.BorderStyle = BorderStyle.None;
+
+            dgv.CellBorderStyle =
+                DataGridViewCellBorderStyle.SingleHorizontal;
+
+            dgv.GridColor =
+                Color.FromArgb(240, 240, 240);
+
+            dgv.RowHeadersVisible = false;
+
+            dgv.RowHeadersBorderStyle =
+                DataGridViewHeaderBorderStyle.None;
+
+            dgv.ColumnHeadersBorderStyle =
+                DataGridViewHeaderBorderStyle.None;
+
+            dgv.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.AllowUserToResizeRows = false;
+
+            dgv.MultiSelect = false;
+
+            dgv.SelectionMode = editable
+                ? DataGridViewSelectionMode.CellSelect
+                : DataGridViewSelectionMode.FullRowSelect;
+
+            dgv.ReadOnly = !editable;
+
+            // =====================================================
+            // HEADER
+            // =====================================================
+
+            dgv.ColumnHeadersHeight = 40;
+
+            dgv.ColumnHeadersHeightSizeMode =
+                DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            dgv.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.FromArgb(30, 64, 175);
+
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
+
+            dgv.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 9F, FontStyle.Bold);
+
+            dgv.ColumnHeadersDefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(30, 64, 175);
+
+            dgv.ColumnHeadersDefaultCellStyle.SelectionForeColor =
+                Color.White;
+
+            // =====================================================
+            // FILAS
+            // =====================================================
+
+            dgv.RowTemplate.Height = 32;
+
+            dgv.DefaultCellStyle.Font =
+                new Font("Segoe UI", 9F);
+
+            dgv.DefaultCellStyle.BackColor =
+                Color.White;
+
+            dgv.DefaultCellStyle.ForeColor =
+                Color.FromArgb(40, 40, 40);
+
+            dgv.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(219, 234, 254);
+
+            dgv.DefaultCellStyle.SelectionForeColor =
+                Color.Black;
+
+            dgv.DefaultCellStyle.Padding =
+                new Padding(3);
+
+            dgv.AlternatingRowsDefaultCellStyle.BackColor =
+                Color.FromArgb(248, 250, 252);
+        }
+
+        // =========================================================
+        // CONFIGURAR GRID
+        // =========================================================
 
         private void ConfigurarGrid()
         {
             dgvDetalle.Columns.Clear();
             dgvDetalle.Rows.Clear();
 
-            // Importante para permitir edición
-            dgvDetalle.ReadOnly = false;
-            dgvDetalle.Enabled = true;
-            dgvDetalle.AllowUserToAddRows = false;
-            dgvDetalle.AllowUserToDeleteRows = false;
+            // Aplicar tema visual
+            AplicarTemaGrid(dgvDetalle, true);
 
-            dgvDetalle.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvDetalle.MultiSelect = false;
+            // Permite editar al escribir
+            dgvDetalle.EditMode =
+                DataGridViewEditMode.EditOnKeystrokeOrF2;
 
-
-            // =========================
-            // APARIENCIA GUNA UI2
-            // =========================
-            dgvDetalle.EnableHeadersVisualStyles = false;
-
-            dgvDetalle.BackgroundColor = Color.White;
-            dgvDetalle.BorderStyle = BorderStyle.None;
-
-            dgvDetalle.CellBorderStyle =
-                DataGridViewCellBorderStyle.SingleHorizontal;
-
-            dgvDetalle.GridColor =
-                Color.FromArgb(231, 229, 255);
-
-            dgvDetalle.RowHeadersVisible = false;
-
-            // HEADER
-            dgvDetalle.ColumnHeadersHeight = 40;
-
-            dgvDetalle.ColumnHeadersHeightSizeMode =
-                DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-
-            // FILAS
-            dgvDetalle.RowTemplate.Height = 32;
-
-            // AUTO AJUSTE
-            dgvDetalle.AutoSizeColumnsMode =
-                DataGridViewAutoSizeColumnsMode.Fill;
-
-            // THEME GUNA
-            dgvDetalle.ThemeStyle.HeaderStyle.Height = 40;
-
-            dgvDetalle.ThemeStyle.HeaderStyle.Font =
-                new Font("Segoe UI", 10, FontStyle.Bold);
-
-            dgvDetalle.ThemeStyle.HeaderStyle.BackColor =
-                Color.FromArgb(100, 88, 255);
-
-            dgvDetalle.ThemeStyle.HeaderStyle.ForeColor =
-                Color.White;
-
-            dgvDetalle.ThemeStyle.RowsStyle.Font =
-                new Font("Segoe UI", 10);
-
-            dgvDetalle.ThemeStyle.RowsStyle.Height = 32;
-
-            dgvDetalle.ThemeStyle.RowsStyle.SelectionBackColor =
-                Color.FromArgb(231, 229, 255);
-
-            dgvDetalle.ThemeStyle.RowsStyle.SelectionForeColor =
-                Color.Black;
-
-
-            // Permite editar al escribir o al presionar F2 / Enter
-            dgvDetalle.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+            // =====================================================
+            // COLUMNAS
+            // =====================================================
 
             dgvDetalle.Columns.Add("IdProducto", "IdProducto");
             dgvDetalle.Columns["IdProducto"].Visible = false;
 
             dgvDetalle.Columns.Add("Producto", "Producto");
-            dgvDetalle.Columns["Producto"].Width = 220;
+            dgvDetalle.Columns["Producto"].FillWeight = 220;
 
             dgvDetalle.Columns.Add("IdPresentacion", "IdPresentacion");
             dgvDetalle.Columns["IdPresentacion"].Visible = false;
 
             dgvDetalle.Columns.Add("Presentacion", "Presentación");
-            dgvDetalle.Columns["Presentacion"].Width = 120;
+            dgvDetalle.Columns["Presentacion"].FillWeight = 120;
 
             dgvDetalle.Columns.Add("Abrev", "Abrev");
-            dgvDetalle.Columns["Abrev"].Width = 60;
+            dgvDetalle.Columns["Abrev"].FillWeight = 60;
 
             dgvDetalle.Columns.Add("Equivalencia", "Equiv.");
-            dgvDetalle.Columns["Equivalencia"].Width = 70;
+            dgvDetalle.Columns["Equivalencia"].FillWeight = 70;
 
             dgvDetalle.Columns.Add("StockSistema", "Stock Sistema");
-            dgvDetalle.Columns["StockSistema"].Width = 100;
+            dgvDetalle.Columns["StockSistema"].FillWeight = 100;
 
             dgvDetalle.Columns.Add("StockContado", "Stock Contado");
-            dgvDetalle.Columns["StockContado"].Width = 100;
+            dgvDetalle.Columns["StockContado"].FillWeight = 100;
 
             dgvDetalle.Columns.Add("Diferencia", "Diferencia");
-            dgvDetalle.Columns["Diferencia"].Width = 90;
-
-            // IMPORTANTE
-            dgvDetalle.Columns["StockContado"].ReadOnly = false;
+            dgvDetalle.Columns["Diferencia"].FillWeight = 90;
 
             dgvDetalle.Columns.Add("DiferenciaBase", "Dif. Base");
-            dgvDetalle.Columns["DiferenciaBase"].Width = 90;
+            dgvDetalle.Columns["DiferenciaBase"].FillWeight = 90;
 
-            // Bloquear todas primero
+            // =====================================================
+            // SOLO UNA COLUMNA EDITABLE
+            // =====================================================
+
             foreach (DataGridViewColumn col in dgvDetalle.Columns)
             {
                 col.ReadOnly = true;
             }
 
-            // Solo esta columna será editable
             dgvDetalle.Columns["StockContado"].ReadOnly = false;
 
-            // =========================
-            // FORMATO NUMÉRICO
-            // =========================
+            // =====================================================
+            // RESALTAR COLUMNA EDITABLE
+            // =====================================================
+
+            dgvDetalle.Columns["StockContado"]
+                .DefaultCellStyle.BackColor =
+                Color.FromArgb(255, 251, 230);
+
+            dgvDetalle.Columns["StockContado"]
+                .DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(254, 240, 138);
+
+            // =====================================================
+            // FORMATOS NUMÉRICOS
+            // =====================================================
+
+            dgvDetalle.Columns["Equivalencia"]
+                .DefaultCellStyle.Format = "N2";
+
+            dgvDetalle.Columns["StockSistema"]
+                .DefaultCellStyle.Format = "N2";
 
             dgvDetalle.Columns["StockContado"]
                 .DefaultCellStyle.Format = "N2";
@@ -162,14 +218,30 @@ namespace Microsell_Lite.Productos
             dgvDetalle.Columns["DiferenciaBase"]
                 .DefaultCellStyle.Format = "N2";
 
-            // alinear números
-            dgvDetalle.Columns["Equivalencia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvDetalle.Columns["StockSistema"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvDetalle.Columns["StockContado"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvDetalle.Columns["Diferencia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvDetalle.Columns["DiferenciaBase"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-        }
+            // =====================================================
+            // ALINEACIÓN
+            // =====================================================
 
+            dgvDetalle.Columns["Equivalencia"]
+                .DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.Columns["StockSistema"]
+                .DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.Columns["StockContado"]
+                .DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.Columns["Diferencia"]
+                .DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.Columns["DiferenciaBase"]
+                .DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleRight;
+        }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             BuscarProductoInventario();
@@ -623,6 +695,17 @@ namespace Microsell_Lite.Productos
         private void dgvDetalle_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        private void pnl_titu_MouseMove(object sender, MouseEventArgs e)
+        {
+            Utilitario obj = new Utilitario();
+
+            if (e.Button == MouseButtons.Left)
+            {
+                obj.Mover_formulario(this);
+
+            }
         }
     }
 

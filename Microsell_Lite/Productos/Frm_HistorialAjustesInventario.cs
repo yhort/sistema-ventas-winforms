@@ -33,101 +33,118 @@ namespace Microsell_Lite.Productos
             CargarAjustes();
         }
 
+
+        // =========================================================
+        // TEMA VISUAL GLOBAL GRID
+        // =========================================================
+
+        private void AplicarTemaGrid(DataGridView dgv, bool editable = false)
+        {
+            dgv.EnableHeadersVisualStyles = false;
+
+            dgv.BackgroundColor = Color.White;
+
+            dgv.BorderStyle = BorderStyle.None;
+
+            dgv.CellBorderStyle =
+                DataGridViewCellBorderStyle.SingleHorizontal;
+
+            dgv.GridColor =
+                Color.FromArgb(240, 240, 240);
+
+            dgv.RowHeadersVisible = false;
+
+            dgv.RowHeadersBorderStyle =
+                DataGridViewHeaderBorderStyle.None;
+
+            dgv.ColumnHeadersBorderStyle =
+                DataGridViewHeaderBorderStyle.None;
+
+            dgv.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.AllowUserToResizeRows = false;
+
+            dgv.MultiSelect = false;
+
+            dgv.SelectionMode = editable
+                ? DataGridViewSelectionMode.CellSelect
+                : DataGridViewSelectionMode.FullRowSelect;
+
+            dgv.ReadOnly = !editable;
+
+            // =====================================================
+            // HEADER
+            // =====================================================
+
+            dgv.ColumnHeadersHeight = 40;
+
+            dgv.ColumnHeadersHeightSizeMode =
+                DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            dgv.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.FromArgb(30, 64, 175);
+
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
+
+            dgv.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 9F, FontStyle.Bold);
+
+            dgv.ColumnHeadersDefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(30, 64, 175);
+
+            dgv.ColumnHeadersDefaultCellStyle.SelectionForeColor =
+                Color.White;
+
+            // =====================================================
+            // FILAS
+            // =====================================================
+
+            dgv.RowTemplate.Height = 32;
+
+            dgv.DefaultCellStyle.Font =
+                new Font("Segoe UI", 9F);
+
+            dgv.DefaultCellStyle.BackColor =
+                Color.White;
+
+            dgv.DefaultCellStyle.ForeColor =
+                Color.FromArgb(40, 40, 40);
+
+            dgv.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(219, 234, 254);
+
+            dgv.DefaultCellStyle.SelectionForeColor =
+                Color.Black;
+
+            dgv.DefaultCellStyle.Padding =
+                new Padding(3);
+
+            dgv.AlternatingRowsDefaultCellStyle.BackColor =
+                Color.FromArgb(248, 250, 252);
+        }
+
+        // =========================================================
+        // GRID AJUSTES
+        // =========================================================
+
         private void ConfigurarGridAjustes()
         {
             dgvAjustes.Columns.Clear();
             dgvAjustes.Rows.Clear();
 
-            // =====================================
-            // CONFIGURACIÓN GENERAL
-            // =====================================
+            // Aplicar tema visual
+            AplicarTemaGrid(dgvAjustes);
 
-            dgvAjustes.ReadOnly = true;
-
-            dgvAjustes.AllowUserToAddRows = false;
-            dgvAjustes.AllowUserToDeleteRows = false;
-            dgvAjustes.AllowUserToResizeRows = false;
-
-            dgvAjustes.MultiSelect = false;
-
-            dgvAjustes.SelectionMode =
-                DataGridViewSelectionMode.FullRowSelect;
-
-            dgvAjustes.AutoSizeColumnsMode =
-                DataGridViewAutoSizeColumnsMode.Fill;
-
-            dgvAjustes.RowHeadersVisible = false;
-
-            dgvAjustes.EnableHeadersVisualStyles = false;
-
-            dgvAjustes.BackgroundColor = Color.White;
-            dgvAjustes.BorderStyle = BorderStyle.None;
-
-            dgvAjustes.CellBorderStyle =
-                DataGridViewCellBorderStyle.SingleHorizontal;
-
-            dgvAjustes.GridColor =
-                Color.FromArgb(240, 240, 240);
-
-            dgvAjustes.ColumnHeadersBorderStyle =
-                DataGridViewHeaderBorderStyle.None;
-
-            // =====================================
-            // HEADER STYLE
-            // =====================================
-
-            dgvAjustes.ColumnHeadersHeight = 38;
-
-            dgvAjustes.ColumnHeadersHeightSizeMode =
-                DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-
-            dgvAjustes.ThemeStyle.HeaderStyle.Height = 38;
-
-            dgvAjustes.ThemeStyle.HeaderStyle.BackColor =
-                Color.FromArgb(45, 52, 54);
-
-            dgvAjustes.ThemeStyle.HeaderStyle.ForeColor =
-                Color.White;
-
-            dgvAjustes.ThemeStyle.HeaderStyle.Font =
-                new Font("Segoe UI", 9F, FontStyle.Bold);
-
-            // EVITAR SOMBRA / SELECCIÓN HEADER
-            dgvAjustes.ColumnHeadersDefaultCellStyle.SelectionBackColor =
-                Color.FromArgb(45, 52, 54);
-
-            dgvAjustes.ColumnHeadersDefaultCellStyle.SelectionForeColor =
-                Color.White;
-
-            // =====================================
-            // ROW STYLE
-            // =====================================
-
-            dgvAjustes.RowTemplate.Height = 30;
-
-            dgvAjustes.ThemeStyle.RowsStyle.Height = 30;
-
-            dgvAjustes.ThemeStyle.RowsStyle.Font =
-                new Font("Segoe UI", 9F);
-
-            dgvAjustes.ThemeStyle.RowsStyle.BackColor =
-                Color.White;
-
-            dgvAjustes.ThemeStyle.RowsStyle.ForeColor =
-                Color.FromArgb(40, 40, 40);
-
-            dgvAjustes.ThemeStyle.RowsStyle.SelectionBackColor =
-                Color.FromArgb(220, 230, 240);
-
-            dgvAjustes.ThemeStyle.RowsStyle.SelectionForeColor =
-                Color.Black;
-
-            dgvAjustes.AlternatingRowsDefaultCellStyle.BackColor =
-                Color.FromArgb(248, 249, 250);
-
-            // =====================================
+            // =====================================================
             // COLUMNAS
-            // =====================================
+            // =====================================================
 
             dgvAjustes.Columns.Add("IdAjuste", "N°");
             dgvAjustes.Columns["IdAjuste"].FillWeight = 40;
@@ -156,9 +173,9 @@ namespace Microsell_Lite.Productos
             dgvAjustes.Columns.Add("MotivoAnulacion", "Motivo Anulación");
             dgvAjustes.Columns["MotivoAnulacion"].FillWeight = 140;
 
-            // =====================================
+            // =====================================================
             // ALINEACIONES
-            // =====================================
+            // =====================================================
 
             dgvAjustes.Columns["IdAjuste"]
                 .DefaultCellStyle.Alignment =
@@ -172,95 +189,22 @@ namespace Microsell_Lite.Productos
                 .DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
         }
+
+        // =========================================================
+        // GRID DETALLE
+        // =========================================================
+
         private void ConfigurarGridDetalle()
         {
             dgvDetalle.Columns.Clear();
             dgvDetalle.Rows.Clear();
 
-            // =====================================
-            // CONFIGURACIÓN GENERAL
-            // =====================================
+            // Aplicar tema visual
+            AplicarTemaGrid(dgvDetalle);
 
-            dgvDetalle.ReadOnly = true;
-
-            dgvDetalle.AllowUserToAddRows = false;
-            dgvDetalle.AllowUserToDeleteRows = false;
-            dgvDetalle.AllowUserToResizeRows = false;
-
-            dgvDetalle.MultiSelect = false;
-
-            dgvDetalle.SelectionMode =
-                DataGridViewSelectionMode.FullRowSelect;
-
-            dgvDetalle.AutoSizeColumnsMode =
-                DataGridViewAutoSizeColumnsMode.Fill;
-
-            dgvDetalle.RowHeadersVisible = false;
-
-            dgvDetalle.EnableHeadersVisualStyles = false;
-
-            dgvDetalle.BackgroundColor = Color.White;
-
-            dgvDetalle.BorderStyle = BorderStyle.None;
-
-            dgvDetalle.CellBorderStyle =
-                DataGridViewCellBorderStyle.SingleHorizontal;
-
-            dgvDetalle.GridColor =
-                Color.FromArgb(240, 240, 240);
-
-            dgvDetalle.ColumnHeadersBorderStyle =
-                DataGridViewHeaderBorderStyle.None;
-
-            // =====================================
-            // HEADER STYLE
-            // =====================================
-
-            dgvDetalle.ColumnHeadersHeight = 38;
-
-            dgvDetalle.ColumnHeadersHeightSizeMode =
-                DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-
-            dgvDetalle.ThemeStyle.HeaderStyle.Height = 38;
-
-            dgvDetalle.ThemeStyle.HeaderStyle.BackColor =
-                Color.FromArgb(45, 52, 54);
-
-            dgvDetalle.ThemeStyle.HeaderStyle.ForeColor =
-                Color.White;
-
-            dgvDetalle.ThemeStyle.HeaderStyle.Font =
-                new Font("Segoe UI", 9F, FontStyle.Bold);
-
-            // =====================================
-            // ROW STYLE
-            // =====================================
-
-            dgvDetalle.RowTemplate.Height = 30;
-
-            dgvDetalle.ThemeStyle.RowsStyle.Height = 30;
-
-            dgvDetalle.ThemeStyle.RowsStyle.Font =
-                new Font("Segoe UI", 9F);
-
-            dgvDetalle.ThemeStyle.RowsStyle.BackColor =
-                Color.White;
-
-            dgvDetalle.ThemeStyle.RowsStyle.ForeColor =
-                Color.FromArgb(40, 40, 40);
-
-            dgvDetalle.ThemeStyle.RowsStyle.SelectionBackColor =
-                Color.FromArgb(220, 230, 240);
-
-            dgvDetalle.ThemeStyle.RowsStyle.SelectionForeColor =
-                Color.Black;
-
-            dgvDetalle.AlternatingRowsDefaultCellStyle.BackColor =
-                Color.FromArgb(248, 249, 250);
-
-            // =====================================
+            // =====================================================
             // COLUMNAS
-            // =====================================
+            // =====================================================
 
             dgvDetalle.Columns.Add("IdProducto", "ID");
             dgvDetalle.Columns["IdProducto"].FillWeight = 50;
@@ -289,9 +233,9 @@ namespace Microsell_Lite.Productos
             dgvDetalle.Columns.Add("DiferenciaBase", "Dif. Base");
             dgvDetalle.Columns["DiferenciaBase"].FillWeight = 70;
 
-            // =====================================
+            // =====================================================
             // FORMATOS NUMÉRICOS
-            // =====================================
+            // =====================================================
 
             dgvDetalle.Columns["StockSistema"]
                 .DefaultCellStyle.Format = "N2";
@@ -308,9 +252,9 @@ namespace Microsell_Lite.Productos
             dgvDetalle.Columns["DiferenciaBase"]
                 .DefaultCellStyle.Format = "N2";
 
-            // =====================================
+            // =====================================================
             // ALINEACIÓN
-            // =====================================
+            // =====================================================
 
             dgvDetalle.Columns["IdProducto"]
                 .DefaultCellStyle.Alignment =
@@ -336,11 +280,22 @@ namespace Microsell_Lite.Productos
                 .DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleRight;
         }
+
+        // =========================================================
+        // CARGAR AJUSTES
+        // =========================================================
+
         private void CargarAjustes()
         {
             RN_InventarioAjuste obj = new RN_InventarioAjuste();
+
             string estado = cboEstado.Text;
-            DataTable dt = obj.RN_Listar_InventarioAjustes(dtpDesde.Value, dtpHasta.Value, estado);
+
+            DataTable dt =
+                obj.RN_Listar_InventarioAjustes(
+                    dtpDesde.Value,
+                    dtpHasta.Value,
+                    estado);
 
             dgvAjustes.Rows.Clear();
             dgvDetalle.Rows.Clear();
@@ -349,42 +304,66 @@ namespace Microsell_Lite.Productos
             {
                 string usuario = dr["IdUsuario"].ToString();
 
-                //if (dt.Columns.Contains("Usuario"))
-                //    usuario = dr["Usuario"].ToString();
-                //else
-                //    usuario = dr["IdUsuario"].ToString();
-
                 int rowIndex = dgvAjustes.Rows.Add(
                     dr["IdAjuste"].ToString(),
-                    Convert.ToDateTime(dr["Fecha"]).ToString("dd/MM/yyyy HH:mm"),
+                    Convert.ToDateTime(dr["Fecha"])
+                        .ToString("dd/MM/yyyy HH:mm"),
                     dr["NombreAlmacen"].ToString(),
                     dr["Motivo"].ToString(),
                     dr["Observacion"].ToString(),
                     usuario,
-                    dr["Estado"].ToString()
+                    dr["Estado"].ToString(),
+                    dr["FechaAnulacion"] == DBNull.Value
+                        ? ""
+                        : Convert.ToDateTime(dr["FechaAnulacion"])
+                            .ToString("dd/MM/yyyy HH:mm"),
+                    dr["MotivoAnulacion"].ToString()
                 );
 
-                string estadoFila = dr["Estado"].ToString().Trim().ToUpper();
+                string estadoFila =
+                    dr["Estado"].ToString().Trim().ToUpper();
 
-                if(estadoFila == "ANULADO")
+                // =================================================
+                // COLORES SEGÚN ESTADO
+                // =================================================
+
+                if (estadoFila == "ANULADO")
                 {
-                    dgvAjustes.Rows[rowIndex].DefaultCellStyle.BackColor = Color.LightGray;
-                    dgvAjustes.Rows[rowIndex].DefaultCellStyle.ForeColor = Color.DarkRed;
+                    dgvAjustes.Rows[rowIndex]
+                        .DefaultCellStyle.BackColor =
+                        Color.FromArgb(243, 244, 246);
+
+                    dgvAjustes.Rows[rowIndex]
+                        .DefaultCellStyle.ForeColor =
+                        Color.FromArgb(185, 28, 28);
                 }
                 else
                 {
-                    dgvAjustes.Rows[rowIndex].DefaultCellStyle.BackColor = Color.White;
-                    dgvAjustes.Rows[rowIndex].DefaultCellStyle.ForeColor = Color.DarkGreen;
+                    dgvAjustes.Rows[rowIndex]
+                        .DefaultCellStyle.BackColor =
+                        Color.White;
+
+                    dgvAjustes.Rows[rowIndex]
+                        .DefaultCellStyle.ForeColor =
+                        Color.FromArgb(22, 163, 74);
                 }
-               
             }
 
-            lblTotalAjustes.Text = dgvAjustes.Rows.Count.ToString();
+            lblTotalAjustes.Text =
+                dgvAjustes.Rows.Count.ToString();
         }
+
+        // =========================================================
+        // CARGAR DETALLE
+        // =========================================================
+
         private void CargarDetalleAjuste(int idAjuste)
         {
-            RN_InventarioAjuste obj = new RN_InventarioAjuste();
-            DataTable dt = obj.RN_Listar_InventarioAjusteDetalle(idAjuste);
+            RN_InventarioAjuste obj =
+                new RN_InventarioAjuste();
+
+            DataTable dt =
+                obj.RN_Listar_InventarioAjusteDetalle(idAjuste);
 
             dgvDetalle.Rows.Clear();
 
@@ -395,15 +374,21 @@ namespace Microsell_Lite.Productos
                     dr["Descripcion_Larga"].ToString(),
                     dr["NombrePresentacion"].ToString(),
                     dr["Abreviatura"].ToString(),
-                    Convert.ToDecimal(dr["StockSistema"]).ToString("0.####"),
-                    Convert.ToDecimal(dr["StockContado"]).ToString("0.####"),
-                    Convert.ToDecimal(dr["Diferencia"]).ToString("0.####"),
-                    Convert.ToDecimal(dr["Equivalencia"]).ToString("0.####"),
-                    Convert.ToDecimal(dr["DiferenciaBase"]).ToString("0.####")
+                    Convert.ToDecimal(dr["StockSistema"])
+                        .ToString("0.####"),
+                    Convert.ToDecimal(dr["StockContado"])
+                        .ToString("0.####"),
+                    Convert.ToDecimal(dr["Diferencia"])
+                        .ToString("0.####"),
+                    Convert.ToDecimal(dr["Equivalencia"])
+                        .ToString("0.####"),
+                    Convert.ToDecimal(dr["DiferenciaBase"])
+                        .ToString("0.####")
                 );
             }
 
-            lblTotalDetalle.Text = dgvDetalle.Rows.Count.ToString();
+            lblTotalDetalle.Text =
+                dgvDetalle.Rows.Count.ToString();
         }
 
         private void CargarEstados()
@@ -901,6 +886,17 @@ namespace Microsell_Lite.Productos
         private void btnExportarHistorial_Click(object sender, EventArgs e)
         {
             ExportarHistorialAjustesExcel();
+        }
+
+        private void pnl_titu_MouseMove(object sender, MouseEventArgs e)
+        {
+            Utilitario obj = new Utilitario();
+
+            if (e.Button == MouseButtons.Left)
+            {
+                obj.Mover_formulario(this);
+
+            }
         }
     }
 
