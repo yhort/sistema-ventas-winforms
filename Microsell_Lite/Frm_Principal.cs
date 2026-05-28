@@ -1203,18 +1203,12 @@ namespace Microsell_Lite
 
         private void bt_historialDeAjustesinventario_Click(object sender, EventArgs e)
         {
-            Frm_HistorialAjustesInventario frm = new Frm_HistorialAjustesInventario();
-            frm.ShowDialog();
+           
         }
 
         private void bt_corteDeInventarioTool_Click(object sender, EventArgs e)
         {
-            Frm_Filtro fil = new Frm_Filtro();
-            Frm_CorteInventario cort = new Frm_CorteInventario();
-
-            fil.Show();
-            cort.ShowDialog();
-            fil.Hide();
+           
         }
 
         private void bt_imprimirEtiquetasToolStrip_Click(object sender, EventArgs e)
@@ -1231,6 +1225,22 @@ namespace Microsell_Lite
         private void reporteDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void historialAjusteInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_HistorialAjustesInventario frm = new Frm_HistorialAjustesInventario();
+            frm.ShowDialog();
+        }
+
+        private void corteDeInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Filtro fil = new Frm_Filtro();
+            Frm_CorteInventario cort = new Frm_CorteInventario();
+
+            fil.Show();
+            cort.ShowDialog();
+            fil.Hide();
         }
     }
 }

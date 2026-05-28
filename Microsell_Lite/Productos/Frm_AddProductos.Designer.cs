@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_AddProductos));
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle7 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle6 = new Klik.Windows.Forms.v1.Common.PaintStyle();
             Klik.Windows.Forms.v1.Common.PaintStyle paintStyle4 = new Klik.Windows.Forms.v1.Common.PaintStyle();
             Klik.Windows.Forms.v1.Common.PaintStyle paintStyle3 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle6 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle5 = new Klik.Windows.Forms.v1.Common.PaintStyle();
             Klik.Windows.Forms.v1.Common.PaintStyle paintStyle2 = new Klik.Windows.Forms.v1.Common.PaintStyle();
-            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle7 = new Klik.Windows.Forms.v1.Common.PaintStyle();
+            Klik.Windows.Forms.v1.Common.PaintStyle paintStyle5 = new Klik.Windows.Forms.v1.Common.PaintStyle();
             Klik.Windows.Forms.v1.Common.PaintStyle paintStyle1 = new Klik.Windows.Forms.v1.Common.PaintStyle();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pnl_titu = new System.Windows.Forms.Panel();
@@ -67,7 +67,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txt_Frank = new System.Windows.Forms.TextBox();
-            this.txt_PreVenta_mnr = new System.Windows.Forms.TextBox();
+            this.txt_PrecioVentaBase = new System.Windows.Forms.TextBox();
             this.txt_PreVenta_myr = new System.Windows.Forms.TextBox();
             this.txt_PreVenta_dlr = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -112,6 +112,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.btnPresentaciones = new Klik.Windows.Forms.v1.EntryLib.ELButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.pnl_titu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_listo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_cancel)).BeginInit();
@@ -144,7 +145,7 @@
             this.pnl_titu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_titu.Location = new System.Drawing.Point(0, 0);
             this.pnl_titu.Name = "pnl_titu";
-            this.pnl_titu.Size = new System.Drawing.Size(707, 43);
+            this.pnl_titu.Size = new System.Drawing.Size(686, 43);
             this.pnl_titu.TabIndex = 1;
             this.pnl_titu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_titu_MouseMove);
             // 
@@ -180,7 +181,7 @@
             this.btn_reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_reload.ForeColor = System.Drawing.Color.White;
             this.btn_reload.Image = ((System.Drawing.Image)(resources.GetObject("btn_reload.Image")));
-            this.btn_reload.Location = new System.Drawing.Point(607, 5);
+            this.btn_reload.Location = new System.Drawing.Point(586, 5);
             this.btn_reload.Name = "btn_reload";
             this.btn_reload.Size = new System.Drawing.Size(32, 31);
             this.btn_reload.TabIndex = 56;
@@ -199,7 +200,7 @@
             this.btn_cerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cerrar.ForeColor = System.Drawing.Color.White;
             this.btn_cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_cerrar.Image")));
-            this.btn_cerrar.Location = new System.Drawing.Point(652, 5);
+            this.btn_cerrar.Location = new System.Drawing.Point(631, 5);
             this.btn_cerrar.Name = "btn_cerrar";
             this.btn_cerrar.Size = new System.Drawing.Size(32, 32);
             this.btn_cerrar.TabIndex = 10;
@@ -245,7 +246,7 @@
             this.btn_listo.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btn_listo.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btn_listo.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_listo.Location = new System.Drawing.Point(409, 442);
+            this.btn_listo.Location = new System.Drawing.Point(414, 507);
             this.btn_listo.Name = "btn_listo";
             this.btn_listo.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ModernBlack;
             this.btn_listo.Size = new System.Drawing.Size(133, 43);
@@ -276,7 +277,7 @@
             this.btn_cancel.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btn_cancel.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btn_cancel.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_cancel.Location = new System.Drawing.Point(212, 442);
+            this.btn_cancel.Location = new System.Drawing.Point(217, 507);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ClassicSilver;
             this.btn_cancel.Size = new System.Drawing.Size(144, 43);
@@ -359,9 +360,9 @@
             // 
             this.label9.BackColor = System.Drawing.Color.DodgerBlue;
             this.label9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label9.Location = new System.Drawing.Point(704, 43);
+            this.label9.Location = new System.Drawing.Point(683, 43);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(3, 463);
+            this.label9.Size = new System.Drawing.Size(3, 528);
             this.label9.TabIndex = 20;
             // 
             // label10
@@ -370,7 +371,7 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
             this.label10.Location = new System.Drawing.Point(0, 43);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(3, 463);
+            this.label10.Size = new System.Drawing.Size(3, 528);
             this.label10.TabIndex = 21;
             // 
             // openFileDialog1
@@ -431,7 +432,7 @@
             this.bunifuSeparator2.ForeColor = System.Drawing.Color.Gray;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bunifuSeparator2.LineThickness = 1;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(39, 417);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(44, 482);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(649, 19);
             this.bunifuSeparator2.TabIndex = 36;
@@ -489,11 +490,11 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(28, 142);
+            this.label13.Location = new System.Drawing.Point(39, 331);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 25);
+            this.label13.Size = new System.Drawing.Size(75, 25);
             this.label13.TabIndex = 42;
-            this.label13.Text = "Costo Compra";
+            this.label13.Text = "Costo Base";
             // 
             // txt_Frank
             // 
@@ -507,23 +508,23 @@
             this.txt_Frank.Text = "0";
             this.txt_Frank.TextChanged += new System.EventHandler(this.txt_Frank_TextChanged);
             // 
-            // txt_PreVenta_mnr
+            // txt_PrecioVentaBase
             // 
-            this.txt_PreVenta_mnr.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_PreVenta_mnr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_PreVenta_mnr.Location = new System.Drawing.Point(486, 145);
-            this.txt_PreVenta_mnr.Name = "txt_PreVenta_mnr";
-            this.txt_PreVenta_mnr.Size = new System.Drawing.Size(119, 17);
-            this.txt_PreVenta_mnr.TabIndex = 3;
-            this.txt_PreVenta_mnr.Text = "0";
-            this.txt_PreVenta_mnr.TextChanged += new System.EventHandler(this.txt_PreVenta_mnr_TextChanged);
-            this.txt_PreVenta_mnr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_PreVenta_mnr_KeyPress);
+            this.txt_PrecioVentaBase.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_PrecioVentaBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_PrecioVentaBase.Location = new System.Drawing.Point(493, 333);
+            this.txt_PrecioVentaBase.Name = "txt_PrecioVentaBase";
+            this.txt_PrecioVentaBase.Size = new System.Drawing.Size(119, 17);
+            this.txt_PrecioVentaBase.TabIndex = 3;
+            this.txt_PrecioVentaBase.Text = "0";
+            this.txt_PrecioVentaBase.TextChanged += new System.EventHandler(this.txt_PreVenta_mnr_TextChanged);
+            this.txt_PrecioVentaBase.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_PreVenta_mnr_KeyPress);
             // 
             // txt_PreVenta_myr
             // 
             this.txt_PreVenta_myr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_PreVenta_myr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_PreVenta_myr.Location = new System.Drawing.Point(133, 21);
+            this.txt_PreVenta_myr.Location = new System.Drawing.Point(371, 52);
             this.txt_PreVenta_myr.Name = "txt_PreVenta_myr";
             this.txt_PreVenta_myr.Size = new System.Drawing.Size(30, 17);
             this.txt_PreVenta_myr.TabIndex = 10;
@@ -536,7 +537,7 @@
             // 
             this.txt_PreVenta_dlr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_PreVenta_dlr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_PreVenta_dlr.Location = new System.Drawing.Point(156, 40);
+            this.txt_PreVenta_dlr.Location = new System.Drawing.Point(369, 90);
             this.txt_PreVenta_dlr.Name = "txt_PreVenta_dlr";
             this.txt_PreVenta_dlr.Size = new System.Drawing.Size(22, 17);
             this.txt_PreVenta_dlr.TabIndex = 11;
@@ -599,7 +600,7 @@
             this.piclogo.ErrorImage = null;
             this.piclogo.Image = ((System.Drawing.Image)(resources.GetObject("piclogo.Image")));
             this.piclogo.InitialImage = null;
-            this.piclogo.Location = new System.Drawing.Point(344, 328);
+            this.piclogo.Location = new System.Drawing.Point(349, 393);
             this.piclogo.Name = "piclogo";
             this.piclogo.Size = new System.Drawing.Size(86, 69);
             this.piclogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -614,7 +615,7 @@
             this.lbl_Abrir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Abrir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Abrir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lbl_Abrir.Location = new System.Drawing.Point(332, 400);
+            this.lbl_Abrir.Location = new System.Drawing.Point(337, 465);
             this.lbl_Abrir.Name = "lbl_Abrir";
             this.lbl_Abrir.Size = new System.Drawing.Size(113, 16);
             this.lbl_Abrir.TabIndex = 57;
@@ -699,7 +700,7 @@
             this.chkControlarStock.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.chkControlarStock.FillColor = System.Drawing.Color.White;
             this.chkControlarStock.Font = new System.Drawing.Font("Encode Sans Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkControlarStock.Location = new System.Drawing.Point(197, 282);
+            this.chkControlarStock.Location = new System.Drawing.Point(196, 290);
             this.chkControlarStock.Name = "chkControlarStock";
             this.chkControlarStock.Size = new System.Drawing.Size(20, 20);
             this.chkControlarStock.TabIndex = 89;
@@ -728,11 +729,11 @@
             this.txt_Stock.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txt_Stock.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txt_Stock.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Stock.Location = new System.Drawing.Point(80, 34);
+            this.txt_Stock.Location = new System.Drawing.Point(223, 282);
             this.txt_Stock.Name = "txt_Stock";
             this.txt_Stock.PasswordChar = '\0';
             this.txt_Stock.Radius = 5;
-            this.txt_Stock.Size = new System.Drawing.Size(39, 28);
+            this.txt_Stock.Size = new System.Drawing.Size(114, 28);
             this.txt_Stock.TabIndex = 2;
             // 
             // label21
@@ -975,7 +976,7 @@
             // 
             this.txt_Precom_Sol.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Precom_Sol.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Precom_Sol.Location = new System.Drawing.Point(196, 145);
+            this.txt_Precom_Sol.Location = new System.Drawing.Point(200, 337);
             this.txt_Precom_Sol.Name = "txt_Precom_Sol";
             this.txt_Precom_Sol.Size = new System.Drawing.Size(130, 17);
             this.txt_Precom_Sol.TabIndex = 4;
@@ -990,10 +991,10 @@
             this.elLabel1.BorderStyle.EdgeRadius = 10;
             this.elLabel1.BorderStyle.SolidColor = System.Drawing.Color.Silver;
             this.elLabel1.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle4.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle4.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel1.FlashStyle = paintStyle4;
-            this.elLabel1.Location = new System.Drawing.Point(190, 139);
+            paintStyle7.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle7.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel1.FlashStyle = paintStyle7;
+            this.elLabel1.Location = new System.Drawing.Point(194, 331);
             this.elLabel1.Name = "elLabel1";
             this.elLabel1.Size = new System.Drawing.Size(143, 27);
             this.elLabel1.TabIndex = 81;
@@ -1007,12 +1008,12 @@
             this.elLabel2.BorderStyle.EdgeRadius = 10;
             this.elLabel2.BorderStyle.SolidColor = System.Drawing.Color.Silver;
             this.elLabel2.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle3.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle3.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel2.FlashStyle = paintStyle3;
-            this.elLabel2.Location = new System.Drawing.Point(479, 139);
+            paintStyle6.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle6.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel2.FlashStyle = paintStyle6;
+            this.elLabel2.Location = new System.Drawing.Point(490, 327);
             this.elLabel2.Name = "elLabel2";
-            this.elLabel2.Size = new System.Drawing.Size(149, 27);
+            this.elLabel2.Size = new System.Drawing.Size(145, 27);
             this.elLabel2.TabIndex = 82;
             this.elLabel2.TabStop = false;
             this.elLabel2.VisualStyle = Klik.Windows.Forms.v1.Common.ControlVisualStyles.Custom;
@@ -1024,10 +1025,10 @@
             this.elLabel3.BorderStyle.EdgeRadius = 10;
             this.elLabel3.BorderStyle.SolidColor = System.Drawing.Color.Silver;
             this.elLabel3.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle6.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle6.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel3.FlashStyle = paintStyle6;
-            this.elLabel3.Location = new System.Drawing.Point(128, 15);
+            paintStyle4.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle4.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel3.FlashStyle = paintStyle4;
+            this.elLabel3.Location = new System.Drawing.Point(366, 42);
             this.elLabel3.Name = "elLabel3";
             this.elLabel3.Size = new System.Drawing.Size(50, 27);
             this.elLabel3.TabIndex = 83;
@@ -1042,10 +1043,10 @@
             this.elLabel4.BorderStyle.EdgeRadius = 10;
             this.elLabel4.BorderStyle.SolidColor = System.Drawing.Color.Silver;
             this.elLabel4.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle5.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle5.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel4.FlashStyle = paintStyle5;
-            this.elLabel4.Location = new System.Drawing.Point(151, 34);
+            paintStyle3.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle3.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel4.FlashStyle = paintStyle3;
+            this.elLabel4.Location = new System.Drawing.Point(359, 88);
             this.elLabel4.Name = "elLabel4";
             this.elLabel4.Size = new System.Drawing.Size(42, 27);
             this.elLabel4.TabIndex = 84;
@@ -1077,9 +1078,9 @@
             this.elLabel6.BorderStyle.EdgeRadius = 10;
             this.elLabel6.BorderStyle.SolidColor = System.Drawing.Color.Silver;
             this.elLabel6.Cursor = System.Windows.Forms.Cursors.Default;
-            paintStyle7.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
-            paintStyle7.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
-            this.elLabel6.FlashStyle = paintStyle7;
+            paintStyle5.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
+            paintStyle5.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
+            this.elLabel6.FlashStyle = paintStyle5;
             this.elLabel6.Location = new System.Drawing.Point(102, 76);
             this.elLabel6.Name = "elLabel6";
             this.elLabel6.Size = new System.Drawing.Size(150, 27);
@@ -1117,9 +1118,9 @@
             this.groupBox1.Controls.Add(this.chkbx_Dolar);
             this.groupBox1.Controls.Add(this.txt_PreCompra_Dlr);
             this.groupBox1.Controls.Add(this.elLabel6);
-            this.groupBox1.Location = new System.Drawing.Point(620, 504);
+            this.groupBox1.Location = new System.Drawing.Point(602, 376);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(78, 16);
+            this.groupBox1.Size = new System.Drawing.Size(33, 47);
             this.groupBox1.TabIndex = 88;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -1162,10 +1163,10 @@
             this.btnPresentaciones.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btnPresentaciones.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(191)))));
             this.btnPresentaciones.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnPresentaciones.Location = new System.Drawing.Point(92, 103);
+            this.btnPresentaciones.Location = new System.Drawing.Point(586, 446);
             this.btnPresentaciones.Name = "btnPresentaciones";
             this.btnPresentaciones.Office2007Scheme = Klik.Windows.Forms.v1.Common.Office2007Schemes.ModernBlack;
-            this.btnPresentaciones.Size = new System.Drawing.Size(27, 29);
+            this.btnPresentaciones.Size = new System.Drawing.Size(65, 29);
             this.btnPresentaciones.StateStyles.HoverStyle.BackgroundSolidColor = System.Drawing.Color.YellowGreen;
             this.btnPresentaciones.StateStyles.HoverStyle.BorderSolidColor = System.Drawing.Color.YellowGreen;
             this.btnPresentaciones.StateStyles.HoverStyle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1176,6 +1177,7 @@
             this.btnPresentaciones.TextStyle.ForeColor = System.Drawing.Color.White;
             this.btnPresentaciones.TextStyle.Text = "Crear Presentacion +";
             this.btnPresentaciones.TextStyle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPresentaciones.Visible = false;
             this.btnPresentaciones.VisualStyle = Klik.Windows.Forms.v1.EntryLib.ButtonVisualStyles.Custom;
             this.btnPresentaciones.Click += new System.EventHandler(this.btnPresentaciones_Click);
             // 
@@ -1183,42 +1185,48 @@
             // 
             this.groupBox2.BackColor = System.Drawing.Color.AntiqueWhite;
             this.groupBox2.Controls.Add(this.label24);
-            this.groupBox2.Controls.Add(this.btnPresentaciones);
             this.groupBox2.Controls.Add(this.txt_peso);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.cbo_tipoProd_Sunat);
             this.groupBox2.Controls.Add(this.txt_utilidad);
             this.groupBox2.Controls.Add(this.elLabel7);
             this.groupBox2.Controls.Add(this.elLabel5);
-            this.groupBox2.Controls.Add(this.elLabel2);
-            this.groupBox2.Controls.Add(this.elLabel1);
-            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.txt_Precom_Sol);
             this.groupBox2.Controls.Add(this.txt_Frank);
-            this.groupBox2.Controls.Add(this.txt_Stock);
             this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.txt_PreVenta_mnr);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.bunifuSeparator1);
-            this.groupBox2.Location = new System.Drawing.Point(607, 431);
+            this.groupBox2.Location = new System.Drawing.Point(722, 447);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(68, 40);
+            this.groupBox2.Size = new System.Drawing.Size(41, 107);
             this.groupBox2.TabIndex = 93;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             this.groupBox2.Visible = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Encode Sans Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Black;
+            this.label25.Location = new System.Drawing.Point(376, 325);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(110, 25);
+            this.label25.TabIndex = 94;
+            this.label25.Text = "Precio Vnta Base";
             // 
             // Frm_AddProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(707, 506);
-            this.Controls.Add(this.cbo_Und);
+            this.ClientSize = new System.Drawing.Size(686, 571);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.btnPresentaciones);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.cbo_Und);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.chkControlarStock);
@@ -1226,11 +1234,15 @@
             this.Controls.Add(this.lbl_TipoAfectacion);
             this.Controls.Add(this.cbo_TipoAfectSunat);
             this.Controls.Add(this.label22);
+            this.Controls.Add(this.txt_Precom_Sol);
+            this.Controls.Add(this.txt_Stock);
             this.Controls.Add(this.cbo_tipoProd);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.txt_categoria);
             this.Controls.Add(this.txt_marca);
             this.Controls.Add(this.txt_idproducto);
             this.Controls.Add(this.txt_nombreProduct);
+            this.Controls.Add(this.txt_PrecioVentaBase);
             this.Controls.Add(this.txt_Provedr);
             this.Controls.Add(this.lbl_idcateg);
             this.Controls.Add(this.lbl_Abrir);
@@ -1253,6 +1265,8 @@
             this.Controls.Add(this.btn_listo);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.pnl_titu);
+            this.Controls.Add(this.elLabel2);
+            this.Controls.Add(this.elLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_AddProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1305,7 +1319,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txt_PreVenta_dlr;
         private System.Windows.Forms.TextBox txt_PreVenta_myr;
-        private System.Windows.Forms.TextBox txt_PreVenta_mnr;
+        private System.Windows.Forms.TextBox txt_PrecioVentaBase;
         private System.Windows.Forms.TextBox txt_Frank;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
@@ -1357,5 +1371,6 @@
         private Klik.Windows.Forms.v1.EntryLib.ELButton btnPresentaciones;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label25;
     }
 }

@@ -197,105 +197,6 @@ namespace Microsell_Lite.Productos
                 MessageBox.Show(ex.Message, "Importar Productos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-        //private void Obtener_Registro()
-        //{
-        //    int xitm = 0;
-        //    int totalfila = 0;
-        //    totalfila = Convert.ToInt32(lbl_Nrofila.Text);
-        //    int xtotal = totalfila;
-
-        //    if (dtg_datos.Rows.Count == 0) return;
-
-        //    try
-        //    {
-        //        foreach(DataGridViewRow fila in dtg_datos.Rows)
-        //        {
-        //            if(Convert.IsDBNull(fila.Cells[0].Value) == true) //codigo de barra
-        //            {
-        //                break;
-        //                this.Tag = "A";
-        //                this.Close();
-        //            }
-        //            else
-        //            {
-        //                idpr = Convert.ToString(fila.Cells[0].Value);
-        //            }
-
-        //            if(Convert.IsDBNull(fila.Cells[1].Value) == true) //Nombre de Producto 0
-        //            {
-        //                break;
-        //                this.Tag = "A";
-        //                this.Close();
-        //            }
-        //            else
-        //            {
-        //                NombrProd = Convert.ToString(fila.Cells[1].Value); 
-        //            }
-
-        //            if (Convert.IsDBNull(fila.Cells[1].Value)==true) // Precio COMPRA
-        //            {
-
-        //                break;
-        //                this.Tag = "A";
-        //                this.Close();
-        //            }
-
-        //            else
-        //            {
-        //                Precompra = Convert.ToDouble(fila.Cells[2].Value);
-        //            }
-
-        //            if (Convert.IsDBNull(fila.Cells[1].Value) == true) //PrecioVenta
-        //            {
-        //                break;
-        //                this.Tag = "A";
-        //                this.Close();
-        //            }
-        //            else
-        //            {
-        //                PrecioVenta = Convert.ToDouble(fila.Cells[3].Value);
-        //            }
-        //            if (Convert.IsDBNull(fila.Cells[1].Value) == true)//stock
-        //            {
-        //                break;
-        //                this.Tag = "A";
-        //                this.Close();
-        //            }
-        //            else
-        //            {
-        //                Canti = Convert.ToDouble(fila.Cells[4].Value);
-        //            }
-
-        //            registrar_Producto(idpr,NombrProd, Precompra, PrecioVenta, Canti);
-        //            xitm += 1;
-        //            Lbl_registrado.Text = xitm.ToString();
-        //            Lbl_registrado.Refresh();
-
-        //        }
-
-        //        if(Convert.ToInt32(lbl_Nrofila.Text) == Convert.ToInt32(Lbl_registrado.Text))
-        //        {
-        //            Frm_Filtro fil = new Frm_Filtro();
-        //            Frm_Msm_Bueno ok = new Frm_Msm_Bueno();
-
-        //            fil.Show();
-        //            ok.Lbl_msm1.Text = "La Importacion ha Finalizado Exitosamente, Revisa tu Explorador de Productos";
-        //            ok.ShowDialog();
-        //            fil.Hide();
-
-        //            this.Tag = "A";
-        //            this.Close();
-
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        MessageBox.Show(ex.Message);
-        //    }
-
-        //}
 
         private void registrar_Producto(string idpr, string nom, string unidadBase, string skuProducto, string codigoBarraPrincipal, double precom, double preven, double stoc)
         {
@@ -402,7 +303,7 @@ namespace Microsell_Lite.Productos
 
                 obj.RN_Registrar_ProductoPresentacion(pre);
 
-                DataTable dt = obj.RN_Listar_ProductoPresentacion_porProducto(idProducto.Trim());
+                DataTable dt = obj.RN_Listar_ProductoPresentacion_porProducto(idProducto.Trim(), 1);
 
                 foreach (DataRow dr in dt.Rows)
                 {

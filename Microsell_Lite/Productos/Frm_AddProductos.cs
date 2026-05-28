@@ -1,4 +1,10 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Presentation;
+using Microsell_Lite.Proveedor;
+using Microsell_Lite.Utilitarios;
+using Prj_Capa_Datos;
+using Prj_Capa_Entidad;
+using Prj_Capa_Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,11 +13,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsell_Lite.Utilitarios;
-using Prj_Capa_Entidad;
-using Prj_Capa_Negocio;
-using Microsell_Lite.Proveedor;
-using Prj_Capa_Datos;
 
 namespace Microsell_Lite.Productos
 {
@@ -152,47 +153,55 @@ namespace Microsell_Lite.Productos
             xFotoruta = "";
             txt_peso.Text = "0";
             txt_Precom_Sol.Text = "";
-            txt_PreVenta_mnr.Text = "";
+            txt_PrecioVentaBase.Text = "";
+            txt_Stock.Text = "0";
 
         }
         private void btn_listo_Click(object sender, EventArgs e)
         {
-
             if (Validar_Textobox() == true)
             {
                 bool guardado = registrar_Producto();
 
                 if (guardado)
                 {
+                    decimal stockInicial = 0;
+                    decimal.TryParse(txt_Stock.Text.Trim(), out stockInicial);
+
+                    // Siempre crear presentación base automática
+                    int idPresentacionBase = Crear_Presentacion_Base();
+
+                    if (idPresentacionBase > 0)
+                    {
+                        if (chkControlarStock.Checked && stockInicial > 0)
+                        {
+                            Registrar_StockFisico_Base(
+                                txt_idproducto.Text.Trim(),
+                                idPresentacionBase,
+                                stockInicial
+                            );
+
+                            Registrar_Kardex(txt_idproducto.Text.Trim());
+                        }
+                    }
+
                     Frm_Filtro fil = new Frm_Filtro();
                     Frm_Sino sino = new Frm_Sino();
 
                     fil.Show();
                     sino.lbl_Nomalgo.Text = "";
-                    sino.Lbl_msm1.Text = "¿Deseas agregar presentaciones a este producto?";
+                    sino.Lbl_msm1.Text = "Producto registrado correctamente.\n¿Deseas agregar más presentaciones?";
                     sino.ShowDialog();
                     fil.Hide();
 
                     if (sino.Tag != null && sino.Tag.ToString() == "Si")
                     {
-                        // el usuario gestiona manualmente
                         Abrir_Form_Presentaciones();
-
-                        //después de cerrar el form de presentaciones
-                        limpiarForm();
-                        this.Tag = "A";
-                        this.Close();
-                        return;
                     }
-                    else
-                    {
-                        Crear_Presentacion_Base();
 
-                        limpiarForm();
-                        this.Tag = "A";
-                        this.Close();
-                        return;
-                    }
+                    limpiarForm();
+                    this.Tag = "A";
+                    this.Close();
                 }
             }
         }
@@ -204,90 +213,86 @@ namespace Microsell_Lite.Productos
 
             try
             {
-                pro.Idproducto = txt_idproducto.Text;
-                pro.Idproveedor = lbl_idProvee.Text;
-                pro.DescripcionGeneral = txt_nombreProduct.Text;
-                pro.Frank = 0;
-                pro.PreCompra_Sol = 0;
-                pro.PreCompra_Dlr = 0;
-                //pro.Stock = Convert.ToDouble(txt_Stock.Text);
-                // Validar y asignar stock
                 double stock = 0;
-                if (!double.TryParse(txt_Stock.Text, out stock))
+                double costoBase = 0;
+                double precioVentaBase = 0;
+                double peso = 0;
+
+                if (!double.TryParse(txt_Stock.Text.Trim(), out stock))
                 {
                     MessageBox.Show("El stock ingresado no es válido.");
+                    txt_Stock.Focus();
                     return false;
                 }
+
+                if (!double.TryParse(txt_Precom_Sol.Text.Trim(), out costoBase))
+                {
+                    costoBase = 0;
+                }
+
+                if (!double.TryParse(txt_PrecioVentaBase.Text.Trim(), out precioVentaBase))
+                {
+                    precioVentaBase = 0;
+                }
+
+                if (!double.TryParse(txt_peso.Text.Trim(), out peso))
+                {
+                    peso = 0;
+                }
+
+                string idProducto = txt_idproducto.Text.Trim();
+                string skuProducto = GenerarSKUProducto(idProducto);
+
+                pro.Idproducto = idProducto;
+                pro.Idproveedor = lbl_idProvee.Text;
+                pro.DescripcionGeneral = txt_nombreProduct.Text.Trim();
+
+                pro.Frank = costoBase > 0 ? precioVentaBase / costoBase : 0;
+
+                pro.PreCompra_Sol = costoBase;
+                pro.PreCompra_Dlr = 0;
+
                 pro.Stock = stock;
-                pro.Idcategoria = Convert.ToInt32(lbl_idcateg.Text); //enteros por id
+
+                pro.Idcategoria = Convert.ToInt32(lbl_idcateg.Text);
                 pro.Idmarca = Convert.ToInt32(lbl_idmarca.Text);
-                if (xFotoruta.Trim().Length < 5)
-                {
-                    pro.Foto = "-";
-                }
-                else
-                {
-                    pro.Foto = xFotoruta;
-                }
-                pro.PreVenta_Mnr =0;
+
+                pro.Foto = xFotoruta.Trim().Length < 5 ? "-" : xFotoruta;
+
+                pro.PreVenta_Mnr = precioVentaBase;
                 pro.PreVenta_Myr = 0;
                 pro.PreVenta_Dolr = 0;
-                pro.UndMedida = cbo_Und.Text;
-                pro.PesoUnit = Convert.ToDouble(txt_peso.Text);
-                pro.UtilidadUnit =0;
+
+                pro.UndMedida = cbo_Und.Text.Trim().ToUpper();
+                pro.PesoUnit = peso;
+
+                pro.UtilidadUnit = precioVentaBase - costoBase;
                 pro.TipoProducto = cbo_tipoProd.Text;
-                pro.ValorGeneral = 0;
-                pro.CodTipoAfectacion_Sunat =  lbl_TipoAfectacion.Text;
+                pro.ValorGeneral = stock * costoBase;
+
+                pro.CodTipoAfectacion_Sunat = lbl_TipoAfectacion.Text;
                 pro.TipoAfectacion_Sunat = cbo_TipoAfectSunat.Text;
-                pro.PreventaLista = 0;
+                pro.PreventaLista = Convert.ToDecimal(precioVentaBase);
 
-                pro.CodgioBarraPrincipal = "CODBR01";
-                pro.SkuProducto = "SKUPROD-001";
+                // SKU y código interno del producto maestro
+                pro.SkuProducto = skuProducto;
+                pro.CodgioBarraPrincipal = skuProducto;
 
-                if (chkControlarStock.Checked)
-                {
-                    pro.ControlaStock = true;
-                }
-                else
-                {
-                    pro.ControlaStock = false;
-                }
-
-                //pro.TipoProd_Sunat = cbo_tipoProd_Sunat.Text;
+                pro.ControlaStock = chkControlarStock.Checked;
 
                 obj.RN_Registrar_Producto(pro);
 
                 if (BD_Productos.seguardo == true)
                 {
-
-                    if (cbo_tipoProd.SelectedIndex == 0)
-                    {
-                        //PARA REGISTRAR EL KARDEX:
-                        Registrar_Kardex(txt_idproducto.Text);
-                    }
-
-                    
-
                     RN_TipoDoc.RN_Actualizar_SiguienteNro_Correlativo_Producto(4);
                     return true;
-
-                    //Frm_Filtro fil = new Frm_Filtro();
-                    //Frm_Msm_Bueno ok = new Frm_Msm_Bueno();
-
-                    //fil.Show();
-                    //ok.Lbl_msm1.Text = "El Producto se ha Creado y Guardado Exitosamente";
-                    //ok.ShowDialog();
-                    ////MessageBox.Show("El producto se ha guardado exitosamente");
-                    //fil.Hide();
-
-                    //this.Tag = "A";
-                    //this.Close();
                 }
+
                 return false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Problemas al guardar" + ex.Message);
+                MessageBox.Show("Problemas al guardar: " + ex.Message);
                 return false;
             }
         }
@@ -309,27 +314,91 @@ namespace Microsell_Lite.Productos
             fil.Hide();
         }
 
-        private void Crear_Presentacion_Base()
+        private int Crear_Presentacion_Base()
         {
-            RN_ProductoPresentacion obj = new RN_ProductoPresentacion();
-            EN_ProductoPresentacion pre = new EN_ProductoPresentacion();
+            try
+            {
+                RN_ProductoPresentacion obj = new RN_ProductoPresentacion();
+                EN_ProductoPresentacion pre = new EN_ProductoPresentacion();
 
-            pre.IdProducto = txt_idproducto.Text.Trim();
-            pre.NombrePresentacion = cbo_Und.Text.Trim();
-            pre.Abreviatura = cbo_Und.Text.Trim().ToUpper();
-            pre.Equivalencia = 1;
+                string idProducto = txt_idproducto.Text.Trim();
+                string unidadBase = cbo_Und.Text.Trim().ToUpper();
 
-            pre.PrecioCompra = 0;
-            pre.PrecioVentaMinorista = 0;
-            pre.PrecioVentaMayorista = 0;
-            pre.CantMinMayorista = 0;
+                decimal costoBase = 0;
+                decimal precioVentaBase = 0;
 
-            pre.EsBase = true;
-            pre.PermiteCompra = true;
-            pre.PermiteVenta = true;
-            pre.Activo = true;
+                decimal.TryParse(txt_Precom_Sol.Text.Trim(), out costoBase);
+                decimal.TryParse(txt_PrecioVentaBase.Text.Trim(), out precioVentaBase);
 
-            obj.RN_Registrar_ProductoPresentacion(pre);
+                decimal equivalencia = 1;
+
+                string sku = GenerarSKUProductoPresentacion(
+                    idProducto,
+                    unidadBase,
+                    equivalencia
+                );
+
+                string codigoBarra = GenerarCodigoBarraInterno(sku);
+
+                pre.IdProducto = idProducto;
+                pre.NombrePresentacion = unidadBase;
+                pre.Abreviatura = unidadBase;
+                pre.Equivalencia = equivalencia;
+
+                pre.PrecioCompra = costoBase;
+                pre.PrecioVentaMinorista = precioVentaBase;
+                pre.PrecioVentaMayorista = 0;
+                pre.CantMinMayorista = 0;
+
+                pre.SKU = sku;
+                pre.CodigoBarra = codigoBarra;
+
+                pre.EsBase = true;
+                pre.PermiteCompra = true;
+                pre.PermiteVenta = true;
+                pre.Activo = true;
+
+                obj.RN_Registrar_ProductoPresentacion(pre);
+
+                DataTable dt = obj.RN_Listar_ProductoPresentacion_porProducto(idProducto, 1);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    bool esBase = Convert.ToBoolean(dr["EsBase"]);
+
+                    if (esBase)
+                    {
+                        return Convert.ToInt32(dr["IdPresentacion"]);
+                    }
+                }
+
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al crear presentación base: " + ex.Message,
+                    "Presentación Base", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return 0;
+            }
+        }
+        private void Registrar_StockFisico_Base(string idProducto, int idPresentacion, decimal stockInicial)
+        {
+            try
+            {
+                RN_Productos obj = new RN_Productos();
+
+                obj.RN_Sumar_StockPresentacion(
+                    1,
+                    idProducto.Trim(),
+                    idPresentacion,
+                    stockInicial
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar stock físico base: " + ex.Message,
+                    "Stock Presentación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         private void btnAgregar_Ser_Click(object sender, EventArgs e)
         {
@@ -343,81 +412,57 @@ namespace Microsell_Lite.Productos
             {
                 if (obj.RN_Verificar_Producto_siTieneKardex(idprod) == true)
                 {
-                    return; //ya tiene kardex no hace falta crear otro 
+                    return;
                 }
-                else
+
+                double stockInicial = 0;
+                double costoBase = 0;
+
+                double.TryParse(txt_Stock.Text.Trim(), out stockInicial);
+                double.TryParse(txt_Precom_Sol.Text.Trim(), out costoBase);
+
+                if (!chkControlarStock.Checked || stockInicial <= 0)
                 {
-                    bool controlaStock = chkControlarStock.Checked;
-                    string idkardex = RN_TipoDoc.RN_NroID(6);
+                    return;
+                }
 
-                    obj.RN_Registrar_Kardex(idkardex, idprod, lbl_idProvee.Text);
+                string idkardex = RN_TipoDoc.RN_NroID(6);
 
-                    if (BD_Kardex.seguardo == true)
-                    {
-                        //actualizar el sigueinte numero correlativo
-                        RN_TipoDoc.RN_Actualizar_SiguienteNro_Correlativo(6);
-                        //trabajamos con el detalle del kardex:
-                        kr.Idkardex = idkardex;
-                        kr.Item = 1;
-                        kr.Doc_soporte = "000";
-                        kr.TipoOperacion = "Inicio Kardex";
-                        //se añadio cambios para ingresar stock al crear prod: 26/04/2023
-                        kr.CantiDiferencial = "-";
-                        kr.ImporteDiferencial = 0;
+                obj.RN_Registrar_Kardex(idkardex, idprod, lbl_idProvee.Text);
 
-                        if (controlaStock)
-                        {
-                            //entradas
-                            kr.Det_Operacion = "Inicio de Kardex";
-                            kr.Cantidad_in = Convert.ToDouble(txt_Stock.Text);
-                            kr.Precio_In = 0;
-                            kr.Total_In = 0;
+                if (BD_Kardex.seguardo == true)
+                {
+                    RN_TipoDoc.RN_Actualizar_SiguienteNro_Correlativo(6);
 
-                            //salidas;
-                            kr.Cantidad_Out = 0;
-                            kr.Precio_out = 0;
-                            kr.Total_out = 0;
+                    kr.Idkardex = idkardex;
+                    kr.Item = 1;
+                    kr.Doc_soporte = "000";
+                    kr.TipoOperacion = "InicioKardex";
+                    kr.Det_Operacion = "Inicio de Kardex";
 
-                            //saldos:
-                            kr.Cantidad_saldo = Convert.ToDouble(txt_Stock.Text);//0
-                            kr.Promedio = 0;
-                            kr.Total_saldo = 0;
-                            kr.Observacion = "-";
+                    kr.Cantidad_in = stockInicial;
+                    kr.Precio_In = costoBase;
+                    kr.Total_In = stockInicial * costoBase;
 
-                        }
-                        else
-                        {
-                            //entradas
-                            kr.Det_Operacion = "Inicio de Kardex";
-                            kr.Cantidad_in = Convert.ToDouble(txt_Stock.Text);
-                            kr.Precio_In = 0;
-                            kr.Total_In = 0;
+                    kr.Cantidad_Out = 0;
+                    kr.Precio_out = 0;
+                    kr.Total_out = 0;
 
-                            //salidas;
-                            kr.Cantidad_Out = 0;
-                            kr.Precio_out = 0;
-                            kr.Total_out = 0;
+                    kr.Cantidad_saldo = stockInicial;
+                    kr.Promedio = costoBase;
+                    kr.Total_saldo = stockInicial * costoBase;
 
-                            //saldos:
-                            kr.Cantidad_saldo = Convert.ToDouble(txt_Stock.Text);//0
-                            kr.Promedio = 0;
-                            kr.Total_saldo = 0;
-                            kr.Observacion = "Producto SIN Control de Stock";
+                    kr.CantiDiferencial = "-";
+                    kr.ImporteDiferencial = 0;
+                    kr.Observacion = "Stock inicial desde registro de producto";
 
-                        }
-
-                        obj.RN_Registrar_Detalle_Kardex(kr);
-
-                        if (BD_Kardex.detsaved == true)
-                        {
-                            //obj.RN_Registrar_Detalle_Kardex(kr);
-                        }
-                    }
+                    obj.RN_Registrar_Detalle_Kardex(kr);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo salio mal: " + ex.Message, "Advertencia de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Algo salió mal: " + ex.Message,
+                    "Kardex", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -514,7 +559,7 @@ namespace Microsell_Lite.Productos
                 //txt_Frank.Text = Precom_Sol.ToString("###0.00");
 
                 //calcular la utilidad :
-                Utilidad_Unit = Convert.ToDouble(txt_PreVenta_mnr.Text) - Convert.ToDouble(txt_Precom_Sol.Text);
+                Utilidad_Unit = Convert.ToDouble(txt_PrecioVentaBase.Text) - Convert.ToDouble(txt_Precom_Sol.Text);
                 txt_utilidad.Text = Utilidad_Unit.ToString("###0.00");
 
                 //nw calculo para colocar el precio de venta y calcular automatico el margen.
@@ -538,8 +583,8 @@ namespace Microsell_Lite.Productos
         private void txt_PreVenta_mnr_TextChanged(object sender, EventArgs e)
         {
 
-            txt_PreVenta_mnr.Text = txt_PreVenta_mnr.Text.Replace(",", ".");
-            txt_PreVenta_mnr.SelectionStart = txt_PreVenta_mnr.Text.Length;
+            txt_PrecioVentaBase.Text = txt_PrecioVentaBase.Text.Replace(",", ".");
+            txt_PrecioVentaBase.SelectionStart = txt_PrecioVentaBase.Text.Length;
 
             try
             {
@@ -549,7 +594,7 @@ namespace Microsell_Lite.Productos
 
                 double Precom_Sol = 0;
 
-                Precom_Sol = Convert.ToDouble(txt_PreVenta_mnr.Text) / Convert.ToDouble(txt_Precom_Sol.Text);
+                Precom_Sol = Convert.ToDouble(txt_PrecioVentaBase.Text) / Convert.ToDouble(txt_Precom_Sol.Text);
                 txt_Frank.Text = Precom_Sol.ToString();
 
             }
@@ -608,7 +653,7 @@ namespace Microsell_Lite.Productos
 
                 //hallar el precio de venta al por menor
                 Precom_Sol = Convert.ToDouble(txt_Precom_Sol.Text) * Convert.ToDouble(txt_Frank.Text);
-                txt_PreVenta_mnr.Text = Precom_Sol.ToString("###0.00");
+                txt_PrecioVentaBase.Text = Precom_Sol.ToString("###0.00");
 
                 //hallar precio de venta en dolar
                 precioVenta_dolar = Convert.ToDouble(txt_PreCompra_Dlr.Text) * Convert.ToDouble(txt_Frank.Text);
@@ -616,7 +661,7 @@ namespace Microsell_Lite.Productos
 
 
                 //calcular la utilidad
-                Utilidad_Unit = Convert.ToDouble(txt_PreVenta_mnr.Text) - Convert.ToDouble(txt_Precom_Sol.Text);
+                Utilidad_Unit = Convert.ToDouble(txt_PrecioVentaBase.Text) - Convert.ToDouble(txt_Precom_Sol.Text);
                 //10.50 - 12.0 saca utilidad ejmplo ganancia
                 txt_utilidad.Text = Utilidad_Unit.ToString("###0.00");
             }
@@ -698,11 +743,11 @@ namespace Microsell_Lite.Productos
             }
             else
             {
-                if (string.IsNullOrWhiteSpace(txt_Stock.Text) || txt_Stock.Text == "0")
+                if (string.IsNullOrWhiteSpace(txt_Stock.Text)) //|| txt_Stock.Text == "0")
                 {
                     /*txt_Stock.Text = "1";*/ // Valor predeterminado si vas a controlar stock
                     txt_Stock.Text = "0";
-                    txt_Stock.Enabled = false;
+                    //txt_Stock.Enabled = false;
                 }
             }
         }
@@ -729,6 +774,58 @@ namespace Microsell_Lite.Productos
             fil.Hide();
   
             
+        }
+
+        private string LimpiarTextoCodigo(string texto)
+        {
+            if (string.IsNullOrWhiteSpace(texto))
+                return "";
+
+            string limpio = texto.Trim().ToUpper();
+
+            limpio = limpio.Replace("Á", "A")
+                           .Replace("É", "E")
+                           .Replace("Í", "I")
+                           .Replace("Ó", "O")
+                           .Replace("Ú", "U")
+                           .Replace("Ñ", "N");
+
+            limpio = limpio.Replace(" ", "")
+                           .Replace("/", "")
+                           .Replace(".", "")
+                           .Replace(",", "");
+
+            return limpio;
+        }
+
+        private string GenerarSKUProducto(string idProducto)
+        {
+            return LimpiarTextoCodigo(idProducto);
+        }
+
+        private string GenerarSKUProductoPresentacion(string idProducto, string abreviatura, decimal equivalencia)
+        {
+            string id = LimpiarTextoCodigo(idProducto);
+            string abrev = LimpiarTextoCodigo(abreviatura);
+
+            if (string.IsNullOrWhiteSpace(abrev))
+                abrev = "UND";
+
+            if (equivalencia > 1)
+            {
+                string equivTexto = equivalencia.ToString("0.####")
+                                                .Replace(".", "")
+                                                .Replace(",", "");
+
+                return id + "-" + abrev + equivTexto;
+            }
+
+            return id + "-" + abrev;
+        }
+
+        private string GenerarCodigoBarraInterno(string sku)
+        {
+            return sku; // Code128 permite letras y números
         }
     }
 }

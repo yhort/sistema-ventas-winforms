@@ -170,38 +170,6 @@ namespace Microsell_Lite.Compras
             lbl_igv.Text = xigv.ToString("0.00");
             lbl_TotalPagar.Text = xtotal.ToString("0.00");
 
-
-            //double xtotal = 0;
-            //double xcant = 0;
-            //double xprecio = 0;
-            //double ximporte = 0;
-            //double xigv = 0;
-            //double xsubtotal = 0;
-
-
-            //for (int i = 0; i < lsv_Det.Items.Count; i++)
-            //{
-            //    xcant = Convert.ToDouble(lsv_Det.Items[i].SubItems[2].Text);
-            //    xprecio = Convert.ToDouble(lsv_Det.Items[i].SubItems[3].Text);
-
-            //    //calculo
-            //    ximporte = xprecio * xcant;
-            //    lsv_Det.Items[i].SubItems[4].Text = ximporte.ToString("###0.00");
-
-            //    //calculo del total:
-            //    xtotal = xtotal + Convert.ToDouble(lsv_Det.Items[i].SubItems[4].Text);
-
-
-            //}
-            ////calculo del igv:
-            //xsubtotal = xtotal / 1.18;
-            //xigv = xsubtotal * 0.18;
-
-            //lbl_subtotal.Text = xsubtotal.ToString("###0.00");
-            //lbl_igv.Text = xigv.ToString("###0.00");
-            //lbl_TotalPagar.Text = xtotal.ToString("###0.00");
-
-
         }
 
         private void buscar_Productos_Compra(string valor)
@@ -341,62 +309,6 @@ namespace Microsell_Lite.Compras
             }
         }
 
-        //private void Agregar_Productos_alCarrito(string xidprod, string xnomprod, double xcant, double xprecio, double ximporte)
-        //{
-        //    try
-        //    {
-        //        if (lsv_Det.Items.Count == 0)
-        //        {
-
-        //            ListViewItem item = new ListViewItem();
-        //            item = lsv_Det.Items.Add(xidprod);
-        //            item.SubItems.Add(xnomprod.Trim());
-        //            item.SubItems.Add(xcant.ToString());
-        //            item.SubItems.Add(xprecio.ToString("###0.00"));
-        //            item.SubItems.Add(ximporte.ToString("###0.00"));
-
-        //            Calcular();
-        //            lsv_Det.Focus();
-        //            lsv_Det.Items[0].Selected = true;
-        //            pnl_sinProd.Visible = false;
-
-        //        }
-        //        else
-        //        {
-        //            //validar que el producto no se ingrese dos veces
-        //            for (int i = 0; i < lsv_Det.Items.Count; i++)
-        //            {
-        //                if (lsv_Det.Items[i].Text.Trim() == xidprod.Trim())//xidprodcto se cambio - cla22.21:21
-        //                {
-        //                    MessageBox.Show("El Producto ya fue Agregado al Carrito de Compras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        //                    return;
-        //                }
-        //            }
-
-        //            //lo añadimos 
-        //            ListViewItem item = new ListViewItem();
-        //            item = lsv_Det.Items.Add(xidprod);
-        //            item.SubItems.Add(xnomprod.Trim());
-        //            item.SubItems.Add(xcant.ToString());
-        //            item.SubItems.Add(xprecio.ToString("###0.00"));
-        //            item.SubItems.Add(ximporte.ToString("###0.00"));
-
-        //            Calcular();
-        //            lsv_Det.Focus();
-        //            lsv_Det.Items[0].Selected = true;
-
-        //        }
-
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-
-        //}
-
         private void btn_Nuevo_buscarProd_Click(object sender, EventArgs e)
         {
             Frm_Filtro fil = new Frm_Filtro();
@@ -426,55 +338,6 @@ namespace Microsell_Lite.Compras
                 txt_IdComp.Text = RN_TipoDoc.RN_NroID(9);
 
             }
-            //vaidlo
-
-            //if (pro.Tag.ToString() == "A")
-            //{
-            //    string _idprod;
-            //    string _nomprod;
-            //    double _cant = 0;
-            //    double _precio = 0;
-            //    double _importe = 0;
-            //    string _und;
-            //    string _tipoProd;
-            //    Double _Utili_Unit;
-
-            //    if (pro.lsv_Ped_comp.Items.Count > 0)
-            //    {
-            //        for (int i = 0; i < pro.lsv_Ped_comp.Items.Count; i++)
-            //        {
-            //            var item = pro.lsv_Ped_comp.Items[i];
-            //            _idprod = item.SubItems[0].Text;
-            //            _nomprod = item.SubItems[1].Text;
-            //            _cant = Convert.ToDouble(item.SubItems[3].Text);
-            //            _precio = Convert.ToDouble(pro.lbl_preCom.Text);
-            //            _importe = Convert.ToDouble(pro.lbl_preCom.Text);
-            //            //_und = item.SubItems[2].Text;
-            //            //_tipoProd = item.SubItems[8].Text;
-            //            //_Utili_Unit = Convert.ToDouble(item.SubItems[6].Text);
-
-            //            Agregar_Productos_alCarrito(_idprod, _nomprod, _cant, _precio, _importe);
-            //            txt_IdComp.Text = RN_TipoDoc.RN_NroID(9);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        //para agregar de uno en Uno:
-            //        _idprod = pro.lbl_IdProd.Text;
-            //        _nomprod = pro.lbl_NomProd.Text;
-            //        _cant = Convert.ToDouble(pro.lbl_Cant.Text);
-            //        _precio = Convert.ToDouble(pro.lbl_preCom.Text);
-            //        _importe = Convert.ToDouble(pro.lbl_preCom.Text);
-            //        //_und = xpro.lbl_Und.Text;
-            //        //_tipoProd = xpro.lbl_TipoProd.Text;
-            //        //_Utili_Unit = Convert.ToDouble(xpro.lbl_Uti_Unit.Text);
-
-            //        Agregar_Productos_alCarrito(_idprod, _nomprod, _cant, _precio, _importe);
-            //        txt_IdComp.Text = RN_TipoDoc.RN_NroID(9);
-            //    }
-
-            //}
-
         }
 
         private void bt_add_Click(object sender, EventArgs e)//-----
@@ -503,52 +366,7 @@ namespace Microsell_Lite.Compras
 
                 //Agregar_Productos_alCarrito(_idprod.Trim(), _nomprod, _cant, _precio, _importe);
             }
-            //fin original-
-            //if (pro.Tag.ToString() == "A")
-            //{
-            //    //string _idprod;
-            //    //string _nomprod;
-            //    //double _cant = 0;
-            //    //double _precio = 0;
-            //    //double _importe = 0;
-            //    //string _und;
-            //    //string _tipoProd;
-            //    //Double _Utili_Unit;
-
-            //    if (pro.lsv_Ped.Items.Count > 0)
-            //    {
-            //        for (int i = 0; i < pro.lsv_Ped.Items.Count; i++)
-            //        {
-            //            var item = pro.lsv_Ped.Items[i];
-            //            string _idprod = pro.lbl_IdProd.Text;
-            //            string _nomprod = pro.lbl_NomProd.Text;
-            //            double _cant = Convert.ToDouble(pro.lbl_Cant.Text);
-            //            double _precio = Convert.ToDouble(pro.lbl_Pre_Unit.Text);
-            //            double _importe = Convert.ToDouble(pro.lbl_Pre_Unit.Text);
-            //            //_tipoProd = item.SubItems[8].Text;
-            //            //_Utili_Unit = Convert.ToDouble(item.SubItems[6].Text);
-
-            //            Agregar_Productos_alCarrito(_idprod.Trim(), _nomprod, _cant, _precio, _importe);
-
-            //        }
-            //    }
-            //    else
-            //    {
-            //        //para agregar de uno en Uno:
-            //        string _idprod = pro.lbl_IdProd.Text;
-            //        string _nomprod = pro.lbl_NomProd.Text;
-            //        double _cant = Convert.ToDouble(pro.lbl_Cant.Text);
-            //        double _precio = Convert.ToDouble(pro.lbl_Pre_Unit.Text);
-            //        double _importe = Convert.ToDouble(pro.lbl_Pre_Unit.Text);
-            //        //_und = pro.lbl_Und.Text;
-            //        //_tipoProd = pro.lbl_TipoProd.Text;
-            //        //_Utili_Unit = Convert.ToDouble(pro.lbl_Uti_Unit.Text);
-
-            //        Agregar_Productos_alCarrito(_idprod, _nomprod, _cant, _precio, _importe);
-            //    }
-
-            //}
-
+           
         }
 
         private void bt_editPre_Click(object sender, EventArgs e)
@@ -558,26 +376,47 @@ namespace Microsell_Lite.Compras
 
             if (lsv_Det.SelectedIndices.Count == 0)
             {
-                MessageBox.Show("Seleccionar el Producto a Editar su Precio", "Editar Precio", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Seleccionar el Producto a Editar su Precio",
+                    "Editar Precio", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
-            else
+
+            double precio_Ingresado = Convert.ToDouble(lsv_Det.SelectedItems[0].SubItems[6].Text);
+
+            fil.Show();
+            solo.txt_precio.Text = precio_Ingresado.ToString("0.00");
+            solo.ShowDialog();
+            fil.Hide();
+
+            if (solo.Tag?.ToString() == "A")
             {
-                double precio_Ingresado = 0;
-                double Precio_Editado = 0;
-
-                precio_Ingresado = Convert.ToDouble(lsv_Det.SelectedItems[0].SubItems[6].Text);
-
-                fil.Show();
-                solo.txt_precio.Text = precio_Ingresado.ToString();
-                solo.ShowDialog();
-                fil.Hide();
-
-                if (solo.Tag.ToString() == "A")
+                if (!double.TryParse(solo.txt_precio.Text, out double precio_Editado) || precio_Editado <= 0)
                 {
-                    Precio_Editado = Convert.ToDouble(solo.txt_precio.Text);
-                    lsv_Det.SelectedItems[0].SubItems[6].Text = Precio_Editado.ToString("###0.00");
-                    Calcular();
+                    MessageBox.Show("Ingrese un precio válido.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
+
+                var item = lsv_Det.SelectedItems[0];
+
+                double cantidadPresentacion = Convert.ToDouble(item.SubItems[3].Text);
+                double equivalencia = Convert.ToDouble(item.SubItems[4].Text);
+
+                if (equivalencia <= 0)
+                {
+                    MessageBox.Show("Equivalencia inválida.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                double precioBase = precio_Editado / equivalencia;
+                double importe = cantidadPresentacion * precio_Editado;
+
+                item.SubItems[6].Text = precio_Editado.ToString("0.00");
+                item.SubItems[7].Text = precioBase.ToString("0.0000");
+                item.SubItems[8].Text = importe.ToString("0.00");
+
+                Calcular();
             }
         }
 
@@ -588,25 +427,40 @@ namespace Microsell_Lite.Compras
 
             if (lsv_Det.SelectedIndices.Count == 0)
             {
-                MessageBox.Show("Seleccionar el Producto a Editar su Cantidad", "Editar Cantidad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Seleccionar el Producto a Editar su Cantidad",
+                    "Editar Cantidad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
-            else
+
+            double cant_Ingresado = Convert.ToDouble(lsv_Det.SelectedItems[0].SubItems[3].Text);
+
+            fil.Show();
+            solo.txt_cant.Text = cant_Ingresado.ToString("0.####");
+            solo.ShowDialog();
+            fil.Hide();
+
+            if (solo.Tag?.ToString() == "A")
             {
-                double cant_Ingresado = 0;
-                double cant_Editado = 0;
-
-                cant_Ingresado = Convert.ToDouble(lsv_Det.SelectedItems[0].SubItems[3].Text);
-                fil.Show();
-                solo.txt_cant.Text = cant_Ingresado.ToString();
-                solo.ShowDialog();
-                fil.Hide();
-
-                if (solo.Tag.ToString() == "A")
+                if (!double.TryParse(solo.txt_cant.Text, out double cant_Editado) || cant_Editado <= 0)
                 {
-                    cant_Editado = Convert.ToDouble(solo.txt_cant.Text);
-                    lsv_Det.SelectedItems[0].SubItems[3].Text = cant_Editado.ToString("###0.00");
-                    Calcular();
+                    MessageBox.Show("Ingrese una cantidad válida.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
+
+                var item = lsv_Det.SelectedItems[0];
+
+                double equivalencia = Convert.ToDouble(item.SubItems[4].Text);
+                double precioCompraPresentacion = Convert.ToDouble(item.SubItems[6].Text);
+
+                double cantidadBase = cant_Editado * equivalencia;
+                double importe = cant_Editado * precioCompraPresentacion;
+
+                item.SubItems[3].Text = cant_Editado.ToString("0.####");
+                item.SubItems[5].Text = cantidadBase.ToString("0.####");
+                item.SubItems[8].Text = importe.ToString("0.00");
+
+                Calcular();
             }
         }
         private void bt_Delete_Click(object sender, EventArgs e)
@@ -974,12 +828,61 @@ namespace Microsell_Lite.Compras
             );
         }
 
+        //private void Preguntat_ActualizarPrecioVenta(string idprod, double costoAnterior, double nuevoCostoPromedio)
+        //{
+        //    RN_Productos obj = new RN_Productos();
+        //    DataTable dt = obj.RN_Buscar_Productos(idprod);
+
+        //    if(dt.Rows.Count == 0)
+        //    {
+        //        return;
+        //    }
+
+        //    double precioVentaActual = Convert.ToDouble(dt.Rows[0]["Pre_vntaxMenor"]);
+        //    double frank = Convert.ToDouble(dt.Rows[0]["Frank"]);
+
+        //    if(frank <= 0)
+        //    {
+        //        return;
+        //    }
+
+        //    double precioVentaSugerido = nuevoCostoPromedio * frank;
+        //    double utilidad = precioVentaSugerido - nuevoCostoPromedio;
+
+        //    if (Math.Abs(nuevoCostoPromedio - costoAnterior) >= 0.01)
+        //    {
+        //        DialogResult rpta = MessageBox.Show(
+                //    "El costo promedio base del producto ha cambiado.\n\n" +
+                //    "Costo anterior: S/ " + costoAnterior.ToString("0.00") + "\n" +
+                //    "Nuevo costo promedio: S/ " + nuevoCostoPromedio.ToString("0.00") + "\n" +
+                //    "Precio venta base actual: S/ " + precioVentaActual.ToString("0.00") + "\n" +
+                //    "Precio venta base sugerido: S/ " + precioVentaSugerido.ToString("0.00") + "\n\n" +
+                //    "Este precio sugerido corresponde al precio base/minorista del producto.\n" +
+                //    "Los precios por presentación se pueden ajustar desde Presentaciones.\n\n" +
+                //    "¿Deseas actualizar el precio de venta base?",
+                //    "Actualizar precio sugerido",
+                //    MessageBoxButtons.YesNo,
+                //    MessageBoxIcon.Question
+                //);
+        //        if (rpta == DialogResult.Yes)
+        //        {
+        //            obj.RN_Actualizar_PrecioVenta_Utilidad_Producto(
+        //                idprod.Trim(),
+        //                precioVentaSugerido,
+        //                utilidad,
+        //                0
+        //            );
+        //        }
+        //    }
+
+        //}
+
         private void Preguntat_ActualizarPrecioVenta(string idprod, double costoAnterior, double nuevoCostoPromedio)
         {
             RN_Productos obj = new RN_Productos();
             DataTable dt = obj.RN_Buscar_Productos(idprod);
 
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 return;
             }
@@ -987,7 +890,7 @@ namespace Microsell_Lite.Compras
             double precioVentaActual = Convert.ToDouble(dt.Rows[0]["Pre_vntaxMenor"]);
             double frank = Convert.ToDouble(dt.Rows[0]["Frank"]);
 
-            if(frank <= 0)
+            if (frank <= 0)
             {
                 return;
             }
@@ -996,7 +899,7 @@ namespace Microsell_Lite.Compras
             double utilidad = precioVentaSugerido - nuevoCostoPromedio;
 
             //si no cambio, no preguntar
-            if(Math.Abs(nuevoCostoPromedio - costoAnterior) < 0.01)
+            if (Math.Abs(nuevoCostoPromedio - costoAnterior) < 0.01)
             {
                 DialogResult rpta = MessageBox.Show(
                 "El Costo promedio del producto ha cambiado.\n\" +" +
@@ -1010,7 +913,7 @@ namespace Microsell_Lite.Compras
                 MessageBoxIcon.Question
                 );
 
-                if(rpta == DialogResult.Yes)
+                if (rpta == DialogResult.Yes)
                 {
                     //este sp no actualiza precompras ni stock
                     obj.RN_Actualizar_PrecioVenta_Utilidad_Producto(idprod.Trim(), precioVentaSugerido, utilidad, 0);
@@ -1019,7 +922,6 @@ namespace Microsell_Lite.Compras
             }
 
         }
-
         private void btn_procesar_Click(object sender, EventArgs e)
         {
             if (Validar_Compras() == true)
@@ -1053,8 +955,6 @@ namespace Microsell_Lite.Compras
                 lsv_ProductosBusqueda.Items[0].Selected = true;
             }
         }
-
-
         private void Registrar_StockFisicoPresentacion(string idProducto, int idPresentacion, decimal cantidadPresentacion)
         {
             RN_Productos obj = new RN_Productos();
