@@ -33,9 +33,6 @@ using Microsell_Lite.GUIAREMISION;
 using DevComponents.DotNetBar;
 using Bunifu.Framework.UI;
 
-
-
-
 namespace Microsell_Lite.Ventas
 {
    
@@ -261,14 +258,9 @@ namespace Microsell_Lite.Ventas
 
             lsv_Det.Items[lsv_Det.Items.Count - 1].Selected = true;
 
-            if (equivalencia == 1)
-            {
-                RecalcularTodo();
-            }
-            else
-            {
-                Calcular();
-            }
+            Calcular();
+            RecalcularTodo();
+            
         }
         private void RecalcularTodo()
         {
@@ -1700,128 +1692,253 @@ namespace Microsell_Lite.Ventas
         }
 
         int Prod_Krd = 0;
+        //private void Registrar_MovimientoKardex()
+        //{
+        //    RN_Kardex obj = new RN_Kardex();
+        //    EN_Kardex kar = new EN_Kardex();
+        //    RN_Productos objpro = new RN_Productos();
+        //    DataTable dato = new DataTable();
+        //    DataTable datoprod = new DataTable();
+
+        //    string xidkardex = "";
+        //    int xitem = 0;
+        //    double stockProd = 0;
+        //    double precioCompraProd = 0;
+
+        //    string xidProd = "";
+        //    double xcant = 0;
+        //    string xTipoProd = "";
+
+        //    try
+        //    {
+
+        //        for (int i = 0; i < lsv_Det.Items.Count; i++)
+        //        {
+        //            var lis = lsv_Det.Items[i];
+
+        //            xidProd = lis.SubItems[0].Text;
+        //            //xcant = Convert.ToDouble(lis.SubItems[2].Text);
+        //            //xcant = Convert.ToDouble(lis.SubItems[19].Text); //cantidadPresentacion
+        //            //cantidad visible vendida 2 cajas, 5 unidad, eytc
+        //            decimal cantidadPresentacion = Convert.ToDecimal(lis.SubItems[2].Text);
+        //            xTipoProd = lis.SubItems[5].Text;
+        //            //cantidad real para kardex/stock base: cantidadPresentacion * equivalencia
+        //            double xcantBase = Convert.ToDouble(lis.SubItems[19].Text);
+
+        //            int idPresentacion = Convert.ToInt32(lis.SubItems[16].Text);
+
+
+
+
+
+        //            if (obj.RN_Verificar_Producto_siTieneKardex(xidProd) == true)
+        //            {
+        //                dato = obj.RN_Buscar_KardexDetalle_porProducto(xidProd.Trim());
+        //                if (dato.Rows.Count > 0)
+        //                {
+        //                    xidkardex = Convert.ToString(dato.Rows[0]["Id_krdx"]);
+        //                    xitem = dato.Rows.Count;
+        //                    //leemos los datos del producto 
+        //                    datoprod = objpro.RN_Buscar_Productos(xidProd.Trim());
+
+        //                    stockProd = Convert.ToDouble(datoprod.Rows[0]["Stock_Actual"]);
+        //                    precioCompraProd = Convert.ToDouble(datoprod.Rows[0]["Pre_CompraS"]);
+        //                    bool controlaStock = Convert.ToBoolean(datoprod.Rows[0]["ControlaStock"]);
+
+        //                    //registramos el Detalle del Kardex:
+
+        //                    kar.Idkardex = xidkardex;
+        //                    kar.Item = xitem + 1;
+        //                    kar.Doc_soporte = txt_NroDoc.Text;
+        //                    kar.Det_Operacion = "Por Ventas al Publico";
+
+        //                    kar.TipoOperacion = "Venta";
+        //                    kar.CantiDiferencial = "0";
+        //                    kar.ImporteDiferencial = 0;
+
+        //                    //Entradas y salidas como referencia(no se considera saldo)
+        //                    kar.Cantidad_in = 0;
+        //                    kar.Precio_In = 0;
+        //                    kar.Total_In = 0;
+
+        //                    //salida: kardex trabaja siempre cpj cantidad base
+        //                    kar.Cantidad_Out = xcant;
+        //                    kar.Precio_out = precioCompraProd;
+        //                    kar.Total_out = xcant * precioCompraProd;
+
+
+        //                    if (!controlaStock)
+        //                    {
+        //                        kar.Observacion = "Producto SIN Control de Stock";
+
+        //                        //saldos:   //CALCULOS DE LOS KARDEX VALORIZADOS
+        //                        kar.Cantidad_saldo = stockProd;
+
+        //                    }
+        //                    else
+        //                    {
+
+        //                        kar.Promedio = precioCompraProd;
+        //                        kar.Total_saldo = precioCompraProd * kar.Cantidad_saldo;
+
+        //                    }
+
+        //                    obj.RN_Registrar_Detalle_Kardex(kar);
+
+        //                    if (controlaStock)
+        //                    {
+        //                        // 1. Restar stock base global
+        //                        objpro.RN_Restar_Stock_Producto(xidProd.Trim(), xcantBase);
+
+        //                        // 2. Restar stock físico de la presentación vendida
+        //                        Registrar_SalidaStockFisicoPresentacion(
+        //                            xidProd.Trim(),
+        //                            idPresentacion,
+        //                            cantidadPresentacion
+        //                        );
+        //                    }
+
+        //                    Prod_Krd += 1;
+
+        //                }
+
+        //            }
+
+        //        }//fin del for:
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Reg Kardex Capa Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        //    }
+
+        //}
+
         private void Registrar_MovimientoKardex()
         {
             RN_Kardex obj = new RN_Kardex();
             EN_Kardex kar = new EN_Kardex();
             RN_Productos objpro = new RN_Productos();
+
             DataTable dato = new DataTable();
             DataTable datoprod = new DataTable();
 
             string xidkardex = "";
             int xitem = 0;
-            double stockProd = 0;
-            double precioCompraProd = 0;
-
-            string xidProd = "";
-            double xcant = 0;
-            string xTipoProd = "";
 
             try
             {
+                Prod_Krd = 0;
 
                 for (int i = 0; i < lsv_Det.Items.Count; i++)
                 {
                     var lis = lsv_Det.Items[i];
 
-                    xidProd = lis.SubItems[0].Text;
-                    //xcant = Convert.ToDouble(lis.SubItems[2].Text);
-                    //xcant = Convert.ToDouble(lis.SubItems[19].Text); //cantidadPresentacion
-                    //cantidad visible vendida 2 cajas, 5 unidad, eytc
+                    string xidProd = lis.SubItems[0].Text.Trim();
+                    string xTipoProd = lis.SubItems[5].Text.Trim();
+
                     decimal cantidadPresentacion = Convert.ToDecimal(lis.SubItems[2].Text);
-
-                    //cantidad real para kardex/stock base: cantidadPresentacion * equivalencia
-                    double xcantBase = Convert.ToDouble(lis.SubItems[19].Text);
-
+                    double cantidadBase = Convert.ToDouble(lis.SubItems[19].Text);
                     int idPresentacion = Convert.ToInt32(lis.SubItems[16].Text);
 
-                    xTipoProd = lis.SubItems[5].Text;
+                    if (xTipoProd != "Producto")
+                        continue;
 
-                    
+                    datoprod = objpro.RN_Buscar_Productos(xidProd);
+
+                    if (datoprod.Rows.Count == 0)
+                        continue;
+
+                    bool controlaStock = Convert.ToBoolean(datoprod.Rows[0]["ControlaStock"]);
+                    double stockActualAntes = Convert.ToDouble(datoprod.Rows[0]["Stock_Actual"]);
+                    double precioCompraProd = Convert.ToDouble(datoprod.Rows[0]["Pre_CompraS"]);
 
                     if (obj.RN_Verificar_Producto_siTieneKardex(xidProd) == true)
                     {
-                        dato = obj.RN_Buscar_KardexDetalle_porProducto(xidProd.Trim());
+                        dato = obj.RN_Buscar_KardexDetalle_porProducto(xidProd);
+
                         if (dato.Rows.Count > 0)
                         {
                             xidkardex = Convert.ToString(dato.Rows[0]["Id_krdx"]);
-                            xitem = dato.Rows.Count;
-                            //leemos los datos del producto 
-                            datoprod = objpro.RN_Buscar_Productos(xidProd.Trim());
-
-                            stockProd = Convert.ToDouble(datoprod.Rows[0]["Stock_Actual"]);
-                            precioCompraProd = Convert.ToDouble(datoprod.Rows[0]["Pre_CompraS"]);
-                            bool controlaStock = Convert.ToBoolean(datoprod.Rows[0]["ControlaStock"]);
-
-                            //registramos el Detalle del Kardex:
-
-                            kar.Idkardex = xidkardex;
-                            kar.Item = xitem + 1;
-                            kar.Doc_soporte = txt_NroDoc.Text;
-                            kar.Det_Operacion = "Por Ventas al Publico";
-
-                            kar.TipoOperacion = "Venta";
-                            kar.CantiDiferencial = "0";
-                            kar.ImporteDiferencial = 0;
-
-                            //Entradas y salidas como referencia(no se considera saldo)
-                            kar.Cantidad_in = 0;
-                            kar.Precio_In = 0;
-                            kar.Total_In = 0;
-
-                            //salida: kardex trabaja siempre cpj cantidad base
-                            kar.Cantidad_Out = xcant;
-                            kar.Precio_out = precioCompraProd;
-                            kar.Total_out = xcant * precioCompraProd;
-
-
-                            if (!controlaStock)
-                            {
-                                kar.Observacion = "Producto SIN Control de Stock";
-
-                                //saldos:   //CALCULOS DE LOS KARDEX VALORIZADOS
-                                kar.Cantidad_saldo = stockProd;
-                               
-                            }
-                            else
-                            {
-
-                                kar.Promedio = precioCompraProd;
-                                kar.Total_saldo = precioCompraProd * kar.Cantidad_saldo;
-
-                            }
-                           
-                            obj.RN_Registrar_Detalle_Kardex(kar);
-
-                            if (controlaStock)
-                            {
-                                // 1. Restar stock base global
-                                objpro.RN_Restar_Stock_Producto(xidProd.Trim(), xcantBase);
-
-                                // 2. Restar stock físico de la presentación vendida
-                                Registrar_SalidaStockFisicoPresentacion(
-                                    xidProd.Trim(),
-                                    idPresentacion,
-                                    cantidadPresentacion
-                                );
-                            }
-
-                            Prod_Krd += 1;
-
+                            xitem = dato.Rows.Count + 1;
                         }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        xidkardex = RN_TipoDoc.RN_NroID(6);
+                        obj.RN_Registrar_Kardex(xidkardex, xidProd, "CGRR");//lbl_idProvee.Text);
 
+                        if (BD_Kardex.seguardo == true)
+                        {
+                            RN_TipoDoc.RN_Actualizar_SiguienteNro_Correlativo(6);
+                            xitem = 1;
+                        }
+                        else
+                        {
+                            continue;
+                        }
                     }
 
-                }//fin del for:
+                    kar.Idkardex = xidkardex;
+                    kar.Item = xitem;
+                    kar.Doc_soporte = txt_NroDoc.Text;
+                    kar.Det_Operacion = "Por Ventas al Público";
+                    kar.TipoOperacion = "Venta";
+                    kar.CantiDiferencial = "0";
+                    kar.ImporteDiferencial = 0;
 
+                    kar.Cantidad_in = 0;
+                    kar.Precio_In = 0;
+                    kar.Total_In = 0;
+
+                    // Kardex siempre trabaja en cantidad base
+                    kar.Cantidad_Out = cantidadBase;
+                    kar.Precio_out = precioCompraProd;
+                    kar.Total_out = cantidadBase * precioCompraProd;
+
+                    if (controlaStock)
+                    {
+                        double nuevoSaldo = stockActualAntes - cantidadBase;
+
+                        kar.Cantidad_saldo = nuevoSaldo;
+                        kar.Promedio = precioCompraProd;
+                        kar.Total_saldo = nuevoSaldo * precioCompraProd;
+                        kar.Observacion = "Salida por venta. Presentación vendida: " + lis.SubItems[17].Text;
+
+                        obj.RN_Registrar_Detalle_Kardex(kar);
+
+                        // 1. Restar stock base global
+                        objpro.RN_Restar_Stock_Producto(xidProd, cantidadBase);
+
+                        // 2. Restar stock físico de la presentación vendida
+                        Registrar_SalidaStockFisicoPresentacion(
+                            xidProd,
+                            idPresentacion,
+                            cantidadPresentacion
+                        );
+                    }
+                    else
+                    {
+                        kar.Cantidad_saldo = stockActualAntes;
+                        kar.Promedio = precioCompraProd;
+                        kar.Total_saldo = stockActualAntes * precioCompraProd;
+                        kar.Observacion = "Producto SIN Control de Stock";
+
+                        obj.RN_Registrar_Detalle_Kardex(kar);
+                    }
+
+                    Prod_Krd += 1;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Reg Kardex Capa Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "Reg Kardex Venta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
         }
-
         private void btn_procesar_Click(object sender, EventArgs e)
         {
 
@@ -1953,30 +2070,12 @@ namespace Microsell_Lite.Ventas
                             {
                                 //registramos el movimiento de kardex
                                 Registrar_MovimientoKardex();
-                                //se puede enviar al final de  el mensaje para que no mueestre en cada venta que se realicce: 
-                                //terminar la venta:
-                                /*fil.Show();
-                                ok.Lbl_msm1.Text = "La Venta se ha desarrollado Exitosamente y se ha Creado el Mov de: " + Prod_Krd.ToString() + " Productos en Kardex:";
-                                ok.ShowDialog();
-                                fil.Hide();*/
 
                                 //cambiar el estado de la cotzacion:
                                 if (txt_NroCotiza.Text.Trim().Length > 5)
                                 {
                                     objcoti.RN_Cambiar_Estado_Cotizacion(txt_NroCotiza.Text, "Atendido");
                                 }
-                                /*else
-                                {
-
-                                }*/
-
-                                /*
-                                 * 
-                                fil.Show();
-                                ok.Lbl_msm1.Text = "La Venta se ha desarrollado Exitosamente y se ha Creado el Mov de: " + Prod_Krd.ToString() + " Productos en Kardex:";
-                                ok.ShowDialog();
-                                fil.Hide();
-                                */
 
                                 //Validavion para F.E
 
@@ -2046,7 +2145,7 @@ namespace Microsell_Lite.Ventas
                                             //dp.limp
 
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                            //pnl_sinProd.Visible = true;
                                         }
                                         else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 3)
                                         {
@@ -2069,7 +2168,7 @@ namespace Microsell_Lite.Ventas
                                             //dp.limp
 
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                            
                                         }
                                         else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 4)
                                         {
@@ -2092,9 +2191,8 @@ namespace Microsell_Lite.Ventas
                                             //dp.limp
 
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                            
                                         }
-
                                         else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 8)
                                         {
                                             //soniavalero:
@@ -2117,10 +2215,9 @@ namespace Microsell_Lite.Ventas
                                             //dp.limp
 
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                           
 
                                         }
-
                                         else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 9)
                                         {
                                             if (fin.paraImprimir)
@@ -2148,7 +2245,6 @@ namespace Microsell_Lite.Ventas
                                             }
                                                 Limpiar_todo();
                                         }
-
                                         else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 10)
                                         {
                                             fil.Show();
@@ -2168,7 +2264,7 @@ namespace Microsell_Lite.Ventas
                                             fil.Hide();*/
                                             //dp.limp
                                             Limpiar_todo();
-                                            //pnl_sinProd.Visible = true;
+                                           
                                         }
                                         else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 12)
                                         {
@@ -2215,7 +2311,7 @@ namespace Microsell_Lite.Ventas
                                                 //dp.limp
 
                                                 Limpiar_todo();
-                                                //pnl_sinProd.Visible = true;
+                                                
                                             }
                                             Limpiar_todo();
                                         }
@@ -2256,7 +2352,7 @@ namespace Microsell_Lite.Ventas
                                             //dp.limp
 
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                           
                                         }
 
                                         else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 2)
@@ -2499,7 +2595,7 @@ namespace Microsell_Lite.Ventas
                                             nota.ShowDialog();//probando con comen
                                             fil.Hide();
                                             Limpiar_todo();
-                                            //pnl_sinProd.Visible = true;
+                                            
                                         }
 
                                         else if (Cbo_TipoDoc.Text == "Nota Venta" && idempresa == 2)
@@ -2511,7 +2607,7 @@ namespace Microsell_Lite.Ventas
                                             nota.ShowDialog();
                                             fil.Hide();
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                           
                                         }
                                         else if (Cbo_TipoDoc.Text == "Nota Venta" && idempresa == 3)
                                         {
@@ -2522,7 +2618,7 @@ namespace Microsell_Lite.Ventas
                                             nota.ShowDialog();
                                             fil.Hide();
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                           
                                         }
                                         else if (Cbo_TipoDoc.Text == "Nota Venta" && idempresa == 4)
                                         {
@@ -2533,7 +2629,7 @@ namespace Microsell_Lite.Ventas
                                             nota.ShowDialog();
                                             fil.Hide();
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                           
                                         }
 
                                         else if (Cbo_TipoDoc.Text == "Nota Venta" && idempresa == 8)
@@ -2545,7 +2641,7 @@ namespace Microsell_Lite.Ventas
                                             nota.ShowDialog();
                                             fil.Hide();
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                            
                                         }
 
                                         else if (Cbo_TipoDoc.Text == "Nota Venta" && idempresa == 9)
@@ -2559,10 +2655,10 @@ namespace Microsell_Lite.Ventas
                                                                                                           //nota.ShowDialog();
                                                 fil.Hide();
                                                 Limpiar_todo();
-                                                //pnl_sinProd.Visible = true;
+                                                
                                             }
                                                 Limpiar_todo();
-                                                //pnl_sinProd.Visible = true;
+                                                
                                         }
 
                                         else if (Cbo_TipoDoc.Text == "Nota Venta" && idempresa == 10)
@@ -2574,7 +2670,7 @@ namespace Microsell_Lite.Ventas
                                             //nota.ShowDialog();
                                             fil.Hide();
                                             Limpiar_todo();
-                                            //pnl_sinProd.Visible = true;
+                                            
                                         }
 
                                       
@@ -2587,7 +2683,7 @@ namespace Microsell_Lite.Ventas
                                             nota.ShowDialog();
                                             fil.Hide();
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                           
                                         }
 
                                         else if (Cbo_TipoDoc.Text == "Nota Venta" && idempresa == 13)
@@ -2599,7 +2695,7 @@ namespace Microsell_Lite.Ventas
                                             nota.ShowDialog();
                                             fil.Hide();
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                            
                                         }
 
                                         else if (Cbo_TipoDoc.Text == "Nota Venta" && idempresa == 14)
@@ -2637,7 +2733,7 @@ namespace Microsell_Lite.Ventas
                                             fil.Hide();*/
                                             //dp.limp
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                           
                                         }
 
                                         else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 2)
@@ -2660,7 +2756,7 @@ namespace Microsell_Lite.Ventas
                                             fil.Hide();*/
                                             //dp.limp
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                           
                                         }
                                         else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 3)
                                         {
@@ -2682,7 +2778,7 @@ namespace Microsell_Lite.Ventas
                                             fil.Hide();*/
                                             //dp.limp
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                            
                                         }
                                         else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 4)
                                         {
@@ -2704,7 +2800,7 @@ namespace Microsell_Lite.Ventas
                                             fil.Hide();*/
                                             //dp.limp
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                            
                                         }
 
                                         else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 8)
@@ -2727,7 +2823,7 @@ namespace Microsell_Lite.Ventas
                                             fil.Hide();*/
                                             //dp.limp
                                             Limpiar_todo();
-                                            pnl_sinProd.Visible = true;
+                                            
                                         }
 
                                         else if (Cbo_TipoDoc.Text != "Nota Venta" && idempresa == 9)
@@ -3318,10 +3414,45 @@ namespace Microsell_Lite.Ventas
 
                         det.IdTempo = txt_NroDoc.Text;
                         det.CodProd = lis.SubItems[0].Text;
-                        det.Canti = lis.SubItems[2].Text;
-                        det.Producto = lis.SubItems[1].Text;
-                        det.Precio = lis.SubItems[3].Text;
-                        det.Importe = lis.SubItems[4].Text;
+
+                        // Datos normales
+                        string producto = lis.SubItems[1].Text;
+                        string cantidad = lis.SubItems[2].Text;
+                        string precio = lis.SubItems[3].Text;
+                        string importe = lis.SubItems[4].Text;
+
+                        // Nuevos datos por presentación
+                        string abrev = lis.SubItems[6].Text;
+                        string nombrePresentacion = "";
+
+                        if (lis.SubItems.Count > 17)
+                        {
+                            nombrePresentacion = lis.SubItems[17].Text;
+                        }
+
+                        // Cantidad para imprimir
+                        if (!string.IsNullOrWhiteSpace(abrev))
+                        {
+                            det.Canti = cantidad + " " + abrev;
+                        }
+                        else
+                        {
+                            det.Canti = cantidad;
+                        }
+
+                        // Producto para imprimir
+                        if (!string.IsNullOrWhiteSpace(nombrePresentacion))
+                        {
+                            det.Producto = producto + " - " + nombrePresentacion;
+                        }
+                        else
+                        {
+                            det.Producto = producto;
+                        }
+
+                        det.Precio = precio;
+                        det.Importe = importe;
+
                         obj.RN_Registrar_Detalle_Temporal(det);
 
                     }
@@ -5149,16 +5280,24 @@ namespace Microsell_Lite.Ventas
         //    return cantidadCompleta.ToString() + " " + abreviatura;
         //}
 
-        private void Registrar_SalidaStockFisicoPresentacion(string idProducto, int idPresentacion, decimal cantidadPresentacion)
+        private void Registrar_SalidaStockFisicoPresentacion(string idProducto,int idPresentacion,decimal cantidadPresentacion)
         {
-            RN_Productos obj = new RN_Productos();
+            try
+            {
+                RN_Productos obj = new RN_Productos();
 
-            obj.RN_Restar_StockPresentacion(
-                ID_ALMACEN_DEFAULT,
-                idProducto.Trim(),
-                idPresentacion,
-                cantidadPresentacion
-            );
+                obj.RN_Restar_StockPresentacion(
+                    ID_ALMACEN_DEFAULT,
+                    idProducto.Trim(),
+                    idPresentacion,
+                    cantidadPresentacion
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al restar stock físico de presentación: " + ex.Message,
+                    "Venta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

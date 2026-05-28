@@ -546,10 +546,10 @@
             this.pnl_sinProd.Controls.Add(this.pic_qr);
             this.pnl_sinProd.Controls.Add(this.pnl_subtitu);
             this.pnl_sinProd.ForeColor = System.Drawing.Color.Black;
-            this.pnl_sinProd.Location = new System.Drawing.Point(566, 574);
+            this.pnl_sinProd.Location = new System.Drawing.Point(12, 0);
             this.pnl_sinProd.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_sinProd.Name = "pnl_sinProd";
-            this.pnl_sinProd.Size = new System.Drawing.Size(201, 24);
+            this.pnl_sinProd.Size = new System.Drawing.Size(24, 10);
             this.pnl_sinProd.TabIndex = 480;
             this.pnl_sinProd.Visible = false;
             // 
@@ -772,7 +772,7 @@
             this.pnl_subtitu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_subtitu.Location = new System.Drawing.Point(0, 0);
             this.pnl_subtitu.Name = "pnl_subtitu";
-            this.pnl_subtitu.Size = new System.Drawing.Size(201, 535);
+            this.pnl_subtitu.Size = new System.Drawing.Size(24, 535);
             this.pnl_subtitu.TabIndex = 732;
             this.pnl_subtitu.Visible = false;
             // 
@@ -801,7 +801,7 @@
             this.panel5.Controls.Add(this.label37);
             this.panel5.Controls.Add(this.label38);
             this.panel5.Controls.Add(this.elLabel10);
-            this.panel5.Location = new System.Drawing.Point(-178, 73);
+            this.panel5.Location = new System.Drawing.Point(-355, 73);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(240, 73);
             this.panel5.TabIndex = 516;
@@ -1084,7 +1084,7 @@
             this.btn_Nuevo_buscarProd.FlashStyle.PaintType = Klik.Windows.Forms.v1.Common.PaintTypes.Solid;
             this.btn_Nuevo_buscarProd.FlashStyle.SolidColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_Nuevo_buscarProd.ForegroundImageStyle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Nuevo_buscarProd.Location = new System.Drawing.Point(-70, 306);
+            this.btn_Nuevo_buscarProd.Location = new System.Drawing.Point(-158, 306);
             this.btn_Nuevo_buscarProd.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Nuevo_buscarProd.Name = "btn_Nuevo_buscarProd";
             this.btn_Nuevo_buscarProd.Size = new System.Drawing.Size(258, 59);
@@ -1108,7 +1108,7 @@
             this.PictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.PictureBox3.ForeColor = System.Drawing.Color.Black;
             this.PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox3.Image")));
-            this.PictureBox3.Location = new System.Drawing.Point(-156, 125);
+            this.PictureBox3.Location = new System.Drawing.Point(-244, 125);
             this.PictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.PictureBox3.Name = "PictureBox3";
             this.PictureBox3.Size = new System.Drawing.Size(68, 68);
@@ -1123,7 +1123,7 @@
             this.Label17.BackColor = System.Drawing.Color.Transparent;
             this.Label17.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label17.ForeColor = System.Drawing.Color.White;
-            this.Label17.Location = new System.Drawing.Point(-193, 228);
+            this.Label17.Location = new System.Drawing.Point(-281, 228);
             this.Label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label17.Name = "Label17";
             this.Label17.Size = new System.Drawing.Size(346, 32);
@@ -1135,7 +1135,7 @@
             this.ElDivider3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ElDivider3.FadeStyle = Klik.Windows.Forms.v1.EntryLib.DividerFadeStyles.Center;
             this.ElDivider3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ElDivider3.Location = new System.Drawing.Point(-263, 261);
+            this.ElDivider3.Location = new System.Drawing.Point(-351, 261);
             this.ElDivider3.Margin = new System.Windows.Forms.Padding(4);
             this.ElDivider3.Name = "ElDivider3";
             this.ElDivider3.Size = new System.Drawing.Size(433, 34);
@@ -2002,6 +2002,7 @@
             this.elGroupBox3.Controls.Add(this.label11);
             this.elGroupBox3.Controls.Add(this.lbl_server);
             this.elGroupBox3.Controls.Add(this.label22);
+            this.elGroupBox3.Controls.Add(this.pnl_sinProd);
             this.elGroupBox3.Controls.Add(this.lbl_totalGanancia);
             this.elGroupBox3.Controls.Add(this.elDivider8);
             this.elGroupBox3.Controls.Add(this.elDivider6);
@@ -3735,7 +3736,6 @@
             this.Controls.Add(this.pnl_titu);
             this.Controls.Add(this.lbl_idDni);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pnl_sinProd);
             this.Controls.Add(this.gru_det);
             this.Controls.Add(this.elLabel4);
             this.Controls.Add(this.bt_Delete);
