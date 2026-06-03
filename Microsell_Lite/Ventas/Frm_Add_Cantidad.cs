@@ -109,7 +109,7 @@ namespace Microsell_Lite.Ventas
                             EjecutarEnUI(() =>
                             {
                                 lbl_estado.Text = "❌ Puerto COM en uso o no accesible.";
-                                lbl_estado.ForeColor = Color.Red;
+                                lbl_estado.ForeColor = Color.Orange;
                             });
                         }
                         catch (Exception ex)
@@ -117,7 +117,7 @@ namespace Microsell_Lite.Ventas
                             EjecutarEnUI(() =>
                             {
                                 lbl_estado.Text = "❌ Error al abrir el puerto: " + ex.Message;
-                                lbl_estado.ForeColor = Color.Red;
+                                lbl_estado.ForeColor = Color.Orange;
                             });
                         }
                     });
