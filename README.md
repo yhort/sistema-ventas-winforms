@@ -13,6 +13,21 @@ Sistema POS desarrollado en C# Windows Forms y SQL Server para la gestión de ve
 - XML / Firma digital
 - Crystal Reports
 
+## Funcionalidades principales
+
+- Ventas POS
+- Compras
+- Inventario
+- Kardex
+- Multi-almacén
+- Clientes
+- Usuarios
+- Caja
+- Reportes
+- Facturación Electrónica SUNAT
+- Generación XML
+- Envío de comprobantes electrónicos
+
 ## Módulos principales
 
 - Ventas POS
